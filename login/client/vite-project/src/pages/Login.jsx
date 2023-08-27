@@ -29,11 +29,9 @@ export default function Login() {
       } else {
         setData({});
         setUser(response.user);
-        if (response.user.role === Roles.admin) {
-          navigate('/admin-dashboard');
-        } else {
-          navigate('/Dashboard');
-        }
+        
+          navigate('/dashbord');
+        
       }
     } catch (error) {
       console.log(error);
