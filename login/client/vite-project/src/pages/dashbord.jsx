@@ -37,7 +37,7 @@ export default function Dashbord() {
         <br></br>
         <div className="feedback-link">
           <Link to="/feedbacks">
-            <button className="round-button">
+            <button >
               <img src="path/to/feedback-icon.png" alt="Feedback" />
             </button>
           </Link>

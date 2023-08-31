@@ -29,7 +29,7 @@ export default function Home() {
       <div className="content">
         <br></br>
         <br></br>
-        <h1>Welcome to Street Bitz</h1>
+        <h1>Street Bitz</h1>
         <h5>Explore a wide range of delicious food options.</h5>
         <br></br>
         <div className="frame-container">

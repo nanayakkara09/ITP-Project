@@ -1,10 +1,7 @@
 const mongoose= require('mongoose')
 const {Schema} =mongoose
 
-const Roles={
-    admin:'admin',
-    customer:'customer'
-};
+
 
 const userSchema = new Schema({
     name:String,
@@ -15,13 +12,10 @@ const userSchema = new Schema({
         unique:true
     },
     password:String,
-    role: {
-        type: String,
-        enum: [Roles.admin,Roles.customer],
-        default:Roles.customer, // Default role is customer
-      },
+    
    
 })
+
 
 const UserModel = mongoose.model('User',userSchema);
 
