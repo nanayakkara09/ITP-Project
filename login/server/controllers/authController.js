@@ -1,4 +1,5 @@
 const User =require('../models/user');
+const Feedback = require('../models/feedback');
 const {hashPassword,comparePassword}=require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 
@@ -178,6 +179,29 @@ const updateUser = async (req, res) => {
     }
   };
 
+  const submitFeedback = async (req, res) => {
+    const { userId, feedbackText } = req.body;
+  
+    try {
+      // Create a new feedback document using the Feedback model
+      const newFeedback = new Feedback({
+        userId,
+        feedbackText,
+        createdAt: new Date(),
+      });
+  
+      // Save the feedback to the database
+      await newFeedback.save();
+  
+      // Send a success response
+      res.status(200).json({ message: 'Feedback submitted successfully' });
+    } catch (error) {
+      // Handle errors
+      console.error(error);
+      res.status(500).json({ message: 'Error submitting feedback' });
+    }
+  };
+
 module.exports ={
     test,
     registerUser,
@@ -186,5 +210,5 @@ module.exports ={
     updateUser,
   deleteUser,
   handleLogout,
-  
+  submitFeedback,
 }

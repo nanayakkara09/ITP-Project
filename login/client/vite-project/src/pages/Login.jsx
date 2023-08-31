@@ -11,27 +11,39 @@ export default function Login() {
   const [data, setData] = useState({
     email: '',
     password: '',
+    actorType: '', 
   });
 
   const loginUser = async (e) => {
     e.preventDefault();
-    const { email, password } = data;
+    const { email, password, actorType } = data; 
 
     try {
       const { data: response } = await axios.post('/login', {
         email,
         password,
+        actorType,
       });
 
       if (response.error) {
         toast.error(response.error);
-
       } else {
         setData({});
         setUser(response.user);
-        
-          navigate('/dashbord');
-        
+
+       
+        switch (actorType) {
+          case 'customer':
+            navigate('/dashbord');
+            break;
+          case 'admin':
+            navigate('/admin-dashboard');
+            break;
+          case 'employee':
+            navigate('/employee-dashboard');
+            break;
+         
+        }
       }
     } catch (error) {
       console.log(error);
@@ -41,10 +53,10 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="bg-image"></div>
-      <div class="content">
+      <div className="content">
         <h2>Login</h2>
         <form onSubmit={loginUser}>
-          <div class="mb-3" >
+          <div className="mb-3">
             <label htmlFor="email">Email</label>
             <input
               type="text"
@@ -55,8 +67,7 @@ export default function Login() {
               onChange={(e) => setData({ ...data, email: e.target.value })}
             />
           </div>
-          <div class="mb-3">
-            <br />
+          <div className="mb-3">
             <label htmlFor="password">Password</label>
             <input
               type="password"
@@ -67,12 +78,24 @@ export default function Login() {
               onChange={(e) => setData({ ...data, password: e.target.value })}
             />
           </div>
-          <br />
+          <div className="mb-3">
+            <label htmlFor="actorType">User Type</label>
+            <select
+              className="form-control"
+              id="actorType"
+              value={data.actorType}
+              onChange={(e) => setData({ ...data, actorType: e.target.value })}
+            >
+             <option value="customer">-Select-</option>
+              <option value="customer">Customer</option>
+              <option value="admin">Admin</option>
+              <option value="employee">Employee</option>
+            </select>
+          </div>
           <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
-        <br />
         <p className="register-link">
           New user? <Link to="/register">Register now</Link>
         </p>
@@ -86,3 +109,4 @@ export default function Login() {
     </div>
   );
 }
+
