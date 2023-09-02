@@ -13,7 +13,7 @@ import { UserContextProvider } from '../contex/userContex';
 import Dashbord from './pages/dashbord';
 import Edit from './pages/edit';
 import Profile from './pages/profile';
-
+import Itemlist from '../src/pages/itemlist';
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -29,6 +29,8 @@ function App() {
       <Route path='/dashbord' element={<Dashbord/>} />
       <Route path='/edit' element={<Edit/>} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/itemlist" element={<Itemlist />} />
+
      
     </Routes>
     </UserContextProvider>

@@ -29,6 +29,7 @@ export default function NavBar() {
       <Link to={user ? "/dashbord" : "/"}>Home</Link>
       {!user ? (
         <>
+          <Link to="/itemlist">itemlist</Link>
           <Link to="/register">Register</Link>
           <Link to="/login">Login</Link>
         </>
