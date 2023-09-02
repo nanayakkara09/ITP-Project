@@ -1,192 +1,154 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import styles from "../../styles/styles";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
+  const [nameA, setNameA] = useState("");
+  const [nameB, setNameB] = useState("");
+  const [nameC, setNameC] = useState("");
+  const [nameD, setNameD] = useState("");
   const [password, setPassword] = useState("");
   const [visible, setVisible] = useState(false);
   const [avatar, setAvatar] = useState(null);
+  const [avatarA,setAvatarA] = useState(null);
+  const [avatarB,setAvatarB] = useState(null);
+  const [avatarC,setAvatarC] = useState(null);
+  const [avatarD,setAvatarD] = useState(null);
   const [phoneNumber, setPhoneNumber] = useState("");
-  const [countryCode, setCountryCode] = useState("+94"); // Default country code
+  const [countryCode, setCountryCode] = useState("+94");
   const [idNumber, setIdNumber] = useState("");
+  const [idNumberA,setIdNumberA] = useState("");
+  const [idNumberB,setIdNumberB] = useState("");
+  const [idNumberC,setIdNumberC] = useState("");
+  const [idNumberD,setIdNumberD] = useState("");
   const [cPassword, setCPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [step, setStep] = useState(1);
+  const [teamMembers] = useState(1);
 
-  // State to manage the ID Number validation error
-  const [idNumberError, setIdNumberError] = useState("");
+
+ 
+
+
+
+
+  const nextStep = () => {
+    setStep(step + 1);
+  };
+
+  const prevStep = () => {
+    setStep(step - 1);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (password === cPassword) {
-      // Passwords match, you can proceed with form submission
       console.log("Passwords match!");
+
+      if (step === 2) {
+        console.log("Form submitted!");
+        console.log("Team Members:", teamMembers);
+      }
     } else {
-      // Passwords don't match, display an error message
       setPasswordsMatch(false);
     }
   };
 
-  const handleFileInputChange = (e) => {
-    const file = e.target.files[0];
-    setAvatar(file);
-  };
 
-  const handlePhoneNumberChange = (e) => {
-    const inputPhoneNumber = e.target.value;
-    // Remove any non-digit characters from the input
-    const sanitizedPhoneNumber = inputPhoneNumber.replace(/\D/g, "");
 
-    // Limit the phone number to 10 digits
-    if (sanitizedPhoneNumber.length <= 10) {
-      setPhoneNumber(sanitizedPhoneNumber);
-    }
-  };
+  
 
-  const handleIdNumberChange = (e) => {
-    const inputIdNumber = e.target.value;
-    // Remove any non-numeric characters from the input
-    const sanitizedIdNumber = inputIdNumber.replace(/\D/g, "");
-
-    if (sanitizedIdNumber.length <= 12) {
-      setIdNumber(sanitizedIdNumber);
-      // Reset the validation error message if it was previously set
-      setIdNumberError("");
-    } else {
-      // Set an error message to display to the user
-      setIdNumberError("ID Number must be a maximum of 10 digits.");
-    }
-  };
-
-  return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
-      <div className="sm:mx-auto sm:w-full sm:max-w-md">
-        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
-          Register as a new user
-        </h2>
-      </div>
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+  const renderFormSection = () => {
+    switch (step) {
+      case 1:
+        return (
+          <div>
+            <h2 className="mt-6 mb-2 text-lg font-semibold">
+              Step 1: Team leader Basic Info
+            </h2>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
                 Full Name
               </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="text"
-                  autoComplete="name"
-                  required
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
-              </div>
+              <input
+                type="text"
+                name="text"
+                autoComplete="name"
+                required
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
             </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
-              >
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
                 Email address
               </label>
-              <div className="mt-1">
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                />
-              </div>
+              <input
+                type="email"
+                name="email"
+                autoComplete="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
             </div>
-
-            <div className="flex">
-              <div className="w-1/3">
-                <label
-                  htmlFor="countryCode"
-                  className="block text-sm font-medium text-gray-700"
-                >
+            <div className="flex mb-4">
+              <div className="w-1/3 mr-2">
+                <label className="block text-sm font-medium text-gray-700">
                   Country Code
                 </label>
-                <div className="mt-1">
-                  <select
-                    name="countryCode"
-                    value={countryCode}
-                    onChange={(e) => setCountryCode(e.target.value)}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  >
-                    <option value="+1">+1 (USA)</option>
-                    <option value="+44">+44 (UK)</option>
-                    <option value="+91">+91 (India)</option>
-                    <option value="+94">+94 (LK)</option>
-                    {/* Add more country codes as needed */}
-                  </select>
-                </div>
+                <select
+                  name="countryCode"
+                  value={countryCode}
+                  onChange={(e) => setCountryCode(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                >
+                  <option value="+1">+1 (USA)</option>
+                  <option value="+44">+44 (UK)</option>
+                  <option value="+91">+91 (India)</option>
+                  <option value="+94">+94 (LK)</option>
+                  {/* Add more country codes as needed */}
+                </select>
               </div>
               <div className="w-2/3 ml-2">
-                <label
-                  htmlFor="phoneNumber"
-                  className="block text-sm font-medium text-gray-700"
-                >
+                <label className="block text-sm font-medium text-gray-700">
                   Phone Number
                 </label>
-                <div className="mt-1">
-                  <input
-                    type="tel"
-                    name="number"
-                    autoComplete="phoneNumber"
-                    required
-                    value={phoneNumber}
-                    onChange={handlePhoneNumberChange}
-                    className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                  />
-                </div>
+                <input
+                  type="tel"
+                  name="Phonenumber"
+                  autoComplete="phoneNumber"
+                  required
+                  value={phoneNumber}
+                  onChange={(e) => setPhoneNumber(e.target.value)}
+                  className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                />
               </div>
             </div>
-
-            <div>
-              <label
-                htmlFor="idNumber"
-                className="block text-sm font-medium text-gray-700"
-              >
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
                 ID Number
               </label>
-              <div className="mt-1">
-                <input
-                  type="text"
-                  name="idnumber"
-                  autoComplete="idNumber"
-                  required
-                  value={idNumber}
-                  onChange={handleIdNumberChange}
-                  className={`appearance-none block w-full px-3 py-2 border ${
-                    idNumberError ? "border-red-500" : "border-gray-300"
-                  } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
-                />
-                {idNumberError && (
-                  <p className="text-red-500 text-sm mt-1">{idNumberError}</p>
-                )}
-              </div>
+              <input
+                type="text"
+                name="idNumber"
+                autoComplete="idNumber"
+                required
+                value={idNumber}
+                onChange={(e) => setIdNumber(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
             </div>
-
-            <div>
-              <label
-                htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
-              >
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
                 Password
               </label>
-              <div className="mt-1 relative">
+              <div className="relative">
                 <input
                   type={visible ? "text" : "password"}
                   name="password"
@@ -194,7 +156,7 @@ const Signup = () => {
                   required
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                  className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
                 {visible ? (
                   <AiOutlineEye
@@ -211,23 +173,19 @@ const Signup = () => {
                 )}
               </div>
             </div>
-
-            <div>
-              <label
-                htmlFor="cPassword"
-                className="block text-sm font-medium text-gray-700"
-              >
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
                 Confirm Password
               </label>
-              <div className="mt-1 relative">
+              <div className="relative">
                 <input
                   type={visible ? "text" : "password"}
-                  name="password"
+                  name="cPassword"
                   autoComplete="current-password"
                   required
                   value={cPassword}
                   onChange={(e) => setCPassword(e.target.value)}
-                  className={`appearance-none block w-full px-3 py-2 border ${
+                  className={`w-full px-3 py-2 border ${
                     passwordsMatch ? "border-gray-300" : "border-red-500"
                   } rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm`}
                 />
@@ -251,37 +209,28 @@ const Signup = () => {
                 )}
               </div>
             </div>
-
-            <div>
-              <label
-                htmlFor="avatar"
-                className="block text-sm font-medium text-gray-700"
-              >
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700">
                 Avatar
               </label>
               <div className="mt-2 flex items-center">
-                <span className="inline-block h-8 w-8 rounded-full overflow-hidden">
+                <span className="inline-block w-8 h-8 rounded-full overflow-hidden bg-gray-300">
                   {avatar ? (
                     <img
                       src={URL.createObjectURL(avatar)}
                       alt="avatar"
                       className="h-full w-full object-cover rounded-full"
                     />
-                  ) : (
-                    <div className="h-8 w-8 bg-gray-300 rounded-full"></div>
-                  )}
+                  ) : null}
                 </span>
-                <label
-                  htmlFor="file-input"
-                  className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer"
-                >
+                <label className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer">
                   <span>Upload a file</span>
                   <input
                     type="file"
                     name="avatar"
                     id="file-input"
                     accept=".jpg,.jpeg,.png"
-                    onChange={handleFileInputChange}
+                    onChange={(e) => setAvatar(e.target.files[0])}
                     className="sr-only"
                   />
                 </label>
@@ -289,19 +238,293 @@ const Signup = () => {
             </div>
             <div>
               <button
-                type="submit"
-                className="group relative w-full h-[40px] flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                onClick={handleSubmit}
+                type="button"
+                onClick={nextStep}
+                className="group relative w-full h-10 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
               >
                 Next
               </button>
             </div>
-            <div className={`${styles.noramlFlex} w-full`}>
-              <h4>Already have an account?</h4>
+            <div className="flex items-center mt-4">
+              <h4 className="text-sm">Already have an account?</h4>
               <Link to="/login" className="text-blue-600 pl-2">
                 Login
               </Link>
             </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div>
+            <h2 className="mt-6 mb-2 text-lg font-semibold">
+              Step 2: Team members details
+            </h2>
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="text"
+                autoComplete="nameA"
+                required
+                value={nameA}
+                onChange={(e) => setNameA(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                ID Number
+              </label>
+              <input
+                type="text"
+                name="idNumberA"
+                autoComplete="idNumberA"
+                required
+                value={idNumberA}
+                onChange={(e) => setIdNumberA(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+             </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700">
+                Avatar
+              </label>
+              <div className="mt-2 flex items-center">
+                <span className="inline-block w-8 h-8 rounded-full overflow-hidden bg-gray-300">
+                  {avatarA ? (
+                    <img
+                      src={URL.createObjectURL(avatarA)}
+                      alt="avatar"
+                      className="h-full w-full object-cover rounded-full"
+                    />
+                  ) : null}
+                </span>
+                <label className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer">
+                  <span>Upload a file</span>
+                  <input
+                    type="file"
+                    name="avatarA"
+                    id="file-input"
+                    accept=".jpg,.jpeg,.png"
+                    onChange={(e) => setAvatarA(e.target.files[0])}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="text"
+                autoComplete="nameB"
+                required
+                value={nameB}
+                onChange={(e) => setNameB(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                ID Number
+              </label>
+              <input
+                type="text"
+                name="idNumberB"
+                autoComplete="idNumberB"
+                required
+                value={idNumberB}
+                onChange={(e) => setIdNumberB(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+             </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700">
+                Avatar
+              </label>
+              <div className="mt-2 flex items-center">
+                <span className="inline-block w-8 h-8 rounded-full overflow-hidden bg-gray-300">
+                  {avatarB ? (
+                    <img
+                      src={URL.createObjectURL(avatarB)}
+                      alt="avatar"
+                      className="h-full w-full object-cover rounded-full"
+                    />
+                  ) : null}
+                </span>
+                <label className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer">
+                  <span>Upload a file</span>
+                  <input
+                    type="file"
+                    name="avatarB"
+                    id="file-input"
+                    accept=".jpg,.jpeg,.png"
+                    onChange={(e) => setAvatarB(e.target.files[0])}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="text"
+                autoComplete="nameC"
+                required
+                value={nameC}
+                onChange={(e) => setNameC(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                ID Number
+              </label>
+              <input
+                type="text"
+                name="idNumberC"
+                autoComplete="idNumberC"
+                required
+                value={idNumberC}
+                onChange={(e) => setIdNumberC(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+             </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700">
+                Avatar
+              </label>
+              <div className="mt-2 flex items-center">
+                <span className="inline-block w-8 h-8 rounded-full overflow-hidden bg-gray-300">
+                  {avatarC ? (
+                    <img
+                      src={URL.createObjectURL(avatarC)}
+                      alt="avatar"
+                      className="h-full w-full object-cover rounded-full"
+                    />
+                  ) : null}
+                </span>
+                <label className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer">
+                  <span>Upload a file</span>
+                  <input
+                    type="file"
+                    name="avatarC"
+                    id="file-input"
+                    accept=".jpg,.jpeg,.png"
+                    onChange={(e) => setAvatarC(e.target.files[0])}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                Full Name
+              </label>
+              <input
+                type="text"
+                name="text"
+                autoComplete="nameD"
+                required
+                value={nameD}
+                onChange={(e) => setNameD(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+            </div>
+
+            <div className="mb-4">
+              <label className="block text-sm font-medium text-gray-700">
+                ID Number
+              </label>
+              <input
+                type="text"
+                name="idNumberD"
+                autoComplete="idNumberD"
+                required
+                value={idNumberD}
+                onChange={(e) => setIdNumberD(e.target.value)}
+                className="w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+              />
+             </div>
+
+            <div className="mb-6">
+              <label className="block text-sm font-medium text-gray-700">
+                Avatar
+              </label>
+              <div className="mt-2 flex items-center">
+                <span className="inline-block w-8 h-8 rounded-full overflow-hidden bg-gray-300">
+                  {avatarD ? (
+                    <img
+                      src={URL.createObjectURL(avatarD)}
+                      alt="avatar"
+                      className="h-full w-full object-cover rounded-full"
+                    />
+                  ) : null}
+                </span>
+                <label className="ml-5 flex items-center justify-center px-4 py-2 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 bg-white hover:bg-gray-50 cursor-pointer">
+                  <span>Upload a file</span>
+                  <input
+                    type="file"
+                    name="avatarD"
+                    id="file-input"
+                    accept=".jpg,.jpeg,.png"
+                    onChange={(e) => setAvatarD(e.target.files[0])}
+                    className="sr-only"
+                  />
+                </label>
+              </div>
+            </div>
+
+            <div className="flex justify-between">
+              <button
+                type="button"
+                onClick={prevStep}
+                className="group relative w-1/2 h-10 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+              >
+                Previous
+              </button>
+              <div className="w-4"></div>
+              <button
+                type="submit"
+                className="group relative w-1/2 h-10 flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-md">
+        <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">
+          Register as a new user
+        </h2>
+      </div>
+      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            {renderFormSection()}
           </form>
         </div>
       </div>
@@ -309,6 +532,13 @@ const Signup = () => {
   );
 };
 
-export default Signup;       
+export default Signup;
+
+
+
+
+
+
+
 
 
