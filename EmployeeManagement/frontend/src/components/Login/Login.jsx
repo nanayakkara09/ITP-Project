@@ -3,7 +3,7 @@ import {AiOutlineEye, AiOutlineEyeInvisible} from "react-icons/ai"
 import styles from "../../styles/styles.js"
 import { Link } from "react-router-dom";
 
-const LoginPage = () => {
+const Login = () => {
   const [email,setEmail] = useState("");
   const [password,setPassword] = useState("");
   const [visible,setVisible] = useState("");
@@ -105,7 +105,7 @@ const LoginPage = () => {
             </div>
             <div className={`${styles.noramlFlex} w-full`}>
               <h4>Not have any account?</h4>
-              <Link to="/sign-up" className="text-blue-600 pl-2">
+              <Link to="/signup" className="text-blue-600 pl-2">
                 Signup
               </Link>
             </div>
@@ -116,4 +116,4 @@ const LoginPage = () => {
   );
 };
 
-export default LoginPage;
+export default Login;
