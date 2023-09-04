@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import AdminNavBar from '../components/adminNavBar'; 
+import './admin-dashbord.css';
 // Import custom CSS file for styling
 
 export default function admindashbord() {
@@ -32,9 +33,20 @@ export default function admindashbord() {
   return (
     <div>
         <AdminNavBar />
+       
       <div className="bg-image"></div>
       <div className='content'>
-       
+        <div className="black-box">
+          <br></br>
+          <div className="vertical-text">Customer</div>
+        <div className="vertical-text">Event</div>
+        <div className="vertical-text">Stall</div>
+        <div className="vertical-text">Employee</div>
+        <div className="vertical-text">Order</div>
+        <div className="vertical-text">Delivery</div>
+        <div className="vertical-text">Inventory</div>
+        <div className="vertical-text">Finance</div>
+        </div>
         <br></br>
         {!!user && <h2>welcome {user.name}!</h2>}
         <br></br>
