@@ -14,6 +14,7 @@ import Dashbord from './pages/dashbord';
 import Edit from './pages/edit';
 import Profile from './pages/profile';
 import Feedback from './pages/feedbacks';
+import Admindashbord from './pages/admin-dashbord'
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -29,8 +30,9 @@ function App() {
       <Route path='/login' element={<Login/>} />
       <Route path='/dashbord' element={<Dashbord/>} />
       <Route path='/edit' element={<Edit/>} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/feedbacks" element={<Feedback/>} />
+      <Route path='/profile' element={<Profile />} />
+      <Route path='/feedbacks' element={<Feedback/>} />
+      <Route path='/admin-dashbord' element={<Admindashbord/>}/>
      
     </Routes>
     </UserContextProvider>
