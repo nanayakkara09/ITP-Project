@@ -14,28 +14,43 @@ const registerUser = async (req, res) => {
     const { name, address, phonenumber, email, password, userType } = req.body;
 
     // Validation for required fields
-    if (!name || !address || !phonenumber || !email || !password || !userType) {
-      return res.status(400).json({ error: 'All fields are required' });
-    }
+     //check if name was entered
+     if(!name){
+      return res.json({
+          error:'name is required'
+      })
+  };
+  if(!address){
+    return res.json({
+        error:'address is required'
+    })
+};
+if(!phonenumber ||phonenumber.length<10){
+  return res.json({
+      error:'phone Number required 10 numbers'
+  })
+};
+  if(!password || password.length < 6){
+      return res.json({
+          error:'password is requed and shoul be 6 charecters! '
+      })
 
-    // Check if the email is already taken
-    const existingUser = await User.findOne({ email });
-    if (existingUser) {
-      return res.status(400).json({ error: 'Email is already taken' });
-    }
-
-    // Hash the password
-    const hashedPassword = await hashPassword(password);
-
-    // Create the user
-    const user = await User.create({
+  } ; 
+  //check email
+  const exist=await User.findOne({email})
+  if(exist){
+      return res.json({
+          error:'email is taken alrady'
+      })
+  }
+  const hashedPassword=await hashPassword(password)
+  const user=await User.create({
       name,
       address,
       phonenumber,
       email,
-      password: hashedPassword,
-      userType,
-    });
+      password:hashedPassword,
+  })
 
     return res.json(user);
   } catch (error) {

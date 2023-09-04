@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './Dashbord.css'; // Import custom CSS file for styling
+import NavBar from '../components/NavBar'
 
 export default function Dashbord() {
   const { user, setUser } = useContext(UserContext);
@@ -29,9 +30,10 @@ export default function Dashbord() {
 
   return (
     <div>
+      <NavBar/>
       <div className="bg-image"></div>
       <div className='content'>
-        <h1>Welcome to Food Store</h1>
+        <h1>Welcome to StreetBitez</h1>
         <br></br>
         {!!user && <h2>Hi {user.name}!</h2>}
         <br></br>

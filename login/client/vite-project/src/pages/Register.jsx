@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
-import './register.css';
+
 
 export default function Register() {
   const navigate = useNavigate();
@@ -27,7 +27,7 @@ export default function Register() {
         phonenumber,
         email,
         password,
-        userType, // Include userType in the registration data
+        userType, 
       });
 
       if (response.error) {
