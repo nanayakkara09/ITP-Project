@@ -1,5 +1,6 @@
 const User =require('../models/user');
 const Feedback = require('../models/feedback');
+
 const {hashPassword,comparePassword}=require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 
@@ -8,82 +9,79 @@ const test=(req,res) =>{
 }
 
 //register endpoint
-const registerUser=async(req,res) =>{
-    try {
-        const{name,address,phonenumber,email,password}=req.body;
-        //check if name was entered
-        if(!name){
-            return res.json({
-                error:'name is required'
-            })
-        };
-        if(!address){
-          return res.json({
-              error:'address is required'
-          })
-      };
-      if(!phonenumber ||phonenumber.length<10){
-        return res.json({
-            error:'phone Number required 10 numbers'
-        })
-    };
-        if(!password || password.length < 6){
-            return res.json({
-                error:'password is requed and shoul be 6 charecters! '
-            })
+const registerUser = async (req, res) => {
+  try {
+    const { name, address, phonenumber, email, password, userType } = req.body;
 
-        } ; 
-        //check email
-        const exist=await User.findOne({email})
-        if(exist){
-            return res.json({
-                error:'email is taken alrady'
-            })
-        }
-        const hashedPassword=await hashPassword(password)
-        const user=await User.create({
-            name,
-            address,
-            phonenumber,
-            email,
-            password:hashedPassword,
-        })
-
-        return res.json(user)
-     } catch (error) {
-        console.log(error)
+    // Validation for required fields
+    if (!name || !address || !phonenumber || !email || !password || !userType) {
+      return res.status(400).json({ error: 'All fields are required' });
     }
+
+    // Check if the email is already taken
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({ error: 'Email is already taken' });
+    }
+
+    // Hash the password
+    const hashedPassword = await hashPassword(password);
+
+    // Create the user
+    const user = await User.create({
+      name,
+      address,
+      phonenumber,
+      email,
+      password: hashedPassword,
+      userType,
+    });
+
+    return res.json(user);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Registration failed' });
+  }
 };
  
 //login endpoint
-const loginUser =async(req,res)=>{
-    try {
-        const{email,password}=req.body;
-        //check if user exists
-        const user=await User.findOne({email})
-        if(!user){
-            return res.json({
-                error:'No User found'
-            })
-        }
-        //check password match
-        const match=await comparePassword(password,user.password)
-        if(match){
-           jwt.sign({email: user.email,id: user._id, name:user.name},process.env.JWT_SECRET,{},(err,token) => {
-            if(err) throw err;
-            res.cookie('token',token).json(user)
-           })
-        }
-        if(!match){
-            res.json({
-                error:'password do not match!'
-            })
-        }
-    } catch (error) {
-        console.log(error)
+// Server-side login logic
+const loginUser = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    // Check if user exists in the database
+
+    // Assuming you have a 'userType' field in your user document
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      return res.json({
+        error: 'No User found',
+      });
     }
 
-}
+    // Check password match
+    const match = await comparePassword(password, user.password);
+
+    if (match) {
+      // Determine user type
+      const userType = user.userType; // Assuming userType field exists in your database
+
+      jwt.sign({ email: user.email, id: user._id, name: user.name, userType }, process.env.JWT_SECRET, {}, (err, token) => {
+        if (err) throw err;
+        res.cookie('token', token).json({ user, userType }); // Include userType in the response
+      });
+    } else {
+      res.json({
+        error: 'Password do not match!',
+      });
+    }
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
 
 const getProfile =(req,res)=>{
 const {token}=req.cookies
@@ -102,7 +100,7 @@ if(token){
 const updateUser = async (req, res) => {
     const { id } = req.params;
     try {
-        const { name,address,email, password } = req.body;
+        const { name,address,email,phonenumber, password } = req.body;
         if(!name){
             return res.json({
                 error:'name is required'
@@ -118,6 +116,11 @@ const updateUser = async (req, res) => {
             error:'phon Number required 10 numbers'
         })
     };
+    if(!email){
+      return res.json({
+          error:'Email is required!'
+      })
+  } ;
         if(!password || password.length < 6){
             return res.json({
                 error:'password is requed and shoul be 6 charecters! '
