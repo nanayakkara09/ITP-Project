@@ -11,13 +11,12 @@ const inventorySchema = new Schema({
     
     name:String,
     description:String,
-    totalquantity:Number,
-    minquantity:Number,
+    quantity:Number,
+    reorder:Number,
     itemcode:{
         type:String,
         unique:true
     },
-    password:String,
     category: {
         type: String,
         enum: [category.food,category.furniture,category.machinery],

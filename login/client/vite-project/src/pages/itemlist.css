@@ -1,38 +1,59 @@
 /* itemlist.css */
+.title{
+  display: flex;
+  flex-direction: column;
+}
 
-.frame1 {
-    max-width: 800px;
-    margin: 0 auto;
+.container{
+    position: relative;
+    z-index: 1;
     padding: 20px;
-  }
-  
-  .table-header {
-    display: flex;
-    background-color: #f2f2f2;
-    border: 1px solid #000;
-    font-weight: bold;
-  }
-  
-  .table-cell {
-    flex:  auto;
-    padding: 10px;
-    border-right: 1px solid #000;
     text-align: center;
-  }
-  
-  .table-row {
-    display: flex;
-    background-color: #f2f2f2;
-    border-top: 1px solid #000;
-  }
-  
-  .table-row:last-child {
-    border-bottom: 1px solid #000;
-  }
-  
-  .div-2 {
-    background-color: #d3d3d3;
-  }
-  
-  /* Add more styles as needed */
-  
+    color: #000000;
+}
+
+/* Center the container vertically and horizontally */
+.item-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  height: 100vh; /* Adjust the height as needed */
+}
+
+
+/* Style the title */
+
+
+/* Style the buttons on the right */
+.item-list-buttons {
+  display: flex;
+  justify-content: right;
+  margin-bottom: 20px;
+}
+
+/* Style the search and add new buttons */
+.search-button,
+.add-new-button,
+.Edit-button,
+.view-button 
+{
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: #007bff; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+
+/* Hover effect for buttons */
+.search-button:hover,
+.add-new-button:hover,
+.view-button:hover,
+.Edit-button:hover 
+{
+  background-color: #0056b3; /* Change the hover background color as needed */
+}
