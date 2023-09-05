@@ -5,7 +5,7 @@ const upload = require("../multer");
 router.post("/create-user",upload);
 
 router.post("/create-user", upload.single("file"),async(req,res) =>{
-    const {name,email,countyrCode,password} = req.body;
+    const {name,email,countryCode,password} = req.body;
     const userEmail = await userInfo.findOne({email});
     if(userEmail){
         return nextTick(new ErrorHandler("user already exists",400));
