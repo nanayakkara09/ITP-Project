@@ -32,7 +32,7 @@ export default function admindashbord() {
 
   return (
     <div>
-        <AdminNavBar />
+        <AdminNavBar/>
        
       <div className="bg-image"></div>
       <div className='content'>
