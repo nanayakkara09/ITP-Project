@@ -1,0 +1,22 @@
+.black-box {
+    background-color: black;
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px; /* Add some padding for spacing */
+  }
+  
+  .vertical-text {
+    color: white;
+    writing-mode: horizontal-tb; /* Vertical writing mode */
+    transform: rotate(0deg); /* Rotate the text */
+    white-space: nowrap;
+    font-size: 20px; /* Adjust the font size as needed */
+    margin-bottom: 5px; /* Add some margin for spacing */
+  }
