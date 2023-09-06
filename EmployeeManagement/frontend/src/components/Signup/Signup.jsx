@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -26,7 +27,7 @@ const Signup = () => {
   const [cPassword, setCPassword] = useState("");
   const [passwordsMatch, setPasswordsMatch] = useState(true);
   const [step, setStep] = useState(1);
-  const [teamMembers] = useState(1);
+  
 
 
  
@@ -42,16 +43,44 @@ const Signup = () => {
     setStep(step - 1);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
 
     if (password === cPassword) {
-      console.log("Passwords match!");
+      const userData = {
+        name,
+        email,
+        nameA,
+        nameB,
+        nameC,
+        nameD,
+        password,
+        avatar,
+        avatarA,
+        avatarB,
+        avatarC,
+        avatarD,
+        phoneNumber,
+        countryCode,
+        idNumber,
+        idNumberA,
+        idNumberB,
+        idNumberC,
+        idNumberD,
+        // Add other user registration data here
+      };
 
-      if (step === 2) {
-        console.log("Form submitted!");
-        console.log("Team Members:", teamMembers);
+      try {
+        // Send user registration data to the backend
+        const response = await axios.post("/employeeRoutes", userData);
+
+        // Handle success
+        console.log(response.data);
+      } catch (error) {
+        // Handle errors
+        console.error(error);
       }
+    
     } else {
       setPasswordsMatch(false);
     }
