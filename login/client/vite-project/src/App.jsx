@@ -15,6 +15,9 @@ import Edit from './pages/edit';
 import Profile from './pages/profile';
 import Itemlist from '../src/pages/itemlist';
 import AddNew from '../src/pages/addNew';
+import Feedback from './pages/feedbacks';
+import Admindashbord from './pages/admin-dashbord'
+
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -33,6 +36,9 @@ function App() {
       <Route path="/itemlist" element={<Itemlist />} />
       <Route path="/addNew" element={<AddNew />} />
 
+      <Route path='/profile' element={<Profile />} />
+      <Route path='/feedbacks' element={<Feedback/>} />
+      <Route path='/admin-dashbord' element={<Admindashbord/>}/>
      
     </Routes>
     </UserContextProvider>

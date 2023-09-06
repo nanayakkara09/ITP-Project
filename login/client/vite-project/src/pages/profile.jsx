@@ -5,6 +5,7 @@ import './profile.css';
 
 export default function Profile() {
   const { user } = useContext(UserContext);
+  
 
   return (
     <div className="profile-container">
@@ -16,6 +17,7 @@ export default function Profile() {
             <div className="profile-section">
               <label className="profile-label">Name:</label>
               <span className="profile-value">{user.name}</span>
+              
             </div>
             <div className="profile-section">
               <label className="profile-label">Address:</label>
