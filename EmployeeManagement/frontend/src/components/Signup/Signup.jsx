@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { server } from "../../server";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ const Signup = () => {
   const [idNumberC,setIdNumberC] = useState("");
   const [idNumberD,setIdNumberD] = useState("");
   const [cPassword, setCPassword] = useState("");
-  const [passwordsMatch, setPasswordsMatch] = useState(true);
+  const [passwordsMatch] = useState(true);
   const [step, setStep] = useState(1);
   
 
@@ -46,44 +47,35 @@ const Signup = () => {
   const handleSubmit = async(e) => {
     e.preventDefault();
 
-    if (password === cPassword) {
-      const userData = {
-        name,
-        email,
-        nameA,
-        nameB,
-        nameC,
-        nameD,
-        password,
-        avatar,
-        avatarA,
-        avatarB,
-        avatarC,
-        avatarD,
-        phoneNumber,
-        countryCode,
-        idNumber,
-        idNumberA,
-        idNumberB,
-        idNumberC,
-        idNumberD,
-        // Add other user registration data here
-      };
+    const config = {headers: {"Content-Type":"multipart/form-data"}};
+    const newForm = new FormData();
 
-      try {
-        // Send user registration data to the backend
-        const response = await axios.post("/employeeRoutes", userData);
+    newForm.append("avatar", avatar);
+    newForm.append("name", name);
+    newForm.append("email", email);
+    newForm.append("countryCode", countryCode);
+    newForm.append("phoneNumber", phoneNumber);
+    newForm.append("password", password);
+    newForm.append("cpassword", cPassword);
+    newForm.append("idNumber", idNumber);
+    newForm.append("nameA", nameA);
+    newForm.append("nameB", nameB);
+    newForm.append("nameC", nameC);
+    newForm.append("nameD", nameD);
+    newForm.append("idNumberA", idNumberA);
+    newForm.append("idNumberB", idNumberB);
+    newForm.append("idNumberC", idNumberC);
+    newForm.append("idNumberD", idNumberD);
+    newForm.append("avatarA", avatarA);
+    newForm.append("avatarB", avatarB);
+    newForm.append("avatarC", avatarC);
+    newForm.append("avatarD", avatarD);
 
-        // Handle success
-        console.log(response.data);
-      } catch (error) {
-        // Handle errors
-        console.error(error);
-      }
-    
-    } else {
-      setPasswordsMatch(false);
-    }
+    axios.post(`${server}/employee/create-employee`,newForm,config).then((res) => {
+      console.log(res)
+    }).catch((err) => {
+      console.log(err);
+    })
   };
 
 
@@ -256,7 +248,7 @@ const Signup = () => {
                   <span>Upload a file</span>
                   <input
                     type="file"
-                    name="avatar"
+                    name="file"
                     id="file-input"
                     accept=".jpg,.jpeg,.png"
                     onChange={(e) => setAvatar(e.target.files[0])}
@@ -336,7 +328,7 @@ const Signup = () => {
                   <span>Upload a file</span>
                   <input
                     type="file"
-                    name="avatarA"
+                    name="file"
                     id="file-input"
                     accept=".jpg,.jpeg,.png"
                     onChange={(e) => setAvatarA(e.target.files[0])}
@@ -394,7 +386,7 @@ const Signup = () => {
                   <span>Upload a file</span>
                   <input
                     type="file"
-                    name="avatarB"
+                    name="file"
                     id="file-input"
                     accept=".jpg,.jpeg,.png"
                     onChange={(e) => setAvatarB(e.target.files[0])}
@@ -452,7 +444,7 @@ const Signup = () => {
                   <span>Upload a file</span>
                   <input
                     type="file"
-                    name="avatarC"
+                    name="file"
                     id="file-input"
                     accept=".jpg,.jpeg,.png"
                     onChange={(e) => setAvatarC(e.target.files[0])}
@@ -468,7 +460,7 @@ const Signup = () => {
               </label>
               <input
                 type="text"
-                name="text"
+                name="nameD"
                 autoComplete="nameD"
                 required
                 value={nameD}
@@ -510,7 +502,7 @@ const Signup = () => {
                   <span>Upload a file</span>
                   <input
                     type="file"
-                    name="avatarD"
+                    name="file"
                     id="file-input"
                     accept=".jpg,.jpeg,.png"
                     onChange={(e) => setAvatarD(e.target.files[0])}
@@ -552,7 +544,7 @@ const Signup = () => {
       </div>
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <form className="space-y-6" onSubmit={handleSubmit} action="post">
             {renderFormSection()}
           </form>
         </div>
@@ -562,12 +554,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-
-
-
-
-
-
-
-

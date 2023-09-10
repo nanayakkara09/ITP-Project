@@ -1,5 +1,5 @@
-import LoginPage from "./pages/LoginPage";
-import SignupPage from "./pages/SignupPage"
+import LoginPage from "./pages/LoginPage.jsx";
+import SignupPage from "./pages/SignupPage.jsx"
 
 
 
