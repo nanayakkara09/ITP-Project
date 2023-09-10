@@ -19,13 +19,13 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
     });
   }
 
-  // import routes
+ // import routes
 const employee = require("./controller/employee");
 
 app.use("/api/v2/employee", employee)
 
 
-  // it's for ErrorHandling
+  //it's for ErrorHandling
 app.use(ErrorHandler);
 
   module.exports = app;

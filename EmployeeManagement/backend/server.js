@@ -14,7 +14,8 @@ if (process.env.NODE_ENV !== "PRODUCTION") {
       path: "config/.env",
     });
   }
-
+  
+ //connecr db
   connectDatabase();
 
   // create server

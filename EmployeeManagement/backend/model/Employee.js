@@ -20,6 +20,9 @@ const employeeSchema = new mongoose.Schema({
   idNumber: {
     type: String,
   },
+  countryCode:{
+    type: Number,
+  },
   phoneNumber: {
     type: Number,
   },
@@ -45,78 +48,8 @@ const employeeSchema = new mongoose.Schema({
       required: true,
     },
   },
-  nameA: {
-    type: String,
-    required: [true, "Please enter your name!"],
-  },
-  nameB: {
-    type: String,
-    required: [true, "Please enter your name!"],
-  },
-  nameC: {
-    type: String,
-    required: [true, "Please enter your name!"],
-  },
-  nameC: {
-    type: String,
-    required: [true, "Please enter your name!"],
-  },
-  nameD: {
-    type: String,
-    required: [true, "Please enter your name!"],
-  },
-  idNumberA: {
-    type: String,
-  },
-  idNumberB: {
-    type: String,
-  },
-  idNumberC: {
-    type: String,
-  },
-  idNumberD: {
-    type: String,
-  },
-  avatarA: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
-  avatarB: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
-  avatarC: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
-  avatarD: {
-    public_id: {
-      type: String,
-      required: true,
-    },
-    url: {
-      type: String,
-      required: true,
-    },
-  },
+ 
+  
 
   resetPasswordToken: String,
   resetPasswordTime: Date,
