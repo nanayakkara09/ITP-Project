@@ -1,0 +1,37 @@
+/* CustomerAdminPage.css */
+
+.customer-admin-container {
+    display: flex;
+    flex-direction: column; /* Stack boxes vertically */
+    align-items: center; /* Center the boxes horizontally */
+  }
+  
+  .admin-box {
+    width: 100%; /* Each box occupies 100% of the container width */
+    max-width: 400px; /* Optionally, set a maximum width for the boxes */
+    margin-bottom: 20px; /* Add vertical spacing between boxes */
+    padding: 20px;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+  
+  /* Styling for individual boxes */
+  .customer-list-box {
+    background-color: #f0f0f0;
+  }
+  
+  .feedbacks-box {
+    background-color: #e0e0e0;
+  }
+  
+  .support-box {
+    background-color: #d0d0d0;
+  }
+  
+  /* Additional styling for headings or other content within boxes */
+  .admin-box h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  

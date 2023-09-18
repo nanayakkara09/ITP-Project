@@ -8,6 +8,8 @@ import NavBar from '../components/NavBar';
 import foodImage1 from '../images/res.jpeg';
 import foodImage2 from '../images/event.jpg';
 import foodImage3 from '../images/menu.jpg';
+import feedbackIcon from '../images/sup.png';
+import Footer from "../components/Footer";
 
 export default function Dashbord() {
   const { user, setUser } = useContext(UserContext);
@@ -29,6 +31,9 @@ export default function Dashbord() {
     } catch (error) {
       console.log(error);
     }
+  };
+  const navigateToFeedback = () => {
+    navigate('/feedbacks'); 
   };
 
   return (
@@ -76,21 +81,14 @@ export default function Dashbord() {
             </Link>
           </div>
         </div>
-      </div>
-      <footer className="footers1">
         <hr></hr>
-      <div className="containers">
-    <div className="contact-sections">
-      <h4>Contact Us</h4>
-      <p>Phone: 123-456-7890</p>
-      <p>Email: info@foodstore.com</p>
-    </div>
-    <div className="social-sections">
-    </div>
-    <hr></hr>
-   
-  </div>
-      </footer>
+              <Footer/>
+      </div>
+      <div className="feedback-button" onClick={navigateToFeedback}>
+          <img src={feedbackIcon} alt="Feedback" />
+       
+      </div>
+
     </div>
   );
 }
