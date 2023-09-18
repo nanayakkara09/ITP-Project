@@ -43,7 +43,11 @@ export default function AdminDashboard() {
 
   return (
     <div>
+
       <AdminNavBar />
+
+       
+
       <div className="bg-image"></div>
       <div className='content'>
         <div className="black-box">
