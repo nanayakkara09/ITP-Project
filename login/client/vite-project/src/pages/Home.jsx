@@ -12,6 +12,7 @@ import slideImage1 from '../images/bg1.jpg';
 import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
 import slideImage4 from '../images/bg4.jpg';
+import Footer from "../components/Footer";
 
 export default function Home() {
   // Slider settings
@@ -79,24 +80,13 @@ export default function Home() {
             <div className="slide">
               <img src={slideImage4} alt="Slide 4" />
             </div>
-          </Slider>
+          </Slider> 
+          <br></br> 
+          <Footer/>
         </div>
+      
       </div>
-      <hr></hr>
-      <footer className="footer">
-  <div className="container">
-    <div className="contact-section">
-      <h4>Contact Us</h4>
-      <p>Phone: 123-456-7890</p>
-      <p>Email: info@foodstore.com</p>
-    </div>
-    
-    <div className="social-section">
-    </div>
-    <hr></hr>
-    <p className="text-center">All rights reserved &copy; </p>
-  </div>
-</footer>
+      
     </div>
   );
 }
