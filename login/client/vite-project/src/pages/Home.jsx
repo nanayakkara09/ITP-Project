@@ -13,6 +13,10 @@ import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
 
 
+import slideImage4 from '../images/bg4.jpg'
+
+
+
 import boximage from '../images/delivery-man-riding-red-scooter-illustration-template-food-delivery-man-vector_864013-125.avif'
 import boximage2 from '../images/stall.avif'
 import slideImage4 from '../images/bg4.jpg';
@@ -110,6 +114,7 @@ export default function Home() {
         </div>
 
           <br></br> 
+          <hr></hr>
           <Footer/>
         </div>
       
