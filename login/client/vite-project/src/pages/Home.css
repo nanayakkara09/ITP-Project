@@ -82,4 +82,101 @@
   object-fit: contain;
 }
 
+.additional-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px; /* Add spacing between the slider and additional boxes */
+}
 
+.big-box {
+  padding: 20px;
+  background-color: #f2f2f2a9;
+  border-radius: 8px;
+  width: 80%; /* Adjust the width as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.big-box h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.big-box p {
+  font-size: 18px;
+}
+
+.additional-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px; /* Add spacing between the slider and additional boxes */
+}
+
+.big-box {
+  padding: 20px;
+  background-color: #f2f2f2a9;
+  border-radius: 8px;
+  width: 80%; /* Adjust the width as needed */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.big-box h4 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.big-box p {
+  font-size: 18px;
+}
+
+.additional-boxes {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px; /* Add spacing between the slider and additional boxes */
+  position: relative; /* Add this to position .big-box relative to .additional-boxes */
+}
+
+.box {
+  width: 48%; /* Adjust the width as needed */
+  padding: 20px;
+  background-color: #f2f2f2a9;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.box h4 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.box p {
+  font-size: 16px;
+}
+
+/* Media query for responsive design */
+@media (max-width: 768px) {
+  .additional-container {
+    align-items: flex-start;
+  }
+  
+  .additional-boxes {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}
+
+h1 {
+  font-family: "Papyrus", sans-serif;
+}
+
+.button {
+  background-color: #BF3853;
+}

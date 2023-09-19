@@ -11,7 +11,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import slideImage1 from '../images/bg1.jpg';
 import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
-import slideImage4 from '../images/bg4.jpg';
+import slideImage4 from '../images/bg4.jpg'
+import boximage from '../images/delivery-man-riding-red-scooter-illustration-template-food-delivery-man-vector_864013-125.avif'
+import boximage2 from '../images/stall.avif'
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -30,7 +32,7 @@ export default function Home() {
       <div className="content">
         <br></br>
         <br></br>
-        <h1>Street Bitz</h1>
+        <h1>Street Bitez</h1>
         <h5>Explore a wide range of delicious food options.</h5>
         <br></br>
         <div className="frame-container">
@@ -41,7 +43,7 @@ export default function Home() {
               "Experience culinary excellence at Our Restaurants. Enjoy a diverse menu of mouthwatering dishes prepared with the finest ingredients, served in a warm and inviting ambiance. Discover the perfect blend of flavors and exceptional service at Our Restaurants."
             </p>
             <Link to="/login">
-              <button>See More..</button>
+              <button className="button">See More..</button>
             </Link>
           </div>
           <div className="frame">
@@ -51,7 +53,7 @@ export default function Home() {
               "Host your special event with us at Book Your Event. Create unforgettable memories in our stunning venue, tailored to your unique occasion. Our team will ensure every detail is taken care of, leaving you free to enjoy your celebration. Book Your Event and make it an unforgettable experience."
             </p>
             <Link to="/login">
-              <button>Book Now</button>
+              <button className="button">Book Now</button>
             </Link>
           </div>
           <div className="frame">
@@ -61,7 +63,7 @@ export default function Home() {
               "Explore our mouthwatering menu at See Menu. Indulge in a variety of delicious dishes, crafted with passion and finest ingredients. From savory appetizers to delectable desserts, our menu offers a culinary delight for every palate. Visit See Menu and satisfy your cravings today."
             </p>
             <Link to="/login">
-              <button>See Menu..</button>
+              <button className="button">See Menu..</button>
             </Link>
           </div>
         </div>
@@ -81,6 +83,27 @@ export default function Home() {
               <img src={slideImage4} alt="Slide 4" />
             </div>
           </Slider> 
+          <br></br>
+          <div className="additional-container">
+          <div className="additional-boxes">
+          <div className="box">
+          <img src={boximage} alt="Driver" style={{ width: '150px', height: '150px' }} />
+            <h4>Become a driver</h4>
+            <p>As a delivery Driver you can make reliable money-working anytime,any where.</p>
+            <Link to="">
+              <button className="button">Start Earning</button>
+            </Link>
+          </div>
+          <div className="box">
+          <img src={boximage2} alt="stall" style={{ width: '150px', height: '150px' }} />
+            <h4>Become a partner</h4>
+            <p>Grow your business and reach new customers by partnering with us.</p>
+            <Link to="">
+              <button className="button">Sign up your store</button>
+            </Link>
+          </div>
+          </div>
+        </div>
           <br></br> 
           <Footer/>
         </div>
