@@ -1,11 +1,12 @@
+// Profile.js
+
 import React, { useContext } from 'react';
 import { UserContext } from '../../contex/userContex';
 import { Link } from 'react-router-dom';
-import './profile.css';
+import './Profile.css'; // Make sure to import your CSS file
 
 export default function Profile() {
   const { user } = useContext(UserContext);
-  
 
   return (
     <div className="profile-container">
@@ -13,11 +14,10 @@ export default function Profile() {
       <div className="content">
         <h2>Profile</h2>
         {user ? (
-          <>
+          <div className="profile-box"> {/* Wrap the entire profile section */}
             <div className="profile-section">
               <label className="profile-label">Name:</label>
               <span className="profile-value">{user.name}</span>
-              
             </div>
             <div className="profile-section">
               <label className="profile-label">Address:</label>
@@ -31,10 +31,12 @@ export default function Profile() {
               <label className="profile-label">Email:</label>
               <span className="profile-value">{user.email}</span>
             </div>
-            <Link to="/edit" className="edit-button">
-              Edit Account
-            </Link>
-          </>
+            <div className="edit-button">
+              <Link to="/edit">
+                <button>Edit Account</button>
+              </Link>
+            </div>
+          </div>
         ) : (
           <p>You need to be logged in to view the profile. Please log in.</p>
         )}
