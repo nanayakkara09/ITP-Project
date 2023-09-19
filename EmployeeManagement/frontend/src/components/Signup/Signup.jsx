@@ -209,7 +209,7 @@ const Signup = () => {
                 )}
               </div>
             </div>
-            <div className="mb-6">
+            {/* <div className="mb-6">
               <label className="block text-sm font-medium text-gray-700">
                 Avatar
               </label>
@@ -235,7 +235,7 @@ const Signup = () => {
                   />
                 </label>
               </div>
-            </div>
+            </div> */}
             <div>
               <button
                 type="submit"

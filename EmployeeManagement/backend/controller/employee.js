@@ -3,12 +3,16 @@
 const path = require("path");
 const express = require("express");
 const router = express.Router();
-const {upload} = require("../multer")// Specify the destination folder for file uploads
+// const {upload} = require("../multer")// Specify the destination folder for file uploads
 const Employee = require('../model/Employee');
 const ErrorHandler = require("../utills/ErrorHandler");
+const cors = require("cors");
+
+router.use(cors());
 
 // Create a new employee
-router.post('/create-employee', upload.single('file'), async (req, res) => {
+router.post('/create-employee',  async (req, res) => {
+  try{
     const {
       name,
       email,
@@ -26,8 +30,8 @@ router.post('/create-employee', upload.single('file'), async (req, res) => {
     }
 
     
-    const filename = req.file.filename;
-    const fileUrl = path.join(filename);
+    // const filename = req.file.filename;
+    // const fileUrl = path.join(filename);
     
 
    
@@ -39,14 +43,28 @@ router.post('/create-employee', upload.single('file'), async (req, res) => {
       phoneNumber :phoneNumber,
       password : password,
       cPassword :cPassword,
-      avatar : fileUrl,
+      // avatar : fileUrl,
       
     };
 
+     // Save the user to the database
+     await employee.save();
+
     
 console.log(employee);
-  })
 
-  module.exports = router;
+  // Send the response with a status code and a message
+  res.status(201).json({ message: "User created successfully" }, employee);
+} catch (error) {
+  // Check if the error is a duplicate key error (email already exists)
+  if (error.code === 11000) {
+    return next(new ErrorHandler("User with this email already exists.", 400));
+  }
+  console.error("Error creating user:", error);
+  next(error); // Pass the error to the error handling middleware
+}
+  });
+
+module.exports = router;
 
 
