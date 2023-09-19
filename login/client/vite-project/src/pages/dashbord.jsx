@@ -10,6 +10,7 @@ import foodImage2 from '../images/event.jpg';
 import foodImage3 from '../images/menu.jpg';
 import feedbackIcon from '../images/feedback.png';
 import Footer from "../components/Footer";
+
 import Slider from 'react-slick'; // Import the Slider component
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -18,6 +19,7 @@ import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
 import slideImage4 from '../images/bg4.jpg';
 import supportIcon from '../images/sup.png';
+
 
 export default function Dashbord() {
   const { user, setUser } = useContext(UserContext);
@@ -44,6 +46,7 @@ export default function Dashbord() {
     navigate('/feedbacks'); 
   };
 
+
   const sliderSettings = {
     dots: true,
     infinite: true,
@@ -54,9 +57,12 @@ export default function Dashbord() {
     autoplaySpeed: 2000, 
   };
 
+<<<<<<< HEAD
   const navigateToSupport = () => {
     navigate('/support'); 
   };
+=======
+>>>>>>> 0179b1e89f768156c13875c84df9994f992807e9
 
   return (
     <div  className="home-container">
@@ -106,6 +112,7 @@ export default function Dashbord() {
             </Link>
           </div>
         </div>
+
         <h2>Take a Quick Look</h2>
       <div className="slideshow-container">
         <Slider {...sliderSettings}>
@@ -139,6 +146,7 @@ export default function Dashbord() {
 </div>
       <br></br>
       <br></br>
+
         <hr></hr>
               <Footer/>
       </div>
