@@ -11,7 +11,7 @@ const test=(req,res) =>{
 //register endpoint
 const registerUser = async (req, res) => {
   try {
-    const { name, address, phonenumber, email, password, userType } = req.body;
+    const { name, address, phonenumber, email, password, userType,securityQuestion,securityAnswer } = req.body;
 
     // Validation for required fields
      //check if name was entered
@@ -25,6 +25,11 @@ const registerUser = async (req, res) => {
         error:'address is required'
     })
 };
+if(!email){
+  return res.json({
+      error:'email is required'
+  })
+};
 if(!phonenumber ||phonenumber.length<10){
   return res.json({
       error:'phone Number required 10 numbers'
@@ -36,7 +41,17 @@ if(!phonenumber ||phonenumber.length<10){
       })
 
   } ; 
-  //check email
+
+  if(!securityQuestion){
+    return res.json({
+        error:'securityQuestion is required'
+    })
+  };
+  if(!securityAnswer){
+    return res.json({
+        error:'securityAnswer is required'
+    })
+  };
   const exist=await User.findOne({email})
   if(exist){
       return res.json({
@@ -220,6 +235,17 @@ const updateUser = async (req, res) => {
     }
   };
 
+  const getTotalUsers = async (req, res) => {
+    try {
+      const totalUsers = await User.countDocuments();
+      res.json({ totalUsers });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching total users' });
+    }
+  };
+
+
 module.exports ={
     test,
     registerUser,
@@ -229,4 +255,5 @@ module.exports ={
   deleteUser,
   handleLogout,
   submitFeedback,
+  getTotalUsers,
 }

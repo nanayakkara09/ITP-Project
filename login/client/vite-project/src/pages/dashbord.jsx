@@ -8,6 +8,17 @@ import NavBar from '../components/NavBar';
 import foodImage1 from '../images/res.jpeg';
 import foodImage2 from '../images/event.jpg';
 import foodImage3 from '../images/menu.jpg';
+import feedbackIcon from '../images/sup.png';
+import Footer from "../components/Footer";
+
+import Slider from 'react-slick'; // Import the Slider component
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import slideImage1 from '../images/bg1.jpg';
+import slideImage2 from '../images/bg2.jpeg';
+import slideImage3 from '../images/bg3.jpg';
+import slideImage4 from '../images/bg4.jpg';
+
 
 export default function Dashbord() {
   const { user, setUser } = useContext(UserContext);
@@ -30,6 +41,21 @@ export default function Dashbord() {
       console.log(error);
     }
   };
+  const navigateToFeedback = () => {
+    navigate('/feedbacks'); 
+  };
+
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true, 
+    autoplaySpeed: 2000, 
+  };
+
 
   return (
     <div  className="home-container">
@@ -38,6 +64,7 @@ export default function Dashbord() {
      
       <div className="bg-image"></div>
       <div className="contents">
+        <br></br>
         <h1>Welcome to StreetBitez</h1>
         <br></br>
         {!!user && <h2>Hi {user.name}!</h2>}
@@ -76,21 +103,35 @@ export default function Dashbord() {
             </Link>
           </div>
         </div>
+
+        <h2>Take a Quick Look</h2>
+      <div className="slideshow-container">
+        <Slider {...sliderSettings}>
+          <div className="slide">
+            <img src={slideImage1} alt="Slide 1" />
+          </div>
+          <div className="slide">
+            <img src={slideImage2} alt="Slide 2" />
+          </div>
+          <div className="slide">
+            <img src={slideImage3} alt="Slide 3" />
+          </div>
+          <div className="slide">
+            <img src={slideImage4} alt="Slide 4" />
+          </div>
+        </Slider>
       </div>
-      <footer className="footers1">
+      <br></br>
+      <br></br>
+
         <hr></hr>
-      <div className="containers">
-    <div className="contact-sections">
-      <h4>Contact Us</h4>
-      <p>Phone: 123-456-7890</p>
-      <p>Email: info@foodstore.com</p>
-    </div>
-    <div className="social-sections">
-    </div>
-    <hr></hr>
-   
-  </div>
-      </footer>
+              <Footer/>
+      </div>
+      <div className="feedback-button" onClick={navigateToFeedback}>
+          <img src={feedbackIcon} alt="Feedback" />
+       
+      </div>
+
     </div>
   );
 }
