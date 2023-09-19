@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast'; 
-import './feedbacks.css'; // Import your CSS file
+import './feedbacks.css';
 
 const FeedbackPage = () => {
   const [feedbackText, setFeedbackText] = useState('');

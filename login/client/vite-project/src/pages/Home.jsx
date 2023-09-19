@@ -105,6 +105,7 @@ export default function Home() {
           </div>
         </div>
           <br></br> 
+          <hr></hr>
           <Footer/>
         </div>
       

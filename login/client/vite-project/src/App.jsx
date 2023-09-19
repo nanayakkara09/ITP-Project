@@ -16,6 +16,7 @@ import Profile from './pages/profile';
 import Feedback from './pages/feedbacks';
 import Admindashbord from './pages/admin-dashbord'
 import CustomerAdminPage from './pages/customerAdmin'
+import SupportMessage from './pages/support';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -33,6 +34,7 @@ function App() {
       <Route path='/edit' element={<Edit/>} />
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />
+      <Route path='/submitsupport' element={<SupportMessage/>}/>
       <Route path='/admin-dashbord' element={<Admindashbord/>}/>
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
      

@@ -8,7 +8,7 @@ import NavBar from '../components/NavBar';
 import foodImage1 from '../images/res.jpeg';
 import foodImage2 from '../images/event.jpg';
 import foodImage3 from '../images/menu.jpg';
-import feedbackIcon from '../images/sup.png';
+import feedbackIcon from '../images/feedback.png';
 import Footer from "../components/Footer";
 import Slider from 'react-slick'; // Import the Slider component
 import 'slick-carousel/slick/slick.css';
@@ -17,6 +17,7 @@ import slideImage1 from '../images/bg1.jpg';
 import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
 import slideImage4 from '../images/bg4.jpg';
+import supportIcon from '../images/sup.png';
 
 export default function Dashbord() {
   const { user, setUser } = useContext(UserContext);
@@ -53,14 +54,20 @@ export default function Dashbord() {
     autoplaySpeed: 2000, 
   };
 
+  const navigateToSupport = () => {
+    navigate('/support'); 
+  };
+
   return (
     <div  className="home-container">
     
       <NavBar />
      
       <div className="bg-image"></div>
+      
       <div className="contents">
-        <br></br>
+        
+<br></br>
         <h1>Welcome to StreetBitez</h1>
         <br></br>
         {!!user && <h2>Hi {user.name}!</h2>}
@@ -117,14 +124,30 @@ export default function Dashbord() {
         </Slider>
       </div>
       <br></br>
+      <div className="feedback-box">
+  <div className="feedback-content">
+    <h3>
+    "We Want to Hear From You!"</h3>
+    <p>Your feedback matters to us, as it helps us continuously improve our service. Have a suggestion, found a bug, or simply want to share your thoughts? We're all ears! 
+    </p>
+  </div>
+  <div className="feedback-button-container">
+    <button className="feedback-button" onClick={navigateToFeedback}>
+      Feedback
+    </button>
+  </div>
+</div>
+      <br></br>
       <br></br>
         <hr></hr>
               <Footer/>
       </div>
-      <div className="feedback-button" onClick={navigateToFeedback}>
-          <img src={feedbackIcon} alt="Feedback" />
-       
-      </div>
+      
+
+      <div className="support-button" onClick={navigateToSupport}>
+  <img src={supportIcon} alt="support" />
+
+</div>
 
     </div>
   );
