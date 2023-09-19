@@ -1,5 +1,6 @@
 const User =require('../models/user');
 const Feedback = require('../models/feedback');
+const Support = require('../models/support');
 
 const {hashPassword,comparePassword}=require('../helpers/auth')
 const jwt = require('jsonwebtoken');
@@ -244,7 +245,28 @@ const updateUser = async (req, res) => {
       res.status(500).json({ error: 'Error fetching total users' });
     }
   };
-
+  const submitSupport = async (req, res) => {
+    const { userId, supportText } = req.body;
+  
+    try {
+      // Create a new support message document using the Support model
+      const newSupport = new Support({
+        userId,
+        supportText,
+        createdAt: new Date(),
+      });
+  
+      // Save the support message to the database
+      await newSupport.save();
+  
+      // Send a success response
+      res.status(200).json({ message: 'Support message submitted successfully' });
+    } catch (error) {
+      // Handle errors
+      console.error(error);
+      res.status(500).json({ message: 'Error submitting Support message' });
+    }
+  };
 
 module.exports ={
     test,
@@ -256,4 +278,5 @@ module.exports ={
   handleLogout,
   submitFeedback,
   getTotalUsers,
+  submitSupport,
 }
