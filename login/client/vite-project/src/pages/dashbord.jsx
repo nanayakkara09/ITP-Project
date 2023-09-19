@@ -18,7 +18,9 @@ import slideImage1 from '../images/bg1.jpg';
 import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
 import slideImage4 from '../images/bg4.jpg';
+
 import supportIcon from '../images/sup.png';
+
 
 
 export default function Dashbord() {
@@ -57,12 +59,11 @@ export default function Dashbord() {
     autoplaySpeed: 2000, 
   };
 
-<<<<<<< HEAD
+
   const navigateToSupport = () => {
     navigate('/support'); 
   };
-=======
->>>>>>> 0179b1e89f768156c13875c84df9994f992807e9
+
 
   return (
     <div  className="home-container">
@@ -72,8 +73,12 @@ export default function Dashbord() {
       <div className="bg-image"></div>
       
       <div className="contents">
+
         
 <br></br>
+
+        <br></br>
+
         <h1>Welcome to StreetBitez</h1>
         <br></br>
         {!!user && <h2>Hi {user.name}!</h2>}
@@ -131,6 +136,7 @@ export default function Dashbord() {
         </Slider>
       </div>
       <br></br>
+
       <div className="feedback-box">
   <div className="feedback-content">
     <h3>
@@ -145,6 +151,7 @@ export default function Dashbord() {
   </div>
 </div>
       <br></br>
+
       <br></br>
 
         <hr></hr>
