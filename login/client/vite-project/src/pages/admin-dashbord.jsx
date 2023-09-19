@@ -1,17 +1,16 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "../../contex/userContex";
 import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
 import AdminNavBar from '../components/adminNavBar'; 
 import './admin-dashbord.css';
+// Import custom CSS file for styling
 
-export default function AdminDashboard() {
+export default function admindashbord() {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const [totalUsers, setTotalUsers] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
 
   useEffect(() => {
     if (!user) {
@@ -19,16 +18,6 @@ export default function AdminDashboard() {
         setUser(data);
       });
     }
-
-    axios.get("/total-users")
-      .then(({ data }) => {
-        setTotalUsers(data.totalUsers);
-        setIsLoading(false); // Set loading to false when data is received
-      })
-      .catch((error) => {
-        console.error("Error fetching total users:", error);
-        setIsLoading(false); // Set loading to false in case of an error
-      });
   }, [user, setUser]);
 
   const handleLogout = async () => {
@@ -43,39 +32,32 @@ export default function AdminDashboard() {
 
   return (
     <div>
-
-      <AdminNavBar />
-
+        <AdminNavBar />
        
-
       <div className="bg-image"></div>
       <div className='content'>
         <div className="black-box">
           <br></br>
-          <Link to='/customerAdmin' className="vertical-text">Customer</Link>
-          <div className="vertical-text">Event</div>
-          <div className="vertical-text">Stall</div>
-          <div className="vertical-text">Employee</div>
-          <div className="vertical-text">Order</div>
-          <div className="vertical-text">Delivery</div>
-          <div className="vertical-text">Inventory</div>
-          <div className="vertical-text">Finance</div>
+          <div className="vertical-text">Customer</div>
+        <div className="vertical-text">Event</div>
+        <div className="vertical-text">Stall</div>
+        <div className="vertical-text">Employee</div>
+        <div className="vertical-text">Order</div>
+        <div className="vertical-text">Delivery</div>
+        <div className="vertical-text">Inventory</div>
+        <div className="vertical-text">Finance</div>
         </div>
         <br></br>
-        {!!user && (
-          <div>
-            <h2>Welcome {user.name}!</h2>
-            <div className={`total-users-box${isLoading ? ' loading-text' : ''}`}>
-              {isLoading ? (
-                <p>Loading total users...</p>
-              ) : (
-                <p>Total Users: {totalUsers}</p>
-              )}
-            </div>
-          </div>
-        )}
+        {!!user && <h2>welcome {user.name}!</h2>}
         <br></br>
+        
       </div>
+      <footer className="footers">
+        <div className="container">
+          <hr></hr>
+          <p className="text-center">All rights reserved &copy; </p>
+        </div>
+      </footer>
     </div>
   );
 }
