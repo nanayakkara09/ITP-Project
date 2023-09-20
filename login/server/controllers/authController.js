@@ -114,6 +114,26 @@ const loginUser = async (req, res) => {
 };
 
 
+
+const getProfileA = async (req, res) => {
+  const { id } = req.params; // Assuming the user's ID is provided in the URL parameter
+
+  try {
+    // Fetch user data including address and phone number based on the provided user ID
+    const userData = await User.findById(id, 'name email address phonenumber');
+
+    if (!userData) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(userData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching user data' });
+  }
+};
+
+
 const getProfile = (req, res) => {
   const { token } = req.cookies;
 
@@ -142,6 +162,7 @@ const getProfile = (req, res) => {
     res.json(null);
   }
 };
+
 
 
 // Update user
@@ -307,11 +328,92 @@ const updateUser = async (req, res) => {
   };
 
 
+  const getProfile = (req, res) => {
+    const { token } = req.cookies;
+  
+    if (token) {
+      jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ error: 'Failed to verify token' });
+        }
+  
+        try {
+          // Fetch user data including address and phone number
+          const userData = await User.findOne({ email: user.email }, 'name email address phonenumber');
+  
+          if (!userData) {
+            return res.status(404).json({ error: 'User not found' });
+          }
+  
+          res.json(userData);
+        } catch (error) {
+          console.error(error);
+          res.status(500).json({ error: 'Error fetching user data' });
+        }
+      });
+    } else {
+      res.json(null);
+    }
+  }
+
+  const updateUserA = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { name,address,email,phonenumber, } = req.body;
+        if(!name){
+            return res.json({
+                error:'name is required'
+            })
+        };
+        if(!address){
+          return res.json({
+              error:'address is required'
+          })
+      };
+      if(!phonenumber ||phonenumber.length<10){
+        return res.json({
+            error:'phon Number required 10 numbers'
+        })
+    };
+    if(!email){
+      return res.json({
+          error:'Email is required!'
+      })
+  } ;
+     
+        
+      const user = await User.findByIdAndUpdate(
+        id,
+        {
+          name,
+          address,
+          phonenumber,
+          email,
+          
+        },
+        { new: true }
+      );
+  
+      if (!user) {
+        return res.json({
+            error:'No User found'
+        })
+      }
+  
+      res.json(user);
+    } catch (error) {
+      console.log(error);
+      
+    }
+  };
+
+
 module.exports ={
     test,
     registerUser,
     loginUser,
-    getProfile,
+    getProfileA,
     updateUser,
   deleteUser,
   handleLogout,
@@ -319,8 +421,15 @@ module.exports ={
   getTotalUsers,
   submitSupport,
 
+  getProfile,
+  getAllUsers,
+  getAllFeedbacks,
+  updateUserA,
+
+
   getAllUsers,
   getAllFeedbacks,
   
+
 
 }

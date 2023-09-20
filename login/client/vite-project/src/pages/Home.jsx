@@ -15,8 +15,12 @@ import slideImage3 from '../images/bg3.jpg';
 import slideImage4 from '../images/bg4.jpg'
 
 
+import slideImage4 from '../images/bg4.jpg'
+
+
 
 import slideImage4 from '../images/bg4.jpg'
+
 
 
 
