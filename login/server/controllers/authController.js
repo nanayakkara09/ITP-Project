@@ -114,6 +114,7 @@ const loginUser = async (req, res) => {
 };
 
 
+
 const getProfileA = async (req, res) => {
   const { id } = req.params; // Assuming the user's ID is provided in the URL parameter
 
@@ -129,6 +130,36 @@ const getProfileA = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: 'Error fetching user data' });
+  }
+};
+
+
+const getProfile = (req, res) => {
+  const { token } = req.cookies;
+
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Failed to verify token' });
+      }
+
+      try {
+        // Fetch user data including address and phone number
+        const userData = await User.findOne({ email: user.email }, 'name email address phonenumber');
+
+        if (!userData) {
+          return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json(userData);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error fetching user data' });
+      }
+    });
+  } else {
+    res.json(null);
   }
 };
 
@@ -296,6 +327,7 @@ const updateUser = async (req, res) => {
     }
   };
 
+
   const getProfile = (req, res) => {
     const { token } = req.cookies;
   
@@ -376,6 +408,7 @@ const updateUser = async (req, res) => {
     }
   };
 
+
 module.exports ={
     test,
     registerUser,
@@ -387,9 +420,16 @@ module.exports ={
   submitFeedback,
   getTotalUsers,
   submitSupport,
+
   getProfile,
   getAllUsers,
   getAllFeedbacks,
   updateUserA,
+
+
+  getAllUsers,
+  getAllFeedbacks,
+  
+
 
 }
