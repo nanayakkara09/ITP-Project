@@ -64,7 +64,7 @@ export default function Register() {
 
   return (
     <div className="form-container">
-      <div className="bge-image"></div>
+      <div className="bg-image"></div>
       <div className="content form-box">
         <br></br>
         <h2>Register</h2>

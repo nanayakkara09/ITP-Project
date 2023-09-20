@@ -11,10 +11,9 @@ import 'slick-carousel/slick/slick-theme.css';
 import slideImage1 from '../images/bg1.jpg';
 import slideImage2 from '../images/bg2.jpeg';
 import slideImage3 from '../images/bg3.jpg';
+import slideImage4 from '../images/bg4.jpg';
 import boximage from '../images/delivery-man-riding-red-scooter-illustration-template-food-delivery-man-vector_864013-125.avif'
 import boximage2 from '../images/stall.avif'
-import slideImage4 from '../images/bg4.jpg';
-
 import Footer from "../components/Footer";
 
 export default function Home() {
@@ -29,7 +28,7 @@ export default function Home() {
 
   return (
     <div className="home-container">
-      <div className="bg-image"></div>
+      <div className="bgh-image"></div>
       <div className="content">
         <br></br>
         <br></br>

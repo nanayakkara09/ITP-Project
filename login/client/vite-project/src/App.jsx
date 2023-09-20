@@ -20,6 +20,13 @@ import Admindashbord from './pages/admin-dashbord'
 import CustomerAdminPage from './pages/customerAdmin'
 import SupportMessage from './pages/support';
 import InvList from './pages/invList'
+import UserEdit from './pages/UserEdit';
+import CustomerDetailsPage from './pages/CustomerDetailsPage';
+import SeeFeedbacksPage from './pages/seefeedbacks';
+
+
+
+
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -45,6 +52,14 @@ function App() {
       <Route path='/admin-dashbord' element={<Admindashbord/>}/>
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
       <Route path='/invList' element={<InvList/>}/>
+      <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
+
+      <Route path='/UserEdit' element={<UserEdit/>}/>
+      <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
+    <Route path="/UserEdit/:userId" element={<UserEdit />} />
+
+      <Route path='/SeeFeedbacks' element={<SeeFeedbacksPage/>}/>
+
      
     </Routes>
     </UserContextProvider>
