@@ -19,7 +19,6 @@ import Feedback from './pages/feedbacks';
 import Admindashbord from './pages/admin-dashbord'
 import CustomerAdminPage from './pages/customerAdmin'
 import SupportMessage from './pages/support';
-import InvList from './pages/invList'
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -44,7 +43,6 @@ function App() {
       <Route path='/submitsupport' element={<SupportMessage/>}/>
       <Route path='/admin-dashbord' element={<Admindashbord/>}/>
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
-      <Route path='/invList' element={<InvList/>}/>
      
     </Routes>
     </UserContextProvider>
