@@ -17,8 +17,10 @@ import Feedback from './pages/feedbacks';
 import Admindashbord from './pages/admin-dashbord'
 import CustomerAdminPage from './pages/customerAdmin'
 import SupportMessage from './pages/support';
+
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
+
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true

@@ -286,6 +286,7 @@ const updateUser = async (req, res) => {
     }
   };
 
+
   const getAllUsers = async (req, res) => {
     try {
       const users = await User.find({ userType: 'customer' }, 'name email address phonenumber');
@@ -305,6 +306,7 @@ const updateUser = async (req, res) => {
     }
   };
 
+
 module.exports ={
     test,
     registerUser,
@@ -316,7 +318,9 @@ module.exports ={
   submitFeedback,
   getTotalUsers,
   submitSupport,
+
   getAllUsers,
   getAllFeedbacks,
   
+
 }
