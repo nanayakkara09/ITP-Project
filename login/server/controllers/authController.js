@@ -114,18 +114,35 @@ const loginUser = async (req, res) => {
 };
 
 
-const getProfile =(req,res)=>{
-const {token}=req.cookies
-if(token){
-    jwt.verify(token,process.env.JWT_SECRET,{},(err,user)=>{
-        if(err)throw err;
-        res.json(user)
+const getProfile = (req, res) => {
+  const { token } = req.cookies;
 
-    })
-}else{
-    res.json(null)
-}
-}
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Failed to verify token' });
+      }
+
+      try {
+        // Fetch user data including address and phone number
+        const userData = await User.findOne({ email: user.email }, 'name email address phonenumber');
+
+        if (!userData) {
+          return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json(userData);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error fetching user data' });
+      }
+    });
+  } else {
+    res.json(null);
+  }
+};
+
 
 // Update user
 const updateUser = async (req, res) => {
@@ -214,13 +231,14 @@ const updateUser = async (req, res) => {
   };
 
   const submitFeedback = async (req, res) => {
-    const { userId, feedbackText } = req.body;
+    const { userId, feedbackText,userName } = req.body;
   
     try {
       // Create a new feedback document using the Feedback model
       const newFeedback = new Feedback({
         userId,
         feedbackText,
+        userName,
         createdAt: new Date(),
       });
   
@@ -268,6 +286,27 @@ const updateUser = async (req, res) => {
     }
   };
 
+
+  const getAllUsers = async (req, res) => {
+    try {
+      const users = await User.find({ userType: 'customer' }, 'name email address phonenumber');
+      res.json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching customer users' });
+    }
+  };
+  const getAllFeedbacks = async (req, res) => {
+    try {
+      const feedbacks = await Feedback.find();
+      res.json(feedbacks);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching all feedbacks' });
+    }
+  };
+
+
 module.exports ={
     test,
     registerUser,
@@ -279,4 +318,9 @@ module.exports ={
   submitFeedback,
   getTotalUsers,
   submitSupport,
+
+  getAllUsers,
+  getAllFeedbacks,
+  
+
 }
