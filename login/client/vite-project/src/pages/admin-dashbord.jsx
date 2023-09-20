@@ -59,33 +59,7 @@ export default function AdminDashboard() {
           <div className="vertical-text">Employee</div>
           <div className="vertical-text">Order</div>
           <div className="vertical-text">Delivery</div>
-          <div className={`dropdown ${showDropdown ? "show" : ""}`}>
-            <button
-              type="button"
-              className="btn btn-secondary dropdown-toggle"
-              onClick={toggleDropdown}
-            >
-              Inventory
-            </button>
-            <div className={`dropdown-menu ${showDropdown ? "show" : ""}`}>
-              <Link className="dropdown-item" to="/itemlist">
-                Food
-              </Link>
-              <Link className="dropdown-item" to="/inventory-page-2">
-                Furniture
-              </Link>
-              <Link className="dropdown-item" to="/inventory-page-3">
-                Machinery
-              </Link>
-              <Link className="dropdown-item" to="/inventory-page-4">
-                Issued
-              </Link>
-              <Link className="dropdown-item" to="/inventory-page-5">
-                Reports
-              </Link>
-              {/* Add more dropdown items as needed */}
-            </div>
-          </div>
+          <Link to='/invList' className="vertical-text">Inventory</Link>
           <div className="vertical-text">Finance</div>
         </div>
         <br></br>
