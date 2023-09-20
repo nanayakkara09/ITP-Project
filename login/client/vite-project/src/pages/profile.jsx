@@ -10,9 +10,9 @@ export default function Profile() {
 
   return (
     <div className="profile-container">
-      <div className="bg-image"></div>
+      <div className="bgp-image"></div>
       <div className="content">
-        <h2>Profile</h2>
+        <h1>Profile</h1>
         {user ? (
           <div className="profile-box"> {/* Wrap the entire profile section */}
             <div className="profile-section">
@@ -31,7 +31,7 @@ export default function Profile() {
               <label className="profile-label">Email:</label>
               <span className="profile-value">{user.email}</span>
             </div>
-            <div className="edit-button">
+            <div className="edit-button1">
               <Link to="/edit">
                 <button>Edit Account</button>
               </Link>

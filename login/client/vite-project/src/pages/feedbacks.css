@@ -43,6 +43,10 @@
     border-radius: 5px;
 }
 
+.input-container,
+.textarea-container {
+  width: 100%; /* Adjust the width as needed */
+}
 .feedback-form button {
     display: block;
     margin-top: 10px;
