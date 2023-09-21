@@ -22,10 +22,6 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 
 
-import CustomerDetailsPage from './pages/CustomerDetailsPage';
-import SeeFeedbacksPage from './pages/seefeedbacks';
-
-
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -46,12 +42,9 @@ function App() {
       <Route path='/admin-dashbord' element={<Admindashbord/>}/>
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
-
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
-      <Route path='/SeeFeedbacks' element={<SeeFeedbacksPage/>}/>
 
      
     </Routes>
