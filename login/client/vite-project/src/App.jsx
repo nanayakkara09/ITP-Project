@@ -53,12 +53,9 @@ function App() {
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
       <Route path='/invList' element={<InvList/>}/>
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
-
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
-      <Route path='/SeeFeedbacks' element={<SeeFeedbacksPage/>}/>
 
      
     </Routes>
