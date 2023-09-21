@@ -2,7 +2,7 @@ const express =require('express');
 const router = express.Router();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const{addNew}=require('../controllers/invController')
+const{addNew,getAllItems,getItem,updateItem}=require('../controllers/invController')
 
 //middleware
 router.use(
@@ -13,7 +13,9 @@ router.use(
 )
 
 router.post('/',addNew);
-
+router.get('/getallItems',getAllItems);
+router.get('/getItem:itemId',getItem);
+router.post('/updateItem/:itemId', updateItem);
 
 
 

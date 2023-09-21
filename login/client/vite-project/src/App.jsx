@@ -23,7 +23,7 @@ import InvList from './pages/invList'
 import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
-
+import InvEdit from '../src/pages/invEdit';
 
 
 
@@ -45,6 +45,7 @@ function App() {
       <Route path="/profile" element={<Profile />} />
       <Route path="/itemlist" element={<Itemlist />} />
       <Route path="/addNew" element={<AddNew />} />
+      <Route path="/invEdit/:itemId" element={<InvEdit />} />
 
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />

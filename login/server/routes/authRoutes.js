@@ -7,12 +7,6 @@ const jwt = require('jsonwebtoken');
 const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout,submitFeedback,getTotalUsers, submitSupport,getAllUsers,getAllFeedbacks,getProfileA, updateUserA}=require('../controllers/authController');
 
 
-
-
-
-
-
-
 //middleware
 router.use(
     cors({

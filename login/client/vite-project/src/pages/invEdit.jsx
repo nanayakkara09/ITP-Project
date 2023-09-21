@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect }  from 'react';
 import axios from 'axios';
-import './addNew.css'; // Import the CSS file for styling
-import { useNavigate } from 'react-router-dom';
+import './invEdit.css'; // Import the CSS file for styling
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
-export default function NewItemForm() {
+export default function EditItemForm() {
   const navigate = useNavigate();
+  const { itemId } = useParams();
   const [formData, setFormData] = useState({
 
     category: 'Select a category',
@@ -25,14 +27,38 @@ export default function NewItemForm() {
     e.preventDefault();
     console.log(formData)
     const{name,description,quantity,category,reorder,itemcode}= formData 
-    const {data} =await axios.post('./inventory/',{name,description,quantity,reorder,itemcode})
+    const {data} =await axios.post(`/inventory/updateItem/${itemId}`,{name,description,quantity,reorder,itemcode})
     console.log('Form data submitted:', formData);
     navigate('/itemlist');
   };
 
+  useEffect(() => {
+    const fetchItem = async () => {
+      try {
+        console.log(itemId);
+        const { data } = await axios.get(`/inventory/getItem${itemId}`);
+        console.log(data)
+  
+         setFormData({
+           category: data.category,
+           itemCode: data.itemcode,
+           name: data.name,
+           description: data.description,
+           quantity: data.quantity,
+           reorder: data.reorder,
+         });
+      } catch (error) {
+        console.log(error);
+        toast.error('Failed to fetch item data');
+      }
+    };
+  
+    fetchItem();
+  }, [itemId]);
+
   return (
     <div className="new-item-form-container">
-      <h2>Add New Item</h2>
+      <h2>Edit Item</h2>
       <form onSubmit={handleSubmit}>
       <div className="form-group">
           <label htmlFor="category">Category:</label>

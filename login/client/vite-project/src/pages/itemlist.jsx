@@ -1,58 +1,57 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import AdminNavBar from '../components/adminNavBar';
 import './itemlist.css'; // Import the CSS file for styling
+import { Link } from 'react-router-dom';
 
 export default function itemlist() {
-  const [items, setItems] = useState([
-    {
-      view: 'View 1',
-      itemcode: '12345',
-      name: 'Item 1',
-      description: 'Description 1',
-      quantity: 10,
-      reorderLevel: 5,
-    },
-    {
-      view: 'View 2',
-      itemcode: '67890',
-      name: 'Item 2',
-      description: 'Description 2',
-      quantity: 20,
-      reorderLevel: 10,
-    },
-    // Add more items here
-  ]);
-    // Sample data for the table
-      items: [
-        {
-          view: 'View 1',
-          itemcode: '12345',
-          name: 'Item 1',
-          description: 'Description 1',
-          quantity: 10,
-          reorderLevel: 5,
-        },
-        {
-          view: 'View 2',
-          itemcode: '67890',
-          name: 'Item 2',
-          description: 'Description 2',
-          quantity: 20,
-          reorderLevel: 10,
-        },
-        // Add more items here
-      ]
-
+  const [items, setItems] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
+    
+      useEffect(() => {
+        const fetchItemList = async () => {
+          try {
+            const { data } = await axios.get('/inventory/getallItems');
+            setItems(data);
+            //setIsLoading(false);
+          } catch (error) {
+            console.error(error);
+            toast.error('Failed to fetch inventory data');
+            //setIsLoading(false);
+          }
+        };
+    
+        fetchItemList();
+      }, []);
   
-
+      const handleSearch = () => {
+        
+    
+        const filteredItems = items.filter((item) =>
+          item.name.toLowerCase().includes(searchTerm.toLowerCase())||
+          item.itemcode.toLowerCase().includes(searchTerm.toLowerCase())
+        );
+        setItems(filteredItems);
+      };
     return (
+      <div>
+        <div><AdminNavBar/></div>
       <div className='container'>
         <div className='title'>
-        <h1 className="item-list-title">Item List</h1>
+        <h1 className="item-list-title">Food Item List</h1>
         </div>
       
       <div className="item-list-buttons">
-        <button className="search-button">Search</button>
-        <button className="add-new-button">Add New</button>
+      <input
+          type="text"
+          placeholder="Search by name..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+        <button className="search-button" onClick={handleSearch}>Search</button>
+        <Link to="/addnew" className="add-new-button">Add New</Link>
+       
       </div>
       <div className="item-list-container">
       <table className="item-list-table">
@@ -75,12 +74,14 @@ export default function itemlist() {
               <td>{item.name}</td>
               <td>{item.description}</td>
               <td>{item.quantity}</td>
-              <td>{item.reorderLevel}</td>
-              <td><button className="Edit-button">Edit</button></td>
+              <td>{item.reorder}</td>
+              <td><Link to={`/invEdit/${item._id}`}>
+                <button className="Edit-button">Edit</button></Link></td>
             </tr>
           ))}
         </tbody>
       </table>
+    </div>
     </div>
     </div>
     );
