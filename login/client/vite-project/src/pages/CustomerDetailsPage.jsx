@@ -6,6 +6,10 @@ import './customerDetails.css';
 import { Link } from 'react-router-dom';
 
 
+
+
+
+
 export default function CustomerDetailsPage() {
   const [userList, setUserList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,6 +30,10 @@ export default function CustomerDetailsPage() {
 
     fetchUserList();
   }, []);
+
+
+
+
 
 
   const deleteUser = async (userId) => {
@@ -58,7 +66,12 @@ export default function CustomerDetailsPage() {
   const handlePrint = () => {
 
     window.print(); 
+
+
   };
+
+ 
+
 
   return (
     <div>

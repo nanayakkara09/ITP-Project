@@ -329,7 +329,6 @@ const updateUser = async (req, res) => {
 
 
 
-
   const updateUserA = async (req, res) => {
     const { id } = req.params;
     try {
@@ -396,6 +395,8 @@ module.exports ={
   getProfile,
   getAllUsers,
   getAllFeedbacks,
-  updateUserA
+  updateUserA,
+
+
 
 }
