@@ -37,9 +37,6 @@ router.get('/profileA/:id', getProfileA);
 router.put('/usersA/:id', updateUserA);
 
 
-router.get('/all-users', getAllUsers);
-router.get('/all-feedbacks', getAllFeedbacks);
-
 
 
 

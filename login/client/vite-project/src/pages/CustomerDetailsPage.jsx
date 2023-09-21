@@ -1,14 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-
 import AdminNavBar from '../components/adminNavBar';
 import './customerDetails.css';
 import { Link } from 'react-router-dom';
-
-
-import AdminNavBar from '../components/adminNavBar'; 
-import './customerDetails.css';
 
 
 export default function CustomerDetailsPage() {
@@ -49,16 +44,7 @@ export default function CustomerDetailsPage() {
     }
   };
 
-  const handleSearch = () => {
-  
-
-  const updateUser = (userId) => {
-    // Handle edit user action
-  };
-
-  const deleteUser = (userId) => {
-    // Handle delete user action
-  };
+ 
 
   const handleSearch = () => {
     // Filter the user list based on the search term
@@ -74,84 +60,11 @@ export default function CustomerDetailsPage() {
     window.print(); 
   };
 
- 
-
   return (
     <div>
-      <AdminNavBar />
-      <div className="customer-details-container">
-        <br></br>
-        <br></br>
-        <h1>Customer Details</h1>
-        <br></br>
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search by name..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button onClick={handleSearch}>Search</button>
-        </div>
-
-        {isLoading ? (
-          <p>Loading user data...</p>
-        ) : userList.length > 0 ? (
-          <table>
-            <thead>
-              <tr>
-                <th>User ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone Number</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {userList.map((user) => (
-                <tr key={user._id}>
-                  <td>{user._id}</td>
-                  <td>{user.name}</td>
-                  <td>{user.email}</td>
-                  <td>{user.address}</td>
-                  <td>{user.phonenumber}</td>
-                  <td>
-                  <Link to={`/UserEdit/${user._id}`}>
-  <button className="edit-button">Edit</button>
-</Link>
-                  </td>
-                  <td>
-                    <button
-                      className="delete-button"
-                      onClick={() => deleteUser(user._id)}
-                    >
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        ) : (
-          <p>No user data available.</p>
-        )}
-
-        <button className="print-button" onClick={handlePrint}>
-          Print Table
-        </button>
-      </div>
-
-    window.print(); // Trigger the browser's print dialog
-  };
-
-  return (
-    <div>
-
-      <AdminNavBar />
-
+      <div><AdminNavBar/></div>
     <div className="customer-details-container">
+      
         <br></br>
       <br></br>
       <h1>Customer Details</h1>
@@ -179,7 +92,7 @@ export default function CustomerDetailsPage() {
               <th>Phone Number</th>
               <th>Edit</th>
               <th>Delete</th>
-              {/* Add more table headers as needed */}
+            
             </tr>
           </thead>
           <tbody>
@@ -191,12 +104,10 @@ export default function CustomerDetailsPage() {
                 <td>{user.address}</td>
                 <td>{user.phonenumber}</td>
                 <td>
-                  <button
-                    className="edit-button"
-                    onClick={() => updateUser(user._id)}
-                  >
-                    Edit
-                  </button>
+                <Link to={`/UserEdit/${user._id}`}>
+  <button className="edit-button">Edit</button>
+</Link>
+                   
                 </td>
                 <td>
                   <button
@@ -223,3 +134,6 @@ export default function CustomerDetailsPage() {
     </div>
   );
 }
+
+
+

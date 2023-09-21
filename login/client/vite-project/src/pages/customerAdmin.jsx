@@ -43,9 +43,7 @@ function CustomerAdminPage() {
 
           <Link to="/CustomerDetailsPage">View Customer Details</Link>
 
-
-          <Link to="/customer-details">View Customer Details</Link>
-
+       
 
         </div>
         <div className="admin-box feedbacks-box">
