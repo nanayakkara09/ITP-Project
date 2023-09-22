@@ -1,6 +1,8 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function eventDel() {
+    const navigate = useNavigate();
   return (
     <div className="success-container">
       <div className="content">
@@ -8,8 +10,7 @@ export default function eventDel() {
         <p>Your request has been successfully processed.</p>
         <p>Thank you for choosing Street Bitz.</p>
         
-      </div>
-      <button onClick={() => navigate('/event')} type="submit" className="btn btn-primary">
+        <button onClick={() => navigate('/eventHome')} type="submit" className="btn btn-primary">
         BACK TO THE FRONT PAGE
       </button>
       {'\n'}
@@ -20,6 +21,8 @@ export default function eventDel() {
       {'\n'}
       {'\n'}
      {'\n'}
+      </div>
+     
       <hr />
       <footer className="footer">
         <div className="container">
