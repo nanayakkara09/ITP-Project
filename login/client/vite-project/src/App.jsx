@@ -28,7 +28,7 @@ import InvEdit from '../src/pages/invEdit';
 
 
 
-axios.defaults.baseURL='http://localhost:8000';
+//axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
 function App() {
