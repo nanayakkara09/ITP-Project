@@ -1,0 +1,27 @@
+.image1 {
+    display: flex; /* Use flexbox */
+    align-items: center; /* Vertically center content */
+    gap: 20px; /* Add space between images and text */
+    justify-content: space-between;
+    display: flex; 
+    margin-top: 40px;
+  }
+  
+  /* Style the images if needed */
+  .image-container img {
+    max-width: 100px; /* Adjust the image width as needed */
+    height: auto; /* Maintain the image aspect ratio */
+  }
+  
+  /* Add styles to the text if needed */
+  .emphasis-text {
+    font-weight: bold;
+  }
+  .headline {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 10px; /* Add vertical space */
+  }
+  
