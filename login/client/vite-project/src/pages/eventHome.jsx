@@ -15,40 +15,67 @@ export default function eventHome() {
     <div className="success-container">
       
         <h1>CHOOSE YOUR EVENT </h1>
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame">
+        <div className="image-container">
+        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame  ">
         <img src={event1} alt="event1" />
-        <p><span className="emphasis-text">Decide to celebrate,<br /> 
-            it's totally okay to throw your<br /> own birthday party</span></p>
+        <p>  <span className="emphasis-text">Decide to celebrate,</span>
+              <br />
+              <span className="emphasis-text">it's totally okay to throw your</span>
+              <br />
+              <span className="emphasis-text">own birthday party</span></p>
         </div>
+        
 
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame">
+        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame ">
         <img src={event2} alt="event2" />
-        <p><span className="emphasis-text">Decide to celebrate,<br /> 
-            it's totally okay to throw your<br /> function</span></p>
-        </div>
-
+        <p>
+              <span className="emphasis-text">Decide to celebrate,</span>
+              <br />
+              <span className="emphasis-text">it's totally okay to throw your</span>
+              <br />
+              <span className="emphasis-text">function</span>
+            </p>
+</div>
         <div style={{  color: 'blue', fontSize: '16px'  }}className="frame">
         <img src={event4} alt="event4" />
-        <p><span className="emphasis-text">Decide to celebrate,<br /> 
-            it's totally okay to throw your<br /> gettogether</span></p>
+        <p>
+              <span className="emphasis-text">Decide to celebrate,</span>
+              <br />
+              <span className="emphasis-text">it's totally okay to throw your</span>
+              <br />
+              <span className="emphasis-text">gettogether</span>
+            </p>
+          
         </div>
 
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame">
+        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame ">
         <img src={event3} alt="event3" />
-        <p><span className="emphasis-text">Decide to celebrate,<br /> 
-            it's totally okay to throw your<br /> wedding</span></p>
-        </div>
+        <p>
+              <span className="emphasis-text">Decide to celebrate,</span>
+              <br />
+              <span className="emphasis-text">it's totally okay to throw your</span>
+              <br />
+              <span className="emphasis-text">wedding</span>
+            </p>
+            </div>
+        <hr/><hr/>
+        <div className="note">
         <p>Thank you for choosing Street Bitz.</p>
-      
-      {'\n'}
+      </div>
+     
+      <hr/>
       <button onClick={() => navigate('/eventDetail')} type="submit" className="btn btn-primary">
            Event Details
           </button>
-      {'\n'}
+  
       <button onClick={() => navigate('/event')} type="submit" className="btn btn-primary">
            Event Proposal
           </button>
+          <button onClick={() => navigate('/eventAbout')} type="submit" className="btn btn-primary">
+           About us
+          </button>
       {'\n'}
+      </div>
       </div>
       <hr />
       <footer className="footer">

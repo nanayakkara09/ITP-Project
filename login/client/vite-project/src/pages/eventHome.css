@@ -9,7 +9,7 @@
   
   /* Style the images if needed */
   .image-container img {
-    max-width: 100px; /* Adjust the image width as needed */
+    max-width: 200px; /* Adjust the image width as needed */
     height: auto; /* Maintain the image aspect ratio */
   }
   
@@ -24,18 +24,40 @@
     color: #000000;
     margin-bottom: 10px; /* Add vertical space */
   }
-
-    .frame {
-        margin-bottom: 20px;
-        padding: 30px;
-        background-color: #f2f2f2;
-        border-radius: 8px;
-        margin-right: 40px; /* Add horizontal spacing between boxes */
-        transition: transform 0.3s ease; /* Add transition effect */
-      }
+  .frame {
+    margin-bottom: 20px;
+    padding: 30px;
+    background-color: #f2f2f2;
+    border-radius: 8px;
+    margin-right: 40px; /* Add horizontal spacing between boxes */
+    transition: transform 0.3s ease; /* Add transition effect */
+  }
       .frame-container {
         display: flex;
         justify-content: space-between;
         margin-bottom: 20px;
+      }
+      .right-frame {
+        padding: 30px;
+        margin-bottom: 20px;
+        float: right; /* Float the div to the right */
+        clear: right; /* Clear any previous floats to ensure proper alignment */
+        border-radius: 8px;
+        margin-right: 40px; /* Add horizontal spacing between boxes */
+        transition: transform 0.3s ease;  /* Add some margin to separate the divs */
+        /* You can adjust the margin as needed */
+      }
+      .left-frame{
+        padding: 30px;
+        margin-bottom: 20px;
+        float:left;
+        clear:right;
+        margin-left: 40px;
+        align-items: normal;
+        transition: transform 0.3s ease;
+      }
+      .note{
+        text-align: center;
+        margin-top: 20px; /* Add margin to separate it from the buttons */
       }
       
