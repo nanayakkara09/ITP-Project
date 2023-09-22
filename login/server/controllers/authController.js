@@ -189,7 +189,7 @@ const updateUser = async (req, res) => {
             error:'phon Number required 10 numbers'
         })
     };
-    if(!email){
+    //if(!email){
       return res.json({
           error:'Email is required!'
       })
