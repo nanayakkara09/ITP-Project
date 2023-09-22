@@ -188,7 +188,9 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <button onClick={() => navigate('/eventUpdate')} type="submit" className="btn btn-primary">
            Update
           </button>
+          <br /> <br /> 
         </form>
+        <br /> 
       </div>
       <footer className="footers">
         <div className="container">

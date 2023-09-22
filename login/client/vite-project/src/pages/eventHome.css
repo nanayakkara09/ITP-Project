@@ -24,4 +24,18 @@
     color: #000000;
     margin-bottom: 10px; /* Add vertical space */
   }
-  
+
+    .frame {
+        margin-bottom: 20px;
+        padding: 30px;
+        background-color: #f2f2f2;
+        border-radius: 8px;
+        margin-right: 40px; /* Add horizontal spacing between boxes */
+        transition: transform 0.3s ease; /* Add transition effect */
+      }
+      .frame-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+      }
+      

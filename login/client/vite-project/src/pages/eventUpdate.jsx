@@ -188,6 +188,9 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <button onClick={() => navigate('/eventDelete')} type="submit" className="btn btn-primary">
            Delete
           </button>
+          <br /> 
+          <br /> 
+          <br /> 
         </form>
       </div>
       <footer className="footers">
