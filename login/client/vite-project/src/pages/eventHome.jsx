@@ -3,6 +3,7 @@ import './eventHome.css';
 import event1 from '../images/event1.jpg';
 import event2 from '../images/event2.jpg';
 import event3 from '../images/event3.jpg';
+
 import event4 from '../images/3.jpg';
 import { useNavigate } from 'react-router-dom';
 

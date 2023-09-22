@@ -1,21 +1,33 @@
 import React from 'react';
+import event5 from '../images/event5.jpg';
 
 export default function eventAbout() {
   return (
-    <div className="success-container">
-      <div className="content">
-        <h2>ABOUT US!</h2>
-        <p>Our dedication is to manage overall any event that our 
-customers expect</p>
-        <p>We’’ll make sure that all logistics, such as catering, the venue, 
-and equipment, are running smoothly during the event.
-
-Establish a budget and outline the coordination plan of the 
-event. Secure permits for hosting the event.
-
-Also we oversees the design, set-up, and execution of events 
-that bring people together</p>
-      </div>
+    <div className="background-container" >
+     <div className="content">
+     <div className="centered-content">
+      <h2>Why Choose Us</h2>
+      <ul className="dot-list">
+        <li>
+          <div className="box">
+            <p>Latest Equipment</p>
+            <p>We will e-curate your event using the latest technology of event equipment available in the market.</p>
+          </div>
+        </li>
+        <li>
+          <div className="box">
+            <p>Experience And Expertise</p>
+            <p>We have been working as Event Planners for the last 5 years, now working extensively with various clients and events.</p>
+          </div>
+        </li>
+        <li>
+          <div className="box">
+            <p>Cost Efficient</p>
+            <p>Though our services are affordable, we never compromise with the quality provided to clients.</p>
+          </div>
+        </li>
+      </ul>
+    </div></div>
       <hr />
       <footer className="footer">
         <div className="container">

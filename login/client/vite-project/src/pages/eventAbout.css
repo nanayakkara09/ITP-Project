@@ -1,0 +1,19 @@
+.background-container {
+    background-image: url('../images/event5.jpg');
+    background-size: cover; /* Adjust as needed */
+    background-repeat: no-repeat; /* Adjust as needed */
+    background-position: center center; /* Adjust as needed */
+    /* Other styles for your container */
+  }
+
+ /* Your CSS file */
+
+  
+  .dot-list {
+    list-style-type: disc; /* Use 'disc' for bullet points */
+    padding-left: 20px; /* Adjust as needed for spacing */
+  }
+  
+ 
+ 
+  
