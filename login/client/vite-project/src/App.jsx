@@ -24,6 +24,14 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
+import Event from '../src/pages/event';
+import EventUpdate from '../src/pages/eventUpdate';
+import EventDelete from '../src/pages/eventDelete';
+import EventSuccess from '../src/pages/eventSuccess';
+import EventAbout from '../src/pages/eventAbout';
+import EventDetail from '../src/pages/eventDetail';
+import EventDel from '../src/pages/eventDel';
+import EventHome from '../src/pages/eventHome';
 
 
 
@@ -58,6 +66,15 @@ function App() {
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
+
+    <Route path='/event' element={<Event/>}/>
+     <Route path='/eventUpdate' element={<EventUpdate/>}/>
+     <Route path='/eventDelete' element={<EventDelete/>}/>
+    <Route path='/eventSuccess' element={<EventSuccess/>}/>
+     <Route path='/eventAbout' element={<EventAbout/>}/>
+    <Route path='/eventDetail' element={<EventDetail/>}/>
+    <Route path='/eventDel' element={<EventDel/>}/>
+    <Route path='/eventHome' element={<EventHome/>}/>
      
     </Routes>
     </UserContextProvider>
