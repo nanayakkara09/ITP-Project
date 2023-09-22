@@ -386,13 +386,7 @@ const updateUser = async (req, res) => {
 
 
 module.exports ={
-  //driver registration
-    getDelivererById,
-    deleteDeliverer,
-    updateDeliverer,
-    getAllDeliverers,
-    addDeliverer,
-    //driver registration end
+  
     test,
     registerUser,
     loginUser,

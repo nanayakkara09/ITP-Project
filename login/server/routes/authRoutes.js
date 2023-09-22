@@ -30,12 +30,7 @@ router.get('/all-feedbacks', getAllFeedbacks);
 router.get('/profileA/:id', getProfileA);
 router.put('/usersA/:id', updateUserA);
 
-// Define routes
-router.route("/add").post(addDeliverer);
-router.route("/").get(getAllDeliverers);
-router.route("/update/:id").put(updateDeliverer);
-router.route("/delete/:id").delete(deleteDeliverer);
-router.route("/get/:id").get(getDelivererById);
+
 
 
 
