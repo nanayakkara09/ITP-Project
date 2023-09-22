@@ -3,7 +3,8 @@ import { UserContext } from "../../contex/userContex";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import "../components/NavBar.css";
+import "./adminNavBar.css"
+
 
 export default function AdminNavBar() {
   const { user, setUser } = useContext(UserContext);
@@ -26,6 +27,7 @@ export default function AdminNavBar() {
 
   return (
     <div className="menu-bar">
+      
       <Link to="/admin-dashbord">Dashboard</Link>
       <button onClick={handleLogout}>Logout</button>
     </div>
