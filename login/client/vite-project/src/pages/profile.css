@@ -1,20 +1,22 @@
+/* Profile.css */
+
 .profile-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.bg-image {
+.bgp-image {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('../images/stf.jpg');
+  background-image: url('../images/do.avif');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 1.1; 
+  opacity: 1.1;
 }
 
 .content {
@@ -24,9 +26,22 @@
   text-align: center;
   color: #000000;
 }
+
 h2 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.profile-box {
+
+  padding: 20px;
+  margin: 10px;
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+
+.profile-box:hover {
+  transform: scale(1.05);
 }
 
 .profile-section {
@@ -44,7 +59,7 @@ h2 {
   font-weight: normal;
 }
 
-.edit button {
+.edit-button1 button {
   background-color: #4a2cb5;
   color: #fff;
   border: none;
@@ -54,8 +69,8 @@ h2 {
   cursor: pointer;
 }
 
-.edit button:hover {
-  background-color:  #412c8f;
+.edit-button1 button:hover {
+  background-color: #412c8f;
 }
 
-
+/* Add your footer styles here */

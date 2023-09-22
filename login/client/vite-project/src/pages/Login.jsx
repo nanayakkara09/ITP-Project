@@ -4,7 +4,8 @@ import { toast } from 'react-hot-toast';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../../contex/userContex';
 import 'bootstrap/dist/css/bootstrap.css';
-import './login.css'
+import './login.css';
+import Footer from "../components/Footer";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -46,7 +47,9 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="bgs-image"></div>
-      <div className="outer-box">
+      <br></br>
+      <br></br>
+      
         <div className="contentL">
           <h2>Login</h2>
           <form onSubmit={loginUser}>
@@ -79,14 +82,18 @@ export default function Login() {
           <p className="register-link">
             New user? <Link to="/register">Register now</Link>
           </p>
-        </div>
-      </div>
-      <footer className="footers">
-        <div className="container">
-          <hr />
-          <p className="text-center">All rights reserved &copy; </p>
-        </div>
-      </footer>
+          <p className="forgot-password-link">
+  <Link to="/forgot-password">Forgot Password?</Link>
+</p>
+
+</div>
+      
+ 
+
+
+  
+   
+   
     </div>
   );
 }

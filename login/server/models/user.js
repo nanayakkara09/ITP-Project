@@ -12,9 +12,15 @@ const userSchema = new Schema({
   password: String,
   userType: {
     type: String,
-    enum: ['admin', 'customer'], // 'admin' for admin users, 'customer' for regular users
-    default: 'customer', // Default to 'customer' for new users
+    enum: ['admin', 'customer'], 
+    default: 'customer', 
   },
+  securityQuestions: [
+    {
+      question: String,
+      answer: String,
+    },
+  ],
 });
 
 const UserModel = mongoose.model('User', userSchema);

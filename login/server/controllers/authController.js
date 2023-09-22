@@ -1,5 +1,6 @@
 const User =require('../models/user');
 const Feedback = require('../models/feedback');
+const Support = require('../models/support');
 
 const driverRegis = require('../models/driverRegistration');
 
@@ -15,7 +16,7 @@ const test=(req,res) =>{
 //register endpoint
 const registerUser = async (req, res) => {
   try {
-    const { name, address, phonenumber, email, password, userType } = req.body;
+    const { name, address, phonenumber, email, password, userType,securityQuestion,securityAnswer } = req.body;
 
     // Validation for required fields
      //check if name was entered
@@ -29,6 +30,11 @@ const registerUser = async (req, res) => {
         error:'address is required'
     })
 };
+if(!email){
+  return res.json({
+      error:'email is required'
+  })
+};
 if(!phonenumber ||phonenumber.length<10){
   return res.json({
       error:'phone Number required 10 numbers'
@@ -40,7 +46,17 @@ if(!phonenumber ||phonenumber.length<10){
       })
 
   } ; 
-  //check email
+
+  if(!securityQuestion){
+    return res.json({
+        error:'securityQuestion is required'
+    })
+  };
+  if(!securityAnswer){
+    return res.json({
+        error:'securityAnswer is required'
+    })
+  };
   const exist=await User.findOne({email})
   if(exist){
       return res.json({
@@ -102,18 +118,56 @@ const loginUser = async (req, res) => {
 };
 
 
-const getProfile =(req,res)=>{
-const {token}=req.cookies
-if(token){
-    jwt.verify(token,process.env.JWT_SECRET,{},(err,user)=>{
-        if(err)throw err;
-        res.json(user)
 
-    })
-}else{
-    res.json(null)
-}
-}
+const getProfileA = async (req, res) => {
+  const { id } = req.params; // Assuming the user's ID is provided in the URL parameter
+
+  try {
+    // Fetch user data including address and phone number based on the provided user ID
+    const userData = await User.findById(id, 'name email address phonenumber');
+
+    if (!userData) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+
+    res.json(userData);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching user data' });
+  }
+};
+
+
+const getProfile = (req, res) => {
+  const { token } = req.cookies;
+
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, user) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Failed to verify token' });
+      }
+
+      try {
+        // Fetch user data including address and phone number
+        const userData = await User.findOne({ email: user.email }, 'name email address phonenumber');
+
+        if (!userData) {
+          return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json(userData);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error fetching user data' });
+      }
+    });
+  } else {
+    res.json(null);
+  }
+};
+
+
 
 // Update user
 const updateUser = async (req, res) => {
@@ -202,13 +256,14 @@ const updateUser = async (req, res) => {
   };
 
   const submitFeedback = async (req, res) => {
-    const { userId, feedbackText } = req.body;
+    const { userId, feedbackText,userName } = req.body;
   
     try {
       // Create a new feedback document using the Feedback model
       const newFeedback = new Feedback({
         userId,
         feedbackText,
+        userName,
         createdAt: new Date(),
       });
   
@@ -224,98 +279,111 @@ const updateUser = async (req, res) => {
     }
   };
 
-  //DriverRegistration details
-  //ayesha
+  const getTotalUsers = async (req, res) => {
+    try {
+      const totalUsers = await User.countDocuments();
+      res.json({ totalUsers });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching total users' });
+    }
+  };
+  const submitSupport = async (req, res) => {
+    const { userId, supportText } = req.body;
+  
+    try {
+      // Create a new support message document using the Support model
+      const newSupport = new Support({
+        userId,
+        supportText,
+        createdAt: new Date(),
+      });
+  
+      // Save the support message to the database
+      await newSupport.save();
+  
+      // Send a success response
+      res.status(200).json({ message: 'Support message submitted successfully' });
+    } catch (error) {
+      // Handle errors
+      console.error(error);
+      res.status(500).json({ message: 'Error submitting Support message' });
+    }
+  };
 
-  // Function to validate deliverer data
-const validateDelivererData = (req, res) => {
-  const {
-      username,
-      email,
-      mobile,
-      nic,
-      gender,
-      vehicleNo,
-      deliveryArea,
-      password,
-  } = req.body;
 
-  if (!username || !email || !mobile || mobile.length < 10 || !nic || !gender || !vehicleNo || !deliveryArea || !password || password.length < 6) {
-      return res.status(400).json({ error: 'Invalid deliverer data' });
-  }
-  return true;
-};
+  const getAllUsers = async (req, res) => {
+    try {
+      const users = await User.find({ userType: 'customer' }, 'name email address phonenumber');
+      res.json(users);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching customer users' });
+    }
+  };
+  const getAllFeedbacks = async (req, res) => {
+    try {
+      const feedbacks = await Feedback.find();
+      res.json(feedbacks);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching all feedbacks' });
+    }
+  };
 
-// Function to add a new deliverer
-const addDeliverer = async (req, res) => {
-  try {
-      if (!validateDelivererData(req, res)) {
-          return;
+
+
+  const updateUserA = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const { name,address,email,phonenumber, } = req.body;
+        if(!name){
+            return res.json({
+                error:'name is required'
+            })
+        };
+        if(!address){
+          return res.json({
+              error:'address is required'
+          })
+      };
+      if(!phonenumber ||phonenumber.length<10){
+        return res.json({
+            error:'phon Number required 10 numbers'
+        })
+    };
+    if(!email){
+      return res.json({
+          error:'Email is required!'
+      })
+  } ;
+     
+        
+      const user = await User.findByIdAndUpdate(
+        id,
+        {
+          name,
+          address,
+          phonenumber,
+          email,
+          
+        },
+        { new: true }
+      );
+  
+      if (!user) {
+        return res.json({
+            error:'No User found'
+        })
       }
+  
+      res.json(user);
+    } catch (error) {
+      console.log(error);
+      
+    }
+  };
 
-      const newDeliverer = new deliverer(req.body);
-      await newDeliverer.save();
-      res.json("Deliverer Added");
-  } catch (err) {
-      console.error(err);
-      res.status(500).json({ status: "Error adding deliverer", error: err.message });
-  }
-};
-
-// Function to retrieve all deliverers
-const getAllDeliverers = async (req, res) => {
-  try {
-      const deliverers = await deliverer.find();
-      res.json(deliverers);
-  } catch (err) {
-      console.error(err);
-      res.status(500).json({ status: "Error fetching deliverers", error: err.message });
-  }
-};
-
-// Function to update a deliverer
-const updateDeliverer = async (req, res) => {
-  try {
-      const userId = req.params.id;
-
-      if (!validateDelivererData(req, res)) {
-          return;
-      }
-
-      const updateDelivererData = req.body;
-      await deliverer.findByIdAndUpdate(userId, updateDelivererData);
-      res.status(200).json({ status: "Deliverer updated" });
-  } catch (err) {
-      console.error(err);
-      res.status(500).json({ status: "Error updating deliverer", error: err.message });
-  }
-};
-
-// Function to delete a deliverer
-const deleteDeliverer = async (req, res) => {
-  try {
-      const userId = req.params.id;
-      await deliverer.findByIdAndDelete(userId);
-      res.status(200).json({ status: "Deliverer deleted" });
-  } catch (err) {
-      console.error(err.message);
-      res.status(500).json({ status: "Error deleting deliverer", error: err.message });
-  }
-};
-
-// Function to retrieve a specific deliverer by ID
-const getDelivererById = async (req, res) => {
-  try {
-      const userId = req.params.id;
-      const user = await deliverer.findById(userId);
-      res.status(200).json({ status: "Deliverer fetched", user });
-  } catch (err) {
-      console.error(err.message);
-      res.status(500).json({ status: "Error fetching deliverer", error: err.message });
-  }
-};
-
-//end of ayeshas crud
 
 module.exports ={
   //driver registration
@@ -328,9 +396,18 @@ module.exports ={
     test,
     registerUser,
     loginUser,
-    getProfile,
+    getProfileA,
     updateUser,
-    deleteUser,
-    handleLogout,
-    submitFeedback,
+  deleteUser,
+  handleLogout,
+  submitFeedback,
+  getTotalUsers,
+  submitSupport,
+  getProfile,
+  getAllUsers,
+  getAllFeedbacks,
+  updateUserA,
+
+
+
 }
