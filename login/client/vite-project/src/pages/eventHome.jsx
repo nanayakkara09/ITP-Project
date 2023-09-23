@@ -11,79 +11,91 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function eventHome() {
     const navigate = useNavigate();
   return (
-    <div className="home-container">
-      <div className="headline"></div>
-    <div className="success-container">
-      
-      
-        <h1>CHOOSE YOUR EVENT </h1>
-        
-        <div className="image-container">
-          <Link to="/event">
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame  ">
-        <img src={event1} alt="event1" />
-        <p>  <span className="emphasis-text">Decide to celebrate,</span>
-              <br />
-              <span className="emphasis-text">it's totally okay to throw your</span>
-              <br />
-              <span className="emphasis-text">own birthday party</span></p>
-
-        </div>
-        </Link>
-        <Link to="/event">
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame ">
-        <img src={event2} alt="event2" />
-        <p>
-              <span className="emphasis-text">Decide to celebrate,</span>
-              <br />
-              <span className="emphasis-text">it's totally okay to throw your</span>
-              <br />
-              <span className="emphasis-text">function</span>
-            </p>
-</div></Link>
-<Link to="/event">
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame">
-        <img src={event4} alt="event4" />
-        <p>
-              <span className="emphasis-text">Decide to celebrate,</span>
-              <br />
-              <span className="emphasis-text">it's totally okay to throw your</span>
-              <br />
-              <span className="emphasis-text">gettogether</span>
-            </p>
+    <div className="front-page-container">
+      <div className="headline">
+        {/* Your headline content goes here */}
+      </div>
+      <div className="success-container">
+        <div className="event-selection-container">
+          <h1>CHOOSE YOUR EVENT</h1>
+          <div className="image-grid">
+            <Link to="/event" className="event-link">
+              <div className="image-card">
+                <img src={event1} alt="event1" />
+                <p>
+                  <span className="emphasis-text">Decide to celebrate,</span>
+                  <br />
+                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <br />
+                  <span className="emphasis-text">own birthday party</span>
+                </p>
+              </div>
+            </Link>
+           
+            <Link to="/event" className="event-link">
+              <div className="image-card">
+                <img src={event2} alt="event2" />
+                <p>
+                  <span className="emphasis-text">Decide to celebrate,</span>
+                  <br />
+                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <br />
+                  <span className="emphasis-text">own birthday party</span>
+                </p>
+              </div>
+            </Link>
+            
+            <Link to="/event" className="event-link">
+              <div className="image-card">
+                <img src={event3} alt="event3" />
+                <p>
+                  <span className="emphasis-text">Decide to celebrate,</span>
+                  <br />
+                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <br />
+                  <span className="emphasis-text">own birthday party</span>
+                </p>
+              </div>
+            </Link>
+            
+            <Link to="/event" className="event-link">
+              <div className="image-card">
+                <img src={event4} alt="event4" />
+                <p>
+                  <span className="emphasis-text">Decide to celebrate,</span>
+                  <br />
+                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <br />
+                  <span className="emphasis-text">own birthday party</span>
+                </p>
+              </div>
+            </Link>
+            {/* Repeat the same structure for other event options */}
           
-        </div></Link>
-        <Link to="/event">
-        <div style={{  color: 'blue', fontSize: '16px'  }}className="frame ">
-        <img src={event3} alt="event3" />
-        <p>
-              <span className="emphasis-text">Decide to celebrate,</span>
-              <br />
-              <span className="emphasis-text">it's totally okay to throw your</span>
-              <br />
-              <span className="emphasis-text">wedding</span>
-            </p>
-            </div></Link>
-        <hr/><hr/>
-        <div className="App">
-        <h2>Thank you for choosing Street Bitz.</h2>
-      </div>
+        </div></div></div>
+          <div className="App">
+            <h2>Thank you for choosing Street Bitz.</h2>
+          </div>
+          <hr />
+          <div className="button-container">
+            <button onClick={() => navigate('/eventDetail')} className="btn btn-primary">
+              Event Details
+            </button>
+            <button onClick={() => navigate('/event')} className="btn btn-primary">
+              Event Proposal
+            </button>
+            <button onClick={() => navigate('/eventAbout')} className="btn btn-primary">
+              About Us
+            </button>
+          </div>
+       
+
+   
       
-     
-      <hr/>
-      <button onClick={() => navigate('/eventDetail')} type="submit" className="btn btn-primary">
-           Event Details
-          </button>
-  
-      <button onClick={() => navigate('/event')} type="submit" className="btn btn-primary">
-           Event Proposal
-          </button>
-          <button onClick={() => navigate('/eventAbout')} type="submit" className="btn btn-primary">
-           About us
-          </button>
+    
       {'\n'}
-      </div>
-      </div>
+   
+      
       <hr />
       <footer className="footer">
         <div className="container">

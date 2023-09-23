@@ -1,68 +1,89 @@
-.image1 {
-    display: flex; /* Use flexbox */
-    align-items: center; /* Vertically center content */
-    gap: 20px; /* Add space between images and text */
-    justify-content: space-between;
-    display: flex; 
-    margin-top: 40px;
-  }
-  
-  /* Style the images if needed */
-  .image-container img {
-    max-width: 200px; /* Adjust the image width as needed */
-    height: auto; /* Maintain the image aspect ratio */
-  }
-  
-  /* Add styles to the text if needed */
-  .emphasis-text {
-    font-weight: bold;
-  }
-  .headline {
-    flex: 1;
-    padding: 20px;
-    text-align: center;
-    color: #000000;
-    margin-bottom: 10px; /* Add vertical space */
-  }
-  .frame {
-    margin-bottom: 20px;
-    padding: 30px;
-    background-color: #f2f2f2;
-    border-radius: 8px;
-    margin-right: 40px; /* Add horizontal spacing between boxes */
-    transition: transform 0.3s ease; /* Add transition effect */
-  }
-      .frame-container {
-        display: flex;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-      .right-frame {
-        padding: 30px;
-        margin-bottom: 20px;
-        float: right; /* Float the div to the right */
-        clear: right; /* Clear any previous floats to ensure proper alignment */
-        border-radius: 8px;
-        margin-right: 40px; /* Add horizontal spacing between boxes */
-        transition: transform 0.3s ease;  /* Add some margin to separate the divs */
-        /* You can adjust the margin as needed */
-      }
-      .left-frame{
-        padding: 30px;
-        margin-bottom: 20px;
-        float:left;
-        clear:right;
-        margin-left: 40px;
-        align-items: normal;
-        transition: transform 0.3s ease;
-      }
-      .note{
-        text-align: center;
-        margin-top: 20px; /* Add margin to separate it from the buttons */
-      }
+/* FrontPage.css */
+.front-page-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
 
-      .App {
-        text-align: center;
-    }
-      
-    
+.headline {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.success-container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.event-selection-container {
+  margin: 20px 0;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.event-options {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.image-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 2fr); /* Two columns */
+  gap: 20px; /* Gap between grid items */
+}
+
+.image-card {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.image-card img {
+  max-width: 100%;
+}
+
+.emphasis-text {
+  font-weight: bold;
+}
+
+hr {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.App {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  text-align: center;
+}
+
+.btn {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
