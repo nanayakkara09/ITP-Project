@@ -14,7 +14,7 @@ router.use(
 )
 
 router.get('/event',event);
-router.put('/eventUpdate',eventUpdate);
+router.post('/eventUpdate',eventUpdate);
 router.delete('/eventDelete',eventDelete);
 router.post('/eventSuccess',eventSuccess);
 router.post('/eventAbout',eventAbout);

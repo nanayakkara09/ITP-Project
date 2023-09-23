@@ -1,17 +1,17 @@
 .form-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 50px;
   background-color: #f9f9f9;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
- 
+ width: 900px;;
   }
 .bg-image {
     position:absolute;
     top: 10px;
     left: 380px;
-    width: 600px;
+    width: 800px;
     height: 60%;
     background-image: url('../images/stf.jpg'); 
     background-size: cover;
@@ -21,7 +21,7 @@
   }
 
   .content {
-    position:fixed;
+    position:absolute;
     z-index: 1;
     padding: 20px;
     text-align: center;

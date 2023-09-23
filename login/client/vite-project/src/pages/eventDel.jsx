@@ -7,7 +7,7 @@ export default function eventDel() {
     const navigate = useNavigate();
   return (
     <div className="success-container">
-      <h1 className="success-heading">Thank You!</h1>
+      <h1 className="success-heading">DELETED!</h1>
       <p>Your request has been successfully processed.</p>
       <p>Thank you for choosing Street Bitz.</p>
 
