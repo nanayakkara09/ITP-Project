@@ -30,12 +30,7 @@ const delivererSchema = new Schema({
         required : true
     },
 
-    vehicleNo : {
-        type : String,
-        required : true
-    },
-
-    deliveryArea : {
+    province : {
         type : String,
         required : true
     },
