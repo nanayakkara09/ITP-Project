@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 
 
+
 export default function eventDelete() {
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -53,7 +54,9 @@ export default function eventDelete() {
 const [isSubmitted, setIsSubmitted]= useState(false);
 
   return (
+   
     <div className="form-container">
+    
       <div className="bg-image"></div>
       <div className="content">
         <h2>DELETE PROPOSAL FORM</h2>
@@ -184,11 +187,13 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <button onClick={() => navigate('/eventDel')} type="submit" className="btn btn-primary">
           Submit
           </button>
+          
           <br /> 
           <br /> 
           <br /> 
         </form>
-      </div>
+      </div><br />
+      <br /><br />
       <footer className="footers">
         <div className="container">
           <hr />

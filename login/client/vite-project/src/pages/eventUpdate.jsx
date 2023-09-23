@@ -192,7 +192,8 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <br /> 
           <br /> 
         </form>
-      </div>
+      </div><br />
+      <br /><br />
       <footer className="footers">
         <div className="container">
           <hr />

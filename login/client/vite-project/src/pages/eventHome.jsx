@@ -12,12 +12,12 @@ export default function eventHome() {
     const navigate = useNavigate();
   return (
     <div className="front-page-container">
-      <div className="headline">
-        {/* Your headline content goes here */}
+      <div className="choose-event-heading">
+      <h1>CHOOSE YOUR EVENT</h1>
       </div>
       <div className="success-container">
         <div className="event-selection-container">
-          <h1>CHOOSE YOUR EVENT</h1>
+          
           <div className="image-grid">
             <Link to="/event" className="event-link">
               <div className="image-card">
@@ -74,9 +74,9 @@ Event branding.</span>
             </Link>
             {/* Repeat the same structure for other event options */}
           
-        </div></div></div>
+        </div></div></div><br />
           <div className="App">
-            <h2>Thank you for choosing Street Bitz.</h2>
+            <h2 >Thank you for choosing Street Bitz.</h2>
           </div>
           <hr />
           <div className="button-container">

@@ -1,19 +1,42 @@
-.background-container {
-    background-image: url('../images/event5.jpg');
-    background-size: cover; /* Adjust as needed */
-    background-repeat: no-repeat; /* Adjust as needed */
-    background-position: center center; /* Adjust as needed */
-    /* Other styles for your container */
-  }
+/* WhyChooseUs.css */
+.why-choose-us-container {
+  text-align: center;
+  padding: 40px 0;
+  background-color: #f9f9f9;
+}
 
- /* Your CSS file */
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
-  
-  .dot-list {
-    list-style-type: disc; /* Use 'disc' for bullet points */
-    padding-left: 20px; /* Adjust as needed for spacing */
-  }
-  
- 
- 
-  
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-icon {
+  font-size: 40px;
+  margin-bottom: 20px;
+  color: #007bff;
+}
+
+h3 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+}

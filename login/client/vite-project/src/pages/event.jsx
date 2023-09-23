@@ -191,10 +191,11 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <br /> <br /> 
         </form>
         <br /> 
-      </div>
+      </div><br /><br /><br />
       <footer className="footers">
         <div className="container">
-          <hr />
+          <br /><br />
+          <br /><hr />
           <p className="text-center">All rights reserved &copy;</p>
         </div>
       </footer>

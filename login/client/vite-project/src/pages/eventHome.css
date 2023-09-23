@@ -5,11 +5,42 @@
   padding: 20px;
 }
 
-.headline {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
+/* CSS */
+.choose-event-heading {
+  text-align: center; /* Center-align the text */
+  position: relative; /* Create a relative positioning context */
 }
+
+.choose-event-heading h1 {
+  display: inline-block; /* Make the heading an inline-block element */
+  position: relative; /* Create a positioning context for ::after pseudo-element */
+  padding-bottom: 10px; /* Space between the text and the lines */
+}
+
+.choose-event-heading h1::after {
+  content: "";
+  position: absolute; /* Position the lines absolutely */
+  bottom: 0;
+  left: 50%; /* Center the lines under the text */
+  transform: translateX(-50%); /* Center the lines under the text */
+  width: 50px; /* Adjust the width of the lines */
+  height: 2px; /* Adjust the height and thickness of the lines */
+  background-color: #000; /* Line color */
+ 
+}
+
+.choose-event-heading h1::before {
+  content: "";
+  position: absolute; /* Position the lines absolutely */
+  bottom: 0;
+  left: 50%; /* Center the lines under the text */
+  transform: translateX(-50%); /* Center the lines under the text */
+  width: 50px; /* Adjust the width of the lines */
+  height: 2px; /* Adjust the height and thickness of the lines */
+  background-color: #000; /* Line color */
+  content: ""; /* Clear the default content */
+}
+
 
 .success-container {
   background-color: #f9f9f9;
@@ -41,7 +72,7 @@ h1 {
 .image-grid {
   display: grid;
   grid-template-columns: repeat(2, 2fr); /* Two columns */
-  gap: 20px; /* Gap between grid items */
+  gap: 10px; /* Gap between grid items */
 }
 
 .image-card {
@@ -53,11 +84,13 @@ h1 {
 }
 
 .image-card img {
-  max-width: 100%;
+  max-width: 50%;
 }
 
 .emphasis-text {
   font-weight: bold;
+  color: #3e2424;
+  font-style: oblique;
 }
 
 hr {
@@ -75,7 +108,7 @@ hr {
 }
 
 .btn {
-  background-color: #007bff;
+  background-color: #4800ff;
   color: #fff;
   padding: 10px 20px;
   border: none;
@@ -85,5 +118,11 @@ hr {
 }
 
 .btn:hover {
-  background-color: #0056b3;
+  background-color: #2400b3;
+}
+.App{
+  
+  color: rgb(22, 21, 21); /* Choose the text color that works well with the highlight color */
+  padding: 10px; /* Adjust the padding as needed */
+  
 }

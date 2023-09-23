@@ -3,31 +3,33 @@ import event5 from '../images/event5.jpg';
 
 export default function eventAbout() {
   return (
-    <div className="background-container" >
-     <div className="content">
-     <div className="centered-content">
-      <h2>Why Choose Us</h2>
-      <ul className="dot-list">
-        <li>
-          <div className="box">
-            <p>Latest Equipment</p>
-            <p>We will e-curate your event using the latest technology of event equipment available in the market.</p>
+    
+     <div className="why-choose-us-container"><br /><br />
+      <h1>Why Choose Us</h1>
+      <div className="card-container">
+        <div className="card">
+          <div className="card-icon">
+            <i className="fas fa-cogs"></i>
           </div>
-        </li>
-        <li>
-          <div className="box">
-            <p>Experience And Expertise</p>
-            <p>We have been working as Event Planners for the last 5 years, now working extensively with various clients and events.</p>
+          <h3>Latest Equipment</h3>
+          <p>We curate your event using the latest technology and equipment available in the market.</p>
+        </div>
+        <div className="card">
+          <div className="card-icon">
+            <i className="fas fa-users"></i>
           </div>
-        </li>
-        <li>
-          <div className="box">
-            <p>Cost Efficient</p>
-            <p>Though our services are affordable, we never compromise with the quality provided to clients.</p>
+          <h3>Experience & Expertise</h3>
+          <p>With 5 years of experience, we work extensively with various clients and events.</p>
+        </div>
+        <div className="card">
+          <div className="card-icon">
+            <i className="fas fa-money-check"></i>
           </div>
-        </li>
-      </ul>
-    </div></div>
+          <h3>Cost Efficient</h3>
+          <p>Our services are affordable without compromising on quality.</p>
+        </div>
+      </div>
+   
       <hr />
       <footer className="footer">
         <div className="container">

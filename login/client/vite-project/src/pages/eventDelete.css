@@ -1,5 +1,10 @@
-.form-containerr {
-    position: relative;
+.form-container {
+  max-width: 20px;
+  margin: 0 auto;
+  padding: 50px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   }
 .bg-image {
     position: fixed;
@@ -26,8 +31,15 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
+    width: 50%;
     color: #000000;
     padding: 20px;
     text-align: center;
+  }
+  .form-control {
+    width: 50%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
   }
