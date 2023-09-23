@@ -3,8 +3,8 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
-
+import './eventDelete.css';
+import event5 from '../images/event5.jpg';
 
 
 export default function eventDelete() {
@@ -54,10 +54,10 @@ export default function eventDelete() {
 const [isSubmitted, setIsSubmitted]= useState(false);
 
   return (
-   
+  
     <div className="form-container">
-    
-      <div className="bg-image"></div>
+   
+     
       <div className="content">
         <h2>DELETE PROPOSAL FORM</h2>
         <form onSubmit={eventDelete}>
@@ -191,15 +191,15 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <br /> 
           <br /> 
           <br /> 
-        </form>
-      </div><br />
-      <br /><br />
-      <footer className="footers">
-        <div className="container">
-          <hr />
-          <p className="text-center">All rights reserved &copy;</p>
-        </div>
+        </form></div>
+    
+    
+      
+          <footer className="footers">
+          <div className="container">
+            <hr />
+            <p className="text-center">All rights reserved &copy;</p></div>
       </footer>
-    </div>
+    </div>  
   );
 }

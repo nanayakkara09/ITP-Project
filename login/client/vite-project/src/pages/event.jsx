@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.css';
+
+import './event.css';
 
 
 export default function event() {
@@ -54,7 +54,7 @@ const [isSubmitted, setIsSubmitted]= useState(false);
 
   return (
     <div className="form-container">
-      <div className="bg-image"></div>
+      
       <div className="content">
         <h2>EVENT PROPOSAL FORM</h2>
         <form onSubmit={event}>
@@ -191,11 +191,10 @@ const [isSubmitted, setIsSubmitted]= useState(false);
           <br /> <br /> 
         </form>
         <br /> 
-      </div><br /><br /><br />
+      </div>
       <footer className="footers">
         <div className="container">
-          <br /><br />
-          <br /><hr />
+          <hr />
           <p className="text-center">All rights reserved &copy;</p>
         </div>
       </footer>

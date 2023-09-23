@@ -1,14 +1,13 @@
 import React from 'react';
-import './eventSuccess.css';
+import './eventDel.css';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 export default function eventDel() {
     const navigate = useNavigate();
   return (
-    <div className="success-page-container">
-    <div className="content">
-      <h1 className="success-heading">DELETED!</h1>
+    <div className="success-container">
+      <h1 className="success-heading">Thank You!</h1>
       <p>Your request has been successfully processed.</p>
       <p>Thank you for choosing Street Bitz.</p>
 
@@ -16,16 +15,11 @@ export default function eventDel() {
         <Link to="/eventHome" className="btn btn-primary">
           Event Home
         </Link>
+        <button onClick={() => navigate('/eventDetail')} className="btn btn-primary">
+          Event Details
+        </button>
       </div>
-    <br />
-      <button onClick={() => navigate('/eventDetail')} type="submit" className="btn btn-primary">
-           Event Details
-          </button>
-      {'\n'}
-      {'\n'}
-     {'\n'}
-      </div>
-     
+    
       <hr />
       <footer className="footer">
         <div className="container">
