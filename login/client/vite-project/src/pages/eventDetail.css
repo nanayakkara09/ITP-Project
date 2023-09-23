@@ -1,32 +1,44 @@
 /* Apply styles to the table and its cells */
-.event-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  
-  .event-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  /* Style the table header cells */
-  .event-table th {
-    background-color: #f2f2f2;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  /* Style the button */
-  .btn {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .btn:hover {
-    background-color: #0056b3;
-  }
-  
+/* EventDetails.css */
+.event-details-container {
+  padding: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.content {
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+
+.event-proposal-details {
+  margin-top: 20px;
+}
+
+ul.event-table {
+  list-style: none;
+  padding: 0;
+}
+
+ul.event-table li {
+  margin-bottom: 10px;
+}
+
+ul.event-table li strong {
+  font-weight: bold;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
