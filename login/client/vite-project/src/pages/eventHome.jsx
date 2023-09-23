@@ -5,7 +5,7 @@ import event2 from '../images/event2.jpg';
 import event3 from '../images/event3.jpg';
 
 import event4 from '../images/3.jpg';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 export default function eventHome() {
@@ -15,8 +15,11 @@ export default function eventHome() {
       <div className="headline"></div>
     <div className="success-container">
       
+      
         <h1>CHOOSE YOUR EVENT </h1>
+        
         <div className="image-container">
+          <Link to="/event">
         <div style={{  color: 'blue', fontSize: '16px'  }}className="frame  ">
         <img src={event1} alt="event1" />
         <p>  <span className="emphasis-text">Decide to celebrate,</span>
@@ -24,9 +27,10 @@ export default function eventHome() {
               <span className="emphasis-text">it's totally okay to throw your</span>
               <br />
               <span className="emphasis-text">own birthday party</span></p>
-        </div>
-        
 
+        </div>
+        </Link>
+        <Link to="/event">
         <div style={{  color: 'blue', fontSize: '16px'  }}className="frame ">
         <img src={event2} alt="event2" />
         <p>
@@ -36,7 +40,8 @@ export default function eventHome() {
               <br />
               <span className="emphasis-text">function</span>
             </p>
-</div>
+</div></Link>
+<Link to="/event">
         <div style={{  color: 'blue', fontSize: '16px'  }}className="frame">
         <img src={event4} alt="event4" />
         <p>
@@ -47,8 +52,8 @@ export default function eventHome() {
               <span className="emphasis-text">gettogether</span>
             </p>
           
-        </div>
-
+        </div></Link>
+        <Link to="/event">
         <div style={{  color: 'blue', fontSize: '16px'  }}className="frame ">
         <img src={event3} alt="event3" />
         <p>
@@ -58,11 +63,12 @@ export default function eventHome() {
               <br />
               <span className="emphasis-text">wedding</span>
             </p>
-            </div>
+            </div></Link>
         <hr/><hr/>
-        <div className="note">
-        <p>Thank you for choosing Street Bitz.</p>
+        <div className="App">
+        <h2>Thank you for choosing Street Bitz.</h2>
       </div>
+      
      
       <hr/>
       <button onClick={() => navigate('/eventDetail')} type="submit" className="btn btn-primary">
