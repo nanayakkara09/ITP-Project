@@ -36,11 +36,10 @@ export default function eventHome() {
               <div className="image-card">
                 <img src={event2} alt="event2" />
                 <p>
-                  <span className="emphasis-text">Decide to celebrate,</span>
                   <br />
-                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <span className="emphasis-text"> Promotion Ideas for Your Event Planning Business .<br /> . Referral programs and discounts .<br /> . Expos and trade shows ·<br /> . Create virtual “events” and webinars.</span>
                   <br />
-                  <span className="emphasis-text">own birthday party</span>
+                  <span className="emphasis-text">Start spreading the news<br  /> · Embrace your brand ·<br />. Good planning practices · <br />.Engaging with customers.</span>
                 </p>
               </div>
             </Link>
@@ -49,11 +48,14 @@ export default function eventHome() {
               <div className="image-card">
                 <img src={event3} alt="event3" />
                 <p>
-                  <span className="emphasis-text">Decide to celebrate,</span>
+                  <span className="emphasis-text">Decide on your wedding priorities. </span>
                   <br />
-                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <span className="emphasis-text">Create a wedding binder.</span>
                   <br />
-                  <span className="emphasis-text">own birthday party</span>
+                  <span className="emphasis-text">Choosing an ideal event date and time.
+Create an event master plan.
+Estimate an event budget.
+Event branding.</span>
                 </p>
               </div>
             </Link>
@@ -62,9 +64,9 @@ export default function eventHome() {
               <div className="image-card">
                 <img src={event4} alt="event4" />
                 <p>
-                  <span className="emphasis-text">Decide to celebrate,</span>
+                  
                   <br />
-                  <span className="emphasis-text">it's totally okay to throw your</span>
+                  <span className="emphasis-text">Contact Us Today To Discuss Your Special Event And Book A Tour Of Our Premises. All The Personal Service Of A Long-Established Family-Run Business. Flexible Layouts.</span>
                   <br />
                   <span className="emphasis-text">own birthday party</span>
                 </p>

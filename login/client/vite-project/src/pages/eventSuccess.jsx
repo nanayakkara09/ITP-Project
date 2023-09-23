@@ -1,21 +1,26 @@
 import React from 'react';
+import './eventSuccess.css';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 export default function eventSuccess() {
   const navigate = useNavigate();
   return (
-    <div className="success-container">
-      <div className="content">
-        <h2>Thank You!</h2>
-        <p>Your request has been successfully processed.</p>
-        <p>Thank you for choosing Street Bitz.</p>
+    <div className="success-page-container">
+    <div className="content">
+      <h1 className="success-heading">SUBMITTED!</h1>
+      <h1 className="success-heading">Thank You!</h1>
+      <p>Your request has been successfully processed.</p>
+      <p>Thank you for choosing Street Bitz.</p>
 
-        {'\n'}
-      <button onClick={() => navigate('/eventHome')} type="submit" className="btn btn-primary">
-           Event Home
-          </button>
-      {'\n'}
+      <div className="button-container">
+        <Link to="/eventHome" className="btn btn-primary">
+          Event Home
+        </Link>
       </div>
+    </div>
+  
       <hr />
       <footer className="footer">
         <div className="container">
