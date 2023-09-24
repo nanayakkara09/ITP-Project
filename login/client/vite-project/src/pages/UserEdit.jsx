@@ -42,7 +42,7 @@ export default function UserEdit() {
   }, [userId]);
   
 
-  const updateUser = async () => {
+  const updateUserA = async () => {
     try {
       await axios.put(`/usersA/${userId}`, {
         ...data,
@@ -116,7 +116,7 @@ export default function UserEdit() {
           <button
   type="button"
   className="btn btn-primary"
-  onClick={updateUser}
+  onClick={updateUserA}
 >
   Update User
 </button>

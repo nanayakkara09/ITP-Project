@@ -19,8 +19,8 @@ router.get('/',test)
 router.post('/register',registerUser)
 router .post('/login',loginUser)
 router.get('/profile', getProfile)
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
+router.put('/usersB/:id', updateUser);
+router.delete('/usersD/:id', deleteUser);
 router.post('/logout', handleLogout);
 router.post('/submit-feedback', submitFeedback);
 router.get('/total-users',getTotalUsers)
