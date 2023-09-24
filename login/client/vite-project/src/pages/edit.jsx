@@ -24,6 +24,8 @@ export default function Edit() {
         setData({
           name: data.name,
           address: data.address,
+          city: data.city,
+          province: data.province,
           phonenumber: data.phonenumber,
           email: data.email,
           password: '', 
@@ -93,6 +95,34 @@ export default function Edit() {
                 placeholder="Enter Address..."
                 value={data.address}
                 onChange={(e) => setData({ ...data, address: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className="form-group row">
+            <label htmlFor="city" className="col-sm-2 col-form-label">
+              city
+            </label>
+            <div className="col-sm-10">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter city..."
+                value={data.city}
+                onChange={(e) => setData({ ...data, city: e.target.value })}
+              />
+            </div>
+          </div>
+          <div className="form-group row">
+            <label htmlFor="province" className="col-sm-2 col-form-label">
+            province
+            </label>
+            <div className="col-sm-10">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter province..."
+                value={data.province}
+                onChange={(e) => setData({ ...data, province: e.target.value })}
               />
             </div>
           </div>
