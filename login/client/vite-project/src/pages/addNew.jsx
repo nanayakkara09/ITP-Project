@@ -7,7 +7,7 @@ export default function NewItemForm() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
 
-    category: 'Select a category',
+    
     itemcode: '',
     name: '',
     description: '',
@@ -34,20 +34,7 @@ export default function NewItemForm() {
     <div className="new-item-form-container">
       <h2>Add New Item</h2>
       <form onSubmit={handleSubmit}>
-      <div className="form-group">
-          <label htmlFor="category">Category:</label>
-          <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-          >
-            <option value="Select a category">Select a category</option>
-            <option value="Category 1">Food</option>
-            <option value="Category 2">Furniture</option>
-            <option value="Category 3">Machinery</option>         
-         </select>
-        </div>
+      
         <div className="form-group">
           <label htmlFor="itemcode">Item Code:</label>
           <input

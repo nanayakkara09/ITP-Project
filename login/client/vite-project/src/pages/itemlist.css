@@ -36,7 +36,8 @@
 .search-button,
 .add-new-button,
 .Edit-button,
-.view-button 
+.view-button ,
+.Delete-button
 {
   padding: 10px 20px;
   margin-left: 10px;
