@@ -4,6 +4,8 @@ const { Schema } = mongoose;
 const userSchema = new Schema({
   name: String,
   address: String,
+  city: String,
+  province: String,
   phonenumber: Number,
   email: {
     type: String,

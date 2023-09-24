@@ -28,6 +28,14 @@ export default function Profile() {
               <span className="profile-value">{user.address}</span>
             </div>
             <div className="profile-section">
+              <label className="profile-label">city:</label>
+              <span className="profile-value">{user.city}</span>
+            </div>
+            <div className="profile-section">
+              <label className="profile-label">province:</label>
+              <span className="profile-value">{user.province}</span>
+            </div>
+            <div className="profile-section">
               <label className="profile-label">Phone Number:</label>
               <span className="profile-value">{user.phonenumber}</span>
             </div>

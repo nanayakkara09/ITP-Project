@@ -11,6 +11,8 @@ export default function Register() {
   const [data, setData] = useState({
     name: '',
     address: '',
+    city:'',
+    province:'',
     phonenumber: '',
     email: '',
     password: '',
@@ -18,6 +20,18 @@ export default function Register() {
     securityQuestion: '', 
     securityAnswer: '',   
   });
+
+  const provincesInSriLanka = [
+    'Central Province',
+    'Eastern Province',
+    'North Central Province',
+    'Northern Province',
+    'North Western Province',
+    'Sabaragamuwa Province',
+    'Southern Province',
+    'Uva Province',
+    'Western Province',
+  ];
 
   const securityQuestions = [
     'What is your mother\'s maiden name?',
@@ -27,12 +41,14 @@ export default function Register() {
 
   const registerUser = async (e) => {
     e.preventDefault();
-    const { name, address, phonenumber, email, password, userType, securityQuestion, securityAnswer } = data;
+    const { name, address,city,province, phonenumber, email, password, userType, securityQuestion, securityAnswer } = data;
 
     try {
       const { data: response } = await axios.post('/register', {
         name,
         address,
+        city,
+        province,
         phonenumber,
         email,
         password,
@@ -47,6 +63,8 @@ export default function Register() {
         setData({
           name: '',
           address: '',
+          city:'',
+          province:'',
           phonenumber: '',
           email: '',
           password: '',
@@ -93,6 +111,37 @@ export default function Register() {
                 value={data.address}
                 onChange={(e) => setData({ ...data, address: e.target.value })}
               />
+            </div>
+          </div>
+          <br></br>
+          <div className="form-group row">
+            <label htmlFor="city" className="col-sm-2 col-form-label">city</label>
+            <div className="col-sm-10">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter city..."
+                value={data.city}
+                onChange={(e) => setData({ ...data, city: e.target.value })}
+              />
+            </div>
+          </div>
+          <br></br>
+          <div className="form-group row">
+            <label htmlFor="province" className="col-sm-2 col-form-label">Province</label>
+            <div className="col-sm-10">
+              <select
+                className="form-control"
+                value={data.province}
+                onChange={(e) => setData({ ...data, province: e.target.value })}
+              >
+                <option value="">Select your province</option>
+                {provincesInSriLanka.map((province, index) => (
+                  <option key={index} value={province}>
+                    {province}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <br></br>
@@ -197,7 +246,7 @@ export default function Register() {
             </div>
           </div>
           <br></br>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="btn btn-primary" onClick={registerUser}>
             Submit
           </button>
         </form> 

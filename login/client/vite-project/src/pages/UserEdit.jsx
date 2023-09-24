@@ -10,6 +10,8 @@ export default function UserEdit() {
   const [data, setData] = useState({
     name: '',
     address: '',
+    city:'',
+    province:'',
     phonenumber: '',
     email: '',
   });
@@ -23,6 +25,8 @@ export default function UserEdit() {
           setData({
             name: data.name,
             address: data.address,
+            city: data.city,
+            province:data.province,
             phonenumber: data.phonenumber,
             email: data.email,
           });
@@ -84,6 +88,28 @@ export default function UserEdit() {
               placeholder="Enter address"
               value={data.address}
               onChange={(e) => setData({ ...data, address: e.target.value })}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="city">city</label>
+            <input
+              type="text"
+              className="form-control"
+              id="city"
+              placeholder="Enter city"
+              value={data.city}
+              onChange={(e) => setData({ ...data, city: e.target.value })}
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="province">province</label>
+            <input
+              type="text"
+              className="form-control"
+              id="province"
+              placeholder="Enter province"
+              value={data.province}
+              onChange={(e) => setData({ ...data, province: e.target.value })}
             />
           </div>
           <div className="form-group">
