@@ -14,7 +14,11 @@ export default function Profile() {
       <div className="content">
         <h1>Profile</h1>
         {user ? (
-          <div className="profile-box"> {/* Wrap the entire profile section */}
+          <div className="profile-box"> 
+          <div className="profile-section">
+              <label className="profile-label">id:</label>
+              <span className="profile-value">{user._id}</span>
+            </div>
             <div className="profile-section">
               <label className="profile-label">Name:</label>
               <span className="profile-value">{user.name}</span>
@@ -32,9 +36,9 @@ export default function Profile() {
               <span className="profile-value">{user.email}</span>
             </div>
             <div className="edit-button1">
-              <Link to="/edit">
-                <button>Edit Account</button>
-              </Link>
+            <Link to={`/edit/${user._id}`}>
+  <button>Edit Account</button>
+</Link>
             </div>
           </div>
         ) : (

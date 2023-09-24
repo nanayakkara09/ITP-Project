@@ -1,17 +1,17 @@
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserContext } from "../../contex/userContex";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css';
-import React from 'react';
-import AdminNavBar from '../components/adminNavBar'; 
-import './admin-dashbord.css';
+import "bootstrap/dist/css/bootstrap.css";
+import AdminNavBar from "../components/adminNavBar";
+import "./admin-dashbord.css";
 
 export default function AdminDashboard() {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [totalUsers, setTotalUsers] = useState(null);
   const [isLoading, setIsLoading] = useState(true); // Add loading state
+  const [showDropdown, setShowDropdown] = useState(false); // State to manage dropdown visibility
 
   useEffect(() => {
     if (!user) {
@@ -33,12 +33,16 @@ export default function AdminDashboard() {
 
   const handleLogout = async () => {
     try {
-      await axios.post('/logout');
+      await axios.post("/logout");
       setUser(null);
-      navigate('/login');
+      navigate("/login");
     } catch (error) {
       console.log(error);
     }
+  };
+
+  const toggleDropdown = () => {
+    setShowDropdown(!showDropdown);
   };
 
   return (
@@ -49,7 +53,7 @@ export default function AdminDashboard() {
        
 
       <div className="bg-image"></div>
-      <div className='content'>
+      <div className="content">
         <div className="black-box">
           <br></br>
           <Link to='/customerAdmin' className="vertical-text">Customer</Link>
@@ -58,7 +62,7 @@ export default function AdminDashboard() {
           <div className="vertical-text">Employee</div>
           <div className="vertical-text">Order</div>
           <div className="vertical-text">Delivery</div>
-          <div className="vertical-text">Inventory</div>
+          <Link to='/invList' className="vertical-text">Inventory</Link>
           <div className="vertical-text">Finance</div>
         </div>
         <br></br>

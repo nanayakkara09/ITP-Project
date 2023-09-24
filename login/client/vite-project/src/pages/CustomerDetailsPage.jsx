@@ -42,7 +42,6 @@ export default function CustomerDetailsPage() {
     if (shouldDelete) {
       try {
         await axios.delete(`/users/${userId}`);
-        // Remove the deleted user from the user list
         setUserList((prevUserList) => prevUserList.filter((user) => user._id !== userId));
         toast.success('User deleted successfully');
       } catch (error) {
@@ -64,7 +63,6 @@ export default function CustomerDetailsPage() {
   };
 
   const handlePrint = () => {
-
     window.print(); 
 
 

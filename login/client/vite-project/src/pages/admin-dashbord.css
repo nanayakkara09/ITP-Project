@@ -37,3 +37,52 @@
     font-style: italic;
     color: #555; /* Text color for loading text */
   }
+  /* admin-dashbord.css */
+
+/* Styling for the dropdown button */
+.dropdown {
+  display: inline-block;
+  position: relative;
+  margin-right: 20px; /* Adjust margin as needed */
+}
+
+.dropdown-toggle {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Styling for the dropdown menu */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 0;
+  z-index: 1;
+}
+
+/* Show the dropdown menu when the dropdown is open */
+.dropdown.show .dropdown-menu {
+  display: block;
+}
+
+/* Style for dropdown items */
+.dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.dropdown-item:hover {
+  background-color: #f0f0f0;
+}
+
