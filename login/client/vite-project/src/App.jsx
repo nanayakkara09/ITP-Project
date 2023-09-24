@@ -2,7 +2,7 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
-import { Routes, Route} from 'react-router-dom';
+import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
 import Home from '../src/pages/Home';
 import Login from '../src/pages/Login';
@@ -24,6 +24,9 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
+import ItemDetails from '../src/pages/itemDetails';
+import AddStock from '../src/pages/addStock';
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -44,6 +47,10 @@ function App() {
       <Route path="/itemlist" element={<Itemlist />} />
       <Route path="/addNew" element={<AddNew />} />
       <Route path="/invEdit/:itemId" element={<InvEdit />} />
+      <Route path="/itemDetails/:itemcode" element={<ItemDetails />} />
+      <Route path="/addStock/:itemcode" element={<AddStock />} />
+
+
 
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />

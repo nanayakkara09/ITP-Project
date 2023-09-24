@@ -9,6 +9,7 @@ import './invList.css'
 
 function InvList() {
     const navigate = useNavigate();
+    const category = {"Food":"Food"};
 
   
 
@@ -21,23 +22,23 @@ function InvList() {
         <br></br>
         <div className="inv-list food-list">
           <h3>Food</h3>
-          <Link to="/itemlist">View Food Item Details</Link>
+          <Link to={{ pathname: "/itemlist", state: { category: "Food" } }}>View Food Item Details</Link>
         </div>
         <div className="inv-list furniture-list">
           <h3>Furniture</h3>
-          <Link to="/seefeedbacks">View Furniture Item Details</Link>
+          <Link to={{ pathname: "/itemlist", state:  "Furniture" }}>View Furniture Item Details</Link>
         </div>
         <div className="inv-list machinery-list">
           <h3>Machinery</h3>
-          <Link to="/seesupport">View Machinery Item Details</Link>
+          <Link to={{ pathname: "/itemlist", state:  "Machinery" }}>View Machinery Item Details</Link>
         </div>
         <div className="inv-list issued-list">
           <h3>Issued</h3>
-          <Link to="/seefeedbacks">View Issued Item Details</Link>
+          <Link to={{ pathname: "/itemlist", state:  "Issued" }}>View Issued Item Details</Link>
         </div>
         <div className="inv-list reports-list">
           <h3>Reports</h3>
-          <Link to="/seesupport">Generate Reports</Link>
+          <Link to={{ pathname: "/itemlist", state:  "Reports" }}>Generate Reports</Link>
         </div>
       </div>
     </div>

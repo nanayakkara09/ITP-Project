@@ -76,10 +76,22 @@ const getAllItems = async (req, res) => {
       res.status(500).json({ error: 'Error fetching inventory items' });
     }
   };
+  const getItembyItemcode = async (req, res) => {
+    try {
+        console.log(req.params.itemcode)
+      const items = await Inventory.find( { itemcode: req.params.itemcode });
+      res.json(item);
+      console.log(req.itemcode);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching inventory items' });
+    }
+  };
 module.exports ={
     addNew,
     getAllItems,
     getItem,
     updateItem,
-    deleteItem
+    deleteItem,
+    getItembyItemcode
 }

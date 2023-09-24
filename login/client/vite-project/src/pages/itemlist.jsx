@@ -3,11 +3,14 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
 import './itemlist.css'; // Import the CSS file for styling
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
-export default function itemlist() {
+export default function itemlist(props) {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
+  console.log(location)
+  const category = location.state;
 
   useEffect(() => {
     const fetchItemList = async () => {
@@ -53,7 +56,7 @@ export default function itemlist() {
       <div><AdminNavBar /></div>
       <div className='container'>
         <div className='title'>
-          <h1 className="item-list-title">Food Item List</h1>
+          <h1 className="item-list-title">{category} Item List</h1>
         </div>
 
         <div className="item-list-buttons">
@@ -84,7 +87,7 @@ export default function itemlist() {
             <tbody>
               {items.map((item, index) => (
                 <tr key={index}>
-                  <td><button className="view-button">View</button></td>
+                  <td><Link to={`/itemDetails/${item.itemcode}`}><button className="view-button">View</button></Link></td>
                   <td>{item.itemcode}</td>
                   <td>{item.name}</td>
                   <td>{item.description}</td>

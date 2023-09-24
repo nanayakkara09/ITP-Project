@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './addNew.css'; // Import the CSS file for styling
-import { useNavigate } from 'react-router-dom';
+//import './addStock.css'; // Import the CSS file for styling
+import { useNavigate, useParams } from 'react-router-dom';
 
 export default function NewItemForm() {
   const navigate = useNavigate();
+  const { itemcode } = useParams();
   const [formData, setFormData] = useState({
 
     
-    itemcode: '',
-    name: '',
-    description: '',
-    quantity: 0,
-    reorder: '',
+    date: '',
+    supplier: '',
+    quantity: '',
+    price: ''
+    
     
   });
 
@@ -24,57 +25,58 @@ export default function NewItemForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData)
-    const{name,description,quantity,category,reorder,itemcode}= formData 
-    const {data} =await axios.post('./inventory/',{name,description,quantity,reorder,itemcode})
+    const{date,supplier,quantity,price}= formData 
+    const {data} =await axios.post('./invDetails/',{date,supplier,quantity,price,itemcode})
     console.log('Form data submitted:', formData);
-    navigate('/itemlist');
+    navigate(`/itemDetails/${itemcode}`);
   };
 
   return (
-    <div className="new-item-form-container">
-      <h2>Add New Item</h2>
+    <div className="add-stock-container">
+      <h2>Add Stock</h2>
       <form onSubmit={handleSubmit}>
       
         <div className="form-group">
-          <label htmlFor="itemcode">Item Code:</label>
+          <label htmlFor="date">Date:</label>
           <input
-            type="text"
-            id="itemCode"
-            name="itemcode"
-            value={formData.itemCode}
+            type="date"
+            id="date"
+            name="date"
+            value={formData.date}
             onChange={handleChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          <label htmlFor="supplier">Supplier:</label>
           <input
             type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <label htmlFor="description">Description:</label>
-          <textarea
-            id="description"
-            name="description"
-            value={formData.description}
+            id="supplier"
+            name="supplier"
+            value={formData.supplier}
             onChange={handleChange}
             required
           />
         </div>
         
         <div className="form-group">
-          <label htmlFor="reorder">Reorder Level:</label>
+          <label htmlFor="quantity">Quantity:</label>
           <input
             type="number"
-            id="reorder"
-            name="reorder"
-            value={formData.reorder}
+            id="quantity"
+            name="quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="price">Price:</label>
+          <input
+            type="number"
+            id="price"
+            name="price"
+            value={formData.price}
             onChange={handleChange}
             required
           />
