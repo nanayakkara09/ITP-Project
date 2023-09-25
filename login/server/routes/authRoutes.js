@@ -2,7 +2,10 @@ const express =require('express');
 const router = express.Router();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout}=require('../controllers/authController')
+
+
+const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout,submitFeedback,getTotalUsers, submitSupport,getAllUsers,getAllFeedbacks,getProfileA, updateUserA}=require('../controllers/authController');
+
 
 //middleware
 router.use(
@@ -16,9 +19,18 @@ router.get('/',test)
 router.post('/register',registerUser)
 router .post('/login',loginUser)
 router.get('/profile', getProfile)
-router.put('/users/:id', updateUser);
-router.delete('/users/:id', deleteUser);
+router.put('/usersB/:id', updateUser);
+router.delete('/usersD/:id', deleteUser);
 router.post('/logout', handleLogout);
+router.post('/submit-feedback', submitFeedback);
+router.get('/total-users',getTotalUsers)
+router.post('/submitsupport', submitSupport);
+router.get('/all-users', getAllUsers);
+router.get('/all-feedbacks', getAllFeedbacks);
+router.get('/profileA/:id', getProfileA);
+router.put('/usersA/:id', updateUserA);
+
+
 
 
 

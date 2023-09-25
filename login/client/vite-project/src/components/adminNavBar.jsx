@@ -3,11 +3,10 @@ import { UserContext } from "../../contex/userContex";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import "../components/NavBar.css";
-import logo from "../images/123.png";
-import "./NavBar.css"
+import "./adminNavBar.css"
 
-export default function NavBar() {
+
+export default function AdminNavBar() {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -27,23 +26,10 @@ export default function NavBar() {
   };
 
   return (
-    <div className="menu-bar1">
-       <div className="logo1">
-        <img src={logo} alt="../image/123.png" />
-      </div>
-      <Link to={user ? "/dashbord" : "/"}>Home</Link>
-      {!user ? (
-        <>
-
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
-        </>
-      ) : (
-        <>
-         <Link to="/profile">Profile</Link>
-          <button onClick={handleLogout}>Logout</button>
-        </>
-      )}
+    <div className="menu-bar">
+      
+      <Link to="/admin-dashbord">Dashboard</Link>
+      <button onClick={handleLogout}>Logout</button>
     </div>
   );
 }
