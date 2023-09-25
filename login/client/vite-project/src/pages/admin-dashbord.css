@@ -34,7 +34,7 @@
   
   /* Style for loading text (optional) */
   .total-users-box.loading-text {
-    font-style: italic;
+    font-style: italic ;
     color: #aeaeae; /* Text color for loading text */
   }
   /* admin-dashbord.css */
