@@ -118,6 +118,7 @@ export default function UserEdit() {
               onChange={(e) => setData({ ...data, city: e.target.value })}
             />
           </div>
+          <br></br>
           <div className="form-group row">
             <label htmlFor="province" className="col-sm-2 col-form-label">Province</label>
             <div className="col-sm-10">
