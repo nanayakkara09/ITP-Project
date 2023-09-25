@@ -122,7 +122,7 @@ export default function UserEdit() {
               <div className="valid-feedback">Valid.</div>
               <div className="invalid-feedback">Please fill out this field.</div>
             </div>
-          </div
+          </div>
         </div>
   
         <div className="row">
