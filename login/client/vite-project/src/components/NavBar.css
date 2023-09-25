@@ -45,3 +45,28 @@
   width: auto; /* Maintain the aspect ratio */
   margin-left: 5px; /* Add some spacing between the logo and the links */
 }
+
+/* Add these styles to your existing CSS file */
+.contact-info-dropdown {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  top: 100%; /* Position the box below the "Contact Us" button */
+  left: 20;
+  display: none; /* Initially hide the box */
+  color: #000000;
+}
+
+.menu-bar1:hover .contact-info-dropdown {
+  display: block; /* Show the box when hovering over the "Contact Us" button */
+}
+
+.white-box {
+  /* Additional styles for the white box */
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}

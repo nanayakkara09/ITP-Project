@@ -11,10 +11,23 @@ export default function Edit() {
   const [data, setData] = useState({
     name: '',
     address: '',
+    city:'',
+    province:'',
     phonenumber: '',
     email: '',
     password: '',
   });
+  const provincesInSriLanka = [
+    'Central Province',
+    'Eastern Province',
+    'North Central Province',
+    'Northern Province',
+    'North Western Province',
+    'Sabaragamuwa Province',
+    'Southern Province',
+    'Uva Province',
+    'Western Province',
+  ];
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -60,6 +73,10 @@ export default function Edit() {
       toast.error('Failed to delete user');
     }
   };
+  const validateLetters = (input) => {
+    const regex = /^[A-Za-z]+$/; // Regular expression to allow only letters (A-Z, a-z)
+    return regex.test(input) || input === '';
+  };
 
   return (
     <div className="form-container">
@@ -73,13 +90,17 @@ export default function Edit() {
               Name
             </label>
             <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter name..."
-                value={data.name}
-                onChange={(e) => setData({ ...data, name: e.target.value })}
-              />
+            <input
+  type="text"
+  className="form-control"
+  placeholder="Enter name..."
+  value={data.name}
+  onChange={(e) => {
+    if (validateLetters(e.target.value)) {
+      setData({ ...data, name: e.target.value });
+    }
+  }}
+/>
             </div>
           </div>
           <br />
@@ -103,27 +124,34 @@ export default function Edit() {
               city
             </label>
             <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter city..."
-                value={data.city}
-                onChange={(e) => setData({ ...data, city: e.target.value })}
-              />
+            <input
+  type="text"
+  className="form-control"
+  placeholder="Enter nacityme..."
+  value={data.city}
+  onChange={(e) => {
+    if (validateLetters(e.target.value)) {
+      setData({ ...data, city: e.target.value });
+    }
+  }}
+/>
             </div>
           </div>
           <div className="form-group row">
-            <label htmlFor="province" className="col-sm-2 col-form-label">
-            province
-            </label>
+            <label htmlFor="province" className="col-sm-2 col-form-label">Province</label>
             <div className="col-sm-10">
-              <input
-                type="text"
+              <select
                 className="form-control"
-                placeholder="Enter province..."
                 value={data.province}
                 onChange={(e) => setData({ ...data, province: e.target.value })}
-              />
+              >
+                <option value="">Select your province</option>
+                {provincesInSriLanka.map((province, index) => (
+                  <option key={index} value={province}>
+                    {province}
+                  </option>
+                ))}
+              </select>
             </div>
           </div>
           <br />
