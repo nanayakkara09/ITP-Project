@@ -37,7 +37,7 @@ export default function AdminNavBar() {
       </Link>
       <button onClick={handleLogout}>
         <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-      </button>
+      </button >
     </div>
   );
 }
