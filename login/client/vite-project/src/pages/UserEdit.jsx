@@ -58,7 +58,10 @@ export default function UserEdit() {
       toast.error('Failed to update user');
     }
   };
-  
+  const validateLetters = (input) => {
+    const regex = /^[A-Za-z]+$/; // Regular expression to allow only letters (A-Z, a-z)
+    return regex.test(input) || input === '';
+  };
 
   return (
     <div>
@@ -71,13 +74,16 @@ export default function UserEdit() {
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input
-              type="text"
-              className="form-control"
-              id="name"
-              placeholder="Enter name"
-              value={data.name}
-              onChange={(e) => setData({ ...data, name: e.target.value })}
-            />
+  type="text"
+  className="form-control"
+  placeholder="Enter name..."
+  value={data.name}
+  onChange={(e) => {
+    if (validateLetters(e.target.value)) {
+      setData({ ...data, name: e.target.value });
+    }
+  }}
+/>
           </div>
           <div className="form-group">
             <label htmlFor="address">Address</label>
@@ -131,13 +137,23 @@ export default function UserEdit() {
           <div className="form-group">
             <label htmlFor="email">Email</label>
             <input
-              type="email"
-              className="form-control"
-              id="email"
-              placeholder="Enter email"
-              value={data.email}
-              onChange={(e) => setData({ ...data, email: e.target.value })}
-            />
+  type="email"
+  className="form-control"
+  id="email"
+  placeholder="Enter email..."
+  value={data.email}
+  onChange={(e) => {
+    const emailValue = e.target.value;
+    setData({ ...data, email: emailValue });
+  }}
+  onBlur={(e) => {
+    const emailValue = e.target.value;
+    if (!emailValue.includes('@')) {
+     
+      console.log('Invalid email address');
+    }
+  }}
+/>
           </div>
           <button
   type="button"

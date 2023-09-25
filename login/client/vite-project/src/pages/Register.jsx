@@ -79,6 +79,10 @@ export default function Register() {
       console.log(error);
     }
   };
+  const validateLetters = (input) => {
+    const regex = /^[A-Za-z]+$/; // Regular expression to allow only letters (A-Z, a-z)
+    return regex.test(input) || input === '';
+  };
 
   return (
     <div className="form-container">
@@ -88,15 +92,19 @@ export default function Register() {
         <h2>Register</h2>
         <form onSubmit={registerUser}>
           <div className="form-group row">
-            <label htmlFor="name" className="col-sm-2 col-form-label">Name</label>
+            <label htmlFor="name" className="col-sm-2 col-form-label" >Name</label>
             <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter name..."
-                value={data.name}
-                onChange={(e) => setData({ ...data, name: e.target.value })}
-              />
+            <input
+  type="text"
+  className="form-control"
+  placeholder="Enter name..."
+  value={data.name}
+  onChange={(e) => {
+    if (validateLetters(e.target.value)) {
+      setData({ ...data, name: e.target.value });
+    }
+  }}
+/>
             </div>
           </div>
           <br></br>
