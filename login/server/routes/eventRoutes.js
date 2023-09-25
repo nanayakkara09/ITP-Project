@@ -3,7 +3,8 @@ const router = express.Router();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
-const{event,eventUpdate,eventDelete,eventSuccess,eventAbout,eventDetail,eventHome}=require('../controllers/invController')
+
+const{event,eventUpdate,eventDelete,addEvent,getAllEvent,updateEvent,deleteEvent}=require('../controllers/eventController')
 
 //middleware
 router.use(
@@ -16,9 +17,20 @@ router.use(
 router.get('/event',event);
 router.post('/eventUpdate',eventUpdate);
 router.delete('/eventDelete',eventDelete);
-router.post('/eventSuccess',eventSuccess);
-router.post('/eventAbout',eventAbout);
-router.post('/eventDetail',eventDetail);
-router.post('/eventHome',eventHome);
+
+router.post('/event', addEvent); // Handle form submission
+router.get('/events', getAllEvent); // Retrieve events data
+router.put('/event/:id', updateEvent); // Update event data
+router.delete('/event/:id', deleteEvent); // Delete event data
+
+
+router.post('/event', addEvent); // Handle form submission
+router.put('/event/:id', updateEvent); // Update event data
+router.delete('/event/:id', deleteEvent); // Delete event data
+
+router.get('/event', event); // Get events
+router.get('/events', getAllEvent); // Retrieve events data
+
+
 
 module.exports=router

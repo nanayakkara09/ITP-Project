@@ -1,39 +1,108 @@
-const event =require('../models/event');
+const express = require('express');
+const EventModel = require('../models/event'); // Change 'event' to 'EventModel'
 
+const jwt = require('jsonwebtoken');
 
+const addEvent = async (req, res) => {
+  try {
+    const {  name,
+      address,
+      phonenumber,
+      email,
+     Etime,
+     date,
+     Npeople,
+     theme,
+     Fneed,
+     Extra,
+    } = req.body;
 
-const event =(req, res)=>{
-  res.json('test is working')
-}
-const eventUpdate =async (req,res)=>{
-  try{
-      const{name, phonenumber, email, Ename, Etime, date, Npeople, theme, Fneed, Extra}=req.body;
- //check if name is entererd
- if(!name){
-  return res.json({
-    error:'name is required'
-  })
- };
- 
+    const newEvent = new Event({
+      name,
+    address,
+    phonenumber,
+    email,
+   Etime,
+   date,
+   Npeople,
+   theme,
+   Fneed,
+   Extra,
+  
+    });
 
- //email
- const exsit=await event.findOne({email});
- if(exsit){
-  return res.json({
-    error:'email is taken already'
-  })
- }
- const event = await event.create({
-  name, phonenumber, email, Ename, Etime, date, Npeople, theme, Fneed, Extra
-
- })
- return res.json(event)
- 
-    }catch(error){
-      console.log(error)
+    await newEvent.save();
+    res.json("Your details have been added successfully!!");
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ status: "Error adding Shipping details", error: err.message });
   }
-}
+};
+// Function to handle getting all Shippings
+const getAllEvent = async (req, res) => {
+  try {
+    const event = await Event.find();
+    res.json(event);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ status: "Error fetching Shipping details", error: err.message });
+  }
+};
+
+// Function to handle updating a Shipping
+const updateEvent = async (req, res) => {
+  try {
+    let userId = req.params.id;
+      
+        const {  name,
+          address,
+          phonenumber,
+          email,
+         Etime,
+         date,
+         Npeople,
+         theme,
+         Fneed,
+         Extra,
+        } = req.body;
+
+    const updateEvent = {
+      name,
+      address,
+      phonenumber,
+      email,
+     Etime,
+     date,
+     Npeople,
+     theme,
+     Fneed,
+     Extra,
+    
+    };
+
+     await event.findByIdAndUpdate(userId, updateEvent);
+    res.status(200).send({ status: "Your details have been successfully updated!!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ status: "Error updating Shipping details", error: err.message });
+  }
+};
+
+// Function to handle deleting a Shipping
+const deleteEvent = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    await event.findByIdAndDelete(userId);
+    res.status(200).send({ status: "Shipping details deleted!!!" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).send({ status: "Error deleting Shipping details", error: err.message });
+  }
+};
 module.exports={
-  event,
-  eventUpdate,
+  addEvent,
+  getAllEvent,
+  updateEvent,
+  deleteEvent,
 }
+

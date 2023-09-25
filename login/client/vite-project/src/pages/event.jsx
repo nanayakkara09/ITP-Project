@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import './event.css';
 
 
-export default function event() {
+ function event() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: '',
@@ -202,3 +202,4 @@ const [isSubmitted, setIsSubmitted]= useState(false);
   );
 }
 
+export default event;
