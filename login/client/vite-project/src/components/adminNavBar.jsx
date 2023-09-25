@@ -3,8 +3,10 @@ import { UserContext } from "../../contex/userContex";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
-import "./adminNavBar.css"
-
+import "./adminNavBar.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTachometerAlt, faSignOutAlt } from "@fortawesome/free-solid-svg-icons"; // Import icons
+import logo from "../images/123.png";
 
 export default function AdminNavBar() {
   const { user, setUser } = useContext(UserContext);
@@ -27,9 +29,15 @@ export default function AdminNavBar() {
 
   return (
     <div className="menu-bar">
-      
-      <Link to="/admin-dashbord">Dashboard</Link>
-      <button onClick={handleLogout}>Logout</button>
+       <div className="logo1">
+          <img src={logo} alt="Logo" />
+        </div>
+      <Link to="/admin-dashbord">
+        <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
+      </Link>
+      <button onClick={handleLogout}>
+        <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+      </button>
     </div>
   );
 }
