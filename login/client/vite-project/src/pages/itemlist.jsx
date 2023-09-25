@@ -62,7 +62,7 @@ export default function itemlist(props) {
         <div className="item-list-buttons">
           <input
             type="text"
-            placeholder="Search by name..."
+            placeholder="Search by name/itemcode..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />

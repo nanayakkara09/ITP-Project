@@ -13,7 +13,6 @@ export default function EditItemForm() {
     itemcode: '',
     name: '',
     description: '',
-    quantity: '',
     reorder: '',
     
   });
@@ -26,8 +25,8 @@ export default function EditItemForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData)
-    const{name,description,quantity,reorder,itemcode}= formData 
-    const {data} =await axios.post(`/inventory/updateItem/${itemId}`,{name,description,quantity,reorder,itemcode})
+    const{name,description,reorder,itemcode}= formData 
+    const {data} =await axios.post(`/inventory/updateItem/${itemId}`,{name,description,reorder,itemcode})
     console.log('Form data submitted:', formData);
     navigate('/itemlist');
   };
@@ -44,7 +43,6 @@ export default function EditItemForm() {
            itemCode: data.itemcode,
            name: data.name,
            description: data.description,
-           quantity: data.quantity,
            reorder: data.reorder,
          });
       } catch (error) {
@@ -94,17 +92,7 @@ export default function EditItemForm() {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="quantity">Quantity:</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        
         <div className="form-group">
           <label htmlFor="reorder">Reorder Level:</label>
           <input

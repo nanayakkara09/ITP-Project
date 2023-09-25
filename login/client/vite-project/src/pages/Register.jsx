@@ -20,7 +20,16 @@ export default function Register() {
     securityQuestion: '', 
     securityAnswer: '',   
   });
+  const validateName = (name) => {
+    return /^[A-Za-z\s]+$/.test(name);
+  };
 
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    if (validateName(newName) || newName === '') {
+      setData({ ...data, name: newName });
+    }
+  };
   const provincesInSriLanka = [
     'Central Province',
     'Eastern Province',
@@ -87,18 +96,25 @@ export default function Register() {
         <br></br>
         <h2>Register</h2>
         <form onSubmit={registerUser}>
-          <div className="form-group row">
-            <label htmlFor="name" className="col-sm-2 col-form-label">Name</label>
-            <div className="col-sm-10">
-              <input
-                type="text"
-                className="form-control"
-                placeholder="Enter name..."
-                value={data.name}
-                onChange={(e) => setData({ ...data, name: e.target.value })}
-              />
-            </div>
-          </div>
+        <div className="form-group row">
+        <label htmlFor="name" className="col-sm-2 col-form-label">
+          Name
+        </label>
+        <div className="col-sm-10">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Enter name..."
+            value={data.name}
+            onChange={handleNameChange}
+            onBlur={(e) => {
+              if (!validateName(e.target.value)) {
+                console.log('Invalid name format');
+              }
+            }}
+          />
+        </div>
+        </div>
           <br></br>
 
           <div className="form-group row">

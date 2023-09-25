@@ -37,7 +37,7 @@ export default function itemDetails() {
           <div><AdminNavBar /></div>
           <div className='details-container'>
             <div className='title'>
-              <h1 className="item-details-title">Food Item Details</h1>
+              <h1 className="item-details-title">Item Details</h1>
             </div>
             <div className="item-list-buttons">
             <Link to="/itemlist" className="back">Back</Link>

@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './addNew.css'; // Import the CSS file for styling
 import { useNavigate } from 'react-router-dom';
+import AdminNavBar from '../components/adminNavBar';
+import { Link } from 'react-router-dom';
+
 
 export default function NewItemForm() {
   const navigate = useNavigate();
@@ -31,6 +34,8 @@ export default function NewItemForm() {
   };
 
   return (
+    <div>
+      <div><AdminNavBar /></div>
     <div className="new-item-form-container">
       <h2>Add New Item</h2>
       <form onSubmit={handleSubmit}>
@@ -41,7 +46,7 @@ export default function NewItemForm() {
             type="text"
             id="itemCode"
             name="itemcode"
-            value={formData.itemCode}
+            value={formData.itemcode}
             onChange={handleChange}
             required
           />
@@ -80,8 +85,9 @@ export default function NewItemForm() {
           />
         </div>
         <button type="submit">Submit</button>
-        <button type="cancel">Cancel</button>
-      </form>
+        <button><Link to="/itemlist">Cancel</Link></button>      
+        </form>
+    </div>
     </div>
   );
 }
