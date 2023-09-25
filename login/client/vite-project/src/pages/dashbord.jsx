@@ -71,7 +71,7 @@ export default function Dashbord() {
       <NavBar />
      
 
-      <div className="bgh-image"></div>
+      <div className="bgd-image"></div>
 
       <div className="bg-image"></div>
 

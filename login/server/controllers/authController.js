@@ -16,7 +16,7 @@ const test=(req,res) =>{
 //register endpoint
 const registerUser = async (req, res) => {
   try {
-    const { name, address, phonenumber, email, password, userType,securityQuestion,securityAnswer } = req.body;
+    const { name, address,city,province, phonenumber, email, password, userType,securityQuestion,securityAnswer } = req.body;
 
     // Validation for required fields
      //check if name was entered
@@ -29,6 +29,16 @@ const registerUser = async (req, res) => {
     return res.json({
         error:'address is required'
     })
+};
+if(!city){
+  return res.json({
+      error:'city is required'
+  })
+};
+if(!province){
+  return res.json({
+      error:'province is required'
+  })
 };
 if(!email){
   return res.json({
@@ -67,6 +77,8 @@ if(!phonenumber ||phonenumber.length<10){
   const user=await User.create({
       name,
       address,
+      city,
+      province,
       phonenumber,
       email,
       password:hashedPassword,
@@ -124,7 +136,7 @@ const getProfileA = async (req, res) => {
 
   try {
     // Fetch user data including address and phone number based on the provided user ID
-    const userData = await User.findById(id, 'name email address phonenumber');
+    const userData = await User.findById(id, 'name email address city province phonenumber');
 
     if (!userData) {
       return res.status(404).json({ error: 'User not found' });
@@ -150,7 +162,7 @@ const getProfile = (req, res) => {
 
       try {
         // Fetch user data including address and phone number
-        const userData = await User.findOne({ email: user.email }, 'name email address phonenumber');
+        const userData = await User.findOne({ email: user.email }, 'name email address city province phonenumber');
 
         if (!userData) {
           return res.status(404).json({ error: 'User not found' });
@@ -173,7 +185,7 @@ const getProfile = (req, res) => {
 const updateUser = async (req, res) => {
     const { id } = req.params;
     try {
-        const { name,address,email,phonenumber, password } = req.body;
+        const { name,address,city,province,email,phonenumber, password } = req.body;
         if(!name){
             return res.json({
                 error:'name is required'
@@ -184,6 +196,16 @@ const updateUser = async (req, res) => {
               error:'address is required'
           })
       };
+      if(!city){
+        return res.json({
+            error:'city is required'
+        })
+    };
+    if(!province){
+      return res.json({
+          error:'province is required'
+      })
+  };
       if(!phonenumber ||phonenumber.length<10){
         return res.json({
             error:'phon Number required 10 numbers'
@@ -206,6 +228,8 @@ const updateUser = async (req, res) => {
         {
           name,
           address,
+          city,
+          province,
           phonenumber,
           email,
           password:hashedPassword,
@@ -314,7 +338,7 @@ const updateUser = async (req, res) => {
 
   const getAllUsers = async (req, res) => {
     try {
-      const users = await User.find({ userType: 'customer' }, 'name email address phonenumber');
+      const users = await User.find({ userType: 'customer' }, 'name email address city province phonenumber');
       res.json(users);
     } catch (error) {
       console.error(error);
@@ -336,7 +360,7 @@ const updateUser = async (req, res) => {
   const updateUserA = async (req, res) => {
     const { id } = req.params;
     try {
-        const { name,address,email,phonenumber, } = req.body;
+        const { name,address,city,province,email,phonenumber, } = req.body;
         if(!name){
             return res.json({
                 error:'name is required'
@@ -347,6 +371,16 @@ const updateUser = async (req, res) => {
               error:'address is required'
           })
       };
+      if(!city){
+        return res.json({
+            error:'city is required'
+        })
+    };
+    if(!province){
+      return res.json({
+          error:'province is required'
+      })
+  };
       if(!phonenumber ||phonenumber.length<10){
         return res.json({
             error:'phon Number required 10 numbers'
@@ -364,6 +398,8 @@ const updateUser = async (req, res) => {
         {
           name,
           address,
+          city,
+          province,
           phonenumber,
           email,
           

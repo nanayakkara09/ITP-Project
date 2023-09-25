@@ -38,6 +38,7 @@ h2 {
   margin: 10px;
   transition: transform 0.2s ease;
   cursor: pointer;
+  background-color:rgba(209, 208, 208, 0.642);
 }
 
 .profile-box:hover {
