@@ -40,6 +40,22 @@ const updateItem=async(req,res) =>{
 
     return res.json(inventory)
 }
+const deleteItem=async(req,res) =>{
+    const { itemId } = req.params;
+    try {
+        const inventory = await Inventory.findByIdAndRemove(itemId);
+        if (!inventory) {
+          return res.json({
+              error:'No Item found'
+          })
+        }
+    
+        res.json({ message: 'Item deleted' });
+      } catch (error) {
+        console.log(error);
+     
+      }
+}
 const getAllItems = async (req, res) => {
     try {
       const items = await Inventory.find();
@@ -64,5 +80,6 @@ module.exports ={
     addNew,
     getAllItems,
     getItem,
-    updateItem
+    updateItem,
+    deleteItem
 }
