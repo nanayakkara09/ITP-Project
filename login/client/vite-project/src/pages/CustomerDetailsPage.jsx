@@ -77,22 +77,24 @@ export default function CustomerDetailsPage() {
         {isLoading ? (
           <p>Loading user data...</p>
         ) : userList.length > 0 ? (
-          <table>
+          <table className="table">
             <thead>
               <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>City</th>
-                <th>Province</th>
-                <th>Phone Number</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
-              {userList.map((user) => (
+              {userList.map((user, index) => (
                 <tr key={user._id}>
+                  <th scope="row">{index + 1}</th>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
                   <td>{user.address}</td>
@@ -126,4 +128,6 @@ export default function CustomerDetailsPage() {
       </div>
     </div>
   );
+  
+  
 }

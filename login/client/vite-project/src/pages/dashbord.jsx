@@ -71,9 +71,9 @@ export default function Dashbord() {
       <NavBar />
      
 
-      <div className="bgd-image"></div>
+      
 
-      <div className="bg-image"></div>
+      <div className="bgh-image"></div>
 
       
       <div className="contents">
@@ -87,7 +87,7 @@ export default function Dashbord() {
         <br></br>
         {!!user && <h2>Hi {user.name}!</h2>}
         <br></br>
-
+<hr></hr>
         {/* Three boxes similar to the Home component */}
         <div className="frame-container">
           <div className="frame">
