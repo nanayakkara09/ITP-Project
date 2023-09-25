@@ -1,11 +1,20 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import { UserContext } from "../../contex/userContex";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHome,
+  faUserPlus,
+  faSignInAlt,
+  faUser,
+  faSignOutAlt,
+} from "@fortawesome/free-solid-svg-icons";
 import "../components/NavBar.css";
 import logo from "../images/123.png";
-import "./NavBar.css"
+import "./NavBar.css";
+
 
 export default function NavBar() {
   const { user, setUser } = useContext(UserContext);
@@ -28,20 +37,29 @@ export default function NavBar() {
 
   return (
     <div className="menu-bar1">
-       <div className="logo1">
-        <img src={logo} alt="../image/123.png" />
+      <div className="logo1">
+        <img src={logo} alt="Logo" />
       </div>
-      <Link to={user ? "/dashbord" : "/"}>Home</Link>
+      <Link to={user ? "/dashboard" : "/"}>
+        <FontAwesomeIcon icon={faHome} /> Home
+      </Link>
       {!user ? (
         <>
-
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
+          <Link to="/register">
+            <FontAwesomeIcon icon={faUserPlus} /> Register
+          </Link>
+          <Link to="/login">
+            <FontAwesomeIcon icon={faSignInAlt} /> Login
+          </Link>
         </>
       ) : (
         <>
-         <Link to="/profile">Profile</Link>
-          <button onClick={handleLogout}>Logout</button>
+          <Link to="/profile">
+            <FontAwesomeIcon icon={faUser} /> Profile
+          </Link>
+          <button onClick={handleLogout}>
+            <FontAwesomeIcon icon={faSignOutAlt} /> Logout
+          </button>
         </>
       )}
     </div>
