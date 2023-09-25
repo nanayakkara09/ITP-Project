@@ -2,23 +2,23 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import './register.css'
+import './register.css';
 
-import Footer from "../components/Footer";
+import Footer from '../components/Footer';
 
 export default function Register() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: '',
     address: '',
-    city:'',
-    province:'',
+    city: '',
+    province: '',
     phonenumber: '',
     email: '',
     password: '',
-    userType: 'customer', 
-    securityQuestion: '', 
-    securityAnswer: '',   
+    userType: 'customer',
+    securityQuestion: '',
+    securityAnswer: '',
   });
 
   const provincesInSriLanka = [
@@ -34,14 +34,25 @@ export default function Register() {
   ];
 
   const securityQuestions = [
-    'What is your mother\'s maiden name?',
+    "What is your mother's maiden name?",
     'What is the name of your first pet?',
     'Where were you born?',
   ];
 
   const registerUser = async (e) => {
     e.preventDefault();
-    const { name, address,city,province, phonenumber, email, password, userType, securityQuestion, securityAnswer } = data;
+    const {
+      name,
+      address,
+      city,
+      province,
+      phonenumber,
+      email,
+      password,
+      userType,
+      securityQuestion,
+      securityAnswer,
+    } = data;
 
     try {
       const { data: response } = await axios.post('/register', {
@@ -63,8 +74,8 @@ export default function Register() {
         setData({
           name: '',
           address: '',
-          city:'',
-          province:'',
+          city: '',
+          province: '',
           phonenumber: '',
           email: '',
           password: '',
@@ -79,6 +90,7 @@ export default function Register() {
       console.log(error);
     }
   };
+
   const validateLetters = (input) => {
     const regex = /^[A-Za-z]+$/; // Regular expression to allow only letters (A-Z, a-z)
     return regex.test(input) || input === '';
@@ -86,62 +98,87 @@ export default function Register() {
 
   return (
     <div className="form-container">
-      <div className="bgr-image"></div>
-      <div className="content form-box">
-        <br></br>
-        <h2>Register</h2>
-        <form onSubmit={registerUser}>
-          <div className="form-group row">
-            <label htmlFor="name" className="col-sm-2 col-form-label" >Name</label>
-            <div className="col-sm-10">
-            <input
-  type="text"
-  className="form-control"
-  placeholder="Enter name..."
-  value={data.name}
-  onChange={(e) => {
-    if (validateLetters(e.target.value)) {
-      setData({ ...data, name: e.target.value });
-    }
-  }}
-/>
-            </div>
-          </div>
-          <br></br>
-
-          <div className="form-group row">
-            <label htmlFor="address" className="col-sm-2 col-form-label">Address</label>
-            <div className="col-sm-10">
+    <div className="bgr-image"></div>
+    <div className="content form-box">
+      <br />
+      <h2>Register</h2>
+      <form action="/action_page.php" className="was-validated" onSubmit={registerUser}>
+        <div className="row">
+          <div className="col-md-6">
+            <div className="mb-3 mt-3">
+              <label htmlFor="name" className="form-label">
+                Name:
+              </label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter Address..."
+                id="name"
+                placeholder="Enter name"
+                value={data.name}
+                onChange={(e) => {
+                  if (validateLetters(e.target.value)) {
+                    setData({ ...data, name: e.target.value });
+                  }
+                }}
+                required
+              />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
+            </div>
+          </div>
+          <div className="col-md-6">
+            <div className="mb-3 mt-3">
+              <label htmlFor="address" className="form-label">
+                Address:
+              </label>
+              <input
+                type="text"
+                className="form-control"
+                id="address"
+                placeholder="Enter address"
                 value={data.address}
                 onChange={(e) => setData({ ...data, address: e.target.value })}
+                required
               />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
             </div>
           </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="city" className="col-sm-2 col-form-label">city</label>
-            <div className="col-sm-10">
+
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            {/* Second pair of input boxes */}
+            <div className="mb-3">
+              <label htmlFor="city" className="form-label">
+                City:
+              </label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter city..."
+                id="city"
+                placeholder="Enter city"
                 value={data.city}
                 onChange={(e) => setData({ ...data, city: e.target.value })}
+                required
               />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
+
             </div>
           </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="province" className="col-sm-2 col-form-label">Province</label>
-            <div className="col-sm-10">
+          <div className="col-md-6">
+            {/* Third pair of input boxes */}
+            <div className="mb-3">
+              <label htmlFor="province" className="form-label">
+                Province:
+              </label>
               <select
-                className="form-control"
+                className="form-select"
+                id="province"
                 value={data.province}
                 onChange={(e) => setData({ ...data, province: e.target.value })}
+                required
               >
                 <option value="">Select your province</option>
                 {provincesInSriLanka.map((province, index) => (
@@ -150,72 +187,76 @@ export default function Register() {
                   </option>
                 ))}
               </select>
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please select a province.</div>
             </div>
           </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="phonenumber" className="col-sm-2 col-form-label">Phone Number</label>
-            <div className="col-sm-10">
-            <input
-  type="tel" // Set the input type to "tel"
-  className="form-control"
-  placeholder="Enter Phone number..."
-  value={data.phonenumber}
-  onChange={(e) => {
-   
-    const phoneNumber = e.target.value.replace(/[^0-9]/g, '');
-    setData({ ...data, phonenumber: phoneNumber });
-  }}
-/>
-            </div>
-          </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="email" className="col-sm-2 col-form-label">Email</label>
-            <div className="col-sm-10">
-            <input
-  type="email"
-  className="form-control"
-  id="email"
-  placeholder="Enter email..."
-  value={data.email}
-  onChange={(e) => {
-    const emailValue = e.target.value;
-    setData({ ...data, email: emailValue });
-  }}
-  onBlur={(e) => {
-    const emailValue = e.target.value;
-    if (!emailValue.includes('@')) {
-     
-      console.log('Invalid email address');
-    }
-  }}
-/>
-
-            </div>
-          </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="password" className="col-sm-2 col-form-label">Password</label>
-            <div className="col-sm-10">
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            {/* Fourth pair of input boxes */}
+            <div className="mb-3">
+              <label htmlFor="phonenumber" className="form-label">
+                Phone Number:
+              </label>
               <input
-                type="password"
+                type="tel"
                 className="form-control"
-                id="password"
-                placeholder="Enter password..."
-                value={data.password}
-                onChange={(e) => setData({ ...data, password: e.target.value })}
+                id="phonenumber"
+                placeholder="Enter phone number"
+                value={data.phonenumber}
+                onChange={(e) => {
+                  const phoneNumber = e.target.value.replace(/[^0-9]/g, '');
+                  setData({ ...data, phonenumber: phoneNumber });
+                }}
+                required
               />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
             </div>
           </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="securityQuestion" className="col-sm-2 col-form-label">Security Question</label>
-            <div className="col-sm-10">
-              <select
+          <div className="col-md-6">
+            {/* Fifth pair of input boxes */}
+            <div className="mb-3">
+              <label htmlFor="email" className="form-label">
+                Email:
+              </label>
+              <input
+                type="email"
                 className="form-control"
+                id="email"
+                placeholder="Enter email"
+                value={data.email}
+                onChange={(e) => {
+                  const emailValue = e.target.value;
+                  setData({ ...data, email: emailValue });
+                }}
+                onBlur={(e) => {
+                  const emailValue = e.target.value;
+                  if (!emailValue.includes('@')) {
+                    console.log('Invalid email address');
+                  }
+                }}
+                required
+              />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
+            </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-md-6">
+            {/* Sixth pair of input boxes */}
+            <div className="mb-3">
+              <label htmlFor="securityQuestion" className="form-label">
+                Security Question:
+              </label>
+              <select
+                className="form-select"
+                id="securityQuestion"
                 value={data.securityQuestion}
                 onChange={(e) => setData({ ...data, securityQuestion: e.target.value })}
+                required
               >
                 <option value="">Select a security question</option>
                 {securityQuestions.map((question, index) => (
@@ -224,46 +265,51 @@ export default function Register() {
                   </option>
                 ))}
               </select>
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please select a security question.</div>
             </div>
           </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="securityAnswer" className="col-sm-2 col-form-label">Security Answer</label>
-            <div className="col-sm-10">
+          <div className="col-md-6">
+            {/* Seventh pair of input boxes */}
+            <div className="mb-3">
+              <label htmlFor="securityAnswer" className="form-label">
+                Security Answer:
+              </label>
               <input
                 type="text"
                 className="form-control"
-                placeholder="Enter your answer..."
+                id="securityAnswer"
+                placeholder="Enter your answer"
                 value={data.securityAnswer}
                 onChange={(e) => setData({ ...data, securityAnswer: e.target.value })}
+                required
               />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
             </div>
           </div>
-          <br></br>
-          <div className="form-group row">
-            <label htmlFor="userType" className="col-sm-2 col-form-label">User Type</label>
-            <div className="col-sm-10">
-              <select
-                className="form-control"
-                value={data.userType}
-                onChange={(e) => setData({ ...data, userType: e.target.value })}
-              >
-                <option value="customer">Customer</option>
-               
-              </select>
-            </div>
-          </div>
-          <br></br>
-          <button type="submit" className="btn btn-primary" onClick={registerUser}>
-            Submit
-          </button>
-        </form> 
-        <br></br>
-         
-      </div>
-  
-       
-     
+        </div>
+        <div className="form-check mb-3">
+          <input
+            className="form-check-input"
+            type="checkbox"
+            id="myCheck"
+            name="remember"
+            required
+          />
+          <label className="form-check-label" htmlFor="myCheck">
+            Above details are correct.
+          </label>
+          <div className="valid-feedback">Valid.</div>
+          <div className="invalid-feedback">Check this checkbox to continue.</div>
+        </div>
+        <button type="submit" className="btn btn-primary">
+          Submit
+        </button>
+      </form>
+      <br />
     </div>
+  </div>
+  
   );
 }

@@ -98,6 +98,7 @@ export default function AdminDashboard() {
               {isLoading ? (
                 <p>Loading total users...</p>
               ) : (
+                
                 <p>Total Users: {totalUsers}</p>
               )}
             </div>
