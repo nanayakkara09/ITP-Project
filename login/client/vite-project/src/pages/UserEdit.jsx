@@ -15,6 +15,17 @@ export default function UserEdit() {
     phonenumber: '',
     email: '',
   });
+  const provincesInSriLanka = [
+    'Central Province',
+    'Eastern Province',
+    'North Central Province',
+    'Northern Province',
+    'North Western Province',
+    'Sabaragamuwa Province',
+    'Southern Province',
+    'Uva Province',
+    'Western Province',
+  ];
 
   useEffect(() => {
     const fetchUserProfileById = async (userId) => {
@@ -99,24 +110,33 @@ export default function UserEdit() {
           <div className="form-group">
             <label htmlFor="city">city</label>
             <input
-              type="text"
-              className="form-control"
-              id="city"
-              placeholder="Enter city"
-              value={data.city}
-              onChange={(e) => setData({ ...data, city: e.target.value })}
-            />
+  type="text"
+  className="form-control"
+  placeholder="Enter city..."
+  value={data.city}
+  onChange={(e) => {
+    if (validateLetters(e.target.value)) {
+      setData({ ...data, city: e.target.value });
+    }
+  }}
+/>
           </div>
-          <div className="form-group">
-            <label htmlFor="province">province</label>
-            <input
-              type="text"
-              className="form-control"
-              id="province"
-              placeholder="Enter province"
-              value={data.province}
-              onChange={(e) => setData({ ...data, province: e.target.value })}
-            />
+          <div className="form-group row">
+            <label htmlFor="province" className="col-sm-2 col-form-label">Province</label>
+            <div className="col-sm-10">
+              <select
+                className="form-control"
+                value={data.province}
+                onChange={(e) => setData({ ...data, province: e.target.value })}
+              >
+                <option value="">Select your province</option>
+                {provincesInSriLanka.map((province, index) => (
+                  <option key={index} value={province}>
+                    {province}
+                  </option>
+                ))}
+              </select>
+            </div>
           </div>
           <div className="form-group">
             <label htmlFor="phonenumber">Phone Number</label>
