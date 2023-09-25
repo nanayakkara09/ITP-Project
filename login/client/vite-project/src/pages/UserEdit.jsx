@@ -110,16 +110,13 @@ export default function UserEdit() {
           <div className="form-group">
             <label htmlFor="city">city</label>
             <input
-  type="text"
-  className="form-control"
-  placeholder="Enter city..."
-  value={data.city}
-  onChange={(e) => {
-    if (validateLetters(e.target.value)) {
-      setData({ ...data, city: e.target.value });
-    }
-  }}
-/>
+              type="text"
+              className="form-control"
+              id="city"
+              placeholder="Enter city"
+              value={data.city}
+              onChange={(e) => setData({ ...data, city: e.target.value })}
+            />
           </div>
           <div className="form-group row">
             <label htmlFor="province" className="col-sm-2 col-form-label">Province</label>
