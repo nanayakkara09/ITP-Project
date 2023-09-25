@@ -144,6 +144,7 @@ export default function Register() {
               <div className="invalid-feedback">Please fill out this field.</div>
             </div>
           </div>
+
         </div>
         <div className="row">
           <div className="col-md-6">
@@ -163,6 +164,7 @@ export default function Register() {
               />
               <div className="valid-feedback">Valid.</div>
               <div className="invalid-feedback">Please fill out this field.</div>
+
             </div>
           </div>
           <div className="col-md-6">
