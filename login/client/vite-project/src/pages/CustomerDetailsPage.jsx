@@ -41,7 +41,7 @@ export default function CustomerDetailsPage() {
     
     if (shouldDelete) {
       try {
-        await axios.delete(`/users/${userId}`);
+        await axios.delete(`/usersD/${userId}`);
         setUserList((prevUserList) => prevUserList.filter((user) => user._id !== userId));
         toast.success('User deleted successfully');
       } catch (error) {
@@ -100,6 +100,8 @@ export default function CustomerDetailsPage() {
               <th>Name</th>
               <th>Email</th>
               <th>Address</th>
+              <th>city</th>
+              <th>province</th>
               <th>Phone Number</th>
               <th>Edit</th>
               <th>Delete</th>
@@ -113,6 +115,8 @@ export default function CustomerDetailsPage() {
                 <td>{user.name}</td>
                 <td>{user.email}</td>
                 <td>{user.address}</td>
+                <td>{user.city}</td>
+                <td>{user.province}</td>
                 <td>{user.phonenumber}</td>
                 <td>
                 <Link to={`/UserEdit/${user._id}`}>
