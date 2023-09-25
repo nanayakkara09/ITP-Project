@@ -125,17 +125,13 @@ export default function Register() {
           <div className="form-group row">
             <label htmlFor="city" className="col-sm-2 col-form-label">city</label>
             <div className="col-sm-10">
-            <input
-  type="text"
-  className="form-control"
-  placeholder="Enter city..."
-  value={data.city}
-  onChange={(e) => {
-    if (validateLetters(e.target.value)) {
-      setData({ ...data, city: e.target.value });
-    }
-  }}
-/>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Enter city..."
+                value={data.city}
+                onChange={(e) => setData({ ...data, city: e.target.value })}
+              />
             </div>
           </div>
           <br></br>
