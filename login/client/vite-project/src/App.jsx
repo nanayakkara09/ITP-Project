@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
 import Home from '../src/pages/Home';
@@ -24,6 +26,8 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
+import CartItems from './pages/CartItems';
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -55,7 +59,8 @@ function App() {
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
+    <Route path="/cart" element={<CartItems />} />
+       
      
     </Routes>
     </UserContextProvider>
