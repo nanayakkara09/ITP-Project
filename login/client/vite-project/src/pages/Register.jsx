@@ -15,7 +15,7 @@ export default function Register() {
     province: '',
     phonenumber: '',
     email: '',
-    password: '',
+    password: '', // Add the password field here
     userType: 'customer',
     securityQuestion: '',
     securityAnswer: '',
@@ -78,7 +78,7 @@ export default function Register() {
           province: '',
           phonenumber: '',
           email: '',
-          password: '',
+          password: '', // Clear the password field after successful registration
           userType: 'customer',
           securityQuestion: '',
           securityAnswer: '',
@@ -144,7 +144,6 @@ export default function Register() {
               <div className="invalid-feedback">Please fill out this field.</div>
             </div>
           </div>
-
         </div>
         <div className="row">
           <div className="col-md-6">
@@ -164,7 +163,6 @@ export default function Register() {
               />
               <div className="valid-feedback">Valid.</div>
               <div className="invalid-feedback">Please fill out this field.</div>
-
             </div>
           </div>
           <div className="col-md-6">
@@ -248,6 +246,25 @@ export default function Register() {
           <div className="col-md-6">
             {/* Sixth pair of input boxes */}
             <div className="mb-3">
+              <label htmlFor="password" className="form-label">
+                Password:
+              </label>
+              <input
+                type="password"
+                className="form-control"
+                id="password"
+                placeholder="Enter password"
+                value={data.password}
+                onChange={(e) => setData({ ...data, password: e.target.value })}
+                required
+              />
+              <div className="valid-feedback">Valid.</div>
+              <div className="invalid-feedback">Please fill out this field.</div>
+            </div>
+          </div>
+          <div className="col-md-6">
+            {/* Seventh pair of input boxes */}
+            <div className="mb-3">
               <label htmlFor="securityQuestion" className="form-label">
                 Security Question:
               </label>
@@ -269,8 +286,10 @@ export default function Register() {
               <div className="invalid-feedback">Please select a security question.</div>
             </div>
           </div>
+        </div>
+        <div className="row">
           <div className="col-md-6">
-            {/* Seventh pair of input boxes */}
+            {/* Eighth pair of input boxes - Add the password field here */}
             <div className="mb-3">
               <label htmlFor="securityAnswer" className="form-label">
                 Security Answer:
@@ -310,6 +329,5 @@ export default function Register() {
       <br />
     </div>
   </div>
-  
   );
 }

@@ -24,7 +24,10 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
-import SeesupportPage from './pages/seesupport'
+import SeesupportPage from './pages/seesupport';
+import Password from './pages/password';
+
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -56,8 +59,10 @@ function App() {
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
       <Route path='/seesupport' element={<SeesupportPage/>}/>
+      <Route path='/password' element={<Password/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
+  
+   
      
     </Routes>
     </UserContextProvider>
