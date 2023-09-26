@@ -351,6 +351,16 @@ const updateUser = async (req, res) => {
     }
   };
 
+   const getAllSupport = async (req, res) => {
+    try {
+      const support = await Support.find();
+      res.json(support);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching all Support' });
+    }
+  };
+
 
 
   const updateUserA = async (req, res) => {
@@ -432,7 +442,7 @@ module.exports ={
   getAllUsers,
   getAllFeedbacks,
   updateUserA,
-
+  getAllSupport,
 
 
 }
