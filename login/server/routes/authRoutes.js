@@ -4,7 +4,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
 
-const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout,submitFeedback,getTotalUsers, submitSupport,getAllUsers,getAllFeedbacks,getProfileA, updateUserA, getAllSupport}=require('../controllers/authController');
+const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout,submitFeedback,getTotalUsers, submitSupport,getAllUsers,getAllFeedbacks,getProfileA, updateUserA, getAllSupport,resetPassword}=require('../controllers/authController');
 
 
 //middleware
@@ -30,6 +30,7 @@ router.get('/all-feedbacks', getAllFeedbacks);
 router.get('/profileA/:id', getProfileA);
 router.put('/usersA/:id', updateUserA);
 router.get('/all-support',getAllSupport)
+router.post('/reset-password', resetPassword);
 
 
 

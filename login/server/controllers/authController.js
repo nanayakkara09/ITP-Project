@@ -78,6 +78,8 @@ if(!phonenumber ||phonenumber.length<10){
       phonenumber,
       email,
       password:hashedPassword,
+      securityQuestion,
+      securityAnswer,
   })
 
     return res.json(user);
@@ -425,7 +427,32 @@ const updateUser = async (req, res) => {
       
     }
   };
-
+  const resetPassword = async (req, res) => {
+    try {
+      const { email, securityQuestion, securityAnswer, newPassword } = req.body;
+  
+     
+      const user = await User.findOne({
+        email,
+        'securityQuestion': securityQuestion,
+        'securityAnswer': securityAnswer,
+      });
+  
+      if (!user) {
+        return res.status(400).json({ message: 'Invalid email or security information.' });
+      }
+  
+     
+      user.password = await hashPassword(newPassword);
+      await user.save();
+  
+      res.status(200).json({ message: 'Password reset successful' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ message: 'Password reset failed' });
+    }
+  };
+  
 
 module.exports ={
     test,
@@ -443,6 +470,6 @@ module.exports ={
   getAllFeedbacks,
   updateUserA,
   getAllSupport,
-
+  resetPassword,
 
 }

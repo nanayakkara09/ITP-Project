@@ -12,29 +12,8 @@ function Footer() {
             </p>
           </div>
           <div className="col-lg-3 col-md-6 mb-4">
-            <h5 className="mb-3 text-dark">Links</h5>
-            <ul className="list-unstyled mb-0">
-              <li className="mb-1">
-                <a href="#!" style={{ color: "#4f4f4f" }}>
-                  FAQ
-                </a>
-              </li>
-              <li className="mb-1">
-                <a href="#!" style={{ color: "#4f4f4f" }}>
-                  Classes
-                </a>
-              </li>
-              <li className="mb-1">
-                <a href="#!" style={{ color: "#4f4f4f" }}>
-                  Pricing
-                </a>
-              </li>
-              <li>
-                <a href="#!" style={{ color: "#4f4f4f" }}>
-                  Safety
-                </a>
-              </li>
-            </ul>
+          
+           
           </div>
           <div className="col-lg-3 col-md-6 mb-4">
             <h5 className="mb-1 text-dark">Opening Hours</h5>
