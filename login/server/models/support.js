@@ -2,7 +2,8 @@ const mongoose= require('mongoose')
 const {Schema} =mongoose
 
 const supportSchema = new Schema({
-    userId: {
+  userName: String,  
+   userId: {
       type: Schema.Types.ObjectId,
       ref: 'User', 
       required: true,

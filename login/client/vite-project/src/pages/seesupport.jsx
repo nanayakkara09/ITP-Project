@@ -2,18 +2,18 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/adminNavBar';
 
-export default function SeeFeedbacksPage() {
-  const [feedbackList, setFeedbackList] = useState([]);
-  const [filteredFeedbackList, setFilteredFeedbackList] = useState([]);
+export default function SeesupportPage() {
+  const [supportList, SetsupportList] = useState([]);
+  const [filteredSupportList, setFilteredSupportList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const fetchFeedbackList = async () => {
+    const fetchSupportList = async () => {
       try {
-        const { data } = await axios.get('/all-feedbacks');
-        setFeedbackList(data);
-        setFilteredFeedbackList(data);
+        const { data } = await axios.get('/all-support');
+        SetsupportList(data);
+        setFilteredSupportList(data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -21,14 +21,14 @@ export default function SeeFeedbacksPage() {
       }
     };
 
-    fetchFeedbackList();
+    fetchSupportList();
   }, []);
 
   const handleSearch = () => {
-    const filteredFeedbacks = feedbackList.filter((feedback) =>
-      feedback.userName.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredSupport = supportList.filter((support) =>
+      support.userName.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredFeedbackList(filteredFeedbacks);
+    setFilteredSupportList(filteredSupport);
   };
 
   const handlePrint = () => {
@@ -38,8 +38,8 @@ export default function SeeFeedbacksPage() {
   return (
     <div>
       <AdminNavBar />
-      <div className="see-feedbacks-container">
-        <h1>Feedbacks</h1>
+      <div className="see-support-container">
+        <h1>Support</h1>
         <div className="search-container">
           <input
             type="text"
@@ -52,29 +52,29 @@ export default function SeeFeedbacksPage() {
 
         {isLoading ? (
           <p>Loading feedback data...</p>
-        ) : filteredFeedbackList.length > 0 ? (
+        ) : filteredSupportList.length > 0 ? (
           <table>
             <thead>
               <tr>
                
                 <th>User Name</th>
-                <th>Feedback</th>
+                <th>Support message</th>
                 <th>Date and Time</th>
               </tr>
             </thead>
             <tbody>
-              {filteredFeedbackList.map((feedback) => (
-                <tr key={feedback._id}>
+              {filteredSupportList.map((support) => (
+                <tr key={support._id}>
                  
-                  <td>{feedback.userName}</td>
-                  <td>{feedback.feedbackText}</td>
-                  <td>{feedback.createdAt}</td>
+                  <td>{support.userName}</td>
+                  <td>{support.supportText}</td>
+                  <td>{support.createdAt}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         ) : (
-          <p>No feedback data available.</p>
+          <p>No Support data available.</p>
         )}
       </div>
       <button className="print-button" onClick={handlePrint}>
