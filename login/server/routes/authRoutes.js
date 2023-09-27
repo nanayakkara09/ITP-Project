@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 
 
 
-const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout,submitFeedback,getTotalUsers, submitSupport,getAllUsers,getAllFeedbacks,getProfileA, updateUserA, getAllSupport,resetPassword}=require('../controllers/authController');
+const{test,registerUser,loginUser,getProfile,updateUser, deleteUser,handleLogout,submitFeedback,getTotalUsers, submitSupport,getAllUsers,getAllFeedbacks,getProfileA, updateUserA, getAllSupport,resetPassword,markFeedbackAsRead,markSupportAsRead}=require('../controllers/authController');
 
 
 //middleware
@@ -32,8 +32,8 @@ router.get('/profileA/:id', getProfileA);
 router.put('/usersA/:id', updateUserA);
 router.get('/all-support',getAllSupport)
 router.post('/reset-password', resetPassword);
-
-
+router.put('/mark-as-read/:feedbackId', markFeedbackAsRead);
+router.put('/mark-support-as-read/:supportId', markSupportAsRead);
 
 
 

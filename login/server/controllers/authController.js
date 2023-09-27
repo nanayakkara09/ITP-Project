@@ -278,7 +278,7 @@ const updateUser = async (req, res) => {
   };
 
   const submitFeedback = async (req, res) => {
-    const { userId, feedbackText,userName } = req.body;
+    const { userId, feedbackText, userName, rating } = req.body;
   
     try {
       // Create a new feedback document using the Feedback model
@@ -286,6 +286,7 @@ const updateUser = async (req, res) => {
         userId,
         feedbackText,
         userName,
+        rating, // Include the user rating in the feedback
         createdAt: new Date(),
       });
   
@@ -300,6 +301,7 @@ const updateUser = async (req, res) => {
       res.status(500).json({ message: 'Error submitting feedback' });
     }
   };
+  
 
   const getTotalUsers = async (req, res) => {
     try {
@@ -311,12 +313,14 @@ const updateUser = async (req, res) => {
     }
   };
   const submitSupport = async (req, res) => {
-    const { userId, supportText } = req.body;
+    const { userId, userName,email,supportText } = req.body;
   
     try {
       // Create a new support message document using the Support model
       const newSupport = new Support({
         userId,
+        userName,
+        email,
         supportText,
         createdAt: new Date(),
       });
@@ -345,12 +349,13 @@ const updateUser = async (req, res) => {
   };
   const getAllFeedbacks = async (req, res) => {
     try {
-      const feedbacks = await Feedback.find();
+      const feedbacks = await Feedback.find({}, 'userName feedbackText rating createdAt isRead');
       res.json(feedbacks);
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Error fetching all feedbacks' });
     }
+    
   };
 
    const getAllSupport = async (req, res) => {
@@ -452,7 +457,53 @@ const updateUser = async (req, res) => {
       res.status(500).json({ message: 'Password reset failed' });
     }
   };
+  const markFeedbackAsRead = async (req, res) => {
+    const { feedbackId } = req.params;
   
+    try {
+      // Find the feedback by ID and update the isRead field to true
+      const feedback = await Feedback.findByIdAndUpdate(
+        feedbackId,
+        { isRead: true },
+        { new: true }
+      );
+  
+      if (!feedback) {
+        return res.status(404).json({ error: 'Feedback not found' });
+      }
+  
+      // Send a success response
+      res.status(200).json({ message: 'Feedback marked as read successfully' });
+    } catch (error) {
+      // Handle errors
+      console.error(error);
+      res.status(500).json({ message: 'Error marking feedback as read' });
+    }
+  };
+
+  const markSupportAsRead = async (req, res) => {
+    const { supportId } = req.params;
+  
+    try {
+      // Find the feedback by ID and update the isRead field to true
+      const support = await Support.findByIdAndUpdate(
+        supportId,
+        { isRead: true },
+        { new: true }
+      );
+  
+      if (!support) {
+        return res.status(404).json({ error: 'Feedback not found' });
+      }
+  
+      // Send a success response
+      res.status(200).json({ message: 'Feedback marked as read successfully' });
+    } catch (error) {
+      // Handle errors
+      console.error(error);
+      res.status(500).json({ message: 'Error marking feedback as read' });
+    }
+  };
 
 module.exports ={
     test,
@@ -471,8 +522,8 @@ module.exports ={
   updateUserA,
   getAllSupport,
   resetPassword,
-
-
+  markFeedbackAsRead,
+  markSupportAsRead,
 
 
 }

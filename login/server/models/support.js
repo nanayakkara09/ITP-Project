@@ -8,6 +8,10 @@ const supportSchema = new Schema({
       ref: 'User', 
       required: true,
     },
+    email: {
+      type:String, 
+      required: true,
+    },
     supportText: {
       type: String,
       required: true,
@@ -15,6 +19,11 @@ const supportSchema = new Schema({
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+
+    isRead: {
+      type: Boolean,
+      default: false, // Initially, feedback is not read
     },
   });
 
