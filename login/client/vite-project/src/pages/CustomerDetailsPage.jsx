@@ -59,7 +59,7 @@ export default function CustomerDetailsPage() {
     const table = document.querySelector('.table'); 
   
   
-    const tableHeight = pdf.internal.pageSize.height - 10; // Adjust the margin as needed
+    const tableHeight = pdf.internal.pageSize.height - 20; // Adjust the margin as needed
   
     html2canvas(table).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
