@@ -63,7 +63,7 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
   }
 
   return (
-    <div>
+    <div >
          <div className="row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
 
             <div className="col-md-15">
@@ -74,9 +74,9 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
                     <h2 className='text-left'>{item.name}</h2>
                     <h2 className="text-left">Price: {total}</h2>
                     <h2 style={{display:'inline'}}>Quantity :</h2>
-                    <button className="fa fa-plus"></button>
+                    <button className="fa fa-plus" onClick={increaseQuantity} ></button>
                     <b>{quantity}</b>
-                    <button className="fa fa-minus"></button>
+                    <button className="fa fa-minus" onClick={decreaseQuantity}></button>
                     <hr></hr>
 
                  </div>

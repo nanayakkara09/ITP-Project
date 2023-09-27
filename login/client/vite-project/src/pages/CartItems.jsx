@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import CartItem from '../components/CartItem'; 
+import CartItem from '../components/CartItem';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import '../pages/cart.css'
@@ -38,27 +38,33 @@ const CartItems = () => {
   }
 
   return (
-    <div>
+    <div className="cart-container">
       <div>
-      <NavBar />
+        <NavBar />
       </div>
-     
-      <h2 className='mycart'> MY CART</h2>
-     
 
-      <div  className='col-md-2 '>
-       
-              
-             </div>
-     
-     
+      <h2 className='mycart'> MY CART</h2>
+
+
+      <div className='col-md-2 '>
+        <div className='subT'>
+          <h2 style={{ fontSize: '35px' }}>SubTotal:</h2>
+          <h2 className='subtotal'> {subtotal}/-</h2>
+
+        </div>
+        <Link to={`/payment?subtotal=${subtotal}`}>
+          <button className="continue">Continue</button>
+        </Link>
+      </div>
+
+
       <ul>
         {cartItems.map(item => (
-          <CartItem key={item._id} item={item} onDelete={handleDelete} onUpdateTotal={handleUpdateTotal}/> 
+          <CartItem key={item._id} item={item} onDelete={handleDelete} onUpdateTotal={handleUpdateTotal} />
         ))}
       </ul>
-      </div>
-   
+    </div>
+
   );
 };
 
