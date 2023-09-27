@@ -6,6 +6,7 @@ import './feedbacks.css';
 const FeedbackPage = () => {
   const [feedbackText, setFeedbackText] = useState('');
   const [userName, setUserName] = useState(''); // State for user name
+  const [rating, setRating] = useState(0);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,14 +20,16 @@ const FeedbackPage = () => {
       const response = await axios.post('/submit-feedback', {
         userId: 'user_id_here',
         feedbackText,
-        userName, // Include the user name in the request
+        userName,
+        rating, 
       });
   
       console.log(response.data);
       toast.success('Thank You For submitting Feedback');
       toast.success('Feedback submitted successfully');
       setFeedbackText('');
-      setUserName(''); // Clear the user name input after submission
+      setUserName(''); 
+      setRating('');
     } catch (error) {
       console.error(error);
       toast.error('Error submitting feedback');
@@ -63,6 +66,26 @@ const FeedbackPage = () => {
               required
             ></textarea>
           </div>
+          <div className="md-form">
+          {/* Star rating component */}
+          <div>
+            <label htmlFor="rating">Rating:</label>
+            <select
+              id="rating"
+              className="form-control"
+              value={rating}
+              onChange={(e) => setRating(parseInt(e.target.value))}
+              required
+            >
+              <option value="0">Select rating</option>
+              <option value="1">1 star</option>
+              <option value="2">2 stars</option>
+              <option value="3">3 stars</option>
+              <option value="4">4 stars</option>
+              <option value="5">5 stars</option>
+            </select>
+          </div>
+        </div>
           <div className="text-center">
             <button type="submit" className="btn btn-primary">Submit Feedback</button>
           </div>
