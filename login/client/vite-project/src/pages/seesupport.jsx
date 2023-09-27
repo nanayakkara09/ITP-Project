@@ -57,7 +57,6 @@ export default function SeesupportPage() {
     }
   };
 
-
   const generatePDF = () => {
     const pdf = new jsPDF();
   
@@ -72,7 +71,6 @@ export default function SeesupportPage() {
   
       pdf.save('table.pdf'); // Change the filename as desired
     });
-
   };
 
   return (
@@ -132,11 +130,9 @@ export default function SeesupportPage() {
         ) : (
           <p>No support data available.</p>
         )}
-
        <button className="print-button" onClick={generatePDF}>
   Generate PDF
 </button>
-
       </div>
     </div>
   );
