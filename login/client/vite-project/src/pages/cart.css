@@ -114,4 +114,27 @@ h1{
 }
 
 
+body {
+  background-image: url('../images/cartbg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
+}
+
+.cart-container{
+  
+  border-radius: 20px !important;
+
+  /* From https://css.glass */
+background: rgba(11, 11, 11, 0);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(3.1px);
+-webkit-backdrop-filter: blur(3.1px);
+border: 1px solid rgba(11, 11, 11, 0.33);
+  
+}
+
+
 

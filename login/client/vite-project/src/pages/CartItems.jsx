@@ -4,6 +4,7 @@ import CartItem from '../components/CartItem';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar';
 import '../pages/cart.css'
+import Footer from '../components/Footer'
 
 
 const CartItems = () => {
@@ -38,7 +39,7 @@ const CartItems = () => {
   }
 
   return (
-    <div className="cart-container">
+    <div className="">
       <div>
         <NavBar />
       </div>
@@ -53,16 +54,19 @@ const CartItems = () => {
 
         </div>
         <Link to={`/payment?subtotal=${subtotal}`}>
-          <button className="continue">Continue</button>
+          <button className="continue">Confirm</button>
         </Link>
       </div>
 
-
+       <div className='items'>
       <ul>
         {cartItems.map(item => (
           <CartItem key={item._id} item={item} onDelete={handleDelete} onUpdateTotal={handleUpdateTotal} />
         ))}
       </ul>
+      </div>
+
+    
     </div>
 
   );

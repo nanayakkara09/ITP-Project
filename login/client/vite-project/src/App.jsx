@@ -26,8 +26,8 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
-import CartItems from './pages/CartItems';
-import OrderAdmin from './pages/orderAdmin'
+import Cart from './pages/CartItems';
+import OrderAdmin from './pages/orderAdmin';
 
 
 
@@ -60,7 +60,7 @@ function App() {
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-    <Route path="/cart" element={<CartItems />} />
+    <Route path="/cart" element={<Cart />} />
     <Route path="/orderadmin" element={<OrderAdmin />} />
        
      

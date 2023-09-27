@@ -63,8 +63,8 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
   }
 
   return (
-    <div >
-         <div className="row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
+    <div className="" >
+         <div className=" cart-container row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
 
             <div className="col-md-15">
                 
