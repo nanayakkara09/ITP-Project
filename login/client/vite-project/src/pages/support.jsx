@@ -5,12 +5,7 @@ import './feedbacks.css';
 
 export default function SupportMessage() {
   const [supportText, setSupportText] = useState('');
-  const [userName, setUserName] = useState('');
-  const [email, setEmail] = useState('');
-
-  const validateEmail = (email) => {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-  };
+  const [userName, setUserName] = useState(''); // State for user name
 
   const submitSupport = async (e) => {
     e.preventDefault();
@@ -20,23 +15,16 @@ export default function SupportMessage() {
       return;
     }
 
-    if (!validateEmail(email)) {
-      toast.error('Invalid email address');
-      return;
-    }
-
     try {
       await axios.post('/submitsupport', {
         userId: 'user_id_here',
-        email,
-        userName,
         supportText,
+        userName, // Include the user name in the request
       });
 
-      toast.success('Support message submitted successfully,Our Agents Will Email you Soon!!');
+      toast.success('Support message submitted successfully');
       setSupportText('');
-      setUserName('');
-      setEmail('');
+      setUserName(''); // Clear the user name input after submission
     } catch (error) {
       console.error(error);
       toast.error('Error submitting support message');
@@ -48,9 +36,9 @@ export default function SupportMessage() {
       <div className="container">
         <br />
         <br />
-        <h2 className="h1-responsive font-weight-bold text-center my-4">
+        <h1 className="h1-responsive font-weight-bold text-center my-4">
           Submit Support Message
-        </h2>
+        </h1>
         <div className="feedback-form">
           <form onSubmit={submitSupport}>
             <div className="md-form">
@@ -61,23 +49,6 @@ export default function SupportMessage() {
                 placeholder="Your Name"
                 value={userName}
                 onChange={(e) => setUserName(e.target.value)}
-                required
-              />
-            </div>
-            <div className="md-form">
-              <input
-                type="text"
-                id="email"
-                className="form-control"
-                placeholder="Your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                onBlur={(e) => {
-                  const emailValue = e.target.value;
-                  if (!validateEmail(emailValue)) {
-                    toast.error('Invalid email address');
-                  }
-                }}
                 required
               />
             </div>
