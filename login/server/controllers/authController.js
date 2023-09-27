@@ -456,6 +456,7 @@ const updateUser = async (req, res) => {
       console.error(error);
       res.status(500).json({ message: 'Password reset failed' });
     }
+  }
 
   const markFeedbackAsRead = async (req, res) => {
     const { feedbackId } = req.params;
@@ -504,7 +505,7 @@ const updateUser = async (req, res) => {
       res.status(500).json({ message: 'Error marking feedback as read' });
     }
   };
-
+  
 
 module.exports ={
     test,
