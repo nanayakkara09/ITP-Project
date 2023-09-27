@@ -8,6 +8,12 @@ const feedbackSchema = new Schema({
       ref: 'User', // Reference to the User model, assuming you have a User schema
       required: true,
     },
+    rating: {
+      type: Number, // Add a field to store the star rating
+      required: true,
+      min: 1,       // Define minimum and maximum values for the rating
+      max: 5,
+    },
 
     feedbackText: {
       type: String,
@@ -16,6 +22,10 @@ const feedbackSchema = new Schema({
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+    isRead: {
+      type: Boolean,
+      default: false, // Initially, feedback is not read
     },
     
   });

@@ -83,17 +83,10 @@ export default function Login() {
             New user? <Link to="/register">Register now</Link>
           </p>
           <p className="forgot-password-link">
-  <Link to="/forgot-password">Forgot Password?</Link>
+  <Link to="/password">Forgot Password?</Link>
 </p>
 
 </div>
-      
- 
-
-
-  
-   
-   
     </div>
   );
 }

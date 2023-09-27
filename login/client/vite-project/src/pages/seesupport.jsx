@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/adminNavBar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments } from "@fortawesome/free-solid-svg-icons"; // Import the desired icon
+import { faLifeRing } from "@fortawesome/free-solid-svg-icons"; // Import the desired icon
 
-export default function SeeFeedbacksPage() {
-  const [feedbackList, setFeedbackList] = useState([]);
-  const [filteredFeedbackList, setFilteredFeedbackList] = useState([]);
+export default function SeesupportPage() {
+  const [supportList, setSupportList] = useState([]);
+  const [filteredSupportList, setFilteredSupportList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
-    const fetchFeedbackList = async () => {
+    const fetchSupportList = async () => {
       try {
-        const { data } = await axios.get('/all-feedbacks');
-        setFeedbackList(data);
-        setFilteredFeedbackList(data);
+        const { data } = await axios.get('/all-support');
+        setSupportList(data);
+        setFilteredSupportList(data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -23,32 +23,32 @@ export default function SeeFeedbacksPage() {
       }
     };
 
-    fetchFeedbackList();
+    fetchSupportList();
   }, []);
 
   const handleSearch = () => {
-    const filteredFeedbacks = feedbackList.filter((feedback) =>
-      feedback.userName.toLowerCase().includes(searchTerm.toLowerCase())
+    const filteredSupport = supportList.filter((support) =>
+      support.userName.toLowerCase().includes(searchTerm.toLowerCase())
     );
-    setFilteredFeedbackList(filteredFeedbacks);
+    setFilteredSupportList(filteredSupport);
   };
 
-  const handleMarkAsRead = async (feedbackId) => {
+  const handleMarkAsRead = async (supportId) => {
     try {
-      // Make an API request to mark feedback as read
-      await axios.put(`/mark-as-read/${feedbackId}`);
+      // Make an API request to mark support message as read
+      await axios.put(`/mark-support-as-read/${supportId}`);
 
       // Update the isRead property in the UI
-      const updatedFeedbackList = feedbackList.map((feedback) => {
-        if (feedback._id === feedbackId) {
-          return { ...feedback, isRead: true };
+      const updatedSupportList = supportList.map((support) => {
+        if (support._id === supportId) {
+          return { ...support, isRead: true };
         } else {
-          return feedback;
+          return support;
         }
       });
 
-      setFeedbackList(updatedFeedbackList);
-      setFilteredFeedbackList(updatedFeedbackList);
+      setSupportList(updatedSupportList);
+      setFilteredSupportList(updatedSupportList);
     } catch (error) {
       console.error(error);
       // Handle error
@@ -66,7 +66,7 @@ export default function SeeFeedbacksPage() {
         <br />
         <br />
         <h1>
-          <FontAwesomeIcon icon={faComments} /> Feedbacks
+          <FontAwesomeIcon icon={faLifeRing} /> Support
         </h1>
         <br />
         <div className="search-container">
@@ -79,30 +79,30 @@ export default function SeeFeedbacksPage() {
           <button onClick={handleSearch}>Search</button>
         </div>
         {isLoading ? (
-          <p>Loading feedback data...</p>
-        ) : feedbackList.length > 0 ? (
+          <p>Loading support data...</p>
+        ) : supportList.length > 0 ? (
           <table className="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">User Name</th>
-                <th scope="col">Feedback</th>
-                <th scope="col">Rating</th> {/* New column for rating */}
+                <th scope="col">User Email</th>
+                <th scope="col">Support message</th>
                 <th scope="col">Date and Time</th>
-                <th scope="col">Action</th>
+                <th scope="col">Action</th> {/* Add a column for Mark as Read */}
               </tr>
             </thead>
             <tbody>
-              {filteredFeedbackList.map((feedback, index) => (
-                <tr key={feedback._id}>
+              {filteredSupportList.map((support, index) => (
+                <tr key={support._id}>
                   <th scope="row">{index + 1}</th>
-                  <td>{feedback.userName}</td>
-                  <td>{feedback.feedbackText}</td>
-                  <td>{feedback.rating}</td> {/* Display the rating */}
-                  <td>{feedback.createdAt}</td>
+                  <td>{support.userName}</td>
+                  <td>{support.email}</td>
+                  <td>{support.supportText}</td>
+                  <td>{support.createdAt}</td>
                   <td>
-                    {!feedback.isRead ? (
-                      <button onClick={() => handleMarkAsRead(feedback._id)}>
+                    {!support.isRead ? (
+                      <button onClick={() => handleMarkAsRead(support._id)}>
                         Mark as Read
                       </button>
                     ) : (
@@ -114,7 +114,7 @@ export default function SeeFeedbacksPage() {
             </tbody>
           </table>
         ) : (
-          <p>No feedback data available.</p>
+          <p>No support data available.</p>
         )}
         <button className="print-button" onClick={handlePrint}>
           Print Table

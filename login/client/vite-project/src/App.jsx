@@ -22,16 +22,8 @@ import SupportMessage from './pages/support';
 import InvList from './pages/invList'
 import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
-import SeeFeedbacksPage from './pages/seefeedbacks';
+import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
-import Event from '../src/pages/event';
-import EventUpdate from '../src/pages/eventUpdate';
-import EventDelete from '../src/pages/eventDelete';
-import EventSuccess from '../src/pages/eventSuccess';
-import EventAbout from '../src/pages/eventAbout';
-import EventDetail from '../src/pages/eventDetail';
-import EventDel from '../src/pages/eventDel';
-import EventHome from '../src/pages/eventHome';
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -55,24 +47,17 @@ function App() {
 
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />
-      <Route path='/submitsupport' element={<SupportMessage/>}/>
+      <Route path='/support' element={<SupportMessage/>}/>
       <Route path='/admin-dashbord' element={<Admindashbord/>}/>
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
       <Route path='/invList' element={<InvList/>}/>
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
+      <Route path='/seesupport' element={<SeesupportPage/>}/>
+      <Route path='/password' element={<Password/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
-
-    <Route path='/event' element={<Event/>}/>
-     <Route path='/eventUpdate' element={<EventUpdate/>}/>
-     <Route path='/eventDelete' element={<EventDelete/>}/>
-    <Route path='/eventSuccess' element={<EventSuccess/>}/>
-     <Route path='/eventAbout' element={<EventAbout/>}/>
-    <Route path='/eventDetail' element={<EventDetail/>}/>
-    <Route path='/eventDel' element={<EventDel/>}/>
-    <Route path='/eventHome' element={<EventHome/>}/>
      
     </Routes>
     </UserContextProvider>

@@ -5,13 +5,24 @@ import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import AdminNavBar from "../components/adminNavBar";
 import "./admin-dashbord.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faUsers,
+  faCalendar,
+  faStore,
+  faUsersCog,
+  faClipboardList,
+  faTruck,
+  faBox,
+  faDollarSign,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function AdminDashboard() {
   const { user, setUser } = useContext(UserContext);
   const navigate = useNavigate();
   const [totalUsers, setTotalUsers] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
-  const [showDropdown, setShowDropdown] = useState(false); // State to manage dropdown visibility
+  const [isLoading, setIsLoading] = useState(true);
+  const [showDropdown, setShowDropdown] = useState(false);
 
   useEffect(() => {
     if (!user) {
@@ -20,14 +31,15 @@ export default function AdminDashboard() {
       });
     }
 
-    axios.get("/total-users")
+    axios
+      .get("/total-users")
       .then(({ data }) => {
         setTotalUsers(data.totalUsers);
-        setIsLoading(false); // Set loading to false when data is received
+        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error fetching total users:", error);
-        setIsLoading(false); // Set loading to false in case of an error
+        setIsLoading(false);
       });
   }, [user, setUser]);
 
@@ -47,23 +59,36 @@ export default function AdminDashboard() {
 
   return (
     <div>
-
       <AdminNavBar />
-
-       
 
       <div className="bg-image"></div>
       <div className="content">
         <div className="black-box">
           <br></br>
-          <Link to='/customerAdmin' className="vertical-text">Customer</Link>
-          <div className="vertical-text">Event</div>
-          <div className="vertical-text">Stall</div>
-          <div className="vertical-text">Employee</div>
-          <div className="vertical-text">Order</div>
-          <div className="vertical-text">Delivery</div>
-          <Link to='/invList' className="vertical-text">Inventory</Link>
-          <div className="vertical-text">Finance</div>
+          <Link to="/customerAdmin" className="vertical-text">
+            <FontAwesomeIcon icon={faUsers} /> Customer
+          </Link>
+          <div className="vertical-text">
+            <FontAwesomeIcon icon={faCalendar} /> Event
+          </div>
+          <div className="vertical-text">
+            <FontAwesomeIcon icon={faStore} /> Stall
+          </div>
+          <div className="vertical-text">
+            <FontAwesomeIcon icon={faUsersCog} /> Employee
+          </div>
+          <div className="vertical-text">
+            <FontAwesomeIcon icon={faClipboardList} /> Order
+          </div>
+          <div className="vertical-text">
+            <FontAwesomeIcon icon={faTruck} /> Delivery
+          </div>
+          <Link to="/invList" className="vertical-text">
+            <FontAwesomeIcon icon={faBox} /> Inventory
+          </Link>
+          <div className="vertical-text">
+            <FontAwesomeIcon icon={faDollarSign} /> Finance
+          </div>
         </div>
         <br></br>
         {!!user && (
@@ -73,6 +98,7 @@ export default function AdminDashboard() {
               {isLoading ? (
                 <p>Loading total users...</p>
               ) : (
+                
                 <p>Total Users: {totalUsers}</p>
               )}
             </div>

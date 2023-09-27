@@ -2,9 +2,14 @@ const mongoose= require('mongoose')
 const {Schema} =mongoose
 
 const supportSchema = new Schema({
-    userId: {
+  userName: String,  
+   userId: {
       type: Schema.Types.ObjectId,
       ref: 'User', 
+      required: true,
+    },
+    email: {
+      type:String, 
       required: true,
     },
     supportText: {
@@ -14,6 +19,11 @@ const supportSchema = new Schema({
     createdAt: {
       type: Date,
       default: Date.now,
+    },
+
+    isRead: {
+      type: Boolean,
+      default: false, // Initially, feedback is not read
     },
   });
 
