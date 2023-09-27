@@ -27,6 +27,7 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import CartItems from './pages/CartItems';
+import OrderAdmin from './pages/orderAdmin'
 
 
 
@@ -60,6 +61,7 @@ function App() {
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
     <Route path="/cart" element={<CartItems />} />
+    <Route path="/orderadmin" element={<OrderAdmin />} />
        
      
     </Routes>
