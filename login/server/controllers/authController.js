@@ -525,7 +525,4 @@ module.exports ={
   resetPassword,
   markFeedbackAsRead,
   markSupportAsRead,
-
-
-
-}
+}}
