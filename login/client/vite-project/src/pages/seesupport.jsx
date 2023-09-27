@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/adminNavBar';
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLifeRing } from "@fortawesome/free-solid-svg-icons"; // Import the desired icon
 
@@ -57,22 +55,8 @@ export default function SeesupportPage() {
     }
   };
 
-
-  const generatePDF = () => {
-    const pdf = new jsPDF();
-  
-    const table = document.querySelector('.table'); // Replace with the actual selector for your table
-  
-    const tableHeight = pdf.internal.pageSize.height - 20; // Adjust the margin as needed
-  
-    html2canvas(table).then((canvas) => {
-      const imgData = canvas.toDataURL('image/png');
-  
-      pdf.addImage(imgData, 'PNG', 10, 10, pdf.internal.pageSize.getWidth() - 20, tableHeight);
-  
-      pdf.save('table.pdf'); // Change the filename as desired
-    });
-
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
@@ -132,11 +116,9 @@ export default function SeesupportPage() {
         ) : (
           <p>No support data available.</p>
         )}
-
-       <button className="print-button" onClick={generatePDF}>
-  Generate PDF
-</button>
-
+        <button className="print-button" onClick={handlePrint}>
+          Print Table
+        </button>
       </div>
     </div>
   );
