@@ -26,8 +26,16 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
-import Cart from './pages/CartItems';
-import OrderAdmin from './pages/orderAdmin';
+import "bootstrap/dist/css/bootstrap.min.css";
+import CreateStallreq from './pages/CreateStallreq'
+import Stalls from './pages/Stalls'
+import StallAdminreq from './pages/StallAdminreq'
+import StallCreate from './pages/StallCreate';
+import StallOwnerDashboard from './pages/StallOwnerDashboard';
+import PizzaMart from './pages/PizzaMart';
+import SweetSerenity from './pages/SweetSerenity';
+import Asiano from './pages/Asiano';
+import SriLankanFoodStall from './pages/SriLankanFoodStall';
 
 
 
@@ -60,9 +68,16 @@ function App() {
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-    <Route path="/cart" element={<Cart />} />
-    <Route path="/orderadmin" element={<OrderAdmin />} />
-       
+
+      <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
+      <Route path='/createStallreq' element={<CreateStallreq />}></Route>
+      <Route path='/stallCreate' element={<StallCreate />}></Route>
+      <Route path='/stallownerdash' element={<StallOwnerDashboard />}></Route>
+      <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
+      <Route path='/sweetS' element={<SweetSerenity/>}></Route>
+      <Route path='/asiano' element={<Asiano/>}></Route>
+      <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
+
      
     </Routes>
     </UserContextProvider>
