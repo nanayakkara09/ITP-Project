@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../pages/CreateStallreq.css";
 
-
-function RequestStall() {
+function CreateStallreq() {
   const [sName, setsName] = useState("");
   const [type, settype] = useState("");
   const [fName, setfName] = useState("");
@@ -47,7 +47,27 @@ function RequestStall() {
     e.preventDefault();
     const validationErrors = validateForm();
 
-    
+    if (Object.keys(validationErrors).length === 0) {
+      // If there are no validation errors, submit the form
+      axios
+        .post('./stall/stallreq', {
+          sName,
+          type,
+          fName,
+          lName,
+          email,
+          phone,
+        })
+        .then((result) => {
+          console.log(result);
+          // Assuming a successful submission should navigate to a success page
+          navigate("/StallAdminreq");
+        })
+        .catch((err) => console.log(err));
+    } else {
+      // If there are validation errors, update the state to display them
+      setErrors(validationErrors);
+    }
   };
 
   return (
@@ -175,4 +195,4 @@ function RequestStall() {
   );
 }
 
-export default RequestStall;
+export default CreateStallreq;

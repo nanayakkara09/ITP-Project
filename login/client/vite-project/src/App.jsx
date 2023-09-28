@@ -25,9 +25,8 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import "bootstrap/dist/css/bootstrap.min.css";
-import CreateStallreq from './pages/CreateStallreq'
-import Stalls from './pages/Stalls'
-import StallAdminreq from './pages/StallAdminreq'
+import CreateStallreq from './pages/CreateStallreq';
+import StallAdminreq from './pages/StallAdminreq';
 import StallCreate from './pages/StallCreate';
 import StallOwnerDashboard from './pages/StallOwnerDashboard';
 import PizzaMart from './pages/PizzaMart';
@@ -65,10 +64,10 @@ function App() {
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
-    <Route path="/UserEdit/:userId" element={<UserEdit />} />
+      <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
       <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
-      <Route path='/createStallreq' element={<CreateStallreq />}></Route>
+      <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
       <Route path='/stallownerdash' element={<StallOwnerDashboard />}></Route>
       <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
