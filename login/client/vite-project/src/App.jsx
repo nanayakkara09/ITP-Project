@@ -36,6 +36,8 @@ import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
+import Cart from './pages/CartItems';
+import Payment from './pages/payment';
 
 
 
@@ -78,6 +80,11 @@ function App() {
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
 
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/payment" element={<Payment />} />
+
+
+      
      
     </Routes>
     </UserContextProvider>

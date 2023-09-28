@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import axios from 'axios';
 import '../pages/cart.css'
 
-
-
 const CartItem = ({ item, onDelete, onUpdateTotal }) => { 
   
   const [quantity, setQuantity] = useState(item.quantity);
@@ -64,42 +62,42 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
 
   return (
     <div className="" >
-         <div className=" cart-container row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
+    <div className=" cart-container row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
 
-            <div className="col-md-15">
-                
-                <div className="flex-container">
+       <div className="col-md-15">
+           
+           <div className="flex-container">
 
-                 <div className='text-left m-3 w-100'>
-                    <h2 className='text-left'>{item.name}</h2>
-                    <h2 className="text-left">Price: {total}</h2>
-                    <h2 style={{display:'inline'}}>Quantity :</h2>
-                    <button className="fa fa-plus" onClick={increaseQuantity} ></button>
-                    <b>{quantity}</b>
-                    <button className="fa fa-minus" onClick={decreaseQuantity}></button>
-                    <hr></hr>
+            <div className='text-left m-3 w-100'>
+               <h2 className='text-left'>{item.name}</h2>
+               <h2 className="text-left">Price: {total}</h2>
+               <h2 style={{display:'inline'}}>Quantity :</h2>
+               <button className="fa fa-plus" onClick={increaseQuantity} ></button>
+               <b>{quantity}</b>
+               <button className="fa fa-minus" onClick={decreaseQuantity}></button>
+             
 
-                 </div>
-
-                 <div className=''>
-              <img src={item.image} style={{height:'80px' , height: '80px'}} alt={item.name} />
             </div>
 
             <div className=''>
-              <button className='fa fa-trash mt-5' aria-hidden="true" onClick={deleteItem} />
-            </div>
+         <img src={item.image} style={{height:'80px' , height: '80px'}} alt={item.name} />
+       </div>
 
-                </div>
-            </div>
+       <div className=''>
+         <button className='fa fa-trash mt-5' aria-hidden="true" onClick={deleteItem} />
+       </div>
 
-            <div className="col-md-4">
+           </div>
+       </div>
+
+       <div className="col-md-4">
 
 </div>
 
 
-         </div>
-      
     </div>
+ 
+</div>
   );
 };
 

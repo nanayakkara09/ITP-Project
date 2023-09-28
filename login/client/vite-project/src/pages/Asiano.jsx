@@ -4,6 +4,7 @@ import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
 const Asiano = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -106,6 +107,8 @@ const Asiano = () => {
 
   return (
     <Container>
+
+     
       <Row className="mt-4">
         <Col xs={12} md={3}>
           <Card>

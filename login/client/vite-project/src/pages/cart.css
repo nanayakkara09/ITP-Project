@@ -1,7 +1,12 @@
 .mycart{
 
     font-size: 40px !important;
-    margin-top: -250px;
+    margin-top: 50px;
+    margin-bottom: px;
+    background:white;
+  
+   
+
   }
 
   .addToCart{
@@ -60,14 +65,17 @@
 .col-md-2{
   
  
- margin-top: -40px;
+  margin-top: 40px;
   margin-bottom: 40px;
   margin-left: 155%;
+  width: max-content;
+ background-color: white;
+ 
   
 }
 
 h1{
-  font-size: 20px !important;
+  font-size: 25px !important;
 }
 
 .continue{
@@ -100,11 +108,7 @@ h1{
       text-align: left;
 }
 
-.subT{
-  
- 
-  display: inline-flex
-}
+
 
 .subtotal{
 
@@ -113,28 +117,27 @@ h1{
   margin-top: 6px;
 }
 
-
 body {
-  background-image: url('../images/cartbg.jpg');
+  background-image: url('../images/cartbg1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
   background-attachment: fixed; /* Optional: keeps the background fixed while scrolling */
 }
 
-.cart-container{
-  
-  border-radius: 20px !important;
+.subT{
 
-  /* From https://css.glass */
-background: rgba(11, 11, 11, 0);
-border-radius: 16px;
-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-backdrop-filter: blur(3.1px);
--webkit-backdrop-filter: blur(3.1px);
-border: 1px solid rgba(11, 11, 11, 0.33);
-  
+  display: inline-flex
 }
+
+.payment{
+
+  
+  background-color: white;
+  width: 200px;
+}
+
+
 
 
 
