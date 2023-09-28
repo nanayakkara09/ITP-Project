@@ -47,27 +47,7 @@ function RequestStall() {
     e.preventDefault();
     const validationErrors = validateForm();
 
-    if (Object.keys(validationErrors).length === 0) {
-      // If there are no validation errors, submit the form
-      axios
-        .post("http://localhost:8070/auth/requestStall", {
-          sName,
-          type,
-          fName,
-          lName,
-          email,
-          phone,
-        })
-        .then((result) => {
-          console.log(result);
-          // Assuming a successful submission should navigate to a success page
-          navigate("/success");
-        })
-        .catch((err) => console.log(err));
-    } else {
-      // If there are validation errors, update the state to display them
-      setErrors(validationErrors);
-    }
+    
   };
 
   return (
