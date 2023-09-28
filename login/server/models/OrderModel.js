@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const orderSchema = new mongoose.Schema({
   email: String, 
-  date: { type: Date, default: Date.now }, // Add a field for date
+  date: { type: Date, default: Date.now },
   name: String,
   quantity: Number,
   price: Number,

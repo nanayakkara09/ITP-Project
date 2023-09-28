@@ -54,18 +54,24 @@ const Asiano = () => {
   const addToCart = (item) => {
     const { name, price, image } = item;
     const quantity = itemQuantities[filteredFoodItems.indexOf(item)] || 1;
-    const email = user.email; // Assuming you have the user's email in the user context
-
+    const email = user.email;
+  
+    console.log(email); // Check if the email is logged
+  
     axios
-      .post('http://localhost:8000/order/add-to-cart', { name, quantity, price, image, email })
-      .then((response) => {
-        alert(response.data.message);
-      })
-      .catch((error) => {
-        console.error(error);
-        alert('Error adding item to cart');
-      });
+  .post('http://localhost:8000/order/add-to-cart', { name, quantity, price, image, email })
+  .then((response) => {
+    console.log(response.data); // Check the response
+    alert(response.data.message);
+  })
+  .catch((error) => {
+    console.error(error);
+    alert('Error adding item to cart');
+  });
+
+    
   };
+  
 
   const stall = {
     name: 'Asiano',

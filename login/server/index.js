@@ -17,11 +17,13 @@ app.use(express.json());
 app.use(cookieParser())
 app.use(express.urlencoded({extended:false}))
 
+
 app.use(
   session({
     secret: 'Naduka0916',
     resave: false,
     saveUninitialized: false,
+   
   })
 );
 
