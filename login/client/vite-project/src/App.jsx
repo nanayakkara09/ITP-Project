@@ -26,11 +26,15 @@ import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import "bootstrap/dist/css/bootstrap.min.css";
 import CreateStallreq from './pages/CreateStallreq'
-import UpdateStall from './pages/UpdateStall'
 import Stalls from './pages/Stalls'
 import StallAdminreq from './pages/StallAdminreq'
 import StallCreate from './pages/StallCreate';
 import StallOwnerDashboard from './pages/StallOwnerDashboard';
+import PizzaMart from './pages/PizzaMart';
+import SweetSerenity from './pages/SweetSerenity';
+import Asiano from './pages/Asiano';
+import SriLankanFoodStall from './pages/SriLankanFoodStall';
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -63,11 +67,14 @@ function App() {
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
-      <Route path='/' element={<StallAdminreq />}></Route>
+      <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
       <Route path='/createStallreq' element={<CreateStallreq />}></Route>
-      <Route path='/updateStall' element={<UpdateStall />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
       <Route path='/stallownerdash' element={<StallOwnerDashboard />}></Route>
+      <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
+      <Route path='/sweetS' element={<SweetSerenity/>}></Route>
+      <Route path='/asiano' element={<Asiano/>}></Route>
+      <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
 
      
     </Routes>

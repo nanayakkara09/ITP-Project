@@ -36,5 +36,6 @@ app.use(cors(corsOptions));
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
 
+
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
