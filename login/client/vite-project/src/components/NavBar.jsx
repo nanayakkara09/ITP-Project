@@ -74,7 +74,7 @@ export default function NavBar() {
             <Link to="/login">
               <FontAwesomeIcon icon={faSignInAlt} /> Login
             </Link>
-            <Link to="/event">
+            <Link to="/eventForm">
               Event
             </Link>
           </>

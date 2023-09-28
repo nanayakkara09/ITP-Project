@@ -7,7 +7,7 @@ const eventSchema = new Schema({
     phonenumber: Number,
     email: {
       type: String,
-      unique: true,
+      unique: true
     },
     Ename:String,
     
@@ -18,7 +18,7 @@ const eventSchema = new Schema({
     Fneed:String,
     Extra:String,
 
-  });
+  })
   const EventModel = mongoose.model('Event', eventSchema);
 
 module.exports = EventModel;

@@ -28,7 +28,7 @@ import InvEdit from '../src/pages/invEdit';
 import Password from '../src/pages/password'
 
 
-import Event from '../src/pages/event';
+import Event from '../src/pages/eventForm';
 import EventUpdate from '../src/pages/eventUpdate';
 import EventDelete from '../src/pages/eventDelete';
 import EventSuccess from '../src/pages/eventSuccess';
@@ -71,7 +71,7 @@ function App() {
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
 
-      <Route path="/event" element={<Event />}/>
+      <Route path="/eventForm" element={<Event />}/>
       <Route path="/eventUpdate" element={<EventUpdate />}/>
       <Route path="/eventDelete" element={<EventDelete />}/>
       <Route path="/eventSuccess" element={<EventSuccess />}/>

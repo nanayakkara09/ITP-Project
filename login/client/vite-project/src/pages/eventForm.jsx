@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './event.css';
 
 
- function event() {
+ function eventForm() {
   const navigate = useNavigate();
   const [data, setData] = useState({
     name: '',
@@ -216,4 +216,4 @@ import './event.css';
   );
 }
 
-export default event;
+export default eventForm;

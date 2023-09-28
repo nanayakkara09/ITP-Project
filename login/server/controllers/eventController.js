@@ -1,24 +1,12 @@
 const Event = require('../models/event'); // Change 'event' to 'EventModel'
 
-const jwt = require('jsonwebtoken');
 
 
-const addEvent = async (req, res) => {
-  try {
-    const {  name,
-      address,
-      phonenumber,
-      email,
-     Etime,
-     date,
-     Npeople,
-     theme,
-     Fneed,
-     Extra,
-    } = req.body;
-
-    const newEvent = new Event({
-      name,
+const test=(req,res) =>{
+  res.json('test is working')
+}
+const addNew=async(req,res)=>{
+  const{name,
     address,
     phonenumber,
     email,
@@ -28,81 +16,96 @@ const addEvent = async (req, res) => {
    theme,
    Fneed,
    Extra,
-  
-    });
+  } = req.body;
 
-    await newEvent.save();
-    res.json("Your details have been added successfully!!");
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ status: "Error adding Shipping details", error: err.message });
-  }
-};
-// Function to handle getting all Shippings
-const getAllEvent = async (req, res) => {
-  try {
-    const event = await Event.find();
-    res.json(event);
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ status: "Error fetching Shipping details", error: err.message });
-  }
-};
+const event=await Event.create({name,
+  address,
+  phonenumber,
+  email,
+ Etime,
+ date,
+ Npeople,
+ theme,
+ Fneed,
+ Extra,
 
-// Function to handle updating a Shipping
-const updateEvent = async (req, res) => {
-  try {
-    let userId = req.params.id;
-      
-        const {  name,
-          address,
-          phonenumber,
-          email,
-         Etime,
-         date,
-         Npeople,
-         theme,
-         Fneed,
-         Extra,
-        } = req.body;
+})  
+return res.json(event)}
 
-    const updateEvent = {
+const updateItem=async(req,res)=>{
+  const { itemId } = req.params;
+  console.log(itemId);
+  console.log(req.body)
+  const{name,
+    address,
+    phonenumber,
+    email,
+   Etime,
+   date,
+   Npeople,
+   theme,
+   Fneed,
+   Extra,
+  } = req.body;
+
+  const event = await Event.findByIdAndUpdate(
+    itemId,
+    {
       name,
-      address,
-      phonenumber,
-      email,
-     Etime,
-     date,
-     Npeople,
-     theme,
-     Fneed,
-     Extra,
-    
-    };
+  address,
+  phonenumber,
+  email,
+ Etime,
+ date,
+ Npeople,
+ theme,
+ Fneed,
+ Extra,
 
-     await Eventform.findByIdAndUpdate(userId, updateEvent);
-    res.status(200).send({ status: "Your details have been successfully updated!!" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ status: "Error updating Shipping details", error: err.message });
   }
-};
-
-// Function to handle deleting a Shipping
-const deleteEvent = async (req, res) => {
-  try {
-    const userId = req.params.id;
-    await deleteEvent.findByIdAndDelete(userId);
-    res.status(200).send({ status: "Shipping details deleted!!!" });
-  } catch (err) {
-    console.error(err);
-    res.status(500).send({ status: "Error deleting Shipping details", error: err.message });
-  }
-};
-module.exports={
-  addEvent,
-  getAllEvent,
-  updateEvent,
-  deleteEvent,
+  );
+  return res.json(inventory)
 }
-
+const deleteItem=async(req,res) =>{
+  const { itemId } = req.params;
+  try {
+      const event = await Event.findByIdAndRemove(itemId);
+      if (!event) {
+        return res.json({
+            error:'No Item found'
+        })
+      }
+  
+      res.json({ message: 'Item deleted' });
+    } catch (error) {
+      console.log(error);
+   
+    }
+  }
+  const getAllItems = async (req, res) => {
+    try {
+      const items = await Event.find();
+      res.json(items);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching inventory items' });
+    }
+  };
+  const getItem = async (req, res) => {
+    try {
+        console.log(req.params.itemId)
+      const items = await Event.findById(req.params.itemId);
+      res.json(items);
+      console.log(req.itemId);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching inventory items' });
+    }
+  };
+module.exports ={
+    addNew,
+    getAllItems,
+    getItem,
+    updateItem,
+    deleteItem
+}

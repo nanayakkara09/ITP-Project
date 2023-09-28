@@ -83,7 +83,7 @@ Event branding.</span>
             <button onClick={() => navigate('/eventDetail')} className="btn btn-primary">
               Event Details
             </button>
-            <button onClick={() => navigate('/event')} className="btn btn-primary">
+            <button onClick={() => navigate('/eventForm')} className="btn btn-primary">
               Event Proposal
             </button>
             <button onClick={() => navigate('/eventAbout')} className="btn btn-primary">

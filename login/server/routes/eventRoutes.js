@@ -4,7 +4,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
 
-const{event,eventUpdate,eventDelete,eventSuccess,eventHome,eventDetail,eventAbout,eventDel}=require('../controllers/eventController')
+const{eventForm,eventUpdate,eventDelete,eventSuccess,eventHome,eventDetail,eventAbout,eventDel}=require('../controllers/eventController')
 
 //middleware
 router.use(
@@ -14,7 +14,7 @@ router.use(
     })
 )
 
-router.get('/event',event);
+router.get('/eventForm',eventForm);
 router.post('/eventUpdate',eventUpdate);
 router.delete('/eventDelete',eventDelete);
 router.post('/eventSuccess',eventSuccess);
