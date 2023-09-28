@@ -33,18 +33,14 @@ export default function NavBar() {
       </div>
       <Link to={user ? "/dashbord" : "/"}>Home</Link>
       <Link to='/cart'>Cart</Link>
-      {!user ? (
-        <>
-
-          <Link to="/register">Register</Link>
-          <Link to="/login">Login</Link>
-        </>
-      ) : (
-        <>
-         <Link to="/profile">Profile</Link>
+      
+     
+         
           <button onClick={handleLogout}>Logout</button>
-        </>
-      )}
+
+          
+       
+      
     </div>
   );
 }

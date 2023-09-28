@@ -48,3 +48,5 @@ app.use('/order', orderRoute);
 //for view data
 const cartRoute = require('./routes/cartRoute');
 app.use('/cart', cartRoute);
+
+

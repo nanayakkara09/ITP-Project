@@ -48,7 +48,7 @@ export default function AdminDashboard() {
   return (
     <div>
 
-      <AdminNavBar />
+<AdminNavBar />
 
        
 

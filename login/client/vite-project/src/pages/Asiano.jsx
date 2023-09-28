@@ -3,7 +3,10 @@ import { Container, Row, Col, Card, Form, InputGroup , Modal, Button } from 'rea
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
-
+import NavBar from '../components/cartNavbar';
+import '../pages/FoodStalls.css'
+import { useContext } from "react";
+import { UserContext } from "../../contex/userContex";
 
 const Asiano = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -11,6 +14,7 @@ const Asiano = () => {
   const { shopId } = useParams();
   const [cart, setCart] = useState([]);
   const [itemQuantities, setItemQuantities] = useState(1);
+  const { user } = useContext(UserContext);
 
   const handleQuantityChange = (item, action) => {
     const updatedQuantities = { ...itemQuantities };
@@ -50,18 +54,18 @@ const Asiano = () => {
   const addToCart = (item) => {
     const { name, price, image } = item;
     const quantity = itemQuantities[filteredFoodItems.indexOf(item)] || 1;
-  
-    axios.post('http://localhost:8000/order/add-to-cart', { name, quantity, price, image })
-    .then((response) => {
-      alert(response.data.message);
-    })
-    .catch((error) => {
-      console.error(error);
-      alert('Error adding item to cart');
-    });
-  
-  };
+    const email = user.email; // Assuming you have the user's email in the user context
 
+    axios
+      .post('http://localhost:8000/order/add-to-cart', { name, quantity, price, image, email })
+      .then((response) => {
+        alert(response.data.message);
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('Error adding item to cart');
+      });
+  };
 
   const stall = {
     name: 'Asiano',
@@ -106,8 +110,12 @@ const Asiano = () => {
   });
 
   return (
+    <div>
+
+     <NavBar />
     <Container>
 
+        
      
       <Row className="mt-4">
         <Col xs={12} md={3}>
@@ -217,6 +225,7 @@ const Asiano = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 
