@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useParams, useNavigate } from 'react-router-dom';
-
+import 'bootstrap/dist/css/bootstrap.css'
 import './event.css';
 
 
@@ -42,7 +42,18 @@ import './event.css';
       if (response.error) {
         toast.error(response.error);
       } else {
-        setData({});
+        setData({
+          name: '',
+          phonenumber: '',
+          email: '',
+          Ename: '',
+          Etime: '',
+          date: '',
+          Npeople: '',
+          theme: '',
+          Fneed: '',
+          Extra: '',
+        });
         toast.success('Registration successful, welcome!');
         navigate('/login');
       }
@@ -50,10 +61,13 @@ import './event.css';
       console.log(error);
     }
   };
-const [isSubmitted, setIsSubmitted]= useState(false);
+  const validateLetters = (input) => {
+    const regex = /^[A-Za-z]+$/; // Regular expression to allow only letters (A-Z, a-z)
+    return regex.test(input) || input === '';
+  };
 
   return (
-    <div className="form-container">
+    <div className="event-container">
       
       <div className="content">
         <h2>EVENT PROPOSAL FORM</h2>

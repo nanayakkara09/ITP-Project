@@ -1,7 +1,7 @@
-const express = require('express');
-const EventModel = require('../models/event'); // Change 'event' to 'EventModel'
+const Event = require('../models/event'); // Change 'event' to 'EventModel'
 
 const jwt = require('jsonwebtoken');
+
 
 const addEvent = async (req, res) => {
   try {
@@ -80,7 +80,7 @@ const updateEvent = async (req, res) => {
     
     };
 
-     await event.findByIdAndUpdate(userId, updateEvent);
+     await Eventform.findByIdAndUpdate(userId, updateEvent);
     res.status(200).send({ status: "Your details have been successfully updated!!" });
   } catch (err) {
     console.error(err);
@@ -92,7 +92,7 @@ const updateEvent = async (req, res) => {
 const deleteEvent = async (req, res) => {
   try {
     const userId = req.params.id;
-    await event.findByIdAndDelete(userId);
+    await deleteEvent.findByIdAndDelete(userId);
     res.status(200).send({ status: "Shipping details deleted!!!" });
   } catch (err) {
     console.error(err);

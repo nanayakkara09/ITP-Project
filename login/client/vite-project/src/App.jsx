@@ -10,6 +10,7 @@ import Register from '../src/pages/Register';
 import axios from 'axios';
 import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from '../contex/userContex';
+import SeesupportPage from './pages/seesupport';
 import Dashbord from './pages/dashbord';
 import Edit from './pages/edit';
 import Profile from './pages/profile';
@@ -24,6 +25,17 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
+import Password from '../src/pages/password'
+
+
+import Event from '../src/pages/event';
+import EventUpdate from '../src/pages/eventUpdate';
+import EventDelete from '../src/pages/eventDelete';
+import EventSuccess from '../src/pages/eventSuccess';
+import EventHome from './pages/eventHome';
+import EventDetail from './pages/eventDetail';
+import EventAbout from './pages/eventAbout';
+import EventDel from './pages/eventDel';
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -58,7 +70,17 @@ function App() {
       <Route path='/password' element={<Password/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
-     
+
+      <Route path="/event" element={<Event />}/>
+      <Route path="/eventUpdate" element={<EventUpdate />}/>
+      <Route path="/eventDelete" element={<EventDelete />}/>
+      <Route path="/eventSuccess" element={<EventSuccess />}/>
+      <Route path="/eventHome" element={<EventHome />}/>
+      <Route path="/eventDetail" element={<EventDetail />}/>
+      <Route path="/eventAbout" element={<EventAbout />}/>
+      <Route path="/eventDel" element={<EventDel />}/>
+
+
     </Routes>
     </UserContextProvider>
   )
