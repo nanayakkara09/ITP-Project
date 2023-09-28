@@ -46,7 +46,9 @@ export default function NavBar() {
         <div className="logo1">
           <img src={logo} alt="Logo" />
         </div>
-        <Link to={user ? "/dashboard" : "/"}>
+
+        <Link to={user ? "/dashbord" : "/"}>
+
           <FontAwesomeIcon icon={faHome} /> Home
         </Link>
         <Link to="#" onClick={toggleContactDropdown}>
@@ -55,9 +57,11 @@ export default function NavBar() {
         {showContactDropdown && (
           <div className="contact-info-dropdown">
             <div className="white-box">
-              <p>Email: example@example.com</p>
-              <p>Address: 123 Main Street, City, Country</p>
-              <p>Phone: +123-456-7890</p>
+
+              <p><strong>Email:</strong> StreetBitez@gmail.com</p>
+              <p><strong>Address:</strong> 123 Main Street, colombo, Sri lanka</p>
+              <p><strong>Phone Number:</strong> +123-456-7890</p>
+
             </div>
           </div>
         )}

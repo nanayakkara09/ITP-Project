@@ -22,10 +22,13 @@ import SupportMessage from './pages/support';
 import InvList from './pages/invList'
 import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
-import SeeFeedbacksPage from './pages/seefeedbacks';
+import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import ItemDetails from '../src/pages/itemDetails';
 import AddStock from '../src/pages/addStock';
+import SeesupportPage from './pages/seesupport';
+import Password from './pages/password';
+
 
 
 
@@ -54,15 +57,18 @@ function App() {
 
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />
-      <Route path='/submitsupport' element={<SupportMessage/>}/>
+      <Route path='/support' element={<SupportMessage/>}/>
       <Route path='/admin-dashbord' element={<Admindashbord/>}/>
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
       <Route path='/invList' element={<InvList/>}/>
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
+      <Route path='/seesupport' element={<SeesupportPage/>}/>
+      <Route path='/password' element={<Password/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
+  
+   
      
     </Routes>
     </UserContextProvider>
