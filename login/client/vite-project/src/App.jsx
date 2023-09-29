@@ -36,10 +36,8 @@ import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
 import Paidbycard from './pages/paidByCard';
-import PaymentMethod from './pages/paymentMethod';
-import ReceiptForOrder from './pages/receiptForOrder';
-import GetallOrderData from './pages/getAllOrderData';
-import CashOnDeliver from './pages/cashOnDeliver';
+
+
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -78,11 +76,8 @@ function App() {
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
       <Route path='/Paidbycard' element={<Paidbycard/>}></Route>
-      <Route path='/PaymentMethod' element={<PaymentMethod/>}></Route>
-      <Route path='/ReceiptForOrder' element={<ReceiptForOrder/>}></Route>
-      <Route path='/GetallOrderData' element={<GetallOrderData/>}></Route>
-      <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
-
+     
+ 
      
     </Routes>
     </UserContextProvider>

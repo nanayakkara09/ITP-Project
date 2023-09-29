@@ -1,42 +1,40 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import pCard from '../images/undraw_plain_credit_card_re_c07w.svg'
+import pCard from '../images/cartbg4.jpg'
 import cash from '../images/68a91e9d5f0b3e787706892300c82ce5.gif'
-import './paidBycard.css';
+import './paidBycard.css'; // Import the CSS file here
+
 function Paidbycard() {
   const navigate = useNavigate();
 
   return (
-    <div className="main">
+    <div className="man">
+       <div className="bgh-image"></div>
       <body>
-        <div class="card">
-      <div class="imgbox">
-      <img
+        <div className="cardd">
+       
+          <div className="imaagbox">
+            <img className="deliimg"
               src={cash}
               alt="Cash on Delivery"
             />
-      </div>
+          </div>
 
-      <div class="content">
-        <h2>Paid by card</h2>
-        <p>
-          Your payment has successfully made!, keep touching with us
-        </p>
-        <button
-          onClick={() => navigate(`/CardDet`)}
-          className="btn btn-secondary btn1"
-          style={{ width: "200px", height: "50px" }} // Adjust width and height as needed
-        >
-          Ok
-        </button>
-      </div>
+          <div className="conttt">
+            <h2>Paid by card</h2>
+            <p>Your payment has successfully made!, keep touching with us</p>
+            <button
+              onClick={() => navigate(`/CardDet`)}
+              className="btn btn-secondary buttton1"
+              style={{ width: "200px", height: "50px" }}
+            >
+              Ok
+            </button>
+          </div>
+        </div>
+      </body>
     </div>
- 
-  </body>
-      </div>
-    
-   
   );
 }
 
