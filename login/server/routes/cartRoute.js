@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/OrderModel');
+const  ConfirmedOrder  = require('../models/ConfirmOrderModel');
 
 // Route to get all items in the cart
 router.get('/get-cart', async (req, res) => {
@@ -35,6 +36,18 @@ router.delete('/delete-item/:id', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+//for cancle button
+
+router.delete('/delete-all-items', async (req, res) => {
+  try {
+    await Order.deleteMany({});
+    res.json({ message: 'All items deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 
 
 module.exports = router;

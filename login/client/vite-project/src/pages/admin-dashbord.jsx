@@ -77,9 +77,9 @@ export default function AdminDashboard() {
           <div className="vertical-text">
             <FontAwesomeIcon icon={faUsersCog} /> Employee
           </div>
-          <div className="vertical-text">
+          <Link to= "/order-admin" className="vertical-text">
             <FontAwesomeIcon icon={faClipboardList} /> Order
-          </div>
+          </Link>
           <div className="vertical-text">
             <FontAwesomeIcon icon={faTruck} /> Delivery
           </div>
