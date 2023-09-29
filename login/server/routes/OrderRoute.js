@@ -62,6 +62,14 @@ router.put('/confirm-order', async (req, res) => {
 });
 
 
+router.get('/confirmed-orders', async (req, res) => {
+  try {
+    const confirmedOrders = await ConfirmedOrder.find();
+    res.json(confirmedOrders);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
 
 

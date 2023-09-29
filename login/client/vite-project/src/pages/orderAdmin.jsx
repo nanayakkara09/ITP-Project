@@ -1,48 +1,72 @@
-import { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../contex/userContex"; // Correct the typo in "context"
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.css'
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import AdminNavBar from '../components/adminNavBar';
-import './customerAdmin.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faComments, faLifeRing } from '@fortawesome/free-solid-svg-icons'; // Choose appropriate icons
+import './customerDetails.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
+import { Calendar } from 'react-calendar';
+import './orderAdmin.css'
 
+export default function orderAdmin() {
+  const [confirmedOrders, setConfirmedOrders] = useState([]);
+  const [date, setDate] = useState(new Date());
 
-function CustomerAdminPage() {
-  const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate();
-  const [totalUsers, setTotalUsers] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); 
 
   useEffect(() => {
-    if (!user) {
-      axios.get("/profile").then(({ data }) => {
-        setUser(data);
-      });
-    }
-
-    axios.get("/total-users")
-      .then(({ data }) => {
-        setTotalUsers(data.totalUsers);
-        setIsLoading(false);
+    axios.get('http://localhost:8000/order/confirmed-orders')
+      .then((response) => {
+        setConfirmedOrders(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching total users:", error);
-        setIsLoading(false);
+        console.error('Error fetching confirmed orders:', error);
       });
-  }, [user, setUser]);
+  }, []); // Empty dependency array ensures the effect runs only once
 
   return (
-    <div className="customer-admin-container">
-      <AdminNavBar />
+    <div>
+      <div><AdminNavBar/></div>
       
 
+      <div className="customer-details-container">
+        <br></br>
+        <br></br>
+        <h1>
+          <FontAwesomeIcon icon={faUsers} /> Order Details
+        </h1>
+        <br></br>
+       
+       
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+                <th scope="col"> Ordered Date</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+  {confirmedOrders.map((order, index) => (
+    <tr key={order._id}>
+      <th scope="row">{index + 1}</th>
+      <td>{order.name}</td>
+      <td>{order.price}</td>
+      <td>{order.quantity}</td>
+      <td>{order.total}</td>
+      <td>{order.date}</td>
+    </tr>
+  ))}
+</tbody>
+          </table>
+       
+        <button className="print-button" >
+  Generate PDF
+</button>
+      </div>
+      </div>
       
-
-    </div>
-  );
+  )
 }
-
-export default CustomerAdminPage;
