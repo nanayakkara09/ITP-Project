@@ -28,6 +28,7 @@ import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import SeesupportPage from './pages/seesupport';
 import Password from './pages/password';
+import Cart from './pages/CartItems'
 
 
 
@@ -63,6 +64,8 @@ function App() {
       <Route path='/seesupport' element={<SeesupportPage/>}/>
       <Route path='/password' element={<Password/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
+
+    <Route path="/cart" element={<Cart/>} />
   
    
      
