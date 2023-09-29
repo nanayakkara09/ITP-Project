@@ -1,16 +1,30 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+
 
 function StallAdminreq() {
   const [stallsadminreq, setStallsadminreq] = useState([]);
 
   useEffect(() => {
-    axios.get('./stall/stalladminreq')
-      .then(result => setStallsadminreq(result.data)) // Update state variable
+    axios.get('/stall/stalladminreq') // Use the correct API endpoint
+      .then(result => {
+        // Assuming the response contains an array of objects with 'id' field
+        const dataWithIds = result.data;
+        setStallsadminreq(dataWithIds);
+      })
       .catch(err => console.log(err))
-  }, [])
+  }, []);
+    
+  const handleDelete = (id) => {
+    axios.delete(`/stall/deleteStallreq/${id}`) // Use the correct route URL
+        .then(res => {
+            console.log(res);
+            window.location.reload();
+        })
+        .catch(err => console.log(err));
+}
+  
 
   return (
     <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
@@ -19,27 +33,30 @@ function StallAdminreq() {
           <thead>
             <tr>
               <th>Stall Name</th>
-              <th>Cuisine Type</th> {/* Fixed typo in header */}
+              <th>Cuisine Type</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Email</th>
               <th>Phone Number</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
-            {/* Use stallsadminreq state variable here */}
-            {
-              stallsadminreq.map((stalladminreq, index) => {
-                return <tr key={stalladminreq.id}>
-                  <td>{stalladminreq.sName}</td>
-                  <td>{stalladminreq.type}</td>
-                  <td>{stalladminreq.fName}</td>
-                  <td>{stalladminreq.lName}</td>
-                  <td>{stalladminreq.email}</td>
-                  <td>{stalladminreq.phone}</td>
-                </tr>
-              })
-            }
+            {stallsadminreq.map((stalladminreq) => (
+              <tr key={stalladminreq.id}>
+                <td>{stalladminreq.sName}</td>
+                <td>{stalladminreq.type}</td>
+                <td>{stalladminreq.fName}</td>
+                <td>{stalladminreq.lName}</td>
+                <td>{stalladminreq.email}</td>
+                <td>{stalladminreq.phone}</td>
+                <td>
+                <Link to={`/update/${stalladminreq._id}`} className="btn btn-success">UPDATE</Link>
+                          <button className='btn btn-danger' 
+                        onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

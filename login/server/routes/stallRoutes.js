@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-const {stallreq, stalladminreq} = require('../controllers/stallController');
+const {stallreq, stalladminreq, deleteStallreq} = require('../controllers/stallController');
 
 
 
@@ -13,6 +13,7 @@ router.use(
     })
 )
 router.post('/stallreq', stallreq);
-router.get('/stalladminreq', stalladminreq)
+router.get('/stalladminreq', stalladminreq);
+router.delete('/deleteStallreq/:id', deleteStallreq);
 
 module.exports = router

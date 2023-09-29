@@ -41,9 +41,21 @@ const stalladminreq = async (req, res) => {
     }
   }
 
+  const deleteStallreq = async (req, res) => {
+    try {
+      const { id } = req.params;
+      // Use Mongoose to delete the stall by ID
+      await Stall.findByIdAndDelete(id);
+      res.sendStatus(204); // Send a successful response with status code 204 (No Content) for successful deletion.
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+  };  
+ 
 
 module.exports = {
     stallreq,
     stalladminreq,
-    
+    deleteStallreq,
 };
