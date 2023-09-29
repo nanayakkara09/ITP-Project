@@ -3,12 +3,11 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
 import './customerDetails.css';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 import { Link } from 'react-router-dom';
-
-
-
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers } from "@fortawesome/free-solid-svg-icons"; // Import the desired icon
 
 export default function CustomerDetailsPage() {
   const [userList, setUserList] = useState([]);
@@ -31,11 +30,6 @@ export default function CustomerDetailsPage() {
     fetchUserList();
   }, []);
 
-
-
-
-
-
   const deleteUser = async (userId) => {
     const shouldDelete = window.confirm('Are you sure you want to delete this user?');
     
@@ -51,104 +45,104 @@ export default function CustomerDetailsPage() {
     }
   };
 
- 
-
   const handleSearch = () => {
     // Filter the user list based on the search term
-
     const filteredUsers = userList.filter((user) =>
       user.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setUserList(filteredUsers);
   };
 
-  const handlePrint = () => {
-    window.print(); 
-
-
+  const generatePDF = () => {
+    const pdf = new jsPDF();
+  
+    const table = document.querySelector('.table'); 
+  
+  
+    const tableHeight = pdf.internal.pageSize.height - 20; // Adjust the margin as needed
+  
+    html2canvas(table).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+  
+      pdf.addImage(imgData, 'PNG', 10, 10, pdf.internal.pageSize.getWidth() - 20, tableHeight);
+  
+      pdf.save('table.pdf'); // Change the filename as desired
+    });
   };
-
- 
-
 
   return (
     <div>
       <div><AdminNavBar/></div>
-    <div className="customer-details-container">
-      
+      <div className="customer-details-container">
         <br></br>
-      <br></br>
-      <h1>Customer Details</h1>
-      <br></br>
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-     
-      {isLoading ? (
-        <p>Loading user data...</p>
-      ) : userList.length > 0 ? (
-        <table>
-          <thead>
-            <tr>
-              <th>User ID</th>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Address</th>
-              <th>city</th>
-              <th>province</th>
-              <th>Phone Number</th>
-              <th>Edit</th>
-              <th>Delete</th>
-            
-            </tr>
-          </thead>
-          <tbody>
-            {userList.map((user) => (
-              <tr key={user._id}>
-                <td>{user._id}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-                <td>{user.address}</td>
-                <td>{user.city}</td>
-                <td>{user.province}</td>
-                <td>{user.phonenumber}</td>
-                <td>
-                <Link to={`/UserEdit/${user._id}`}>
-  <button className="edit-button">Edit</button>
-</Link>
-                   
-                </td>
-                <td>
-                  <button
-                    className="delete-button"
-                    onClick={() => deleteUser(user._id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-                {/* Add more table cells for additional user details */}
+        <br></br>
+        <h1>
+          <FontAwesomeIcon icon={faUsers} /> Customer Details
+        </h1>
+        <br></br>
+        <div className="search-container">
+          <input
+            type="text"
+            placeholder="Search by name..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <button onClick={handleSearch}>Search</button>
+        </div>
+        {isLoading ? (
+          <p>Loading user data...</p>
+        ) : userList.length > 0 ? (
+          <table className="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Address</th>
+                <th scope="col">City</th>
+                <th scope="col">Province</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p>No user data available.</p>
-      )} 
-      
-      <button className="print-button" onClick={handlePrint}>
-  Print Table
+            </thead>
+            <tbody>
+              {userList.map((user, index) => (
+                <tr key={user._id}>
+                  <th scope="row">{index + 1}</th>
+                  <td>{user.name}</td>
+                  <td>{user.email}</td>
+                  <td>{user.address}</td>
+                  <td>{user.city}</td>
+                  <td>{user.province}</td>
+                  <td>{user.phonenumber}</td>
+                  <td>
+                    <Link to={`/UserEdit/${user._id}`}>
+                      <button className="edit-button">Edit</button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button
+                      className="delete-button"
+                      onClick={() => deleteUser(user._id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
+                  {/* Add more table cells for additional user details */}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        ) : (
+          <p>No user data available.</p>
+        )}
+        <button className="print-button" onClick={generatePDF}>
+  Generate PDF
 </button>
-    </div>
-
+      </div>
     </div>
   );
+  
+  
 }
-
-
-
