@@ -35,8 +35,11 @@ import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
-
-
+import Paidbycard from './pages/paidByCard';
+import PaymentMethod from './pages/paymentMethod';
+import ReceiptForOrder from './pages/receiptForOrder';
+import GetallOrderData from './pages/getAllOrderData';
+import CashOnDeliver from './pages/cashOnDeliver';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -56,7 +59,6 @@ function App() {
       <Route path="/itemlist" element={<Itemlist />} />
       <Route path="/addNew" element={<AddNew />} />
       <Route path="/invEdit/:itemId" element={<InvEdit />} />
-
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />
       <Route path='/support' element={<SupportMessage/>}/>
@@ -67,7 +69,6 @@ function App() {
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
       <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
       <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
       <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
@@ -76,6 +77,11 @@ function App() {
       <Route path='/sweetS' element={<SweetSerenity/>}></Route>
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
+      <Route path='/Paidbycard' element={<Paidbycard/>}></Route>
+      <Route path='/PaymentMethod' element={<PaymentMethod/>}></Route>
+      <Route path='/ReceiptForOrder' element={<ReceiptForOrder/>}></Route>
+      <Route path='/GetallOrderData' element={<GetallOrderData/>}></Route>
+      <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
 
      
     </Routes>

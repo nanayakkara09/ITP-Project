@@ -16,7 +16,7 @@ function ReceiptForOrder() {
   useEffect(() => {
     const fetchCardById = async (orderId) => {
       try {
-        const response = await axios.get(`http://localhost:8000/order/get/${orderId}`);
+        const response = await axios.get(`http://localhost:8000/get/${orderId}`);
         setOrder(response.data.order);
         setIsLoading(false);
       } catch (error) {
