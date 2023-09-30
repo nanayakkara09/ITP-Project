@@ -65,23 +65,30 @@ router.put('/confirm-order', async (req, res) => {
 });
 
 
+
 router.get('/confirmed-orders/:date', async (req, res) => {
   try {
-    const date = new Date(req.params.date);
-    const nextDay = new Date(date);
-    nextDay.setDate(date.getDate() + 1);
+    const date = moment(req.params.date).startOf('day');
+    const endOfDay = moment(date).endOf('day');
 
     const confirmedOrders = await ConfirmedOrder.find({
       date: {
-        $gte: date,
-        $lt: nextDay
+        $gte: date.toDate(),
+        $lte: endOfDay.toDate()
       }
     });
+
     res.json(confirmedOrders);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 });
+
+
+
+
+
+
 
 
 

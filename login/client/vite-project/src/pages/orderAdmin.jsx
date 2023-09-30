@@ -14,8 +14,8 @@ export default function orderAdmin() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   
 
-  const handleDateSubmit = () => {
-    const formattedDate = selectedDate.toISOString(); // Don't split by 'T'
+  const handleDateSubmit = (date) => {
+    const formattedDate = date.toISOString().split()[0];
     axios.get(`http://localhost:8000/order/confirmed-orders/${formattedDate}`)
       .then((response) => {
         setConfirmedOrders(response.data);
@@ -25,11 +25,14 @@ export default function orderAdmin() {
       });
   };
   
-  
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    handleDateSubmit(date); // Fetch orders for the selected date
+  };
 
   useEffect(() => {
-    handleDateSubmit(); // Fetch orders for today on initial load
-  }, []);
+    handleDateSubmit(selectedDate); // Fetch orders for selected date on initial load
+  }, [selectedDate]);
 
 
   
@@ -47,7 +50,7 @@ export default function orderAdmin() {
         <h1 className='odetails'>
           <FontAwesomeIcon icon={faUsers} /> Order Details
         </h1>
-        <Reactdatepicker date={selectedDate} onDateChange={setSelectedDate} onSubmit={handleDateSubmit} />
+        <Reactdatepicker date={selectedDate} onDateChange={handleDateChange} />
         <br></br>
        
        

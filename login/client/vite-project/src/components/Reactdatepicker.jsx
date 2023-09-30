@@ -23,16 +23,12 @@ export default function Reactdatepicker({ date, onDateChange, onSubmit }) {
             <div className='col-sm-5'>
               <Datepicker
                 className='date'
-                selected={selectedDate}
+                selected={selectedDate || date}
                 onChange={(newDate) => onDateChange(newDate)}
                 showYearDropdown
               />
             </div>
-            <div className='col-sm-2'>
-              <button type='submit' className='btn btn-success'>
-                Submit
-              </button>
-            </div>
+           
           </form>
         </div>
       </Container>

@@ -23,6 +23,7 @@ const DatePicker = ({ date, onDateChange, onSubmit }) => {
                 className='date'
                 selected={date}
                 onChange={(newDate) => onDateChange(newDate)}
+                dateFormat="YYYY-MM-DDTHH:mm:ss.sssZ"
                 showYearDropdown
               />
             </div>
