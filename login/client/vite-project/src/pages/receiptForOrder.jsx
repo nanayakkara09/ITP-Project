@@ -53,28 +53,27 @@ function ReceiptForOrder() {
         {/* Center the table */}
         <div className="text-center mx-uto" style={{ width: '80%' }}>
         <h1>Transaction receipt</h1>
-        <div className="text-left">
+      
           <div className="invoice-numb">
           <strong>Invoice Number:</strong> INV-2023-001<br />
           <strong>Invoice Date:</strong> {currentDate}<br/>
-          <strong>Street Bitez</strong><br />
-            
+          </div>
+       <div className="companyDet">
+            <strong>Street Bitez</strong><br />
             <strong>Street Address:</strong> 123 Main St, Colombo 01, StreetBitez<br />
             <strong>Country:</strong> Sri Lanka<br />
             <strong>City:</strong> Colombo<br />
             <strong>Email:</strong> StreetBitez@gmail.com
 
-          </div>
-        
-            <div className="text-letft">
+       </div>
             
 
-            </div>
-      
+
+        
             
-          </div>
+   
           <table className="table">
-            <thead>
+            <thead >
               <tr>
                 <th>Description</th>
                 <th>Quantity</th>
@@ -98,10 +97,12 @@ function ReceiptForOrder() {
             </tfoot>
           </table>
         </div>
+        <p>Quastions? Contact us at 0772233442 or StreetBitez@gmail.com </p>
+
       </div>
       <div className="btn-group mt-4">
         <button onClick={() => navigate(`/UpdateCardDet/${order._id}`)} className="btn btn-primary btn1">Ok</button>
-        <button onClick={generatePDF} className="btn btn-primary btn1">Save as PDF</button>
+        <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
       </div>
     </div>
   );

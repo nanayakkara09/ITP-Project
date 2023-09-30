@@ -83,7 +83,7 @@ function App() {
       <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
       <Route path='/GetAllOrderData' element={<GetAllOrderData/>}></Route>
       <Route path='/PaymentMethod' element={<PaymentMethod/>}></Route>
-      <Route path='/ReceiptForOrder' element={<ReceiptForOrder/>}></Route>
+      <Route path='/ReceiptForOrder/:id' element={<ReceiptForOrder/>}></Route>
       
      
  
