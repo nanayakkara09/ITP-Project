@@ -5,38 +5,53 @@ import './customerDetails.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUsers } from "@fortawesome/free-solid-svg-icons";
 import { Calendar } from 'react-calendar';
-import './orderAdmin.css'
+import '../pages/orderAdmin.css'
+import Reactdatepicker from '../components/Reactdatepicker';
+import DatePicker from '../components/DatePicker'; 
 
 export default function orderAdmin() {
   const [confirmedOrders, setConfirmedOrders] = useState([]);
-  const [date, setDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  
 
-
-  useEffect(() => {
-    axios.get('http://localhost:8000/order/confirmed-orders')
+  const handleDateSubmit = () => {
+    const formattedDate = selectedDate.toISOString(); // Don't split by 'T'
+    axios.get(`http://localhost:8000/order/confirmed-orders/${formattedDate}`)
       .then((response) => {
         setConfirmedOrders(response.data);
       })
       .catch((error) => {
         console.error('Error fetching confirmed orders:', error);
       });
-  }, []); // Empty dependency array ensures the effect runs only once
+  };
+  
+  
 
+  useEffect(() => {
+    handleDateSubmit(); // Fetch orders for today on initial load
+  }, []);
+
+
+  
   return (
-    <div>
+    <div className='date-container'>
       <div><AdminNavBar/></div>
-      
 
-      <div className="customer-details-container">
+    
+    
+    
+      
+      <div className="customer-details-container centered-table">
         <br></br>
         <br></br>
-        <h1>
+        <h1 className='odetails'>
           <FontAwesomeIcon icon={faUsers} /> Order Details
         </h1>
+        <Reactdatepicker date={selectedDate} onDateChange={setSelectedDate} onSubmit={handleDateSubmit} />
         <br></br>
        
        
-          <table className="table">
+          <table className="table ">
             <thead>
               <tr>
                 <th scope="col">Order ID</th>
@@ -67,6 +82,8 @@ export default function orderAdmin() {
 </button>
       </div>
       </div>
+
+    
       
   )
 }

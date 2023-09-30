@@ -2,6 +2,9 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/OrderModel');
 const ConfirmedOrder = require('../models/ConfirmOrderModel');
+const moment = require('moment-timezone');
+moment.tz.setDefault('Asia/Colombo');
+
 
 
 router.post('/add-to-cart', async (req, res) => {
@@ -62,9 +65,18 @@ router.put('/confirm-order', async (req, res) => {
 });
 
 
-router.get('/confirmed-orders', async (req, res) => {
+router.get('/confirmed-orders/:date', async (req, res) => {
   try {
-    const confirmedOrders = await ConfirmedOrder.find();
+    const date = new Date(req.params.date);
+    const nextDay = new Date(date);
+    nextDay.setDate(date.getDate() + 1);
+
+    const confirmedOrders = await ConfirmedOrder.find({
+      date: {
+        $gte: date,
+        $lt: nextDay
+      }
+    });
     res.json(confirmedOrders);
   } catch (error) {
     res.status(500).json({ message: error.message });
