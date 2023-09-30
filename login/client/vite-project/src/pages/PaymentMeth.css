@@ -17,7 +17,7 @@
   .btn1{
     margin-top: 15vh;
     align-items: center;
-    justify-content: center;
+   
     margin-bottom: 40vh;
    
  
@@ -28,9 +28,9 @@
   .btn2{
     margin-top: 15vh;
     align-items: center;
-    justify-content: center;
+   
     margin-bottom: 40vh;
-    margin-left: 10vh;
+    margin-left: -50vh;
    
  
  
@@ -40,9 +40,9 @@
 
 /* PaymentMeth.css */
 .cont1 {
-  background-color: #363939;
+  background-color: #a8b0b0;
   height: 50vh;
-  width: 60vh;
+  width: 70vh;
   border: 3px solid #f0eeee;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adjust shadow values as needed */
   transform: perspective(1000px) rotateX(9deg); /* Adjust rotation angle as needed */
@@ -56,13 +56,13 @@
 }
 /* PaymentMeth.css */
 .container.mt-5 {
-  background-color: #8b9494;
+  background-color: #6a6b6b;
   box-shadow: 0 0 60px 30px rgba(0, 0, 0, 0.2); /* Adjust shadow values as needed */
   display: fixed;
   border: 3px solid #0a0a0a;
 }
 h3{
   margin-top: 5vh;
-  font-style: italic;
-  color: #FFFFFF;
+  font-style: italic ;
+  color: #121111;
 }

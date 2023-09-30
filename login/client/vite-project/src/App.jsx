@@ -42,6 +42,9 @@ import PaymentMethod from './pages/paymentMethod';
 import ReceiptForOrder from './pages/receiptForOrder';
 import ReceiptForStall from './pages/receiptForStalls';
 import GetAllStallData from './pages/getAllStallData';
+import FinancePage from './pages/financePage';
+import Income from './pages/income';
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -87,8 +90,8 @@ function App() {
       <Route path='/ReceiptForOrder/:id' element={<ReceiptForOrder/>}></Route>
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
-      
-      
+      <Route path='/FinancePage' element={<FinancePage/>}></Route>
+      <Route path='/Income' element={<Income/>}></Route>
      
  
      

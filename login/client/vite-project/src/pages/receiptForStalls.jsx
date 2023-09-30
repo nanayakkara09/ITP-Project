@@ -89,7 +89,7 @@ function ReceiptForStall() {
             </tfoot>
           </table>
         </div>
-        <p>Questions? Contact us at 0772233442 or StreetBitez@gmail.com</p>
+        <p>Questions? Contact us at +123-456-7890 or StreetBitez@gmail.com</p>
       </div>
       <div className="btn-group mt-4">
         <button onClick={() => navigate(`/UpdateCardDet/${stall._id}`)} className="btn btn-primary btn1">Ok</button>
