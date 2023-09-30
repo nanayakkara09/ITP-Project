@@ -40,6 +40,34 @@ router.get('/orders/:id', async (req, res) => {
   }
 });
 
+// Define a route to get all orders
+router.get('/orders', async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.status(200).json({ status: "orders fetched", orders });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
+
+// Define a route to delete order details by ID
+router.delete('/order/delete/:id', async (req, res) => {
+  const orderId = req.params.id;
+
+  try {
+    const deletedOrder = await Order.findByIdAndDelete(orderId);
+
+    if (!deletedOrder) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    res.status(200).json({ message: 'Order deleted successfully', deletedOrder });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
 
 
 

@@ -45,7 +45,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 //for insert data
 const orderRoute = require('./routes/OrderRoute');
-app.use('/order', orderRoute);
+app.use('/', orderRoute);
 
 //for view data
 const cartRoute = require('./routes/cartRoute');
