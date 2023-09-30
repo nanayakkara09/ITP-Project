@@ -1,8 +1,51 @@
 const Stall = require('../models/stall');
+const StallRegister = require ('../models/stallRegister');
 
-const test = (req, res) => {
-    res.json('test is working');
-}
+
+
+const createStall = async (req, res) => {
+    try{
+       const {stallName, type, amount, mType, fName, lName, phonenumber, email, password, payment} =req.body;
+       // Check if name was entered
+       if (!stallName) {
+        return res.json({
+            error: 'Name is required'
+        });
+    };
+
+       if (!password || password.length < 6){
+        return res.json({
+          error: 'Password is required and should be at least 6 characters long'
+       });
+       };
+
+       //check email
+       const exist = await StallRegister.findOne({email});
+       if (exist) {
+        return res.json({
+          error: 'Email is taken already'
+        })
+       }  
+
+      const createStallResult = await StallRegister.create({
+        stallName,
+        type,
+        amount,
+        mType,
+        fName,
+        lName,
+        phonenumber,
+        email,
+        password,
+        payment
+      })
+
+      return res.json(createStallResult)
+
+    }catch (error) {
+        console.log(error)
+    }
+} 
 
 const stallreq = async (req, res) => {
     try {
@@ -52,10 +95,13 @@ const stalladminreq = async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
   };  
+
+  
  
 
 module.exports = {
     stallreq,
     stalladminreq,
     deleteStallreq,
+    createStall
 };

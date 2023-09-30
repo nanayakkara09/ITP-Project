@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import StSuccessModal from "./StSuccessModal";
+import axios from 'axios';
+
 
 function StallCreate() {
   const [showStSuccessModal, setShowStSuccessModal] = useState(false);  
@@ -9,19 +11,19 @@ function StallCreate() {
     stallDetails: {
       stallName: "",
       cuisineType: "",
-      // Add more stall details fields
+      openHours: "",
     },
     contactDetails: {
       ownerName: "",
       email: "",
       phone: "",
-      // Add more contact details fields
+      
     },
     paymentDetails: {
       cardNumber: "",
       expirationDate: "",
       cvv: "",
-      // Add more payment details fields
+     
     },
   });
 
@@ -37,11 +39,22 @@ function StallCreate() {
     }));
   };
 
-  // Handle form submission (you can implement this)
-  const handleSubmit = () => {
-    // Handle the form submission logic
-    setShowStSuccessModal(true);
+  const handleSubmit = async () => {
+    try {
+      const response = await axios.post('/stall/createStall', formData);
+      if (response.status === 201) {
+        
+        setShowStSuccessModal(true);
+      } else {
+        
+      }
+    } catch (error) {
+      console.error(error);
+      
+    }
   };
+  
+
 
   return (
     <div className="container mt-5">
@@ -81,25 +94,25 @@ function StallCreate() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="stallName">Stall Name:</label>
+                  <label htmlFor="cuisineType">Cuisine Type:</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="stallName"
-                    name="stallName"
-                    value={formData.stallDetails.stallName}
+                    id="cuisineType"
+                    name="cuisineType"
+                    value={formData.stallDetails.cuisineType}
                     onChange={(e) => handleChange(e, "stallDetails")}
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="stallName">Stall Name:</label>
+                  <label htmlFor="openHours">Open Hours:</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="stallName"
-                    name="stallName"
-                    value={formData.stallDetails.stallName}
+                    id="openHours"
+                    name="openHours"
+                    value={formData.stallDetails.openHours}
                     onChange={(e) => handleChange(e, "stallDetails")}
                   />
                 </div>
@@ -126,40 +139,29 @@ function StallCreate() {
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="ownerName">Owner's Name:</label>
+                  <label htmlFor="email">Email:</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="ownerName"
-                    name="ownerName"
-                    value={formData.contactDetails.ownerName}
+                    id="email"
+                    name="email"
+                    value={formData.contactDetails.email}
                     onChange={(e) => handleChange(e, "contactDetails")}
                   />
                 </div>
 
                 <div className="form-group">
-                  <label htmlFor="ownerName">Owner's Name:</label>
+                  <label htmlFor="phone">Phone Number:</label>
                   <input
                     type="text"
                     className="form-control"
-                    id="ownerName"
-                    name="ownerName"
-                    value={formData.contactDetails.ownerName}
+                    id="phone"
+                    name="phone"
+                    value={formData.contactDetails.phone}
                     onChange={(e) => handleChange(e, "contactDetails")}
                   />
                 </div>
-                <div className="form-group">
-                  <label htmlFor="ownerName">Owner's Name:</label>
-                  <input
-                    type="text"
-                    className="form-control"
-                    id="ownerName"
-                    name="ownerName"
-                    value={formData.contactDetails.ownerName}
-                    onChange={(e) => handleChange(e, "contactDetails")}
-                  />
-                </div>
-
+                
                 {/* Add more contact details fields */}
               </>
             )}

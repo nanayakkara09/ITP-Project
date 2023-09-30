@@ -33,7 +33,8 @@ import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
-
+import StallLogin from './pages/StallLogin'
+import CreateStall from './pages/CreateStall';
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -74,8 +75,10 @@ function App() {
       <Route path='/sweetS' element={<SweetSerenity/>}></Route>
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
+      <Route path='/Stalllogin' element={<StallLogin/>}></Route>
+      
+      <Route path='/createStall' element={<CreateStall/>}></Route>
 
-     
     </Routes>
     </UserContextProvider>
   )
