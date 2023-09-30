@@ -1,23 +1,21 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import './receiptforOrder.css'
-
+import './receiptForStall.css'
 import { useReactToPrint } from 'react-to-print';
 
-function ReceiptForOrder() {
+function ReceiptForStall() {
   const componentPdf = useRef();
   const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState({});
+  const [stall, setStall] = useState({});
   const navigate = useNavigate();
-
   const { id } = useParams();
-
+//there is an error shud take a look this later
   useEffect(() => {
-    const fetchCardById = async (orderId) => {
+    const fetchStallById = async (stallId) => {
       try {
-        const response = await axios.get(`http://localhost:8000/orders/${orderId}`);
-        setOrder(response.data.order);
+        const response = await axios.get(`http://localhost:8000/fetchStall/stall/${stallId}`);
+        setStall(response.data.stall);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -25,7 +23,7 @@ function ReceiptForOrder() {
       }
     };
 
-    fetchCardById(id);
+    fetchStallById(id);
   }, [id]);
 
   const generatePDF = useReactToPrint({
@@ -48,70 +46,57 @@ function ReceiptForOrder() {
   return (
     <div className="bgh-img">
       <div ref={componentPdf} style={{ width: '100%' }}>
-       
-
         {/* Center the table */}
         <div className="text-center mx-uto" style={{ width: '80%' }}>
-        <h1>Transaction receipt</h1>
-      
+          <h1>Transaction receipt</h1>
           <div className="invoice-numb">
-          <strong>Invoice Number:</strong> INV-2023-001<br />
-          <strong>Invoice Date:</strong> {currentDate}<br/>
+            <strong>Invoice Number:</strong> INV-2023-001<br />
+            <strong>Invoice Date:</strong> {currentDate}<br/>
           </div>
-       <div className="companyDet">
+          <div className="companyDet">
             <strong>Street Bitez</strong><br />
             <strong>Street Address:</strong> 123 Main St, Colombo 01, StreetBitez<br />
             <strong>Country:</strong> Sri Lanka<br />
             <strong>City:</strong> Colombo<br />
             <strong>Email:</strong> StreetBitez@gmail.com
-
-       </div>
-            
-
-
-        
-            
-   
+          </div>
           <table className="table">
             <thead >
               <tr>
-                <th>Name</th>
+                <th>Stall name</th>
+                <th>Stall type</th>
+                <th>First name</th>
+                <th>Last name</th>
                 <th>Email</th>
-                <th>Date</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-                <th>Image</th>
+                <th>Phone</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{order.name}</td>
-                <td>{order.email}</td>
-                <td>${order.date}</td>
-                <td>${order.quantity}</td>
-                <td>${order.price}</td>
-                <td>${order.total}</td>
-                <td>${order.image}</td>
+                <td>{stall.sName}</td>
+                <td>{stall.type}</td>
+                <td>{stall.fName}</td>
+                <td>{stall.lName}</td>
+                <td>{stall.email}</td>
+                <td>{stall.phone}</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
                 <td colSpan="3" className="text-right"><strong>Total:</strong></td>
-                <td>${order.total}</td>
+                <td>${stall.total}</td>
               </tr>
             </tfoot>
           </table>
         </div>
-        <p>Quastions? Contact us at 0772233442 or StreetBitez@gmail.com </p>
-
+        <p>Questions? Contact us at 0772233442 or StreetBitez@gmail.com</p>
       </div>
       <div className="btn-group mt-4">
-        <button onClick={() => navigate(`/UpdateCardDet/${order._id}`)} className="btn btn-primary btn1">Ok</button>
+        <button onClick={() => navigate(`/UpdateCardDet/${stall._id}`)} className="btn btn-primary btn1">Ok</button>
         <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
       </div>
     </div>
   );
 }
 
-export default ReceiptForOrder;
+export default ReceiptForStall;

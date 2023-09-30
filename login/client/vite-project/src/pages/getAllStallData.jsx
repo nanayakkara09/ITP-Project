@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './getAllOrderdata.css';
+import './getAllStalldata.css';
 
 
-function GetOrder() {
+function Getstall() {
   const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState([]);
+  const [stall, setStall] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const fetchAllorder = async () => {
+    const fetchAllstall = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/orders");
+        const response = await axios.get("http://localhost:8000/getAllStall");
         console.log(response)
-        setOrder(response.data.orders);
+        setStall(response.data.stalls);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -23,12 +23,12 @@ function GetOrder() {
       }
     };
 
-    fetchAllorder();
+    fetchAllstall();
   }, []);
 
-  const deleteCard = async (orderId) => {
+  const deleteCard = async (stallId) => {
     try {
-      await axios.delete(`http://localhost:8000/orders/delete/${orderId}`);
+      await axios.delete(`http://localhost:8000/deleteStall/${stallId}`);
       navigate("/DeleteCard");
     } catch (error) {
       console.error(error);
@@ -39,8 +39,8 @@ function GetOrder() {
     setSearchTerm(event.target.value);
   };
 
-  const filteredorder = order.filter((order) =>
-    order.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredstall = stall.filter((stall) =>
+    stall.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   if (isLoading) {
@@ -54,28 +54,30 @@ function GetOrder() {
       <div className="col-md-9">
      
      
-        <table className="table table-striped table-bordered">
+        <table className="table table-striped table-bstalled">
           
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>Total</th>
-              <th>Image</th>
+              <th>Stall name</th>
+              <th>Stall type</th>
+              <th>First name</th>
+              <th>Last name</th>
+              <th>Email</th>
+              <th>Phone</th>
             </tr>
           </thead>
           <tbody>
-            {filteredorder.map((order) => (
-              <tr key={order._id}>
-                <td>{order.name}</td>
-                <td>{order.quantity}</td>
-                <td>{order.price}</td>
-                <td>{order.total}</td>
-                <td>{order.image}</td>
+            {filteredstall.map((stall) => (
+              <tr key={stall._id}>
+                <td>{stall.sName}</td>
+                <td>{stall.type}</td>
+                <td>{stall.fName}</td>
+                <td>{stall.lName}</td>
+                <td>{stall.email}</td>
+                <td>{stall.phone}</td>
                 <td>
                  
-                  <button onClick={() => deleteCard(order._id)} className="btn btn-primary mr-2">
+                  <button onClick={() => deleteCard(stall._id)} className="btn btn-primary mr-2">
                     Delete Card
                   </button>
                 </td>
@@ -90,18 +92,18 @@ function GetOrder() {
         <div className="my-3 searchBar">
           <input
             type="text"
-            placeholder="Search by order name"
+            placeholder="Search by stall name"
             className="form-controlll"
             value={searchTerm}
             onChange={handleSearch}
 
           />
         </div>
-        <button onClick={() => navigate("/Table")} className="btn btn-primary search-button"> Search order name</button>
+        <button onClick={() => navigate("/Table")} className="btn btn-primary search-button"> Search stall name</button>
       </div>
      
     </div>
   );
 }
 
-export default GetOrder;
+export default Getstall;
