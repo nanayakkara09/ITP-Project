@@ -36,6 +36,8 @@ app.use(cors(corsOptions));
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
 app.use('/invDetails', require('./routes/invDetailsRoutes'));
+app.use('/issuedDetails', require('./routes/issuedRoutes'));
+
 
 
 const port = 8000;

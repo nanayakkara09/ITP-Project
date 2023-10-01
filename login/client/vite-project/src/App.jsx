@@ -28,6 +28,10 @@ import ItemDetails from '../src/pages/itemDetails';
 import AddStock from '../src/pages/addStock';
 import SeesupportPage from './pages/seesupport';
 import Password from './pages/password';
+import IssueEntry from './pages/issueEntry';
+import IssuedDetails from './pages/IssuedDetails';
+
+
 
 
 
@@ -52,6 +56,10 @@ function App() {
       <Route path="/invEdit/:itemId" element={<InvEdit />} />
       <Route path="/itemDetails/:itemcode" element={<ItemDetails />} />
       <Route path="/addStock/:itemcode" element={<AddStock />} />
+      <Route path="/IssueEntry" element={<IssueEntry />} />
+      <Route path="/IssuedDetails" element={<IssuedDetails />} />
+
+
 
 
 
