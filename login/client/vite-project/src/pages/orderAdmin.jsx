@@ -1,85 +1,92 @@
-import React, { useContext, useEffect, useState } from "react";
-import { UserContext } from "../../contex/userContex";
-import axios from "axios";
-import { Link, useNavigate } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.css";
-import AdminNavBar from "../components/adminNavBar";
-import "./admin-dashbord.css";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import AdminNavBar from '../components/adminNavBar';
+import './customerDetails.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
+import { Calendar } from 'react-calendar';
+import '../pages/orderAdmin.css'
+import Reactdatepicker from '../components/Reactdatepicker';
+import DatePicker from '../components/DatePicker'; 
 
-export default function AdminDashboard() {
-  const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate();
-  const [totalUsers, setTotalUsers] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // Add loading state
-  const [showDropdown, setShowDropdown] = useState(false); // State to manage dropdown visibility
+export default function orderAdmin() {
+  const [confirmedOrders, setConfirmedOrders] = useState([]);
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  
 
-  useEffect(() => {
-    if (!user) {
-      axios.get("/profile").then(({ data }) => {
-        setUser(data);
-      });
-    }
-
-    axios.get("/total-users")
-      .then(({ data }) => {
-        setTotalUsers(data.totalUsers);
-        setIsLoading(false); // Set loading to false when data is received
+  const handleDateSubmit = (date) => {
+    const formattedDate = date.toISOString().split()[0];
+    axios.get(`http://localhost:8000/order/confirmed-orders/${formattedDate}`)
+      .then((response) => {
+        setConfirmedOrders(response.data);
       })
       .catch((error) => {
-        console.error("Error fetching total users:", error);
-        setIsLoading(false); // Set loading to false in case of an error
+        console.error('Error fetching confirmed orders:', error);
       });
-  }, [user, setUser]);
-
-  const handleLogout = async () => {
-    try {
-      await axios.post("/logout");
-      setUser(null);
-      navigate("/login");
-    } catch (error) {
-      console.log(error);
-    }
+  };
+  
+  const handleDateChange = (date) => {
+    setSelectedDate(date);
+    handleDateSubmit(date); // Fetch orders for the selected date
   };
 
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
-  };
+  useEffect(() => {
+    handleDateSubmit(selectedDate); // Fetch orders for selected date on initial load
+  }, [selectedDate]);
 
+
+  
   return (
-    <div>
+    <div className='date-container'>
+      <div><AdminNavBar/></div>
 
-      <AdminNavBar />
-
+    
+    
+    
+      
+      <div className="customer-details-container centered-table">
+        <br></br>
+        <br></br>
+        <h1 className='odetails'>
+          <FontAwesomeIcon icon={faUsers} /> Order Details
+        </h1>
+        <Reactdatepicker date={selectedDate} onDateChange={handleDateChange} />
+        <br></br>
        
-
-      <div className="bg-image"></div>
-      <div className="content">
-        <div className="black-box">
-          <br></br>
-          <Link to='/customerAdmin' className="vertical-text">Customer</Link>
-          <div className="vertical-text">Event</div>
-          <div className="vertical-text">Stall</div>
-          <div className="vertical-text">Employee</div>
-          <div className="vertical-text">Order</div>
-          <div className="vertical-text">Delivery</div>
-          <Link to='/invList' className="vertical-text">Inventory</Link>
-          <div className="vertical-text">Finance</div>
-        </div>
-        <br></br>
-        {!!user && (
-          <div>
-            <h2>Welcome {user.name}!</h2>
-            <div className={`total-users-box${isLoading ? ' loading-text' : ''}`}>
-              {isLoading ? (
-                <p>Loading total users...</p>
-              ) : (
-                <p>Total Users: {totalUsers}</p>
-              )}
-            </div>
-          </div>
-        )}
-        <br></br>
+       
+          <table className="table ">
+            <thead>
+              <tr>
+                <th scope="col">Order ID</th>
+                <th scope="col">Item Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Total Price</th>
+                <th scope="col"> Ordered Date</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+  {confirmedOrders.map((order, index) => (
+    <tr key={order._id}>
+      <th scope="row">{index + 1}</th>
+      <td>{order.name}</td>
+      <td>{order.price}</td>
+      <td>{order.quantity}</td>
+      <td>{order.total}</td>
+      <td>{order.date}</td>
+    </tr>
+  ))}
+</tbody>
+          </table>
+       
+        <button className="print-button" >
+  Generate PDF
+</button>
       </div>
-    </div>
-  );
+      </div>
+
+    
+      
+  )
 }

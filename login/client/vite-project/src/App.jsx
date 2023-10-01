@@ -45,6 +45,9 @@ import GetAllStallData from './pages/getAllStallData';
 import FinancePage from './pages/financePage';
 import Income from './pages/income';
 import Expenses from './pages/expenses'
+import Cart from './pages/CartItems'
+import OrderAdminPage from './pages/orderAdmin'
+import Payment from './pages/payment'
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -95,6 +98,11 @@ function App() {
       <Route path='/Expenses' element={<Expenses/>}></Route>
      
  
+
+      <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
+      <Route path='/payment' element={<Payment/>}></Route>
+
      
     </Routes>
     </UserContextProvider>

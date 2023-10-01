@@ -54,23 +54,27 @@ const Asiano = () => {
   const addToCart = (item) => {
     const { name, price, image } = item;
     const quantity = itemQuantities[filteredFoodItems.indexOf(item)] || 1;
-    const email = user.email;
-  
-    console.log(email); // Check if the email is logged
-  
-    axios
-  .post('http://localhost:8000/order/add-to-cart', { name, quantity, price, image, email })
-  .then((response) => {
-    console.log(response.data); // Check the response
-    alert(response.data.message);
-  })
-  .catch((error) => {
-    console.error(error);
-    alert('Error adding item to cart');
-  });
 
-    
+    // Get the current date and time
+    const currentDate = new Date();
+    const orderDate = currentDate.toISOString();
+
+    axios.post('http://localhost:8000/order/add-to-cart', {
+      name,
+      quantity,
+      price,
+      image,
+      orderDate, // Include the order date
+    })
+    .then((response) => {
+      alert(response.data.message);
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('Error adding item to cart');
+    });
   };
+  
   
 
   const stall = {
@@ -223,7 +227,9 @@ const Asiano = () => {
 
                     <Button className='addToCart' variant="success" onClick={() => addToCart(item)}>
                         Add to Cart
-                      </Button>                  </Card.Body>
+                      </Button>         
+                      
+                 </Card.Body>
                 </Card>
               </Col>
             ))}
