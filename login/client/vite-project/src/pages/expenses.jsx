@@ -93,7 +93,7 @@ function ReceiptForOrder() {
             </tfoot>
           </table>
         </div>
-        <p>Questions? Contact us at +123-456-7890 or StreetBitez@gmail.com </p>
+      
       </div>
       <p>To generate monthly expense report press below button</p>
       <div className="btn-group mt-4 ">

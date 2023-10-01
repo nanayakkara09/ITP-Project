@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import './receiptforOrder.css'
+import './income.css';
 
 import { useReactToPrint } from 'react-to-print';
 
@@ -48,65 +48,55 @@ function ReceiptForOrder() {
   return (
     <div className="bgh-img">
       <div ref={componentPdf} style={{ width: '100%' }}>
-       
-
         {/* Center the table */}
         <div className="text-center mx-uto" style={{ width: '80%' }}>
-        <h1 className="headd2">Transaction receipt</h1>
-      
+          <h1 className="head11">Monthly income</h1>
           <div className="invoice-numb">
-          <strong>Invoice Number:</strong> INV-2023-001<br />
-          <strong>Invoice Date:</strong> {currentDate}<br/>
+            <strong>Invoice Number:</strong> INV-2023-001<br />
+            <strong>Invoice Date:</strong> {currentDate}<br/>
           </div>
-       <div className="companyDet">
+          <div className="companyDet">
             <strong>Street Bitez</strong><br />
             <strong>Street Address:</strong> 123 Main St, Colombo 01, StreetBitez<br />
             <strong>Country:</strong> Sri Lanka<br />
             <strong>City:</strong> Colombo<br />
             <strong>Email:</strong> StreetBitez@gmail.com
-
-       </div>
-            
-
-
-        
-            
-   
+          </div>
           <table className="table">
             <thead >
               <tr>
                 <th>Name</th>
+                <th>Email</th>
+                <th>Date</th>
                 <th>Quantity</th>
                 <th>Price</th>
-               
-                <th>Date</th>
-                <th>Status</th>
+                <th>Total</th>
                 <th>Image</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>{order.name}</td>
+                <td>{order.email}</td>
+                <td>{order.date}</td>
                 <td>{order.quantity}</td>
                 <td>{order.price}</td>
-             
-                <td>{order.date}</td>
-                <td>{order.status}</td>
+                <td>{order.total}</td>
                 <td>{order.image}</td>
               </tr>
             </tbody>
             <tfoot>
               <tr>
-                <td colSpan="2" className="text-right"><strong> Sub Total:</strong></td>
-                <td>${order.total}</td>
+                <td colSpan="3" className="text-right"><strong>Total:</strong></td>
+                <td>{order.total}</td>
               </tr>
             </tfoot>
           </table>
         </div>
-        <p>Quastions? Contact us at +123-456-7890 or StreetBitez@gmail.com </p>
-
+       
       </div>
-      <div className="btn-group mt-4">
+      <p>To generate monthly income report press below button</p>
+      <div className="btn-group mt-4 ">
         <button onClick={() => navigate(`/UpdateCardDet/${order._id}`)} className="btn btn-primary btn1">Ok</button>
         <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
       </div>

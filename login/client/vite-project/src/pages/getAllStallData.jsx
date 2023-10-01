@@ -13,7 +13,7 @@ function Getstall() {
   useEffect(() => {
     const fetchAllstall = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/getAllStall");
+        const response = await axios.get("http://localhost:8000/stall/getAllStall");
         console.log(response)
         setStall(response.data.stalls);
         setIsLoading(false);
@@ -28,7 +28,7 @@ function Getstall() {
 
   const deleteCard = async (stallId) => {
     try {
-      await axios.delete(`http://localhost:8000/deleteStall/${stallId}`);
+      await axios.delete(`http://localhost:8000/stall/deleteStall/${stallId}`);
       navigate("/DeleteCard");
     } catch (error) {
       console.error(error);
@@ -52,7 +52,7 @@ function Getstall() {
     <div className="container my-5 backgr" >
      
       <div className="col-md-9">
-     
+      <h3 className="underline-bold">Your all stall payments</h3>
      
         <table className="table table-striped table-bstalled">
           

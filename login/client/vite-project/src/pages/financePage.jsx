@@ -29,11 +29,11 @@ function financePage() {
              
             <p>Sustainable income is a key factor in a company's long-term sustainability. It allows a company to plan for the future, make strategic decisions, and adapt to changing market conditions.</p>
              
-              
+              <br></br>
              <p>Press below button for check out monthly income</p>
             </div>
             <button
-              onClick={() => navigate(`/Income`)}
+              onClick={() => navigate(`/IncomePage`)}
               className="btn btn-secondary incomebutt"
               style={{ width: "200px", height: "50px" }}
             >
@@ -42,7 +42,7 @@ function financePage() {
           
           </div>
           
-          <div className="col-md-1 bg-secondary" style={{ height: "100vh", width: "2px" }}>
+          <div className="col-md-1 bg-secondary" style={{ height: "120vh", width: "2px" }}>
             {/* Vertical line with custom height and width */}
           </div>
           
@@ -59,7 +59,7 @@ function financePage() {
             />
              
             <p> Expenses directly affect a company's profit margin. Higher expenses reduce profitability, while effective cost management can lead to improved margins. Controlling expenses is essential for maximizing profits.</p>
-             
+             <br></br>
               
            
               <p>Press below button for check out monthly expenses</p>

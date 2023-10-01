@@ -1,64 +1,16 @@
-.head11{
-    margin-left: 20vh;
-    margin-top: 5vh;
-   
-    
+.table{
+  width: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
 }
-.btn1{
-  margin-right: 10vh;
+.incomeHead{
+  width: auto;
  
+  margin-top: 10vh;
+  margin-left: auto;
+  margin-right: auto;
 }
-.btn2{
- margin-left: 10vh;
-
-}
-.text-left{
- 
-  flex-direction: column;
-  margin-top: 25vh;
-  margin-left: -25vh;
-  
-}
-.bgh-img{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Set the container height to the viewport height for vertical centering */
-    margin-top: 5vh;
-    width: 100vh;
-  
-    background-color: rgb(132, 138, 138);
-  }
-.mx-uto{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    /* Set the container height to the viewport height for vertical centering */
-    margin-top: 40vh;
-    margin-right: 14vh;
-    width: 50vh;
-   
-
-  }
-.invoice-numb{
-
-  margin-top: 15vh;
-  margin-right: -60vh;
-  align-items: left;
-}
-.companyDet{
-  text-align: left;
-  margin-left: -18vh;
-}
-p{
-  justify-content: center;
-  margin-top: 5vh;
-  align-items: center;
-  margin-bottom:-5vh;
-  
-}
-.mt-4{
-    margin-top: -5vh;
+.buttas{
+  margin-top: auto;
 }

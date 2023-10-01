@@ -43,10 +43,11 @@ import ReceiptForOrder from './pages/receiptForOrder';
 import ReceiptForStall from './pages/receiptForStalls';
 import GetAllStallData from './pages/getAllStallData';
 import FinancePage from './pages/financePage';
-import Income from './pages/income';
+import IncomeReport from './pages/incomereport';
 import Expenses from './pages/expenses'
 import Cart from './pages/CartItems'
 import OrderAdminPage from './pages/orderAdmin'
+import IncomePage from './pages/Income';
 import Payment from './pages/payment'
 
 
@@ -94,9 +95,9 @@ function App() {
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
       <Route path='/FinancePage' element={<FinancePage/>}></Route>
-      <Route path='/Income' element={<Income/>}></Route>
+      <Route path='/IncomeReport' element={<IncomeReport/>}></Route>
       <Route path='/Expenses' element={<Expenses/>}></Route>
-     
+      <Route path='/IncomePage' element={<IncomePage/>}></Route>
  
 
       <Route path='/cart' element={<Cart/>}></Route>

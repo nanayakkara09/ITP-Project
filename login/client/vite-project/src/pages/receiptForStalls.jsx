@@ -14,7 +14,7 @@ function ReceiptForStall() {
   useEffect(() => {
     const fetchStallById = async (stallId) => {
       try {
-        const response = await axios.get(`http://localhost:8000/fetchStall/stall/${stallId}`);
+        const response = await axios.get(`http://localhost:8000/stall/fetchStall/${stallId}`);
         setStall(response.data.stall);
         setIsLoading(false);
       } catch (error) {

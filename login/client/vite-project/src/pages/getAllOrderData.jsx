@@ -28,10 +28,10 @@ function GetOrder() {
 
   const deleteCard = async (orderId) => {
     try {
-      await axios.delete(`http://localhost:8000/orders/delete/${orderId}`);
+      await axios.delete(`http://localhost:8000/delete/${orderId}`);
       navigate("/DeleteCard");
     } catch (error) {
-      console.error(error);
+      console.error("Error deleting order:",error);
     }
   };
 
@@ -52,7 +52,7 @@ function GetOrder() {
     <div className="container my-5 backgr" >
      
       <div className="col-md-9">
-     
+      <h3 className="underline-bold">Your all orders</h3>
      
         <table className="table table-striped table-bordered">
           
@@ -75,7 +75,7 @@ function GetOrder() {
                 <td>{order.image}</td>
                 <td>
                  
-                  <button onClick={() => deleteCard(order._id)} className="btn btn-primary mr-2">
+                <button onClick={() => deleteCard(order._id)} className="btn btn-primary mr-2">
                     Delete Card
                   </button>
                 </td>
@@ -86,7 +86,7 @@ function GetOrder() {
         </table>
         
       </div>
-      <div className="right-align-container" >
+      <div className="right-align-container searchbar" >
         <div className="my-3 searchBar">
           <input
             type="text"
@@ -97,7 +97,7 @@ function GetOrder() {
 
           />
         </div>
-        <button onClick={() => navigate("/Table")} className="btn btn-primary search-button"> Search order name</button>
+        
       </div>
      
     </div>
