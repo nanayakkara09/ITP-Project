@@ -70,7 +70,7 @@ const stalladminreq = async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
   };
- 
+ //Get all stall details 
   const getAllStall = async (req, res) => {
     try {
       const stalls = await Stall.find(); // Retrieve all stalls
@@ -81,7 +81,7 @@ const stalladminreq = async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
   };
-
+ //Delete stall details by id   
   const deleteStall = async (req, res) => {
     try {
       const { id } = req.params;
