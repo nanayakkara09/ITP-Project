@@ -59,7 +59,7 @@ function financePage() {
             />
              
             <p> Expenses directly affect a company's profit margin. Higher expenses reduce profitability, while effective cost management can lead to improved margins. Controlling expenses is essential for maximizing profits.</p>
-             <br></br>
+        
               
            
               <p>Press below button for check out monthly expenses</p>
