@@ -44,7 +44,7 @@ import ReceiptForStall from './pages/receiptForStalls';
 import GetAllStallData from './pages/getAllStallData';
 import FinancePage from './pages/financePage';
 import Income from './pages/income';
-
+import Expenses from './pages/expenses'
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -92,6 +92,7 @@ function App() {
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
       <Route path='/FinancePage' element={<FinancePage/>}></Route>
       <Route path='/Income' element={<Income/>}></Route>
+      <Route path='/Expenses' element={<Expenses/>}></Route>
      
  
      

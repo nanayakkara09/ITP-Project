@@ -1,7 +1,7 @@
-.headd2{
+.head11{
     margin-left: 20vh;
-    margin-top: -10vh;
-    margin-bottom: -5vh;
+    margin-top: 5vh;
+   
     
 }
 .btn1{
@@ -50,11 +50,15 @@
 }
 .companyDet{
   text-align: left;
-  margin-left: -25vh;
+  margin-left: -18vh;
 }
 p{
   justify-content: center;
   margin-top: 5vh;
   align-items: center;
+  margin-bottom:-5vh;
   
+}
+.mt-4{
+    margin-top: -5vh;
 }

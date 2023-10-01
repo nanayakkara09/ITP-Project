@@ -15,7 +15,7 @@ function financePage() {
     <div className="mainDiv">
       <div className="container-fluid">
         <div className="row caaardd">
-          <div className="col-md-6">
+          <div className="col-md-6 div11">
             <div>
             <h1>Monthly income</h1>
 
@@ -47,7 +47,7 @@ function financePage() {
           </div>
           
         
-          <div className="col-md-5">
+          <div className="col-md-5 divv22">
           <div>
             <h1 className="head2" >Monthly expenses</h1>
 
@@ -65,7 +65,7 @@ function financePage() {
               <p>Press below button for check out monthly expenses</p>
             </div>
             <button
-              onClick={() => navigate(`/CardDet`)}
+              onClick={() => navigate(`/Expenses`)}
               className="btn btn-secondary expensesbutt"
               style={{ width: "200px", height: "50px" }}
             >

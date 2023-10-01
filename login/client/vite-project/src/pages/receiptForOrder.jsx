@@ -52,7 +52,7 @@ function ReceiptForOrder() {
 
         {/* Center the table */}
         <div className="text-center mx-uto" style={{ width: '80%' }}>
-        <h1>Transaction receipt</h1>
+        <h1 className="headd2">Transaction receipt</h1>
       
           <div className="invoice-numb">
           <strong>Invoice Number:</strong> INV-2023-001<br />
