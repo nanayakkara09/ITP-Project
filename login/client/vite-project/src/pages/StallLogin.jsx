@@ -1,29 +1,46 @@
 import { useState } from 'react';
-import stallNavBar from '../components/stallNavBar';
 import axios from 'axios';
+import { toast } from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 
 export default function StallLogin() {
+  const navigate = useNavigate()
   const [data, setData] = useState({
     email: '',
     password: '',
   });
   
- const loginStall = () => {
+ const Stalllogin = async (e) => {
   e.preventDefault()
-  axios.get('/stall')
+  const {email, password} = data
+    try{
+         const {data} = await axios.post('/stall/Stalllogin' ,{
+          email,
+          password
+         });
+         if(data.error){
+          toast.error(data.error)
+         } else{
+          setData({});
+          navigate('/StallOwnerDashboard')
+
+         }
+    }catch (error){
+
+    }
  }
 
   return (
     <div className="login-container">
-      <stallNavBar/>    
+          
     
       <div className="bgs-image"></div>
-      <br></br>
+      
       <br></br>
       
         <div className="contentL">
           <h2>Login</h2>
-          <form onSubmit={loginStall}>
+          <form onSubmit={Stalllogin}>
             <div className="mb-3">
               <label htmlFor="email">Email</label>
               <input
@@ -31,7 +48,7 @@ export default function StallLogin() {
                 className="form-control"
                 id="email"
                 placeholder="Enter Email..."
-                value='{data.email}'
+                value={data.email}
                 onChange={(e) => setData({ ...data, email: e.target.value })}
               />
             </div>
@@ -42,7 +59,7 @@ export default function StallLogin() {
                 className="form-control"
                 id="password"
                 placeholder="Enter Password..."
-                value='{data.password}'
+                value={data.password}
                 onChange={(e) => setData({ ...data, password: e.target.value })}
               />
             </div>

@@ -10,6 +10,7 @@ export default function CreateStall() {
     type: '',
     amount: '',
     mType: '',
+    stallId: '',
     fName: '',
     lName: '',
     phonenumber: '',
@@ -20,13 +21,14 @@ export default function CreateStall() {
 
   const createStall = async (e) => {
     e.preventDefault();
-    const { stallName, type, amount, mType, fName, lName, phonenumber, email, password, payment } = data;
+    const { stallName, type, amount, mType,stallId, fName, lName, phonenumber, email, password, payment } = data;
     try {
       const { data } = await axios.post('./stall/createStall', {
         stallName,
         type,
         amount,
         mType,
+        stallId,
         fName,
         lName,
         phonenumber,
@@ -107,6 +109,18 @@ export default function CreateStall() {
               onChange={(e) => setData({...data, mType:e.target.value})}
             />
           </div>
+
+          <div className="form-group">
+            <label htmlFor="mType">Stall ID</label>
+            <input
+              type="text"
+              name="stallId"
+              className="form-control"
+              value={data.stallId}
+              onChange={(e) => setData({...data, stallId:e.target.value})}
+            />
+          </div>
+
           <div className="form-group">
             <label htmlFor="fName">First Name</label>
             <input

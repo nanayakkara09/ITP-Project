@@ -35,6 +35,8 @@ import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
 import StallLogin from './pages/StallLogin'
 import CreateStall from './pages/CreateStall';
+import { StallContextProvider } from '../contex/stallContext';
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -43,6 +45,7 @@ axios.defaults.withCredentials=true
 function App() {
   return (
     <UserContextProvider>
+     <StallContextProvider>
     <NavBar/>
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
     <Routes>
@@ -70,16 +73,19 @@ function App() {
       <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
       <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
-      <Route path='/stallownerdash' element={<StallOwnerDashboard />}></Route>
+      <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard />}></Route>
       <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
       <Route path='/sweetS' element={<SweetSerenity/>}></Route>
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
       <Route path='/Stalllogin' element={<StallLogin/>}></Route>
-      
+      <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>      
       <Route path='/createStall' element={<CreateStall/>}></Route>
+      <Route path='/createProduct' element={<StallOwnerDashboard/>}></Route>
+      <Route path='/getAllProducts' element={<StallOwnerDashboard/>}></Route>
 
     </Routes>
+    </StallContextProvider>
     </UserContextProvider>
   )
 }

@@ -6,6 +6,7 @@ const stallRegisterSchema = new Schema ({
     type: String,
     amount: String,
     mType: String,
+    stallId: String,
     fName: String,
     lName: String,
     phonenumber: Number,

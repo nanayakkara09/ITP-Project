@@ -1,14 +1,15 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-const {stallreq, 
-    stalladminreq, 
-    deleteStallreq,  
-    createStall
+const { stallreq, 
+        stalladminreq, 
+        deleteStallreq,  
+        createStall,
+        Stalllogin,
+        StallOwnerDashboard,
+        createProduct,
+        getAllProducts,
 } = require('../controllers/stallController');
-
-
-
 
 //middleware
 router.use(
@@ -20,7 +21,11 @@ router.use(
 router.post('/stallreq', stallreq);
 router.get('/stalladminreq', stalladminreq);
 router.delete('/deleteStallreq/:id', deleteStallreq);
+router.post('/createStall', createStall);
+router.post('/Stalllogin', Stalllogin);
+router.get('/StallOwnerDashboard', StallOwnerDashboard);
+router.post('/createProduct', createProduct);
+router.get('/getAllProducts', getAllProducts)
 
-router.post('/createStall', createStall)
 
 module.exports = router
