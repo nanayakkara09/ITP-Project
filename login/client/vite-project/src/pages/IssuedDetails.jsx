@@ -6,18 +6,21 @@ import AdminNavBar from '../components/adminNavBar';
 import { Link, useLocation } from 'react-router-dom';
 
 export default function itemlist(props) {
-  const [items, setItems] = useState([]);
-  const [searchTerm, setSearchTerm] = useState('');
+ /*  
+  
   const location = useLocation();
   console.log(location)
-  const category = location.state;
+  const category = location.state; */
+  const [searchTerm, setSearchTerm] = useState('');
+  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchItemList = async () => {
       try {
-        const { data } = await axios.get('/inventory/getallItems');
-        setItems(data);
-        //setIsLoading(false);
+        var stoleid = "1";
+            const { data } = await axios.get(`/issuedDetails/getIssuedDetails${stoleid}`);
+            console.log(data)
+            setItems(data);
       } catch (error) {
         console.error(error);
         toast.error('Failed to fetch inventory data');
@@ -56,7 +59,7 @@ export default function itemlist(props) {
       <div><AdminNavBar /></div>
       <div className='container'>
         <div className='title'>
-          <h1 className="item-list-title">{category} Item List</h1>
+          <h1 className="item-list-title">Item List</h1>
         </div>
 
         <div className="item-list-buttons">
@@ -85,20 +88,20 @@ export default function itemlist(props) {
               </tr>
             </thead>
             <tbody>
-              {/* {items.map((item, index) => (
+               {items.map((item, index) => (
                 <tr key={index}>
-                  <td><Link to={`/itemDetails/${item.itemcode}`}><button className="view-button">View</button></Link></td>
-                  <td>{item.itemcode}</td>
-                  <td>{item.name}</td>
-                  <td>{item.description}</td>
+                  {/* <td><Link to={`/itemDetails/${item.itemcode}`}><button className="view-button">View</button></Link></td> */}
+                  <td>{item.itemCode}</td>
+                  <td>{item.itemName}</td>
+                  <td>{item.date}</td>
                   <td>{item.quantity}</td>
-                  <td>{item.reorder}</td>
-                  <td><Link to={`/invEdit/${item._id}`}>
+                  <td>{item.price}</td>
+                  {/* <td><Link to={`/invEdit/${item._id}`}>
                     <button className="Edit-button">Edit</button></Link></td>
                   <td>
-                    <button onClick={() => deleteItem(item._id)} className="Delete-button">Delete</button></td>
+                    <button onClick={() => deleteItem(item._id)} className="Delete-button">Delete</button></td> */}
                 </tr>
-              ))} */}
+              ))} 
             </tbody>
           </table>
         </div>

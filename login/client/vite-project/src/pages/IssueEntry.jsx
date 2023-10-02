@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import AdminNavBar from '../components/adminNavBar';
 import { Link } from 'react-router-dom';
 import './IssueEntry.css';
+import Autocomplete from '../components/autocomplete';
 
 export default function NewIssueEntry() {
 const navigate = useNavigate();
+const [items, setItems] = useState([]);
+const [names, setNames] = useState([]);
+const [input, setInput] = useState("");
 const [formData, setFormData] = useState({
     stoleid: '',
     itemName: '',
@@ -15,17 +19,41 @@ const [formData, setFormData] = useState({
     quantity: '',
     price: '',
   });
+  useEffect(() => {
+    const fetchItemList = async () => {
+      try {
+        const { data } = await axios.get('/inventory/getallItems');
+        setItems(data);
+        console.log(data);
+        const namesList = data.map(item => item.name);
 
+        setNames(namesList)
+        //setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        toast.error('Failed to fetch inventory data');
+        //setIsLoading(false);
+      }
+    };
+
+    fetchItemList();
+  }, []);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
+  const setNameSub= (e) =>{
+
+  }
+
   
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData)
-        const { date, itemName, quantity, price, itemCode ,stoleid} = formData;
+        const nameElement = document.getElementById('kkk');
+        const itemName = nameElement.value
+        console.log(nameElement.value)
+        const { date, quantity, price, itemCode ,stoleid} = formData;
         const { data } = await axios.post('./issuedDetails/', { date, itemName, quantity, price, itemCode ,stoleid});
         console.log('Form data submitted:', formData);
         navigate('/IssuedDetails');
@@ -52,14 +80,11 @@ const [formData, setFormData] = useState({
         </div>
         <div className="form-group">
           <label htmlFor="itemName">Item Name:</label>
-          <input
-            type="text"
-            id="itemName"
-            name="itemName"
-            value={formData.itemName}
-            onChange={handleInputChange}
-            required
-          />
+         
+          <Autocomplete id="kkk"
+        suggestions={names}
+        input={input} setInput={setInput}
+      />
         </div>
         <div className="form-group">
           <label htmlFor="itemCode">Item Code:</label>

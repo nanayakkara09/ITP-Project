@@ -2,7 +2,7 @@ const express =require('express');
 const router = express.Router();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const{issueEntry}=require('../controllers/issuedController')
+const{issueEntry,getIssuedDetails}=require('../controllers/issuedController')
 
 //middleware
 router.use(
@@ -13,8 +13,8 @@ router.use(
 )
 
 router.post('/',issueEntry);
-/* router.get('/getallItems',getAllItems);
-router.get('/getItem:itemId',getItem);
+ router.get('/getIssuedDetails:stoleid',getIssuedDetails);
+/*router.get('/getItem:itemId',getItem);
 router.post('/updateItem/:itemId', updateItem);
 router.delete('/deleteItem/:itemId', deleteItem);
 router.get('/getItembyItemcode:itemcode',getItembyItemcode); */
