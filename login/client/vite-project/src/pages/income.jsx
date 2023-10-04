@@ -8,9 +8,9 @@ function IncomePage() {
   const [order, setOrder] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [subtotal, setSubtotal] = useState(0); // Initialize subtotal to 0
-  const [input1, setInput1] = useState("");
-  const [input2, setInput2] = useState("");
-  const [input3, setInput3] = useState("");
+  const [inputTypeOne, setInput1] = useState("");
+  const [inputTypeTwo, setInput2] = useState("");
+  const [inputTypeThree, setInput3] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -59,7 +59,7 @@ function IncomePage() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    axios.post('http://localhost:3001/shippings', { Name, Address, City, StateP, Pcode })
+    axios.post('http://localhost:8000/Input', { inputTypeOne,  inputTypeTwo,  inputTypeThree })
       .then((result) => {
          console.log(result.status)
          if(result.status === 200) {
@@ -85,24 +85,24 @@ function IncomePage() {
         <input
           type="text"
           placeholder="Input 1"
-          value={input1}
+          value={inputTypeOne}
           onChange={(e) => setInput1(e.target.value)}
         />
         <input
           type="text"
           placeholder="Input 2"
-          value={input2}
+          value={inputTypeTwo}
           onChange={(e) => setInput2(e.target.value)}
         />
         <input
           type="text"
           placeholder="Input 3"
-          value={input3}
+          value={inputTypeThree}
           onChange={(e) => setInput3(e.target.value)}
           
         />
 
-         <button type="submit" className="btn-primary">Submit</button>
+         <button type="submit" className="btn-primary">Add external income</button>
       </div>
         <table className="table table-striped table-bordered">
           <thead>
