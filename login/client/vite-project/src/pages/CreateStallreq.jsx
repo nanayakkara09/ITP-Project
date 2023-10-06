@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../pages/CreateStallreq.css";
+import './CreateStallreq.css';
 
 function CreateStallreq() {
   const [sName, setsName] = useState("");
@@ -43,32 +43,33 @@ function CreateStallreq() {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validateForm();
-
-    if (Object.keys(validationErrors).length === 0) {
-      // If there are no validation errors, submit the form
-      axios
-        .post('./stall/stallreq', {
-          sName,
-          type,
-          fName,
-          lName,
-          email,
-          phone,
-        })
-        .then((result) => {
-          console.log(result);
-          // Assuming a successful submission should navigate to a success page
-          navigate("/StallAdminreq");
-        })
-        .catch((err) => console.log(err));
-    } else {
-      // If there are validation errors, update the state to display them
-      setErrors(validationErrors);
+  
+    try {
+      const formData = new FormData();
+      formData.append('name', stallProduct.name);
+      formData.append('price', stallProduct.price);
+      formData.append('description', stallProduct.description);
+      formData.append('image', stallProduct.image);
+  
+      const response = await axios.post('/stall/createProduct', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Make sure to set the content type for file uploads
+        },
+      });
+  
+      if (response.status === 200) {
+        // Product added successfully, refresh the product list
+        window.location.reload();
+      } else {
+        console.error('Failed to add product. Server returned:', response.data);
+      }
+    } catch (error) {
+      console.error('Error adding product:', error);
     }
   };
+  
 
   return (
     

@@ -1,157 +1,104 @@
-import React, { useContext, useState, useEffect } from 'react';
-import { StallContext } from "../../contex/stallContext";
+import React, { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { StallContext } from '../../contex/stallContext';
+import { Link } from 'react-router-dom';
+import GetProduct from './GetProduct';
+
+
 
 export default function StallOwnerDashboard() {
-    const {stall } = useContext(StallContext);
-    const [products, setProducts] = useState([]);
-    const [product, setProduct] = useState({ name: '', price: '', image: '' });
+  const { stall } = useContext(StallContext);    
+  const [data, setData] = useState({
+    name: '' ,
+    price: '',
+    description: '',
+       
+  });
 
-    useEffect(() => {
-      // Fetch the products from the backend API when the component mounts
-      fetch('/stall/getAllProducts')
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error('Network response was not ok');
-          }
-          return response.json();
-        })
-        .then((data) => setProducts(data))
-        .catch((error) => console.error('Error fetching products:', error));
-    }, []);
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    setImageFile(file);
+  };
   
-    const handleInputChange = (event) => {
-      const { name, value } = event.target;
-      setProduct({ ...product, [name]: value });
-    };
-  
-    const handleFileChange = (event) => {
-      setProduct({ ...product, image: event.target.files[0] });
-    };
-    
-    const handleSubmit = async (event) => {
-      event.preventDefault();
-  
-      try {
-        const formData = new FormData();
-        formData.append('name', product.name);
-        formData.append('price', product.price);
-        formData.append('description', product.description);
-        formData.append('image', product.image);
-  
-        const response = await fetch('http://localhost:8000/stall/createProduct', {
-          method: 'POST',
-          body: formData,
-        });
-  
-        if (response.ok) {
-          // Product added successfully, refresh the product list
-          window.location.reload();
-        } else {
-          console.error('Failed to add product');
-        }
-      } catch (error) {
-        console.error('Error adding product:', error);
+  const createProduct = async (e) => {
+    e.preventDefault();
+    const { name, price, description} = data;
+    try {
+      const { data } = await axios.post('./stall/createProduct', {
+        name,
+        price,
+        description,
+        
+      });
+      if (data.error) {
+        toast.error(data.error);
+      } else {
+        setData({});
+        toast.success('Product Created Successful. Welcome!');
+        
+        
       }
-    };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  
 
   return (
     <div className="container">
-      <h1 className="my-4">Admin Page</h1>
+      <h1 className="my-4">Create Products</h1>
       {!!stall && (<h2>Hi {stall.fName}!</h2>)}
-
       <div className="admin-product-form-container">
-        <form onSubmit={handleSubmit}>
-          <h3>Add a New Product</h3>
-          <div className="mb-3">
+        <form onSubmit={createProduct}>
+          <div className="form-group">
+            <label htmlFor="stallName">Product Name</label>
             <input
               type="text"
-              placeholder="Enter product name"
               name="name"
-              value={product.name}
-              onChange={handleInputChange}
               className="form-control"
-              required
+              value={data.name}
+              onChange={(e) => setData({...data, name:e.target.value})}
             />
           </div>
-
-          <div className="mb-3">
-            <input
-              type="number"
-              placeholder="Enter product price"
-              name="price"
-              value={product.price}
-              onChange={handleInputChange}
-              className="form-control"
-              required
-            />
-          </div>
-
-          <div className="mb-3">
+          
+          
+          <div className="form-group">
+            <label htmlFor="mType">Price</label>
             <input
               type="text"
-              placeholder="Enter product Description"
-              name="description"
-              value={product.description}
-              onChange={handleInputChange}
+              name="price"
               className="form-control"
-              required
+              value={data.price}
+              onChange={(e) => setData({...data, price:e.target.value})}
             />
           </div>
 
-          <div className="mb-3">
+          <div className="form-group">
+            <label htmlFor="mType">Description</label>
             <input
-              type="file"
-              accept="image/png, image/jpeg, image/jpg"
-              name="image"
-              onChange={handleFileChange}
+              type="text"
+              name="stallId"
               className="form-control"
-              required
+              value={data.description}
+              onChange={(e) => setData({...data, description:e.target.value})}
             />
-          </div>
+          </div>  
+          
+               
+          
+          
           <button type="submit" className="btn btn-primary">
             Add Product
           </button>
+          
         </form>
       </div>
-
-      <div className="product-display">
-        <table className="table table-bordered">
-          <thead>
-            <tr>
-              <th>Product Image</th>
-              <th>Product Name</th>
-              <th>Product Price</th>
-              <th>Product Description</th>
-              <th>Action</th>
-            </tr>
-          </thead>
-          <tbody>
-            {products.map((product) => (
-              <tr key={product._id}>
-                <td>
-                  <img
-                    src={`/api/products/${product.image}`}
-                    alt={product.name}
-                    height="100"
-                  />
-                </td>
-                <td>{product.name}</td>                
-                <td>${product.price}/-</td>
-                <td>{product.description}</td>
-                <td>
-                  <button
-                    className="btn btn-danger"
-                    onClick={() => deleteProduct(product._id)}
-                  >
-                    Delete
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+      
+      <GetProduct/>
     </div>
+
   );
 }
+

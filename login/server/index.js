@@ -6,6 +6,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+
 // database connection
 mongoose
   .connect(process.env.MONGO_URL)
@@ -30,6 +31,9 @@ const corsOptions = {
   origin: 'http://localhost:5173', // Change this to match your React app's origin
   credentials: true, // Allow cookies and other credentials to be included in the request
 };
+
+
+
 
 app.use(cors(corsOptions));
 

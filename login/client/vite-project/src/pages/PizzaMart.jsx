@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, InputGroup } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
+import './PizzaMart.css';
 
 const PizzaMart = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,7 +21,7 @@ const PizzaMart = () => {
     logo: '../stallImages/pizza mart.png',
     rating: 4.5,
     foodItems: [
-      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
+      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/pexels-vincent-rivaud-2147491.jpg' },
       { name: 'Olive mized veg Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
       { name: 'Ultimate veg Pizza', category: 'Veg Pizza', rating: 4.5, price: 850, image:'../stallImages/pexels-kristina-paukshtite-1146760.jpg' },
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },

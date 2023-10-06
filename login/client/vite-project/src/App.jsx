@@ -25,19 +25,21 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import CreateStallreq from './pages/CreateStallreq';
 import StallAdminreq from './pages/StallAdminreq';
 import StallCreate from './pages/StallCreate';
-import StallOwnerDashboard from './pages/StallOwnerDashboard';
 import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
 import StallLogin from './pages/StallLogin'
-import CreateStall from './pages/CreateStall';
+import StallOwnerDashboard from './pages/StallOwnerDashboard';
 import { StallContextProvider } from '../contex/stallContext';
-
-
+import GetProduct from './pages/GetProduct';
+import CreateStall from './pages/CreateStall';
+import UpdateProduct from './pages/UpdateProduct';
+import OurStallsHomePage from './pages/OurStallsHomePage';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -46,6 +48,7 @@ function App() {
   return (
     <UserContextProvider>
      <StallContextProvider>
+      
     <NavBar/>
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
     <Routes>
@@ -78,13 +81,14 @@ function App() {
       <Route path='/sweetS' element={<SweetSerenity/>}></Route>
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
-      <Route path='/Stalllogin' element={<StallLogin/>}></Route>
-      <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>      
       <Route path='/createStall' element={<CreateStall/>}></Route>
-      <Route path='/createProduct' element={<StallOwnerDashboard/>}></Route>
-      <Route path='/getAllProducts' element={<StallOwnerDashboard/>}></Route>
-
+      <Route path='/Stalllogin' element={<StallLogin/>}></Route>
+      <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>       
+      <Route path='/GetProduct' element={<GetProduct/>}></Route>
+      <Route path='/update/:id' element={<UpdateProduct/>}></Route>
+      <Route path='/OurStallsHomePage' element={<OurStallsHomePage/>}></Route> 
     </Routes>
+   
     </StallContextProvider>
     </UserContextProvider>
   )

@@ -2,7 +2,8 @@ const Stall = require('../models/stall');
 const StallRegister = require ('../models/stallRegister');
 const {hashPassword,comparePassword}=require('../helpers/stall')
 const jwt = require('jsonwebtoken');
-const stallProduct = require('../models/stallProduct')
+const stallProduct = require('../models/stallProduct');
+
 
 const createStall = async (req, res) => {
     try{
@@ -144,33 +145,67 @@ const stalladminreq = async (req, res) => {
     }
   };  
 
-  // Create a new product
-const createProduct = async (req, res) => {
+  //Create Product
+  const createProduct = async (req, res) => {
+    try{
+       const {name,price,description} = req.body;      
+
+        
+      const createProductResult = await stallProduct.create({
+        name,
+        price,
+        description,
+        
+      })
+
+      return res.json(createProductResult)
+
+    }catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Error creating Product' });
+    }
+
+} ;
+  
+  
+
+//get products
+const getProduct = async (req, res) => {
   try {
-    const { name, price, description } = req.body;
-    const image = req.file.filename; // Multer stores uploaded file in req.file
-
-    const stallProduct = new stallProduct({ name, price,description,image });
-    await stallProduct.save();
-
-    res.status(201).json(stallProduct);
+    const getProductResult = await stallProduct.find();
+    return res.json(getProductResult );
   } catch (error) {
-    res.status(500).json({ error: 'Error creating product' });
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
 };
 
-//// Get all products
-const getAllProducts = async (req, res) => {
+//delete products
+const deleteProduct = async (req, res) => {
   try {
-    const stallProducts = await stallProduct.find();
-    res.json(stallProducts);
+    const { id } = req.params;
+    // Use Mongoose to delete the product by ID
+    await stallProduct.findByIdAndDelete(id);
+    res.sendStatus(204); // Send a successful response with status code 204 (No Content) for successful deletion.
   } catch (error) {
-    res.status(500).json({ error: 'Error fetching products' });
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
   }
-}; 
+};
 
-// Delete a product by ID  
- 
+
+
+const updateProduct = async (req, res) => {
+  try {
+    const {id} = req.params.id;
+    await stallProduct.findByIdAndUpdate(id);
+    res.status(200).json({ message: 'Update successful' });
+  } catch (err) {
+    console.error('Error updating data:', err);
+    res.status(500).json({ error: 'Could not update data' });
+  }
+};
+
 
 module.exports = {
     stallreq,
@@ -180,5 +215,7 @@ module.exports = {
     Stalllogin,
     StallOwnerDashboard,
     createProduct,
-    getAllProducts,
+    getProduct,
+    deleteProduct,
+    updateProduct,
 };
