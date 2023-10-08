@@ -12,8 +12,17 @@ const {
   getProduct,
   deleteProduct,
   updateProduct, 
+  createdStall,
+  createdStalls,
+  createPromotion,
+  getPromotion,
+  createTicket,
+  getTicket,
 
 } = require('../controllers/stallController');
+
+// Import multer configuration
+const upload = require('../multerConfig');
 
 // Middleware for CORS
 router.use(
@@ -35,6 +44,11 @@ router.get('/getProduct', getProduct);
 router.delete('/deleteProduct/:id', deleteProduct);
 router.put('/update/:id', updateProduct);
 router.get('/getProduct/:id', getProduct);
-
+router.get('/createdStall', createdStall);
+router.get('/createdStalls', createdStalls);
+router.post('/createPromotion', upload.single('image'), createPromotion);
+router.get('/getPromotion', getPromotion);
+router.post('/createTicket', createTicket);
+router.get('/getTicket', getTicket);
 
 module.exports = router;

@@ -3,11 +3,12 @@ const StallRegister = require ('../models/stallRegister');
 const {hashPassword,comparePassword}=require('../helpers/stall')
 const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
-
+const stallPromo = require('../models/stallPromotions');
+const Ticket = require('../models/ticket');
 
 const createStall = async (req, res) => {
     try{
-       const {stallName, type, amount, mType,stallId, fName, lName, phonenumber, email, password, payment} = req.body;
+       const {stallName, type, amount, mType,description, stallId, fName, lName, phonenumber, email, password, payment} = req.body;
        // Check if name was entered
        if (!stallName) {
         return res.json({
@@ -35,6 +36,7 @@ const createStall = async (req, res) => {
         type,
         amount,
         mType,
+        description,
         stallId,
         fName,
         lName,
@@ -193,8 +195,6 @@ const deleteProduct = async (req, res) => {
   }
 };
 
-
-
 const updateProduct = async (req, res) => {
   try {
     const {id} = req.params.id;
@@ -203,6 +203,80 @@ const updateProduct = async (req, res) => {
   } catch (err) {
     console.error('Error updating data:', err);
     res.status(500).json({ error: 'Could not update data' });
+  }
+};
+
+const createdStall = async (req, res) => {
+  try {
+    const stall = await StallRegister.find();
+    return res.json(stall);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const createdStalls = async (req, res) => {
+  try {
+    const stall = await StallRegister.find();
+    return res.json(stall);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const createPromotion = async (req, res) => {
+  try{
+     const {text,imageURL} = req.body;         
+    const createPromotion = await stallPromo.create({
+      text, 
+      imageURL     
+    })
+    return res.json(createPromotion)
+
+  }catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Error creating Promotion' });
+  }
+
+} ;
+
+const getPromotion = async (req, res) => {
+  try {
+    const promotions = await stallPromo.find();
+    res.json(promotions);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
+
+const createTicket = async (req, res) => {
+  try{
+     const {subject, description, stallOwnerId} = req.body;         
+    const createTicket = await Ticket.create({
+      subject,
+      description,
+      status: 'Open',
+      stallOwnerId,    
+    });
+    return res.json(createTicket);
+
+  }catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Error creating Promotion' });
+  }
+
+} ;
+
+const getTicket = async (req, res) => {
+  try {
+    const getTicket = await Ticket.find();
+    res.json(getTicket);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Server error' });
   }
 };
 
@@ -218,4 +292,10 @@ module.exports = {
     getProduct,
     deleteProduct,
     updateProduct,
+    createdStall,
+    createdStalls,
+    createPromotion,
+    getPromotion,
+    createTicket,
+    getTicket,
 };

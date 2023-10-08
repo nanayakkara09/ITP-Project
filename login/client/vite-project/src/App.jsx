@@ -40,6 +40,11 @@ import GetProduct from './pages/GetProduct';
 import CreateStall from './pages/CreateStall';
 import UpdateProduct from './pages/UpdateProduct';
 import OurStallsHomePage from './pages/OurStallsHomePage';
+import StallAdmin from './pages/StallAdmin';
+import CreatedStallsAdminView from './pages/CreatedStallsAdminView';
+import MarketingAndPromotionAdmin from './pages/MarketingAndPromotionAdmin';
+import TicketForm from './pages/TicketForm';
+import AdminTicketList from './pages/AdminTicketList';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -87,6 +92,13 @@ function App() {
       <Route path='/GetProduct' element={<GetProduct/>}></Route>
       <Route path='/update/:id' element={<UpdateProduct/>}></Route>
       <Route path='/OurStallsHomePage' element={<OurStallsHomePage/>}></Route> 
+      <Route path='/stallAdmin' element={<StallAdmin />}></Route>
+      <Route path='/createdStalls' element={<CreatedStallsAdminView />}></Route>
+      <Route path='/promotions' element={<MarketingAndPromotionAdmin />}></Route>
+      <Route path='/createTicket' element={<TicketForm />}></Route>
+      <Route path='/getTicket' element={<AdminTicketList />}></Route>
+
+
     </Routes>
    
     </StallContextProvider>

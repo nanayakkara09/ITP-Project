@@ -26,6 +26,8 @@ app.use(
   })
 );
 
+app.use('/stallUploads', express.static('stallUploads'));
+
 // Configure CORS to allow requests from specific origins
 const corsOptions = {
   origin: 'http://localhost:5173', // Change this to match your React app's origin

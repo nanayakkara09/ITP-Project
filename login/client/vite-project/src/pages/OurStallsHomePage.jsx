@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './OurStallsHomePage.css';
+import GetCreatedStall from './GetCreatedStall';
 
 function OurStallsHomePage() {
     const [searchTerm, setSearchTerm] = useState('');
@@ -22,7 +23,8 @@ function OurStallsHomePage() {
   
     const filteredStalls = stalls.filter((stall) =>
       stall.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    )
+    
   
     return (
       <div className="wrapper">
@@ -50,27 +52,31 @@ function OurStallsHomePage() {
             <br/>
             
             <div className="row">
-              {filteredStalls.map((stall) => (
-                <div key={stall.id} className="col-md-3 mb-4">
-                  <div className="card">
-                    <img
-                      src={stall.image}
-                      className="card-img-top"
-                      alt={stall.name}
-                    />
-                    <div className="card-body">
-                      <h5 className="card-title">{stall.name}</h5>
-                      <p className="card-text">{stall.description}</p>
-                      <Link to={`/shop/${stall.id}`} className="btn btn-primary">
-                        View Stall
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+  {filteredStalls.map((stall) => (
+    <div key={stall.id} className="col-md-4 mb-4">
+      <div className="card h-100">
+        <img
+          src={stall.image}
+          className="card-img-top"
+          alt={stall.name}
+        />
+        <div className="card-body">
+          <h5 className="card-title">{stall.name}</h5>
+          <p className="card-text">{stall.description}</p>
+        </div>
+        <div className="card-footer">
+          <Link to={`/shop/${stall.id}`} className="btn btn-primary">
+            View Stall
+          </Link>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
             
           </div>
+          <GetCreatedStall />
         
       </div>
     );
