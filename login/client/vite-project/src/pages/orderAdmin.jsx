@@ -17,7 +17,7 @@ export default function orderAdmin() {
   
 
   const handleDateSubmit = (date) => {
-    const formattedDate = date.toISOString().split()[0];
+    const formattedDate = date.toISOString().split('T')[0];
     axios.get(`http://localhost:8000/order/confirmed-orders/${formattedDate}`)
       .then((response) => {
         setConfirmedOrders(response.data);
@@ -27,14 +27,39 @@ export default function orderAdmin() {
       });
   };
   
+  
   const handleDateChange = (date) => {
     setSelectedDate(date);
-    handleDateSubmit(date); // Fetch orders for the selected date
+
+    // Fetch orders for the selected date within the selected month
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // Months are 0-indexed
+    const day = date.getDate();
+
+    axios.get(`http://localhost:8000/order/confirmed-orders/${year}/${month}/${day}`)
+      .then((response) => {
+        setConfirmedOrders(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching confirmed orders:', error);
+      });
   };
 
   useEffect(() => {
-    handleDateSubmit(selectedDate); // Fetch orders for selected date on initial load
-  }, [selectedDate]);
+    // Fetch orders for today within the selected month on initial load
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = today.getMonth() + 1; // Months are 0-indexed
+    const day = today.getDate();
+
+    axios.get(`http://localhost:8000/order/confirmed-orders/${year}/${month}/${day}`)
+      .then((response) => {
+        setConfirmedOrders(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching confirmed orders:', error);
+      });
+  }, []);
 
   const generatePDF = () => {
     const doc = new jsPDF();
@@ -54,7 +79,22 @@ export default function orderAdmin() {
     doc.save('order_details.pdf');
   };
   
+  const handleMonthChange = (date) => {
 
+    console.log('handleMonthChange called with date:', date);
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1; // Months are 0-indexed
+  
+    // Fetch orders for the entire selected month
+    axios.get(`http://localhost:8000/order/confirmed-orders/${year}/${month}`)
+      .then((response) => {
+        setConfirmedOrders(response.data);
+      })
+      .catch((error) => {
+        console.error('Error fetching confirmed orders:', error);
+      });
+  };
+  
   
   return (
     <div className='date-container'>
@@ -70,7 +110,7 @@ export default function orderAdmin() {
         <h1 className='odetails'>
           <FontAwesomeIcon icon={faUsers} /> Order Details
         </h1>
-        <Reactdatepicker date={selectedDate} onDateChange={handleDateChange} />
+        <Reactdatepicker date={selectedDate} onDateChange={handleDateChange} onMonthChange={handleMonthChange} />
         <br></br>
        
        

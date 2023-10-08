@@ -11,13 +11,15 @@
 
   .addToCart{
 
-    margin-left: 40px;
+    margin-left: 0px;
+    display: inline-flex;
 }
 .quantity-control{
 
-  margin-left: 140px;
-  margin-top: -50px;
+  margin-left: 0px;
+  margin-top: 10px;
   margin-bottom: 30px;
+  display: inline-flex;
 
 }
 

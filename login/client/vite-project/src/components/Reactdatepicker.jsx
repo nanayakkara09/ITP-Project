@@ -4,12 +4,16 @@ import Datepicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import '../components/Datepicker.css';
 
-export default function Reactdatepicker({ date, onDateChange, onSubmit }) {
+export default function Reactdatepicker({ date, onDateChange, onMonthChange, onSubmit }) {
   const [selectedDate, setSelectedDate] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form submission
     onSubmit(); // Trigger the parent component's submit function
+  };
+
+  const handleMonthChange = (date) => {
+    onMonthChange(date);
   };
 
   return (
@@ -25,6 +29,7 @@ export default function Reactdatepicker({ date, onDateChange, onSubmit }) {
                 className='date'
                 selected={selectedDate || date}
                 onChange={(newDate) => onDateChange(newDate)}
+                onMonthChange={handleMonthChange}
                 showYearDropdown
               />
             </div>

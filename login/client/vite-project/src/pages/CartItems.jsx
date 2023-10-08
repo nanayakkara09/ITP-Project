@@ -3,6 +3,7 @@ import axios from 'axios';
 import CartItem from '../components/CartItem';
 import { Link} from 'react-router-dom';
 import '../pages/cart.css'
+import NavBar from '../components/NavBar';
 
 
 
@@ -73,6 +74,7 @@ const handleConfirmOrder = () => {
 
   return (
     <div className=''>
+      <NavBar/>
       <div className='cartTotal'>
         <h1 className='mycart'>MY CART</h1>
         <div className='col-md-2 '>

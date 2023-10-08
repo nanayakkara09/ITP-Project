@@ -66,15 +66,35 @@ router.put('/confirm-order', async (req, res) => {
 
 
 
-router.get('/confirmed-orders/:date', async (req, res) => {
+router.get('/confirmed-orders/:year/:month/:day', async (req, res) => {
   try {
-    const date = moment(req.params.date).startOf('day');
-    const endOfDay = moment(date).endOf('day');
+    const { year, month, day } = req.params;
+    const startDate = moment(`${year}-${month}-${day}`).startOf('day');
+    const endDate = moment(startDate).endOf('day');
 
     const confirmedOrders = await ConfirmedOrder.find({
       date: {
-        $gte: date.toDate(),
-        $lte: endOfDay.toDate()
+        $gte: startDate.toDate(),
+        $lte: endDate.toDate()
+      }
+    });
+
+    res.json(confirmedOrders);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+router.get('/confirmed-orders/:year/:month', async (req, res) => {
+  try {
+    const { year, month } = req.params;
+    const startDate = moment(`${year}-${month}-01`).startOf('month');
+    const endDate = moment(startDate).endOf('month');
+
+    const confirmedOrders = await ConfirmedOrder.find({
+      date: {
+        $gte: startDate.toDate(),
+        $lte: endDate.toDate()
       }
     });
 
