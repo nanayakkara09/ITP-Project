@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
-import './itemlist.css'; // Import the CSS file for styling
+import './itemlistFur.css'; // Import the CSS file for styling
 import { Link, useLocation } from 'react-router-dom';
 
 export default function itemlist(props) {
@@ -15,7 +15,7 @@ export default function itemlist(props) {
   useEffect(() => {
     const fetchItemList = async () => {
       try {
-        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
+        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFurniture');
         setItems(data);
         //setIsLoading(false);
       } catch (error) {
@@ -56,7 +56,7 @@ export default function itemlist(props) {
       <div><AdminNavBar /></div>
       <div className='container'>
         <div className='title'>
-          <h1 className="item-list-title">{category}Food Item List</h1>
+          <h1 className="item-list-title">{category}Furniture Item List</h1>
         </div>
 
         <div className="item-list-buttons">
@@ -67,7 +67,7 @@ export default function itemlist(props) {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="search-button" onClick={handleSearch}>Search</button>
-          <Link to="/addnew" className="add-new-button">Add New</Link>
+          <Link to="/addnewFur" className="add-new-button">Add New</Link>
 
         </div>
         <div className="item-list-container">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState , useEffect} from 'react';
 import axios from 'axios';
 import './addNew.css'; // Import the CSS file for styling
 import { useNavigate } from 'react-router-dom';
@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 
 export default function NewItemForm() {
   const navigate = useNavigate();
-  const [itemcode, setItemCode] = useState('');
   const [formData, setFormData] = useState({
 
     
@@ -22,9 +21,9 @@ export default function NewItemForm() {
   useEffect(() => {
     const fetchItemList = async () => {
       try {
-        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
+        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryMachinery');
         console.log(data);
-        var nextItemCode = "F" + (data.length + 1)
+        var nextItemCode = "M" + (data.length + 1)
         setFormData({ ...formData, itemcode: nextItemCode })
         //setIsLoading(false);
       } catch (error) {
@@ -45,10 +44,10 @@ export default function NewItemForm() {
     e.preventDefault();
     console.log(formData)
     const{name,description,quantity,reorder,itemcode}= formData 
-    const category = 'Food';
+    const category = 'Machinery';
     const {data} =await axios.post('./inventory/',{name,description,quantity,category,reorder,itemcode})
     console.log('Form data submitted:', formData);
-    navigate('/itemlist');
+    navigate('/itemlistMac');
   };
 
   return (
@@ -68,6 +67,7 @@ export default function NewItemForm() {
             onChange={handleChange}
             required
             disabled={true}
+
           />
         </div>
         <div className="form-group">
@@ -104,9 +104,10 @@ export default function NewItemForm() {
           />
         </div>
         <button type="submit">Submit</button>
-        <button><Link to="/itemlist">Cancel</Link></button>      
+        <button><Link to="/itemlistMac">Cancel</Link></button>      
         </form>
     </div>
     </div>
   );
 }
+

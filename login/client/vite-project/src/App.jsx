@@ -30,6 +30,13 @@ import SeesupportPage from './pages/seesupport';
 import Password from './pages/password';
 import IssueEntry from './pages/issueEntry';
 import IssuedDetails from './pages/IssuedDetails';
+import ItemlistFur from '../src/pages/itemlistFur';
+import ItemlistMac from '../src/pages/itemlistMac';
+import AddNewFur from '../src/pages/addNewFur';
+import AddNewMac from '../src/pages/addNewMac';
+
+
+
 
 
 
@@ -58,6 +65,12 @@ function App() {
       <Route path="/addStock/:itemcode" element={<AddStock />} />
       <Route path="/IssueEntry" element={<IssueEntry />} />
       <Route path="/IssuedDetails" element={<IssuedDetails />} />
+      <Route path="/itemlistFur" element={<ItemlistFur />} />
+      <Route path="/itemlistMac" element={<ItemlistMac />} />
+      <Route path="/addNewFur" element={<AddNewFur />} />
+      <Route path="/addNewMac" element={<AddNewMac />} />
+
+
 
 
 

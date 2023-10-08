@@ -15,7 +15,7 @@ export default function itemlist(props) {
   useEffect(() => {
     const fetchItemList = async () => {
       try {
-        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
+        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryMachinery');
         setItems(data);
         //setIsLoading(false);
       } catch (error) {
@@ -56,7 +56,7 @@ export default function itemlist(props) {
       <div><AdminNavBar /></div>
       <div className='container'>
         <div className='title'>
-          <h1 className="item-list-title">{category}Food Item List</h1>
+          <h1 className="item-list-title">{category}Machinery Item List</h1>
         </div>
 
         <div className="item-list-buttons">
@@ -67,7 +67,7 @@ export default function itemlist(props) {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="search-button" onClick={handleSearch}>Search</button>
-          <Link to="/addnew" className="add-new-button">Add New</Link>
+          <Link to="/addnewMac" className="add-new-button">Add New</Link>
 
         </div>
         <div className="item-list-container">

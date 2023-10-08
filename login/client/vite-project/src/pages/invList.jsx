@@ -26,11 +26,11 @@ function InvList() {
         </div>
         <div className="inv-list furniture-list">
           <h3>Furniture</h3>
-          <Link to={{ pathname: "/itemlist", state:  "Furniture" }}>View Furniture Item Details</Link>
+          <Link to={{ pathname: "/itemlistFur", state:  "Furniture" }}>View Furniture Item Details</Link>
         </div>
         <div className="inv-list machinery-list">
           <h3>Machinery</h3>
-          <Link to={{ pathname: "/itemlist", state:  "Machinery" }}>View Machinery Item Details</Link>
+          <Link to={{ pathname: "/itemlistMac", state:  "Machinery" }}>View Machinery Item Details</Link>
         </div>
         <div className="inv-list issued-list">
           <h3>Issued</h3>

@@ -17,11 +17,7 @@ const inventorySchema = new Schema({
         type:String,
         unique:true
     },
-    category: {
-        type: String,
-        enum: [category.food,category.furniture,category.machinery],
-        default:category.food, // Default role is food
-      },
+    category: String
    
 })
 
