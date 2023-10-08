@@ -5,6 +5,7 @@ const { mongoose } = require('mongoose');
 const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const bodyParser = require('body-parser');
 
 // database connection
 mongoose
@@ -35,8 +36,9 @@ app.use(cors(corsOptions));
 
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
+app.use('/Event', require('./routes/eventRoutes'));
 
 
 
-const port = 8000;
-app.listen(port, () => console.log(`Listening on port ${port}`));
+const port = 5173;
+app.listen(port, () => {console.log(`Listening on port ${port}`)});

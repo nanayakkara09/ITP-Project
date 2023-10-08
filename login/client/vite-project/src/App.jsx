@@ -28,14 +28,20 @@ import InvEdit from '../src/pages/invEdit';
 import Password from '../src/pages/password'
 
 
-import Event from '../src/pages/eventForm';
+import AddNewEvent from './pages/addNewEvent';
+import EventList from './pages/eventList';
 import EventUpdate from '../src/pages/eventUpdate';
-import EventDelete from '../src/pages/eventDelete';
+
 import EventSuccess from '../src/pages/eventSuccess';
 import EventHome from './pages/eventHome';
 import EventDetail from './pages/eventDetail';
 import EventAbout from './pages/eventAbout';
 import EventDel from './pages/eventDel';
+import EventDetail2 from './pages/eventDetail2';
+import EventDetail3 from './pages/eventDetail3';
+import EventDetail4 from './pages/eventDetail4';
+import EventListUser from './pages/eventListUser';
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -71,14 +77,19 @@ function App() {
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
 
-      <Route path="/eventForm" element={<Event />}/>
+      <Route path="/addNewEvent" element={<AddNewEvent />}/>
+      <Route path="/eventList" element={<EventList />}/>
       <Route path="/eventUpdate" element={<EventUpdate />}/>
-      <Route path="/eventDelete" element={<EventDelete />}/>
+      <Route path="/eventListUser" element={<EventListUser />}/>
       <Route path="/eventSuccess" element={<EventSuccess />}/>
       <Route path="/eventHome" element={<EventHome />}/>
       <Route path="/eventDetail" element={<EventDetail />}/>
       <Route path="/eventAbout" element={<EventAbout />}/>
       <Route path="/eventDel" element={<EventDel />}/>
+      <Route path="/eventDetail2" element={<EventDetail2 />}/>
+      <Route path="/eventDetail3" element={<EventDetail3 />}/>
+      <Route path="/eventDetail4" element={<EventDetail4 />}/>
+
 
 
     </Routes>

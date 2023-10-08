@@ -17,7 +17,7 @@ export default function eventSuccess() {
         <Link to="/eventHome" className="btn btn-primary">
           Event Home
         </Link>
-        <button onClick={() => navigate('/eventDetail')} className="btn btn-primary">
+        <button onClick={() => navigate('/eventListUser')} className="btn btn-primary">
           Event Details
         </button>
       </div>

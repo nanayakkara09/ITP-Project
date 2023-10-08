@@ -11,6 +11,9 @@ export default function eventDetail() {
         <div className="event-proposal-details">
           <h2>EVENT PROPOSAL DETAILS</h2>
           <ul className="event-table">
+          <li>
+              <strong>Event Name:</strong> Birthday Party
+            </li>
             <li>
               <strong>Number of crowd expected:</strong> 50
             </li>

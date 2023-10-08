@@ -3,6 +3,7 @@ import './eventHome.css';
 import event1 from '../images/event1.jpg';
 import event2 from '../images/event2.jpg';
 import event3 from '../images/event3.jpg';
+import event7 from '../images/event7.jpg';
 
 import event4 from '../images/3.jpg';
 import { Link, useNavigate } from 'react-router-dom';
@@ -19,7 +20,7 @@ export default function eventHome() {
         <div className="event-selection-container">
           
           <div className="image-grid">
-            <Link to="/event" className="event-link">
+            <Link to="/eventDetail" className="event-link">
               <div className="image-card">
                 <img src={event1} alt="event1" />
                 <p>
@@ -32,7 +33,7 @@ export default function eventHome() {
               </div>
             </Link>
            
-            <Link to="/event" className="event-link">
+            <Link to="/eventDetail3" className="event-link">
               <div className="image-card">
                 <img src={event2} alt="event2" />
                 <p>
@@ -44,13 +45,13 @@ export default function eventHome() {
               </div>
             </Link>
             
-            <Link to="/event" className="event-link">
+            <Link to="/eventDetail4" className="event-link">
               <div className="image-card">
-                <img src={event3} alt="event3" />
+                <img src={event7} alt="event3" />
                 <p>
-                  <span className="emphasis-text">Decide on your wedding priorities. </span>
+                  <span className="emphasis-text">Decide on your Party priorities. </span>
                   <br />
-                  <span className="emphasis-text">Create a wedding binder.</span>
+                  <span className="emphasis-text">Create a BrideToBe function binder.</span>
                   <br />
                   <span className="emphasis-text">Choosing an ideal event date and time.
 Create an event master plan.
@@ -60,7 +61,7 @@ Event branding.</span>
               </div>
             </Link>
             
-            <Link to="/event" className="event-link">
+            <Link to="/eventdetail2" className="event-link">
               <div className="image-card">
                 <img src={event4} alt="event4" />
                 <p>
@@ -68,7 +69,7 @@ Event branding.</span>
                   <br />
                   <span className="emphasis-text">Contact Us Today To Discuss Your Special Event And Book A Tour Of Our Premises. All The Personal Service Of A Long-Established Family-Run Business. Flexible Layouts.</span>
                   <br />
-                  <span className="emphasis-text">own birthday party</span>
+                  
                 </p>
               </div>
             </Link>
@@ -83,8 +84,8 @@ Event branding.</span>
             <button onClick={() => navigate('/eventDetail')} className="btn btn-primary">
               Event Details
             </button>
-            <button onClick={() => navigate('/eventForm')} className="btn btn-primary">
-              Event Proposal
+            <button onClick={() => navigate('/addNewEvent')} className="btn btn-primary">
+             Add Event
             </button>
             <button onClick={() => navigate('/eventAbout')} className="btn btn-primary">
               About Us

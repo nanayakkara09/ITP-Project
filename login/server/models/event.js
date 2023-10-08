@@ -3,7 +3,7 @@ const {Schema} =mongoose;
 
 const eventSchema = new Schema({
     name: String,
-    address: String,
+   
     phonenumber: Number,
     email: {
       type: String,

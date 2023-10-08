@@ -1,111 +1,137 @@
-const Event = require('../models/event'); // Change 'event' to 'EventModel'
+// eventController
 
+const Event = require('../models/event');
 
-
-const test=(req,res) =>{
-  res.json('test is working')
-}
-const addNew=async(req,res)=>{
-  const{name,
-    address,
-    phonenumber,
-    email,
-   Etime,
-   date,
-   Npeople,
-   theme,
-   Fneed,
-   Extra,
-  } = req.body;
-
-const event=await Event.create({name,
-  address,
-  phonenumber,
-  email,
- Etime,
- date,
- Npeople,
- theme,
- Fneed,
- Extra,
-
-})  
-return res.json(event)}
-
-const updateItem=async(req,res)=>{
-  const { itemId } = req.params;
-  console.log(itemId);
-  console.log(req.body)
-  const{name,
-    address,
-    phonenumber,
-    email,
-   Etime,
-   date,
-   Npeople,
-   theme,
-   Fneed,
-   Extra,
-  } = req.body;
-
-  const event = await Event.findByIdAndUpdate(
-    itemId,
-    {
-      name,
-  address,
-  phonenumber,
-  email,
- Etime,
- date,
- Npeople,
- theme,
- Fneed,
- Extra,
-
-  }
-  );
-  return res.json(inventory)
-}
-const deleteItem=async(req,res) =>{
-  const { itemId } = req.params;
+const createEvent = async (req, res) => {
   try {
-      const event = await Event.findByIdAndRemove(itemId);
-      if (!event) {
-        return res.json({
-            error:'No Item found'
-        })
-      }
-  
-      res.json({ message: 'Item deleted' });
-    } catch (error) {
-      console.log(error);
-   
-    }
+    const {
+      name,
+      phonenumber,
+      email,
+      Ename,
+      Etime,
+      date,
+      Npeople,
+      theme,
+      Fneed,
+      Extra,
+    } = req.body;
+
+    const event = await Event.create({
+      name,
+      phonenumber,
+      email,
+      Ename,
+      Etime,
+      date,
+      Npeople,
+      theme,
+      Fneed,
+      Extra,
+    });
+
+    return res.status(201).json(event); // Use 201 status for successful creation
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Error creating event' });
   }
-  const getAllItems = async (req, res) => {
-    try {
-      const items = await Event.find();
-      res.json(items);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Error fetching inventory items' });
+};
+
+const updateEvent = async (req, res) => {
+  try {
+    const { _id } = req.params; // Use _id instead of eventId
+    const {
+      name,
+      phonenumber,
+      email,
+      Ename,
+      Etime,
+      date,
+      Npeople,
+      theme,
+      Fneed,
+      Extra,
+    } = req.body;
+
+    const event = await Event.findByIdAndUpdate(
+      _id, // Use _id directly
+      {
+        name,
+        phonenumber,
+        email,
+        Ename,
+        Etime,
+        date,
+        Npeople,
+        theme,
+        Fneed,
+        Extra,
+      },
+      {
+        new: true,
+      }
+    );
+
+    if (!event) {
+      return res.status(404).json({ error: 'Event not found' });
     }
-  };
-  const getItem = async (req, res) => {
-    try {
-        console.log(req.params.itemId)
-      const items = await Event.findById(req.params.itemId);
-      res.json(items);
-      console.log(req.itemId);
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Error fetching inventory items' });
+
+    return res.json(event);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Error updating event' });
+  }
+};
+
+const deleteEvent = async (req, res) => {
+  try {
+    const { _id } = req.params; // Use _id instead of eventId
+    const event = await Event.findByIdAndRemove(_id); // Use _id directly
+    if (!event) {
+      return res.status(404).json({ error: 'Event not found' });
     }
-  };
-module.exports ={
-    addNew,
-    getAllItems,
-    getItem,
-    updateItem,
-    deleteItem
-}
+
+    return res.json({ message: 'Event deleted' });
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Error deleting event' });
+  }
+};
+
+const getAllEvent = async (req, res) => {
+  try {
+    const events = await Event.find();
+    const count = events.length; // Get the count of events
+
+    return res.json({ count, events }); // Return count along with the events
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Error fetching events' });
+  }
+};
+
+const getEvent = async (req, res) => {
+  try {
+    const { _id } = req.params; // Use _id instead of eventId
+    const event = await Event.findById(_id); // Use _id directly
+
+    if (!event) {
+      return res.status(404).json({ error: 'Event not found or invalid ID' });
+    }
+
+    return res.json(event);
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ error: 'Error fetching event', details: error.message });
+  }
+};
+
+module.exports = {
+  createEvent,
+  getAllEvent,
+  getEvent,
+  updateEvent,
+  deleteEvent,
+};
