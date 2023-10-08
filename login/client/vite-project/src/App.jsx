@@ -79,7 +79,7 @@ function App() {
 
       <Route path="/addNewEvent" element={<AddNewEvent />}/>
       <Route path="/eventList" element={<EventList />}/>
-      <Route path="/eventUpdate" element={<EventUpdate />}/>
+     
       <Route path="/eventListUser" element={<EventListUser />}/>
       <Route path="/eventSuccess" element={<EventSuccess />}/>
       <Route path="/eventHome" element={<EventHome />}/>
@@ -89,6 +89,8 @@ function App() {
       <Route path="/eventDetail2" element={<EventDetail2 />}/>
       <Route path="/eventDetail3" element={<EventDetail3 />}/>
       <Route path="/eventDetail4" element={<EventDetail4 />}/>
+      <Route path="/eventUpdate/:_id" element={<EventUpdate />} />
+
 
 
 

@@ -38,7 +38,7 @@ export default function EventUpdate() {
       theme,
       Fneed,
       Extra,}= formData 
-    const {data} =await axios.post(`/event/updateEvent/${eventId}`,{name,
+    const {data} =await axios.put(`/Event/updateEvent/$${event._id}`,{name,
       phonenumber,
       email,
       Ename,
@@ -56,7 +56,7 @@ export default function EventUpdate() {
     const fetchEvent = async () => {
       try {
         console.log(eventId);
-        const { data } = await axios.get(`/event/getEvent${eventId}`);
+        const { data } = await axios.get(`/Event/getEvent${event._id}`);
         console.log(data)
   
          setFormData({

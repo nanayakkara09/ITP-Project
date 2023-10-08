@@ -40,5 +40,5 @@ app.use('/Event', require('./routes/eventRoutes'));
 
 
 
-const port = 5173;
+const port = 8000;
 app.listen(port, () => {console.log(`Listening on port ${port}`)});

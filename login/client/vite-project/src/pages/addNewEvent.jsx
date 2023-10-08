@@ -11,7 +11,7 @@ export default function AddNewEvent() {
     e.preventDefault();
 
     try {
-      const { data } = await axios.post('http://localhost:5173/Event/createEvent', {
+      const { data } = await axios.post('/Event/createEvent', {
         name: e.target.name.value,
         phonenumber: e.target.phonenumber.value,
         email: e.target.email.value,
@@ -159,7 +159,8 @@ export default function AddNewEvent() {
           />
         </div>
 
-        <button type="submit" className="btn btn-primary">
+        <button 
+        onClick={() => navigate('/eventSuccess')}type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
