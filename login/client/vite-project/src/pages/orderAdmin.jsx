@@ -8,6 +8,8 @@ import { Calendar } from 'react-calendar';
 import '../pages/orderAdmin.css'
 import Reactdatepicker from '../components/Reactdatepicker';
 import DatePicker from '../components/DatePicker'; 
+import jsPDF from 'jspdf';
+
 
 export default function orderAdmin() {
   const [confirmedOrders, setConfirmedOrders] = useState([]);
@@ -34,6 +36,24 @@ export default function orderAdmin() {
     handleDateSubmit(selectedDate); // Fetch orders for selected date on initial load
   }, [selectedDate]);
 
+  const generatePDF = () => {
+    const doc = new jsPDF();
+    doc.text('Order Details', 10, 10);
+  
+    // Generate PDF content here
+    confirmedOrders.forEach((order, index) => {
+      const yOffset = 20 + (index * 10); // Adjust vertical spacing as needed
+      doc.text(`Order ID: ${index + 1}`, 10, yOffset);
+      doc.text(`Item Name: ${order.name}`, 30, yOffset);
+      doc.text(`Price: ${order.price}`, 60, yOffset);
+      doc.text(`Quantity: ${order.quantity}`, 90, yOffset);
+      doc.text(`Total Price: ${order.total}`, 120, yOffset);
+      doc.text(`Ordered Date: ${order.date}`, 150, yOffset);
+    });
+  
+    doc.save('order_details.pdf');
+  };
+  
 
   
   return (
@@ -80,7 +100,7 @@ export default function orderAdmin() {
 </tbody>
           </table>
        
-        <button className="print-button" >
+        <button className="print-button" onClick={generatePDF}>
   Generate PDF
 </button>
       </div>
