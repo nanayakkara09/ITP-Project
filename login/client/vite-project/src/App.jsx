@@ -45,6 +45,7 @@ import CreatedStallsAdminView from './pages/CreatedStallsAdminView';
 import MarketingAndPromotionAdmin from './pages/MarketingAndPromotionAdmin';
 import TicketForm from './pages/TicketForm';
 import AdminTicketList from './pages/AdminTicketList';
+import SeeMenuPage from './pages/SeeMenuPage';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -97,6 +98,7 @@ function App() {
       <Route path='/promotions' element={<MarketingAndPromotionAdmin />}></Route>
       <Route path='/createTicket' element={<TicketForm />}></Route>
       <Route path='/getTicket' element={<AdminTicketList />}></Route>
+      <Route path='/menu' element={<SeeMenuPage />}></Route>
 
 
     </Routes>

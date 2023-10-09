@@ -18,7 +18,7 @@ const PizzaMart = () => {
   const stall = {
     name: 'PIZZA MART',
     description: 'Delicious pizza and more!',
-    logo: '/stallImages/pizza mart.png',
+    logo: '/stallImages/Colorful Playful Minimalist Fast Food Pizza Mascot Circle Logo.png',
     rating: 4.5,
 
     foodItems: [
