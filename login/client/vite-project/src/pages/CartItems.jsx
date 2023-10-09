@@ -4,7 +4,7 @@ import CartItem from '../components/CartItem';
 import { Link} from 'react-router-dom';
 import '../pages/cart.css'
 import NavBar from '../components/NavBar';
-
+import '../pages/cartbg.css'
 
 
 
