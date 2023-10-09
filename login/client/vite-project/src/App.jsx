@@ -82,10 +82,10 @@ function App() {
       <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
       <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard />}></Route>
-      <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
-      <Route path='/sweetS' element={<SweetSerenity/>}></Route>
-      <Route path='/asiano' element={<Asiano/>}></Route>
-      <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
+      <Route path='/shop/1' element={<PizzaMart />} />
+      <Route path='/shop/3' element={<SweetSerenity/>}></Route>
+      <Route path='/shop/4' element={<Asiano/>}></Route>
+      <Route path='/shop/2' element={<SriLankanFoodStall/>}></Route>
       <Route path='/createStall' element={<CreateStall/>}></Route>
       <Route path='/Stalllogin' element={<StallLogin/>}></Route>
       <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>       
