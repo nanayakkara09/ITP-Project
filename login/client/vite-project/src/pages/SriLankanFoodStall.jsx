@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Form, InputGroup ,Modal, Button} from 'react
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import NavBar from '../components/cartNavbar';
 
 const SriLankanFoodStall = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -100,6 +101,10 @@ const SriLankanFoodStall = () => {
   });
 
   return (
+
+    <div>
+     <NavBar/>
+   
     <Container>
       <Row className="mt-4">
         <Col xs={12} md={3}>
@@ -212,6 +217,8 @@ const SriLankanFoodStall = () => {
         </Col>
       </Row>
     </Container>
+
+    </div>
   );
 };
 

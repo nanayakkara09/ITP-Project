@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import '../pages/cart.css'
+import '../pages/cartbg.css'
+
+
 
 const CartItem = ({ item, onDelete, onUpdateTotal }) => { 
   
@@ -61,7 +64,7 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
   }
 
   return (
-    <div className="" >
+    <div className=""  >
     <div className=" cart-container row justify-content-center mt-5 shadow-lg p-3 mb-5 bg-white rounded ">
 
        <div className="col-md-15">
@@ -80,7 +83,7 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
             </div>
 
             <div className=''>
-         <img src={item.image} style={{height:'80px' , height: '80px'}} alt={item.name} />
+         <img src={item.image} style={{height:'100px' , height: '150px',marginTop:'20px'}} alt={item.name} />
        </div>
 
        <div className=''>

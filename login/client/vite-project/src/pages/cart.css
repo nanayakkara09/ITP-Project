@@ -4,7 +4,7 @@
     margin-top: 50px;
     margin-bottom: px;
     background:white;
-  
+   
    
 
   }
@@ -61,6 +61,8 @@
 
 .fa-trash{
   color: red;
+  margin-left: 40px;
+   
 }
 
 .col-md-2{

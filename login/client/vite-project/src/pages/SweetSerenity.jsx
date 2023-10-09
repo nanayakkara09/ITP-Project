@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Form, InputGroup, Button } from 'react-boots
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import NavBar from '../components/cartNavbar';
 
 
 const SweetSerenity = () => {
@@ -102,6 +103,8 @@ const SweetSerenity = () => {
 
   return (
     
+    <div>
+       <NavBar/>
       <Container>
         <Row className="mt-4">
         <Col xs={12} className="mb-4">
@@ -222,6 +225,7 @@ const SweetSerenity = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 

@@ -4,6 +4,7 @@ import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import './PizzaMart.css';
+import NavBar from '../components/cartNavbar';
 
 const PizzaMart = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -104,8 +105,10 @@ const PizzaMart = () => {
   });
 
   return (
-    
+   <div>
+    <NavBar/>
       <Container>
+       
       <Row className="mt-4">  
         
        <Card className="mb-7 card-logo">
@@ -183,7 +186,9 @@ const PizzaMart = () => {
           <p>Price: {item.price} LKR</p>
         </Card.Body>
         <Card.Footer>
-          <button onClick={() => addToCart(item)}>Add to Cart</button>
+        <Button className='addToCart' variant="success" onClick={() => addToCart(item)}>
+                        Add to Cart
+                      </Button> 
         </Card.Footer>
       </Card>
     </Col>
@@ -195,6 +200,7 @@ const PizzaMart = () => {
 
       
     </Container>
+    </div> 
   );
 };
 
