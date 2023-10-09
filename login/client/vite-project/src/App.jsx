@@ -41,6 +41,7 @@ import EventDetail2 from './pages/eventDetail2';
 import EventDetail3 from './pages/eventDetail3';
 import EventDetail4 from './pages/eventDetail4';
 import EventListUser from './pages/eventListUser';
+import AdminConfirm from './pages/admin-confirm';
 
 
 
@@ -90,7 +91,7 @@ function App() {
       <Route path="/eventDetail3" element={<EventDetail3 />}/>
       <Route path="/eventDetail4" element={<EventDetail4 />}/>
       <Route path="/eventUpdate/:_id" element={<EventUpdate />} />
-
+      <Route path="/admin-confirm" element={<AdminConfirm />} />
 
 
 

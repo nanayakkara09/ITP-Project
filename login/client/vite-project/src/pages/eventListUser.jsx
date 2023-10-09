@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import './eventList.css';
+import './eventListUser.css';
 import { Link } from 'react-router-dom';
 
 export default function EventListUser() {
@@ -49,7 +49,7 @@ export default function EventListUser() {
 
   return (
     <div>
-      <div className='container'>
+      <div className='event-list-container'>
         <div className='title'>
           <h1 className="item-list-title">Event List</h1>
         </div>
@@ -66,7 +66,7 @@ export default function EventListUser() {
           <Link to="/addNewEvent" className="add-new-button">Add New</Link>
         </div>
 
-        <div className="item-list-container">
+        <div className="item-list-table-container">
           <table className="item-list-table">
             <thead>
               <tr>
@@ -79,8 +79,7 @@ export default function EventListUser() {
                 <th>NoPeople</th>
                 <th>Fneed</th>
                 <th>Extra</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                
               </tr>
             </thead>
             <tbody>

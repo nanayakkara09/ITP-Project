@@ -131,23 +131,84 @@ export default function AddNewEvent() {
 
         <div className="form-group">
           <label htmlFor="theme">Theme Of The Event:</label>
-          <input
+          <select
             className="form-control"
             id="theme"
             name="theme"
             required
-          />
+          >
+            <option value="">Select</option>
+          <option value="50">Color Base</option>
+          <option value="100">Luxury Base</option>
+          <option value="150">Normal Base</option>
+          
+        </select>
         </div>
 
         <div className="form-group">
-          <label htmlFor="Fneed">Facilities Needed:</label>
+        <label>Facilities Needed:</label>
+        <div className="form-check">
           <input
-            className="form-control"
-            id="Fneed"
+            type="checkbox"
+            className="form-check-input"
+            id="chair"
             name="Fneed"
-            required
+            value="chair"
           />
+          <label className="form-check-label" htmlFor="chair">
+            Chairs
+          </label>
         </div>
+        <div className="form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="liquor"
+            name="Fneed"
+            value="liquor"
+          />
+          <label className="form-check-label" htmlFor="liquor">
+            Liquor
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="beverages"
+            name="Fneed"
+            value="beverages"
+          />
+          <label className="form-check-label" htmlFor="beverages">
+            Beverages
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="bites"
+            name="Fneed"
+            value="bites"
+          />
+          <label className="form-check-label" htmlFor="bites">
+            Bites
+          </label>
+        </div>
+        <div className="form-check">
+          <input
+            type="checkbox"
+            className="form-check-input"
+            id="lights"
+            name="Fneed"
+            value="lights"
+          />
+          <label className="form-check-label" htmlFor="lights">
+            Lights
+          </label>
+        </div>
+      </div>
+
 
         <div className="form-group">
           <label htmlFor="Extra">Extra Details:</label>
@@ -160,10 +221,11 @@ export default function AddNewEvent() {
         </div>
 
         <button 
-        onClick={() => navigate('/eventSuccess')}type="submit" className="btn btn-primary">
+        type="submit" className="btn btn-primary">
           Submit
         </button>
       </form>
     </div>
+    
   );
 }
