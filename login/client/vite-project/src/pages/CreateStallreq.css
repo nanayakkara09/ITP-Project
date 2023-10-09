@@ -1,58 +1,54 @@
-/* Add this CSS to your component or a separate CSS file */
+/* Add this CSS to your component's CSS file */
 
-/* Center the form vertically and horizontally */
 .container-fluid.background {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f0f0f0; /* Background color for the entire page */
-  }
-  
-  /* Card styling */
-  .card {
-    width: 100%;
-    max-width: 400px; /* Adjust the maximum width as needed */
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-  }
-  
-  /* Form styling */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  .form-control-lg {
-    padding: 15px;
-    font-size: 16px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Style invalid input fields */
-  .is-invalid {
-    border-color: #f44336; /* Red border for invalid fields */
-  }
-  
-  .invalid-feedback {
-    color: #f44336; /* Red text for error messages */
-  }
-  
-  /* Button styling */
-  .btn-primary {
-    background-color: #007bff; /* Primary button color */
-    color: #fff;
-    padding: 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .btn-primary:hover {
-    background-color: #0056b3; /* Darker color on hover */
-  }
-  
-  /* Optional: Add more styles as needed */
-  
+  background-color: #f7f7f5;
+  min-height: 100vh;
+}
+
+.card {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-control-lg {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
