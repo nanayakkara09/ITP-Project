@@ -12,6 +12,7 @@ const stallSchema = new Schema({
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
@@ -29,6 +30,8 @@ const stallSchema = new Schema({
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
+>>>>>>> parent of e576844a6 (up)
       
      
 })

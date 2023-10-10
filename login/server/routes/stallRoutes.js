@@ -19,4 +19,8 @@ router.get('/fetchStall/:id', getStall);
 router.get('/getAllStall', getAllStall);
 router.delete('/deleteStall/:id', deleteStall);
 
+<<<<<<< HEAD
 module.exports = router
+=======
+module.exports = router;
+>>>>>>> parent of e576844a6 (up)
