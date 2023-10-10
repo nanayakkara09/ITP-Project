@@ -68,10 +68,13 @@ export default function AdminDashboard() {
           <Link to="/customerAdmin" className="vertical-text">
             <FontAwesomeIcon icon={faUsers} /> Customer
           </Link>
-          <div className="vertical-text">
+           <Link to="/eventList" className="vertical-text">
             <FontAwesomeIcon icon={faCalendar} /> Event
-          </div>
+            </Link>
+         
           <Link to='/stallAdmin' className="vertical-text">
+         
+         
             <FontAwesomeIcon icon={faStore} /> Stall
             </Link>
           <div className="vertical-text">

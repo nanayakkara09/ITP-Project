@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHome,
+
   faUserPlus,
   faSignInAlt,
   faUser,
@@ -73,6 +74,7 @@ export default function NavBar() {
             <Link to="/login">
               <FontAwesomeIcon icon={faSignInAlt} /> Login
             </Link>
+          
           </>
         ) : (
           <>

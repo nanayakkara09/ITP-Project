@@ -12,6 +12,7 @@ import Register from '../src/pages/Register';
 import axios from 'axios';
 import {Toaster} from 'react-hot-toast'
 import { UserContextProvider } from '../contex/userContex';
+import SeesupportPage from './pages/seesupport';
 import Dashbord from './pages/dashbord';
 import Edit from './pages/edit';
 import Profile from './pages/profile';
@@ -26,11 +27,25 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
-import SeesupportPage from './pages/seesupport';
-import Password from './pages/password';
+import Password from '../src/pages/password'
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddNewEvent from './pages/addNewEvent';
+import EventList from './pages/eventList';
+import EventUpdate from '../src/pages/eventUpdate';
+
+import EventSuccess from '../src/pages/eventSuccess';
+import EventHome from './pages/eventHome';
+import EventDetail from './pages/eventDetail';
+import EventAbout from './pages/eventAbout';
+import EventDel from './pages/eventDel';
+import EventDetail2 from './pages/eventDetail2';
+import EventDetail3 from './pages/eventDetail3';
+import EventDetail4 from './pages/eventDetail4';
+import EventListUser from './pages/eventListUser';
+import AdminConfirm from './pages/admin-confirm';
+
 
 import CreateStallreq from './pages/CreateStallreq';
 import StallAdminreq from './pages/StallAdminreq';
@@ -90,8 +105,10 @@ function App() {
       <Route path='/seesupport' element={<SeesupportPage/>}/>
       <Route path='/password' element={<Password/>}/>
     <Route path="/UserEdit/:userId" element={<UserEdit />} />
-  
-   
+
+
+      <Route path="/addNewEvent" element={<AddNewEvent />}/>
+      <Route path="/eventList" element={<EventList />}/>
      
       <Route path="/UserEdit/:userId" element={<UserEdit />} />
 
@@ -122,6 +139,20 @@ function App() {
       <Route path='/payment' element={<Payment/>}></Route>
 
      
+      <Route path="/eventListUser" element={<EventListUser />}/>
+      <Route path="/eventSuccess" element={<EventSuccess />}/>
+      <Route path="/eventHome" element={<EventHome />}/>
+      <Route path="/eventDetail" element={<EventDetail />}/>
+      <Route path="/eventAbout" element={<EventAbout />}/>
+      <Route path="/eventDel" element={<EventDel />}/>
+      <Route path="/eventDetail2" element={<EventDetail2 />}/>
+      <Route path="/eventDetail3" element={<EventDetail3 />}/>
+      <Route path="/eventDetail4" element={<EventDetail4 />}/>
+      <Route path="/eventUpdate/:eventId" element={<EventUpdate />} />
+      <Route path="/admin-confirm" element={<AdminConfirm />} />
+
+
+
     </Routes>
    
     </StallContextProvider>
