@@ -89,7 +89,7 @@ router.get('/getEmployeeContact',getEmployeeContact);
 
 router.post('/createEmployeeNews', createEmployeeNews);
 router.get('/getEmployeeNews',getEmployeeNews);
-router.get('/deleteEmployeeNews',deleteEmployeeNews);
+router.delete('/deleteEmployeeNews',deleteEmployeeNews);
 
 router.post('/createEmployeeSalary', createEmployeeSalary);
 router.get('/getEmployeeSalary', getEmployeeSalary);

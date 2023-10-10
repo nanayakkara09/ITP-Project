@@ -84,23 +84,23 @@ function App() {
 
     <Route path='/employeeDashboard' element={<EmployeeDashboard />} />
 
-<Route path='/getEmployee' element={<GetEmployee />} />
-<Route path='/createEmployee' element={<CreateEmployee />} />
-<Route path='/loginEmployee' element={<LoginEmployee />} />
-<Route path = '/employeeDashboardHome' element={<EmployeeDashboardHome/>} />
-<Route path='/updateEmployee/:_id' element={<UpdateEmployee />} />
+  <Route path='/getEmployee' element={<GetEmployee />} />
+  <Route path='/createEmployee' element={<CreateEmployee />} />
+  <Route path='/loginEmployee' element={<LoginEmployee />} />
+  <Route path = '/employeeDashboardHome' element={<EmployeeDashboardHome/>} />
+  <Route path='/updateEmployee/:_id' element={<UpdateEmployee />} />
 
 
-<Route path='/getEmployeeShift' element={<GetEmployeeShift />} />
-<Route path='/createEmployeeShift' element={<CreateEmployeeShift />} />
-<Route path='/updateEmployeeShift/:_id' element={<UpdateEmployeeShift />} />
+  <Route path='/getEmployeeShift' element={<GetEmployeeShift />} />
+  <Route path='/createEmployeeShift' element={<CreateEmployeeShift />} />
+  <Route path='/updateEmployeeShift/:_id' element={<UpdateEmployeeShift />} />
 
-<Route path='/createEmployeeLeave' element={<CreateEmployeeLeave />} />
-<Route path='/getEmployeeLeaveA' element={<GetEmployeeLeaveA />} />
+  <Route path='/createEmployeeLeave' element={<CreateEmployeeLeave />} />
+  <Route path='/getEmployeeLeaveA' element={<GetEmployeeLeaveA />} />
 
 
-<Route path='/createEmployeeContact' element={<CreateEmployeeContact />} />
-<Route path='/getEmployeeContact' element={<GetEmployeeContact />} />
+  <Route path='/createEmployeeContact' element={<CreateEmployeeContact />} />
+  <Route path='/getEmployeeContact' element={<GetEmployeeContact />} />
 
 <Route path='/createEmployeeNews' element={<CreateEmployeeNews />} />
 <Route path='/getEmployeeNews' element={<GetEmployeeNews />} />

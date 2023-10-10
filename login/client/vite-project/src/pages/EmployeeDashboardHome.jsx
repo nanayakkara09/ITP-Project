@@ -4,9 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import AdminNavBar from '../components/adminNavBar';
 import Calendar from 'react-calendar'; // Import the calendar component
 import 'react-calendar/dist/Calendar.css'; // Import calendar styles
+
 
 
 const EmployeeDashboardHome = () => {
@@ -135,7 +135,7 @@ const EmployeeDashboardHome = () => {
 
   return (
     <section className="vh-100" style={sectionStyles}>
-      <AdminNavBar />
+      
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-lg-6 mb-4 mb-lg-0">

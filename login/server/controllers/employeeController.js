@@ -68,7 +68,7 @@ try {
   //chech if password match
   const match = await comparePassword(password, employee.password)
   if(match){
-    jwt.sign({email: employee.email, id: employee._id, name:employee.name,phoneNumber:employee.phoneNumber,idNumber:employee.idNumber,team:employee.team,profilePhoto:employee.profilePhoto},process.env.JWT_SECRET,{}, (err,token) => {
+    jwt.sign({email: employee.email, id: employee._id, name:employee.name,phoneNumber:employee.phoneNumber,idNumber:employee.idNumber,team:employee.team},process.env.JWT_SECRET,{}, (err,token) => {
       if(err) throw err;
       res.cookie('token',token).json(employee)
     } )

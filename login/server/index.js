@@ -5,6 +5,7 @@ const { mongoose } = require('mongoose');
 const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const jwt = require('jsonwebtoken')
 
 // database connection
 mongoose
