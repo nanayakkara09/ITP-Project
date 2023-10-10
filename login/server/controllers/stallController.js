@@ -5,6 +5,10 @@ const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
 const Ticket = require('../models/ticket');
+<<<<<<< Updated upstream
+=======
+const nodemailer = require('nodemailer');
+>>>>>>> Stashed changes
 
 const createStall = async (req, res) => {
     try{

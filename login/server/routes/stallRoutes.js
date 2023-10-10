@@ -51,4 +51,5 @@ router.get('/getPromotion', getPromotion);
 router.post('/createTicket', createTicket);
 router.get('/getTicket', getTicket);
 
+
 module.exports = router;
