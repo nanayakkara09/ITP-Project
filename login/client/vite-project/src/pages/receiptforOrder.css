@@ -19,16 +19,17 @@
   margin-left: -25vh;
   
 }
-.bgh-img{
+.bgh-im{
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
     height: 100vh; /* Set the container height to the viewport height for vertical centering */
-    margin-top: 5vh;
+    margin-top: 20vh;
     width: 100vh;
+    height: 100vh;
+   
   
-    background-color: rgb(132, 138, 138);
   }
 .mx-uto{
     display: flex;
@@ -42,11 +43,14 @@
    
 
   }
+  
 .invoice-numb{
 
   margin-top: 15vh;
-  margin-right: -60vh;
-  align-items: left;
+  margin-left: 35vh;
+  align-items: flex-end;
+  justify-content: end;
+  text-align: end;
 }
 .companyDet{
   text-align: left;
@@ -57,4 +61,20 @@ p{
   margin-top: 5vh;
   align-items: center;
   
+}
+.backgroundCol{
+  background-color: aliceblue;
+  justify-content: center;
+  align-items: center;
+  height: 200%;
+  width: fit-content;
+}
+.OrderTab{
+  margin-left: 30vh;
+  height: 50vh;
+  width: max-content;
+}
+.table{
+  width: auto;
+  margin: auto;
 }

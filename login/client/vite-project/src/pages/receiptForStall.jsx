@@ -6,24 +6,30 @@ import { useReactToPrint } from 'react-to-print';
 
 function ReceiptForStall() {
   const componentPdf = useRef();
-  const [isLoading, setIsLoading] = useState(true);
-  const [stall, setStall] = useState({});
+  const [stall, setStall] = useState({
+    sName: '',
+    type: '',
+    fName: '',
+    lName: '',
+    email: '',
+    phone: '',
+  });
   const navigate = useNavigate();
   const { id } = useParams();
-//there is an error shud take a look this later
+
   useEffect(() => {
     const fetchStallById = async (stallId) => {
       try {
         const response = await axios.get(`http://localhost:8000/stall/fetchStall/${stallId}`);
-        setStall(response.data.stall);
-        setIsLoading(false);
+        setStall(response.data);
       } catch (error) {
         console.error(error);
-        setIsLoading(false);
       }
     };
 
-    fetchStallById(id);
+    if (id) {
+      fetchStallById(id);
+    }
   }, [id]);
 
   const generatePDF = useReactToPrint({
@@ -31,10 +37,6 @@ function ReceiptForStall() {
     documentTitle: 'Userdata',
     onAfterPrint: () => alert("Data saved in PDF")
   });
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
 
   // Get the current date in the format "September 29, 2023"
   const currentDate = new Date().toLocaleDateString('en-US', {
@@ -45,10 +47,11 @@ function ReceiptForStall() {
 
   return (
     <div className="bgh-img">
-      <div ref={componentPdf} style={{ width: '100%' }}>
+      <div ref={componentPdf} style={{ width: '100vh' }}>
         {/* Center the table */}
-        <div className="text-center mx-uto" style={{ width: '80%' }}>
-          <h1>Transaction receipt</h1>
+        <div className="text-center mx-auto stallComp" style={{ width: '100vh' }}>
+          {/* Center the header text */}
+          <h1 className="heeeed" style={{ textAlign: 'center', width: '100vh' }}>Transaction receipt</h1>
           <div className="invoice-numb">
             <strong>Invoice Number:</strong> INV-2023-001<br />
             <strong>Invoice Date:</strong> {currentDate}<br/>
@@ -60,7 +63,7 @@ function ReceiptForStall() {
             <strong>City:</strong> Colombo<br />
             <strong>Email:</strong> StreetBitez@gmail.com
           </div>
-          <table className="table">
+          <table className="tabe">
             <thead >
               <tr>
                 <th>Stall name</th>
@@ -81,12 +84,7 @@ function ReceiptForStall() {
                 <td>{stall.phone}</td>
               </tr>
             </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan="3" className="text-right"><strong>Total:</strong></td>
-                <td>${stall.total}</td>
-              </tr>
-            </tfoot>
+           
           </table>
         </div>
         <p>Questions? Contact us at +123-456-7890 or StreetBitez@gmail.com</p>
