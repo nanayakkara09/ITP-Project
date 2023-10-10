@@ -89,6 +89,14 @@ export default function AdminDashboard() {
           <div className="vertical-text">
             <FontAwesomeIcon icon={faDollarSign} /> Finance
           </div>
+          <Link to='/customerAdmin' className="vertical-text">Customer</Link>
+          <div className="vertical-text">Event</div>
+          <Link to='/stallAdmin' className="vertical-text">Stall</Link>
+          <div className="vertical-text">Employee</div>
+          <div className="vertical-text">Order</div>
+          <div className="vertical-text">Delivery</div>
+          <Link to='/invList' className="vertical-text">Inventory</Link>
+          <div className="vertical-text">Finance</div>
         </div>
         <br></br>
         {!!user && (
