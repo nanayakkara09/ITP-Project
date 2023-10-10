@@ -16,8 +16,11 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
 <<<<<<< HEAD
+<<<<<<< HEAD
     "font-awesome": "^4.7.0",
     "html2canvas": "^1.4.1",
+=======
+>>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
 =======
 >>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
     "install": "^0.13.0",

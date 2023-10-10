@@ -74,7 +74,11 @@ const PizzaMart = () => {
     name: 'PIZZA MART',
     description: 'Delicious pizza and more!',
 <<<<<<< HEAD
+<<<<<<< HEAD
     logo: '../stallImages/pizza mart.png',
+=======
+    logo: '/stallImages/pizza mart.png',
+>>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
 =======
     logo: '/stallImages/pizza mart.png',
 >>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
