@@ -1,8 +1,7 @@
-.heeeed{
-    
-    margin-top: auto;
-    margin-bottom: auto;
-    margin-left: auto;
+h1{
+    margin-left: 20vh;
+    margin-top: -10vh;
+    margin-bottom: -5vh;
     
 }
 .btn1{
@@ -25,13 +24,13 @@
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    height: 150vh; /* Set the container height to the viewport height for vertical centering */
+    height: 100vh; /* Set the container height to the viewport height for vertical centering */
     margin-top: 5vh;
-    width: 150vh;
+    width: 100vh;
    
     background-color: rgb(132, 138, 138);
   }
-.stallComp{
+.mx-uto{
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */
@@ -46,12 +45,12 @@
 .invoice-numb{
 
   margin-top: 15vh;
-  margin-right: -40vh;
+  margin-right: -60vh;
   align-items: left;
 }
 .companyDet{
   text-align: left;
-  margin-left: -55vh;
+  margin-left: -25vh;
 }
 p{
   justify-content: center;

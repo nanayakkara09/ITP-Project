@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './getAllStalldata.css';
 
+
 function Getstall() {
   const [isLoading, setIsLoading] = useState(true);
   const [stall, setStall] = useState([]);
@@ -13,7 +14,8 @@ function Getstall() {
     const fetchAllstall = async () => {
       try {
         const response = await axios.get("http://localhost:8000/stall/getAllStall");
-        setStall(response.data);
+        console.log(response)
+        setStall(response.data.stalls);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -26,28 +28,34 @@ function Getstall() {
 
   const deleteCard = async (stallId) => {
     try {
-      await axios.delete(`http://localhost:8000/stall/deleteStall/${stallId}`, {
-        withCredentials: true, // Include credentials (cookies) in the request
-      });
+      await axios.delete(`http://localhost:8000/stall/deleteStall/${stallId}`);
+      navigate("/DeleteCard");
     } catch (error) {
       console.error(error);
     }
   };
-  
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
+  const filteredstall = stall.filter((stall) =>
+    stall.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (isLoading) {
     return <div>Loading...</div>;
   }
+ 
 
   return (
-    <div className="container my-5 backgr">
+    <div className="container my-5 backgr" >
+     
       <div className="col-md-9">
-        <h3 className="underline-bold">Your all stall payments</h3>
+      <h3 className="underline-bold">Your all stall payments</h3>
+     
         <table className="table table-striped table-bstalled">
+          
           <thead>
             <tr>
               <th>Stall name</th>
@@ -59,25 +67,28 @@ function Getstall() {
             </tr>
           </thead>
           <tbody>
-            {stall.map((stallItem) => (
-              <tr key={stallItem._id}>
-                <td>{stallItem.sName}</td>
-                <td>{stallItem.type}</td>
-                <td>{stallItem.fName}</td>
-                <td>{stallItem.lName}</td>
-                <td>{stallItem.email}</td>
-                <td>{stallItem.phone}</td>
+            {filteredstall.map((stall) => (
+              <tr key={stall._id}>
+                <td>{stall.sName}</td>
+                <td>{stall.type}</td>
+                <td>{stall.fName}</td>
+                <td>{stall.lName}</td>
+                <td>{stall.email}</td>
+                <td>{stall.phone}</td>
                 <td>
-                  <button onClick={() => deleteCard(stallItem._id)} className="btn btn-primary mr-2">
+                 
+                  <button onClick={() => deleteCard(stall._id)} className="btn btn-primary mr-2">
                     Delete Card
                   </button>
                 </td>
               </tr>
             ))}
           </tbody>
+          
         </table>
+        
       </div>
-      <div className="right-align-container">
+      <div className="right-align-container" >
         <div className="my-3 searchBar">
           <input
             type="text"
@@ -85,10 +96,12 @@ function Getstall() {
             className="form-controlll"
             value={searchTerm}
             onChange={handleSearch}
+
           />
         </div>
         <button onClick={() => navigate("/Table")} className="btn btn-primary search-button"> Search stall name</button>
       </div>
+     
     </div>
   );
 }

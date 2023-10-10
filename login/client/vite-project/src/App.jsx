@@ -35,21 +35,20 @@ import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
-import ReceiptForOrder from './pages/receiptForOrder';
-import ReceiptForStall from './pages/receiptForStall';
-import GetAllStallData from './pages/getAllStallData';
-import GetAllOrderData from './pages/getAllOrderData';
-import PaymentMethod from './pages/paymentMethod';
 import Paidbycard from './pages/paidByCard';
 import CashOnDeliver from './pages/cashOnDeliver';
+import GetAllOrderData from './pages/getAllOrderData';
+import PaymentMethod from './pages/paymentMethod';
+import ReceiptForOrder from './pages/receiptForOrder';
+import ReceiptForStall from './pages/receiptForStalls';
+import GetAllStallData from './pages/getAllStallData';
 import FinancePage from './pages/financePage';
 import IncomeReport from './pages/incomereport';
 import Expenses from './pages/expenses'
 import Cart from './pages/CartItems'
 import OrderAdminPage from './pages/orderAdmin'
 import IncomePage from './pages/Income';
-import Payment from './pages/payment';
-import UploadSlip from './pages/UploadSlip';
+import Payment from './pages/payment'
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -96,10 +95,10 @@ function App() {
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
       <Route path='/FinancePage' element={<FinancePage/>}></Route>
-      <Route path='/IncomeReport/:id' element={<IncomeReport/>}></Route>
+      <Route path='/IncomeReport' element={<IncomeReport/>}></Route>
       <Route path='/Expenses' element={<Expenses/>}></Route>
       <Route path='/IncomePage' element={<IncomePage/>}></Route>
-      <Route path='/UploadSlip' element={<UploadSlip/>}></Route>
+ 
 
       <Route path='/cart' element={<Cart/>}></Route>
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>

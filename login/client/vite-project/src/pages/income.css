@@ -1,4 +1,9 @@
-
+.table{
+  width: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
+}
 .incomeHead{
   width: auto;
  
@@ -16,7 +21,4 @@
 .searchbar{
   margin-top:  -60vh;
   
-}
-.inputTypes{
-  width: 40vh;
 }
