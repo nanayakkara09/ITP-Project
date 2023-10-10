@@ -2,7 +2,10 @@ import React, { useState , useEffect} from 'react';
 import { Container, Row, Col, Card, Form, InputGroup, Button,Modal } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
+<<<<<<< HEAD
 import axios from 'axios';
+=======
+>>>>>>> parent of 678692a56 (Update)
 
 const PizzaMart = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -90,8 +93,12 @@ const PizzaMart = () => {
     logo: '../stallImages/pizza mart.png',
     rating: 4.5,
     foodItems: [
+<<<<<<< HEAD
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/pexels-vincent-rivaud-2147491.jpg' },
 >>>>>>> parent of 8c057a33c (Stall)
+=======
+      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
+>>>>>>> parent of 678692a56 (Update)
       { name: 'Olive mized veg Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
       { name: 'Ultimate veg Pizza', category: 'Veg Pizza', rating: 4.5, price: 850, image:'../stallImages/pexels-kristina-paukshtite-1146760.jpg' },
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },

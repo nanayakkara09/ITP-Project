@@ -48,6 +48,9 @@ function CreateStallreq() {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 678692a56 (Update)
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
@@ -70,6 +73,7 @@ function CreateStallreq() {
     } else {
       // If there are validation errors, update the state to display them
       setErrors(validationErrors);
+<<<<<<< HEAD
     }
   };
 =======
@@ -109,6 +113,10 @@ function CreateStallreq() {
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
+    }
+  };
+>>>>>>> parent of 678692a56 (Update)
 
   return (
     
