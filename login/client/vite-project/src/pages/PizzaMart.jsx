@@ -75,6 +75,7 @@ const PizzaMart = () => {
     description: 'Delicious pizza and more!',
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     logo: '../stallImages/pizza mart.png',
 =======
     logo: '/stallImages/pizza mart.png',
@@ -85,6 +86,12 @@ const PizzaMart = () => {
     rating: 4.5,
     foodItems: [
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
+=======
+    logo: '../stallImages/pizza mart.png',
+    rating: 4.5,
+    foodItems: [
+      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/pexels-vincent-rivaud-2147491.jpg' },
+>>>>>>> parent of 8c057a33c (Stall)
       { name: 'Olive mized veg Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
       { name: 'Ultimate veg Pizza', category: 'Veg Pizza', rating: 4.5, price: 850, image:'../stallImages/pexels-kristina-paukshtite-1146760.jpg' },
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
@@ -187,6 +194,7 @@ const PizzaMart = () => {
                         />
                       </div>
                     </Card.Text>
+<<<<<<< HEAD
 
                     <div>
                     <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
@@ -221,6 +229,10 @@ const PizzaMart = () => {
                         Add to Cart
                       </Button>
                     
+=======
+                    <p>Price: {item.price} LKR</p>
+                    <button onClick={() => addToCart(item)}>Add to Cart</button>
+>>>>>>> parent of 8c057a33c (Stall)
                   </Card.Body>
                 </Card>
               </Col>
