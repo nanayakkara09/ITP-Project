@@ -23,12 +23,17 @@ export default function EventListUser() {
   }, []);
 
   const handleSearch = () => {
-    const filteredEvents = events.filter(
-      (event) =>
-        event.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        event.eventcode.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-    setEvents(filteredEvents);
+    if (searchTerm.trim() === '') {
+      // If the search bar is empty, fetch the main list
+      fetchEventList();
+    } else {
+      // Filter events by first name
+      const filteredEvents = events.filter(
+        (event) =>
+          event.name.toLowerCase().startsWith(searchTerm.toLowerCase())
+      );
+      setEvents(filteredEvents);
+    }
   };
 
   const deleteEvent = async (eventId) => {
@@ -77,9 +82,8 @@ export default function EventListUser() {
                 <th>EventTime</th>
                 <th>Date</th>
                 <th>NoPeople</th>
+                <th>Theme</th>
                 <th>Fneed</th>
-                <th>Extra</th>
-                
               </tr>
             </thead>
             <tbody>
@@ -88,17 +92,17 @@ export default function EventListUser() {
                   <td>{event.name}</td>
                   <td>{event.phonenumber}</td>
                   <td>{event.email}</td>
-                  <td>{event.ename}</td>
-                  <td>{event.etime}</td>
+                  <td>{event.Ename}</td>
+                  <td>{event.Etime}</td>
                   <td>{event.date}</td>
-                  <td>{event.npeople}</td>
+                  <td>{event.Npeople}</td>
                   <td>{event.theme}</td>
                   <td>{event.Fneed}</td>
-                  <td>{event.extra}</td>
+                 
                   <td>
-                    <Link to={`/updateEvent/${event._id}`}>
-                      <button className="Edit-button">Edit</button>
-                    </Link>
+                  <Link to={`/eventUpdate/${event._id}`}>
+  <button className="Edit-button">Edit</button>
+</Link>
                   </td>
                   <td>
                     <button onClick={() => deleteEvent(event._id)} className="Delete-button">Delete</button>

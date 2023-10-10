@@ -17,7 +17,7 @@ export default function EventUpdate() {
     Npeople: '',
     theme: '',
     Fneed: '',
-    Extra: '',
+  
   });
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function EventUpdate() {
     const fetchEventData = async () => {
       try {
         const { data } = await axios.get(`/Event/getEvent/${eventId}`);
-        setEventData(data.event);
+        setEventData(data); // Assuming the response contains the event data directly
       } catch (error) {
         console.error(error);
         toast.error('Failed to fetch event data');
@@ -98,26 +98,102 @@ export default function EventUpdate() {
         </div>
         <div className="form-group">
           <label htmlFor="Ename">Event Name:</label>
-          <input
+          <select
             className="form-control"
             id="Ename"
             name="Ename"
             value={eventData.Ename}
+            onChange={handleInputChange}
+            required
+          >
+              <option value="">Select</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Wedding">BrideToBe Party</option>
+            <option value="GetTogether">GetTogether</option>
+            <option value="FreeEvent">FreeEvent</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="Etime">Event Time:</label>
+          <select
+            className="form-control"
+            id="Etime"
+            name="Etime"
+            value={eventData.Etime}
+            onChange={handleInputChange}
+            required
+          >
+          <option value="">Select</option>
+            <option value="Morning">Morning</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+          </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="date">Event Date:</label>
+          <input
+            className="form-control"
+            id="date"
+            name="date"
+            value={eventData.date}
             onChange={handleInputChange}
             required
           />
         </div>
         <div className="form-group">
-          <label htmlFor="Ename">Event Name:</label>
-          <input
+          <label htmlFor="Npeople">No of People Expected:</label>
+          <select
             className="form-control"
-            id="Ename"
-            name="Ename"
-            value={eventData.Ename}
+            id="Npeople"
+            name="Npeople"
+            value={eventData.Npeople}
             onChange={handleInputChange}
             required
-          />
+          >
+              <option value="">Select</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="150">150</option>
+            <option value="200">200</option>
+            <option value="250">250</option>
+          </select>
         </div>
+        <div className="form-group">
+          <label htmlFor="theme">Theme Of The Event:</label>
+          <select
+            className="form-control"
+            id="theme"
+            name="theme"
+            value={eventData.theme}
+            onChange={handleInputChange}
+            required
+          ><option value="">Select</option>
+          <option value="Color">Color Base</option>
+          <option value="Luxury">Luxury Base</option>
+          <option value="Normal">Normal Base</option>
+          
+        </select>
+        </div>
+        <div className="form-group">
+          <label htmlFor="Fneed">Facilities Needed:</label>
+          <select
+            className="form-control"
+            id="Fneed"
+            name="Fneed"
+            value={eventData.Fneed}
+            onChange={handleInputChange}
+            required
+          >
+            <option value="">Select</option>
+            <option value="chairs">chairs</option>
+            <option value="liqours">liqours</option>
+            <option value="lighting">lighting</option>
+            <option value="food">food</option>
+            
+          </select>
+        </div>
+       
 
         <button type="submit" className="btn btn-primary">
           Update

@@ -14,7 +14,7 @@ const createEvent = async (req, res) => {
       Npeople,
       theme,
       Fneed,
-      Extra,
+     
     } = req.body;
 
     const event = await Event.create({
@@ -27,7 +27,7 @@ const createEvent = async (req, res) => {
       Npeople,
       theme,
       Fneed,
-      Extra,
+     
     });
 
     return res.status(201).json(event); // Use 201 status for successful creation
@@ -50,7 +50,7 @@ const updateEvent = async (req, res) => {
       Npeople,
       theme,
       Fneed,
-      Extra,
+     
     } = req.body;
 
     const event = await Event.findByIdAndUpdate(
@@ -65,7 +65,7 @@ const updateEvent = async (req, res) => {
         Npeople,
         theme,
         Fneed,
-        Extra,
+      
       },
       {
         new: true,
@@ -128,10 +128,29 @@ const getEvent = async (req, res) => {
   }
 };
 
+const getEventById = async (req, res) => {
+  try {
+    const { eventId } = req.params; // Get the event ID from the URL parameters
+    const event = await Event.findById(eventId); // Use the eventId to find the event
+
+    if (!event) {
+      return res.status(404).json({ error: 'Event not found or invalid ID' });
+    }
+
+    return res.json(event);
+  } catch (error) {
+    console.error(error);
+    return res
+      .status(500)
+      .json({ error: 'Error fetching event', details: error.message });
+  }
+};
+
 module.exports = {
   createEvent,
   getAllEvent,
   getEvent,
   updateEvent,
   deleteEvent,
+  getEventById,
 };

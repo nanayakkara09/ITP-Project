@@ -16,7 +16,7 @@ const eventSchema = new Schema({
     Npeople:Number,
     theme:String,
     Fneed:String,
-    Extra:String,
+    
 
   })
   const EventModel = mongoose.model('Event', eventSchema);

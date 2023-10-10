@@ -21,12 +21,13 @@ export default function AddNewEvent() {
         Npeople: e.target.Npeople.value,
         theme: e.target.theme.value,
         Fneed: e.target.Fneed.value,
-        Extra: e.target.Extra.value,
+        
       });
 
       console.log('Form data submitted:', data);
       toast.success('Event created successfully');
-     
+      navigate('/eventSuccess');
+
     } catch (error) {
       console.error('Error submitting form data:', error);
       toast.error('Failed to create event');
@@ -138,89 +139,33 @@ export default function AddNewEvent() {
             required
           >
             <option value="">Select</option>
-          <option value="50">Color Base</option>
-          <option value="100">Luxury Base</option>
-          <option value="150">Normal Base</option>
+          <option value="Color">Color Base</option>
+          <option value="Luxury">Luxury Base</option>
+          <option value="Normal">Normal Base</option>
           
         </select>
         </div>
 
         <div className="form-group">
         <label>Facilities Needed:</label>
-        <div className="form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="chair"
-            name="Fneed"
-            value="chair"
-          />
-          <label className="form-check-label" htmlFor="chair">
-            Chairs
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="liquor"
-            name="Fneed"
-            value="liquor"
-          />
-          <label className="form-check-label" htmlFor="liquor">
-            Liquor
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="beverages"
-            name="Fneed"
-            value="beverages"
-          />
-          <label className="form-check-label" htmlFor="beverages">
-            Beverages
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="bites"
-            name="Fneed"
-            value="bites"
-          />
-          <label className="form-check-label" htmlFor="bites">
-            Bites
-          </label>
-        </div>
-        <div className="form-check">
-          <input
-            type="checkbox"
-            className="form-check-input"
-            id="lights"
-            name="Fneed"
-            value="lights"
-          />
-          <label className="form-check-label" htmlFor="lights">
-            Lights
-          </label>
-        </div>
-      </div>
-
-
-        <div className="form-group">
-          <label htmlFor="Extra">Extra Details:</label>
-          <input
+        <select
             className="form-control"
-            id="Extra"
-            name="Extra"
+            id="Fneed"
+            name="Fneed"
             required
-          />
+          >
+            <option value="">Select</option>
+            <option value="chairs">chairs</option>
+            <option value="liqours">liqours</option>
+            <option value="lighting">lighting</option>
+            <option value="food">food</option>
+            
+          </select>
         </div>
 
-        <button 
+
+
+        <button  
         type="submit" className="btn btn-primary">
           Submit
         </button>

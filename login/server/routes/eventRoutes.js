@@ -10,6 +10,7 @@ const {
   getEvent,
   updateEvent,
   deleteEvent,
+  getEventById,
 } = require('../controllers/eventController');
 
 // Middleware
@@ -35,4 +36,5 @@ router.put('/updateEvent/:_id', updateEvent); // Use PUT for updates
 // Delete an event
 router.delete('/deleteEvent/:_id', deleteEvent); // Use _id instead of eventId
 
+router.get('/getEvent/:eventId', getEventById);
 module.exports = router;

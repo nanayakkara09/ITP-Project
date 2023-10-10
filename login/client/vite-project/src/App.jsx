@@ -90,7 +90,7 @@ function App() {
       <Route path="/eventDetail2" element={<EventDetail2 />}/>
       <Route path="/eventDetail3" element={<EventDetail3 />}/>
       <Route path="/eventDetail4" element={<EventDetail4 />}/>
-      <Route path="/eventUpdate/:_id" element={<EventUpdate />} />
+      <Route path="/eventUpdate/:eventId" element={<EventUpdate />} />
       <Route path="/admin-confirm" element={<AdminConfirm />} />
 
 
