@@ -58,7 +58,7 @@ export default function AdminDashboard() {
           <br></br>
           <Link to='/customerAdmin' className="vertical-text">Customer</Link>
           <div className="vertical-text">Event</div>
-          <div className="vertical-text">Stall</div>
+          <Link to='/stallAdmin' className="vertical-text">Stall</Link>
           <div className="vertical-text">Employee</div>
           <div className="vertical-text">Order</div>
           <div className="vertical-text">Delivery</div>
