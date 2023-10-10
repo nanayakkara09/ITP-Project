@@ -9,7 +9,7 @@ const Ticket = require('../models/ticket');
 
 const createStall = async (req, res) => {
     try{
-       const {stallName, type, amount, mType,description, stallId, fName, lName, phonenumber, email, password} = req.body;
+       const {stallName, type, amount, mType,description, stallId, fName, lName, phonenumber, email, password, payment} = req.body;
        // Check if name was entered
        if (!stallName) {
         return res.json({
@@ -44,7 +44,7 @@ const createStall = async (req, res) => {
         phonenumber,
         email,
         password: hashedPassword,
-        
+        payment
       })
 
       return res.json(createStallResult)
