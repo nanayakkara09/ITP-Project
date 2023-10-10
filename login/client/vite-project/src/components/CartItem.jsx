@@ -73,7 +73,7 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
 
             <div className='text-left m-3 w-100'>
                <h2 className='text-left'>{item.name}</h2>
-               <h2 className="text-left">Price: {total}</h2>
+               <h2 className="text-left">Price: {total} Rs/-</h2>
                <h2 style={{display:'inline'}}>Quantity :</h2>
                <button className="fa fa-plus" onClick={increaseQuantity} ></button>
                <b>{quantity}</b>
