@@ -49,7 +49,7 @@ export default function EventList() {
     }
   };
   const downloadCSV = () => {
-    const csvContent = "data:text/csv;charset=utf-8," +
+    let csvContent = "data:text/csv;charset=utf-8," +
       "Name,PhoneNumber,Email,EventName,EventTime,Date,NoPeople,Fneed,theme,Extra\n";
     events.forEach((event) => {
       const row = [
@@ -73,6 +73,7 @@ export default function EventList() {
     document.body.appendChild(link);
     link.click();
   };
+  
 
   return (
     <div>
