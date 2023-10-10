@@ -83,7 +83,7 @@ const CartItem = ({ item, onDelete, onUpdateTotal }) => {
             </div>
 
             <div className=''>
-         <img src={item.image} style={{height:'100px' , height: '150px',marginTop:'20px'}} alt={item.name} />
+         <img src={item.image} style={{height:'100px' , width: '150px',marginTop:'20px'}} alt={item.name} />
        </div>
 
        <div className=''>
