@@ -3,19 +3,29 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import './StallAdminreq.css';
 
+
 function StallAdminreq() {
   const [stallsadminreq, setStallsadminreq] = useState([]);
 
   useEffect(() => {
-    axios.get('/stall/stalladminreq')
+    axios.get('/stall/stalladminreq') // Use the correct API endpoint
       .then(result => {
+        // Assuming the response contains an array of objects with 'id' field
         const dataWithIds = result.data;
         setStallsadminreq(dataWithIds);
       })
-      .catch(err => console.log(err));
+      .catch(err => console.log(err))
   }, []);
+    
+  const handleDelete = (id) => {
+    axios.delete(`/stall/deleteStallreq/${id}`) // Use the correct route URL
+        .then(res => {
+            console.log(res);
+            window.location.reload();
+        })
+        .catch(err => console.log(err));
+}
 
-<<<<<<< Updated upstream
 const handleAccept = (stalladminreq) => {
   axios.post(`/stall/acceptStallreq/${stalladminreq._id}`, stalladminreq)
     .then(res => {
@@ -26,21 +36,6 @@ const handleAccept = (stalladminreq) => {
 }
 
   
-=======
-  const handleAccept = (stalladminreq) => {
-    axios.put(`/stall/updateStallreq/${stalladminreq._id}`, { done: true }) // Use the correct route URL
-      .then(res => {
-        const updatedStalls = stallsadminreq.map(item => {
-          if (item._id === stalladminreq._id) {
-            return { ...item, done: true };
-          }
-          return item;
-        });
-        setStallsadminreq(updatedStalls);
-      })
-      .catch(err => console.log(err));
-  };
->>>>>>> Stashed changes
 
   return (
     <div className='d-flex vh-100 justify-content-center align-items-center'>
@@ -55,12 +50,11 @@ const handleAccept = (stalladminreq) => {
               <th>Email</th>
               <th>Phone Number</th>
               <th>Actions</th>
-              <th>Done</th>
             </tr>
           </thead>
           <tbody>
             {stallsadminreq.map((stalladminreq) => (
-              <tr key={stalladminreq._id}>
+              <tr key={stalladminreq.id}>
                 <td>{stalladminreq.sName}</td>
                 <td>{stalladminreq.type}</td>
                 <td>{stalladminreq.fName}</td>
@@ -68,26 +62,10 @@ const handleAccept = (stalladminreq) => {
                 <td>{stalladminreq.email}</td>
                 <td>{stalladminreq.phone}</td>
                 <td>
-                  {stalladminreq.done ? (
-                    <span className='text-success'>Accepted</span>
-                  ) : (
-                    <>
-                      <button
-                        className='btn btn-success'
-                        onClick={(e) => handleAccept(stalladminreq)}
-                      >
-                        ACCEPT
-                      </button>
-                      <button
-                        className='btn btn-danger'
-                        onClick={(e) => handleDelete(stalladminreq._id)}
-                      >
-                        DELETE
-                      </button>
-                    </>
-                  )}
+                          <button className='btn btn-success' onClick={(e) => handleAccept(stalladminreq)}>ACCEPT</button>
+                          <button className='btn btn-danger' 
+                        onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
                 </td>
-                <td>{stalladminreq.done ? "Yes" : "No"}</td>
               </tr>
             ))}
           </tbody>
