@@ -73,7 +73,11 @@ const PizzaMart = () => {
   const stall = {
     name: 'PIZZA MART',
     description: 'Delicious pizza and more!',
+<<<<<<< HEAD
     logo: '../stallImages/pizza mart.png',
+=======
+    logo: '/stallImages/pizza mart.png',
+>>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
     rating: 4.5,
     foodItems: [
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
