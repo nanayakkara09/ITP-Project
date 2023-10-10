@@ -21,20 +21,6 @@ const addNew = async (req, res) => {
     }
   };
 
-//get all income details
-
-const getAllIncomeDetails = async () => {
-  try {
-    const incomeDetails = await IncOut.find(); // Assuming 'Income' is your Mongoose model for income details
-    
-    return incomeDetails;
-  } catch (error) {
-    console.error(error);
-    throw new Error('Error retrieving income details');
+  module.exports = {
+    addNew,
   }
-};
-
-module.exports = {
-  addNew,
-  getAllIncomeDetails,
-};
