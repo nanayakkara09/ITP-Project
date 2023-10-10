@@ -9,14 +9,6 @@ const stallSchema = new Schema({
       lName: String,
       email: String,
       phone: Number,
-<<<<<<< HEAD
-=======
-      done:{
-            type:Boolean,
-            default:false,
-
-      }
->>>>>>> parent of f8f4ed0aa (Stall Request)
       
      
 })
