@@ -15,14 +15,16 @@ mongoose
 
 // middleware
 app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser())
+app.use(express.urlencoded({extended:false}))
+
 
 app.use(
   session({
     secret: 'Naduka0916',
     resave: false,
     saveUninitialized: false,
+   
   })
 );
 
@@ -45,3 +47,14 @@ app.use('/stall', require('./routes/stallRoutes'))
 
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+
+//for insert data
+const orderRoute = require('./routes/OrderRoute');
+app.use('/order', orderRoute);
+
+//for view data
+const cartRoute = require('./routes/cartRoute');
+app.use('/cart', cartRoute);
+
+

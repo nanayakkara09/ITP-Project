@@ -99,6 +99,8 @@ const loginUser = async (req, res) => {
     // Assuming you have a 'userType' field in your user document
     const user = await User.findOne({ email });
 
+  
+
     if (!user) {
       return res.json({
         error: 'No User found',

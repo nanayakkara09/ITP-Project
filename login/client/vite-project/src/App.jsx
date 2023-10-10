@@ -2,6 +2,8 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import 'font-awesome/css/font-awesome.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
 import Home from '../src/pages/Home';
@@ -37,6 +39,10 @@ import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
+import Cart from './pages/CartItems'
+import OrderAdminPage from './pages/orderAdmin'
+import Payment from './pages/payment'
+
 import StallLogin from './pages/StallLogin'
 import StallOwnerDashboard from './pages/StallOwnerDashboard';
 import { StallContextProvider } from '../contex/stallContext';
@@ -111,6 +117,11 @@ function App() {
       <Route path='/menu' element={<SeeMenuPage />}></Route>
 
 
+      <Route path='/cart' element={<Cart/>}></Route>
+      <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
+      <Route path='/payment' element={<Payment/>}></Route>
+
+     
     </Routes>
    
     </StallContextProvider>

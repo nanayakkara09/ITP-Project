@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Form, InputGroup } from 'react-bootstrap';
+import React, { useState , useEffect } from 'react';
+import { Container, Row, Col, Card, Form, InputGroup, Button } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
+import axios from 'axios';
+import NavBar from '../components/cartNavbar';
 
 
 const SweetSerenity = () => {
@@ -9,9 +11,56 @@ const SweetSerenity = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const { shopId } = useParams();
   const [cart, setCart] = useState([]);
+  const [itemQuantities, setItemQuantities] = useState(1);
   
+  const handleQuantityChange = (item, action) => {
+    const updatedQuantities = { ...itemQuantities };
+
+    const index = stall.foodItems.findIndex(i => i.name === item.name);
+
+    if (action === 'increase') {
+      updatedQuantities[index] = (updatedQuantities[index] || 0) + 1;
+    } else if (action === 'decrease' && updatedQuantities[index] > 1) {
+      updatedQuantities[index] -= 1;
+    }
+
+    setItemQuantities(updatedQuantities);
+    localStorage.setItem('itemQuantities', JSON.stringify(updatedQuantities));
+
+    
+  };
+
+
+
+  const loadItemQuantities = () => {
+    const storedQuantities = JSON.parse(localStorage.getItem('itemQuantities'));
+    return storedQuantities || {};
+  };
+
+  useEffect(() => {
+    setItemQuantities(loadItemQuantities());
+  }, []);
+
+
+  const calculateTotalPrice = (item, quantity) => {
+    return  item.price * quantity;
+  };
+  
+
+
   const addToCart = (item) => {
-    setCart([...cart, item]);
+    const { name, price, image } = item;
+    const quantity = itemQuantities[filteredFoodItems.indexOf(item)] || 1;
+  
+    axios.post('http://localhost:8000/order/add-to-cart', { name, quantity, price, image })
+    .then((response) => {
+      alert(response.data.message);
+    })
+    .catch((error) => {
+      console.error(error);
+      alert('Error adding item to cart');
+    });
+  
   };
   
 
@@ -54,6 +103,8 @@ const SweetSerenity = () => {
 
   return (
     
+    <div>
+       <NavBar/>
       <Container>
         <Row className="mt-4">
         <Col xs={12} className="mb-4">
@@ -136,6 +187,32 @@ const SweetSerenity = () => {
                         />
                       </div>
                     </Card.Text>
+                    <div>
+                    <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
+
+                      
+                      <div className="quantity-control">
+                           <Button
+                            variant="outline-success"
+                            onClick={() => handleQuantityChange(item, "increase")}
+                            >
+                               +
+                           </Button>
+                           <span className="quantity">{itemQuantities[index] || 1}</span>
+                           <Button
+                            variant="outline-danger"
+                            onClick={() => handleQuantityChange(item, "decrease")}
+                           >
+                               -
+                           </Button>
+                      </div>
+                    
+                    </div>
+
+                    <Button className='addToCart' variant="success" onClick={() => addToCart(item)}>
+                        Add to Cart
+                      </Button>
+
                     <p>Price: {item.price} LKR</p>
                   </Card.Body>
                   <Card.Footer>
@@ -148,6 +225,7 @@ const SweetSerenity = () => {
         </Col>
       </Row>
     </Container>
+    </div>
   );
 };
 
