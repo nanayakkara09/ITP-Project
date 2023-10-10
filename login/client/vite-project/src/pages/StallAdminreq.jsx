@@ -15,18 +15,6 @@ function StallAdminreq() {
       .catch(err => console.log(err));
   }, []);
 
-<<<<<<< Updated upstream
-const handleAccept = (stalladminreq) => {
-  axios.post(`/stall/acceptStallreq/${stalladminreq._id}`, stalladminreq)
-    .then(res => {
-      console.log(res);
-      window.location.reload();
-    })
-    .catch(err => console.log(err));
-}
-
-  
-=======
   const handleAccept = (stalladminreq) => {
     axios.put(`/stall/updateStallreq/${stalladminreq._id}`, { done: true }) // Use the correct route URL
       .then(res => {
@@ -40,7 +28,6 @@ const handleAccept = (stalladminreq) => {
       })
       .catch(err => console.log(err));
   };
->>>>>>> Stashed changes
 
   return (
     <div className='d-flex vh-100 justify-content-center align-items-center'>
