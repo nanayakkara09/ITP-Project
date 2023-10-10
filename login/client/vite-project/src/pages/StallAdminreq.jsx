@@ -27,15 +27,21 @@ function StallAdminreq() {
 }
 
 const handleAccept = (stalladminreq) => {
-  axios.post(`/stall/acceptStallreq/${stalladminreq._id}`, stalladminreq)
-    .then(res => {
+  axios
+    .post(`/stall/acceptStallreq/${stalladminreq._id}`, stalladminreq)
+    .then((res) => {
+      // Assuming res.data contains the accepted stall data
       console.log(res);
+      sendEmail(
+        stalladminreq.email,
+        'Stall Request Accepted',
+        'Your stall request has been accepted. You can now start using our platform.'
+      );
       window.location.reload();
     })
-    .catch(err => console.log(err));
-}
-
-  
+    .catch((err) => console.log(err));
+};
+ 
 
   return (
     <div className='d-flex vh-100 justify-content-center align-items-center'>

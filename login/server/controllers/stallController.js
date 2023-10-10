@@ -5,6 +5,31 @@ const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
 const Ticket = require('../models/ticket');
+const nodemailer = require('nodemailer');
+
+
+const transporter = nodemailer.createTransport({
+  service: 'your-email-service-provider', // e.g., 'gmail' or use your SMTP settings
+  auth: {
+    user: 'your-email@example.com',
+    pass: 'your-email-password',
+  },
+});
+
+// Function to send an email
+const sendEmail = async (to, subject, text) => {
+  try {
+    const info = await transporter.sendMail({
+      from: 'your-email@example.com',
+      to,
+      subject,
+      text,
+    });
+    console.log('Email sent: ' + info.response);
+  } catch (error) {
+    console.error('Email sending error:', error);
+  }
+};
 
 const createStall = async (req, res) => {
     try{
