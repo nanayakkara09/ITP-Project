@@ -66,26 +66,26 @@ const SweetSerenity = () => {
   const stall = {
     name: 'Sweet Serenity',
     description: 'Indulge in sweetness!',
-    logo: '/stallImages/Grey Brown Beige Minimalist Photo Collage Business Facebook Cover.png',
+    logo: '../../images/sweet-serenity-logo.png',
     rating: 5,
     foodItems: [
       
-      { name: 'Chocolate Donut', category: 'Desserts', rating: 5, price: 150, image: '/stallImages/donut.jpeg' },
-      { name: 'Hot Chocolate',  category: 'Drinks', rating: 4, price: 200, image: '/stallImages/hc.jpeg' },
-      { name: 'Vanilla Cupcake', category: 'Cakes', rating: 4.5, price: 250, image: '/stallImages/cupcake.jpeg' },
-      { name: 'Milkshake(Chocolate/Vanilla/Strawberry)', category: 'Drinks', rating: 4.5, price: 500, image: '/stallImages/milk.jpeg' },
-      { name: 'Sweet Latte', category: 'Drinks', rating: 4.5, price: 400, image: '/stallImages/latte.jpeg' },
-      { name: 'Waffles', category: 'Desserts', rating: 2.5, price: 1700, image: '/stallImages/waf.jpeg' },
-      { name: 'Chocolate Muffin', category: 'Desserts', rating: 3.1, price: 990, image: '/stallImages/muf.jpeg' },
-      { name: 'Red Velvet Cake', category: 'Cakes', rating: 4.5, price: 1200, image: '/stallImages/rv.jpeg' },
-      { name: 'Pink Layer Cake', category: 'Cakes', rating: 5.1, price: 1500, image: '/stallImages/pink.jpeg' },
-      { name: 'Cheese Cake', category: 'Cakes', rating: 5.5, price: 1890, image: '/stallImages/cheesecake.jpeg' },
-      { name: 'Chocolate Ice cream', category: 'Ice Cream', rating: 4.2, price: 200, image: '/stallImages/ice.jpeg' },
-      { name: 'Caramel Pudding', category: 'Desserts', rating: 5.1, price: 300, image: '/stallImages/pudding.jpeg' },
-      { name: 'Ice Coffee', category: 'Drinks', rating: 7.0, price: 200, image: '/stallImages/icec.jpeg' },
-      { name: 'Falooda', category: 'Drinks', rating: 3.1, price: 180, image: '/stallImages/falooda.jpg' },
-      { name: 'Choclate Eclairs', category: 'Desserts', rating: 4.7, price: 130, image: '/stallImages/ec.jpeg' },
-      { name: 'Cool Milo', category: 'Drinks', rating: 5.0, price: 300, image: '/stallImages/milo.jpg' },
+      { name: 'Chocolate Donut', category: 'Desserts', rating: 5, price: 150, image: '../../images/chocolate-donut.jpg' },
+      { name: 'Hot Chocolate',  category: 'Drinks', rating: 4, price: 200, image: '../../images/hot-chocolate.jpg' },
+      { name: 'Vanilla Cupcake', category: 'Cakes', rating: 4.5, price: 250, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Milkshake(Chocolate/Vanilla/Strawberry)', category: 'Drinks', rating: 4.5, price: 500, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Sweet Latte', category: 'Drinks', rating: 4.5, price: 400, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Waffles', category: 'Desserts', rating: 2.5, price: 1700, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Chocolate Muffin', category: 'Desserts', rating: 3.1, price: 990, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Red Velvet Cake', category: 'Cakes', rating: 4.5, price: 1200, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Pink Layer Cake', category: 'Cakes', rating: 5.1, price: 1500, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Cheese Cake', category: 'Cakes', rating: 5.5, price: 1890, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Chocolate Ice cream', category: 'Ice Cream', rating: 4.2, price: 200, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Caramel Pudding', category: 'Desserts', rating: 5.1, price: 300, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Ice Coffee', category: 'Drinks', rating: 7.0, price: 200, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Falooda', category: 'Drinks', rating: 3.1, price: 180, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Choclate Eclairs', category: 'Desserts', rating: 4.7, price: 130, image: '../../images/vanilla-cupcake.jpg' },
+      { name: 'Cool Milo', category: 'Drinks', rating: 5.0, price: 300, image: '../../images/vanilla-cupcake.jpg' },
     ]
         
   };
@@ -101,75 +101,68 @@ const SweetSerenity = () => {
   });
 
   return (
-    
-      <Container>
-        <Row className="mt-4">
-        <Col xs={12} className="mb-4">
-          <img
-            src={stall.logo}
-            alt={`${stall.name} Logo`}
-            className="img-fluid"
-          />
-        </Col>
-          <Col xs={12} md={3}>
-            
-              
-              
-                <Card.Title>{stall.name}</Card.Title>
-                
-                  {stall.description}
-                  <ReactStars
-                    count={5}
-                    value={stall.rating}
-                    size={24}
-                    edit={false}
-                    isHalf={true}
-                  />
-                
-              
-            
-            <div className="mt-3">
-              <h5>Categories</h5>
-              <ul>
+    <Container>
+      <Row className="mt-4">
+        <Col xs={12} md={3}>
+          <Card>
+            <Card.Img variant="top" src={stall.logo} alt={`${stall.name} Logo`} />
+            <Card.Body>
+              <Card.Title>{stall.name}</Card.Title>
+              <Card.Text>
+                {stall.description}
+                <ReactStars
+                  count={5}
+                  value={stall.rating}
+                  size={24}
+                  edit={false}
+                  isHalf={true}
+                />
+              </Card.Text>
+            </Card.Body>
+          </Card>
+          <div className="mt-3">
+            <h5>Categories</h5>
+            <ul>
+              <li
+                className={selectedCategory === 'All' ? 'active-category' : ''}
+                onClick={() => setSelectedCategory('All')}
+              >
+                All
+              </li>
+              {categories.map((category, index) => (
                 <li
-                  className={selectedCategory === 'All' ? 'active-category' : ''}
-                  onClick={() => setSelectedCategory('All')}
+                  key={index}
+                  className={selectedCategory === category ? 'active-category' : ''}
+                  onClick={() => setSelectedCategory(category)}
                 >
-                  All
+                  {category}
                 </li>
-                {categories.map((category, index) => (
-                  <li
-                    key={index}
-                    className={selectedCategory === category ? 'active-category' : ''}
-                    onClick={() => setSelectedCategory(category)}
-                  >
-                    {category}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </Col>
-          <Col xs={12} md={9}>
-            <Row>
-              <Col xs={12} lg={12}>
-                <Form.Group>
-                  <InputGroup>
-                    <Form.Control
-                      type="text"
-                      placeholder="Search Food Items"
-                      value={searchQuery}
-                      onChange={(e) => setSearchQuery(e.target.value)}
-                    />
-                  </InputGroup>
-                </Form.Group>
-              </Col>
-            </Row>
-            <br />
-            <br />
-            <Row>
+              ))}
+            </ul>
+          </div>
+        </Col>
+        <Col xs={12} md={9}>
+          <Row>
+            <Col xs={12} lg={12}>
+              <Form.Group>
+                <InputGroup>
+                  <Form.Control
+                    type="text"
+                    placeholder="Search Food Items"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                  />
+                </InputGroup>
+              </Form.Group>
+            </Col>
+          </Row>
+          <br />
+          <br />
+
+          <Row>
             {filteredFoodItems.map((item, index) => (
               <Col xs={12} md={6} lg={4} key={index}>
-                <Card className="mb-3 custom-card">
+                <Card className="mb-3">
                   <Card.Img variant="top" src={item.image} alt={item.name} />
                   <Card.Body>
                     <Card.Title>{item.name}</Card.Title>
@@ -184,11 +177,33 @@ const SweetSerenity = () => {
                         />
                       </div>
                     </Card.Text>
-                    <p>Price: {item.price} LKR</p>
+                    <div>
+                    <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
+
+                      
+                      <div className="quantity-control">
+                           <Button
+                            variant="outline-success"
+                            onClick={() => handleQuantityChange(item, "increase")}
+                            >
+                               +
+                           </Button>
+                           <span className="quantity">{itemQuantities[index] || 1}</span>
+                           <Button
+                            variant="outline-danger"
+                            onClick={() => handleQuantityChange(item, "decrease")}
+                           >
+                               -
+                           </Button>
+                      </div>
+                    
+                    </div>
+
+                    <Button className='addToCart' variant="success" onClick={() => addToCart(item)}>
+                        Add to Cart
+                      </Button>
+
                   </Card.Body>
-                  <Card.Footer>
-                    <button onClick={() => addToCart(item)}>Add to Cart</button>
-                  </Card.Footer>
                 </Card>
               </Col>
             ))}

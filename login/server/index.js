@@ -6,7 +6,6 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
-
 // database connection
 mongoose
   .connect(process.env.MONGO_URL)
@@ -29,18 +28,12 @@ app.use(
 // Replace 'allowed-origin.com' with the actual origin(s) of your frontend application(s)
 const allowedOrigins = ['http://localhost:5173', 'https://your-production-app.com'];
 
-app.use('/stallUploads', express.static('stallUploads'));
-
-// Configure CORS to allow requests from specific origins
 const corsOptions = {
   origin: allowedOrigins,
   credentials: true,
 };
 
 // Allow requests only from the specified origins
-
-
-
 app.use(cors(corsOptions));
 
 
