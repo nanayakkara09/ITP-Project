@@ -17,12 +17,10 @@ const userSchema = new Schema({
     enum: ['admin', 'customer'], 
     default: 'customer', 
   },
-  securityQuestions: [
-    {
-      question: String,
-      answer: String,
-    },
-  ],
+
+    securityQuestion: String,
+    securityAnswer: String,
+ 
 });
 
 const UserModel = mongoose.model('User', userSchema);
