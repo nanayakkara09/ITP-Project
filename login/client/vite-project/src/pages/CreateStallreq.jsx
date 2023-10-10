@@ -45,6 +45,7 @@ function CreateStallreq() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
@@ -69,6 +70,33 @@ function CreateStallreq() {
       setErrors(validationErrors);
     }
   };
+=======
+  
+    try {
+      const formData = new FormData();
+      formData.append('name', stallProduct.name);
+      formData.append('price', stallProduct.price);
+      formData.append('description', stallProduct.description);
+      formData.append('image', stallProduct.image);
+  
+      const response = await axios.post('/stall/createProduct', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Make sure to set the content type for file uploads
+        },
+      });
+  
+      if (response.status === 200) {
+        // Product added successfully, refresh the product list
+        window.location.reload();
+      } else {
+        console.error('Failed to add product. Server returned:', response.data);
+      }
+    } catch (error) {
+      console.error('Error adding product:', error);
+    }
+  };
+  
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 
   return (
     
