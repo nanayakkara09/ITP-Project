@@ -3,6 +3,7 @@ import { Container, Row, Col, Card, Form, InputGroup, Button,Modal } from 'react
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import './PizzaMart.css';
 
 const PizzaMart = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -73,19 +74,20 @@ const PizzaMart = () => {
   const stall = {
     name: 'PIZZA MART',
     description: 'Delicious pizza and more!',
-    logo: '../stallImages/pizza mart.png',
+    logo: '/stallImages/Colorful Playful Minimalist Fast Food Pizza Mascot Circle Logo.png',
     rating: 4.5,
+
     foodItems: [
-      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
-      { name: 'Olive mized veg Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
-      { name: 'Ultimate veg Pizza', category: 'Veg Pizza', rating: 4.5, price: 850, image:'../stallImages/pexels-kristina-paukshtite-1146760.jpg' },
-      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
-      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 850, image:'../../images/pexels-kristina-paukshtite-1146760.jpg' },
-      { name: 'Grilled chicken with peparoni', category: 'Non-veg Pizza', rating: 4.5, price: 1000, image:'../../images/pexels-kristina-paukshtite-1146760.jpg' },
-      { name: 'Devilled chicken', category: 'Non-veg Pizza', rating: 4.5, price: 1000, image:'../../images/pexels-kristina-paukshtite-1146760.jpg' },
-      { name: 'Beef pizza', category: 'Non-veg Pizza', rating: 4.5, price: 1300, image:'../../images/pexels-kristina-paukshtite-1146760.jpg' },
-      { name: 'Chocolate Lava Cake', category: 'Desserts', rating: 5, price: 520, image:'../stallImages/pexels-photo-10480244.jpeg' },
-      { name: 'Sprite', category: 'Beverages', rating: 4, price: 300, image:''},
+      { name: 'Vegitable and Mushroom Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/stallImages/veg&cheesePizza.jpeg' },
+      { name: 'Olive mized veg Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/stallImages/olive mized veg.jpeg' },
+      { name: 'Ultimate veg Pizza', category: 'Veg Pizza', rating: 4.5, price: 850, image:'/stallImages/unlveg.jpeg' },
+      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/stallImages/vegi.jpeg' },
+      { name: 'Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 850, image:'/stallImages/cheese.jpeg' },
+      { name: 'Grilled chicken with peparoni', category: 'Non-veg Pizza', rating: 4.5, price: 1000, image:'/stallImages/pep.jpeg' },
+      { name: 'Devilled chicken', category: 'Non-veg Pizza', rating: 4.5, price: 1000, image:'/stallImages/dev.jpeg' },
+      { name: 'Beef pizza', category: 'Non-veg Pizza', rating: 4.5, price: 1300, image:'/stallImages/beef.jpeg' },
+      { name: 'Chocolate Lava Cake', category: 'Desserts', rating: 5, price: 520, image:'/stallImages/choclava.jpg' },
+      { name: 'Sprite', category: 'Beverages', rating: 4, price: 300, image:'/stallImages/sprite.jpeg'},
       
       // Add more food items with different categories
     ],
@@ -102,47 +104,47 @@ const PizzaMart = () => {
   });
 
   return (
-    <Container>
-      <Row className="mt-4">
-        <Col xs={12} md={3}>
-          <Card>
-            <Card.Img variant="top" src={stall.logo} alt={`${stall.name} Logo`} />
-            <Card.Body>
-              <Card.Title>{stall.name}</Card.Title>
-              <Card.Text>
-                {stall.description}
-                <ReactStars
-                  count={5}
-                  value={stall.rating}
-                  size={24}
-                  edit={false}
-                  isHalf={true}
-                />
-              </Card.Text>
-            </Card.Body>
-          </Card>
-          <div className="mt-3">
-            <h5>Categories</h5>
-            <ul>
+    
+      <Container>
+      <Row className="mt-4">  
+        
+       <Card className="mb-7 card-logo">
+        {/* Remove the Card.Img component */}
+          <Card.Body>
+           <Card.Title>{stall.name}</Card.Title>
+           <Card.Text>
+           {stall.description}
+           <ReactStars
+             count={5}
+             value={stall.rating}
+             size={24}
+             edit={false}
+             isHalf={true}
+          />
+           </Card.Text>
+          </Card.Body>
+        </Card>
+
+        <div className="mt-3">
+          <h5>Categories</h5>
+          <ul>
+            <li
+              className={selectedCategory === 'All' ? 'active-category' : ''}
+              onClick={() => setSelectedCategory('All')}
+            >
+              All
+            </li>
+            {categories.map((category, index) => (
               <li
-                className={selectedCategory === 'All' ? 'active-category' : ''}
-                onClick={() => setSelectedCategory('All')}
+                key={index}
+                className={selectedCategory === category ? 'active-category' : ''}
+                onClick={() => setSelectedCategory(category)}
               >
-                All
+                {category}
               </li>
-              {categories.map((category, index) => (
-                <li
-                  key={index}
-                  className={selectedCategory === category ? 'active-category' : ''}
-                  onClick={() => setSelectedCategory(category)}
-                >
-                    
-                  {category}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </Col>
+            ))}
+          </ul>
+        </div>
         <Col xs={12} md={9}>
           <Row>
             <Col xs={12} lg={12}>
@@ -158,66 +160,36 @@ const PizzaMart = () => {
               </Form.Group>
             </Col>
           </Row>
-          <br/>
-          <br/>
-          
+          <br />
+          <br />
           <Row>
-            {filteredFoodItems.map((item, index) => (
-              <Col xs={12} md={6} lg={4} key={index}>
-                <Card className="mb-3">
-                  <Card.Img variant="top" src={item.image} alt={item.name} />
-                  <Card.Body>
-                    <Card.Title>{item.name}</Card.Title>
-                    <Card.Text>
-                      <div>
-                        <ReactStars
-                          count={5}
-                          value={item.rating}
-                          size={16}
-                          edit={false}
-                          isHalf={true}
-                        />
-                      </div>
-                    </Card.Text>
+  {filteredFoodItems.map((item, index) => (
+    <Col xs={12} md={6} lg={4} key={index}>
+      <Card className="mb-4"> {/* Increase mb (margin-bottom) to add more spacing */}
+        <Card.Img variant="top" src={item.image} alt={item.name} />
+        <Card.Body>
+          <Card.Title>{item.name}</Card.Title>
+          <Card.Text>
+            <div>
+              <ReactStars
+                count={5}
+                value={item.rating}
+                size={16}
+                edit={false}
+                isHalf={true}
+              />
+            </div>
+          </Card.Text>
+          <p>Price: {item.price} LKR</p>
+        </Card.Body>
+        <Card.Footer>
+          <button onClick={() => addToCart(item)}>Add to Cart</button>
+        </Card.Footer>
+      </Card>
+    </Col>
+  ))}
+</Row>
 
-                    <div>
-                    <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
-
-                      
-                    <div className='quantity-control'>
-                        <Button
-                       variant="outline-success"
-                       onClick={() => handleQuantityChange(item, "increase")}
-                        >
-                            +
-                        </Button>
-
-                        <span className="quantity">{itemQuantities[index] || 1}</span>
-                          <Button
-                           variant="outline-danger"
-                           onClick={() => handleQuantityChange(item, "decrease")}
-                          >
-                            -
-
-                          </Button>
-
-                    </div>
-
-                    </div>
-
-                  
-
-                      <Button className='addToCart' variant="success" 
-                      onClick={() => addToCart(item)}
-                      >
-                        Add to Cart
-                      </Button>
-                    
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
         </Col>
       </Row>
 

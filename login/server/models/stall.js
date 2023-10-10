@@ -9,7 +9,7 @@ const stallSchema = new Schema({
       lName: String,
       email: String,
       phone: Number,
-      
+           
      
 })
 

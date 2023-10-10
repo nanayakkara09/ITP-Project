@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import './StallAdminreq.css'
 
 
 function StallAdminreq() {
   const [stallsadminreq, setStallsadminreq] = useState([]);
 
   useEffect(() => {
-    axios.get('/stall/stalladminreq') // Use the correct API endpoint
-      .then(result => {
-        // Assuming the response contains an array of objects with 'id' field
+    axios.get('/stall/stalladminreq') 
+      .then(result => {        
         const dataWithIds = result.data;
         setStallsadminreq(dataWithIds);
       })
@@ -17,17 +17,16 @@ function StallAdminreq() {
   }, []);
     
   const handleDelete = (id) => {
-    axios.delete(`/stall/deleteStallreq/${id}`) // Use the correct route URL
+    axios.delete(`/stall/deleteStallreq/${id}`) 
         .then(res => {
             console.log(res);
             window.location.reload();
         })
         .catch(err => console.log(err));
 }
-  
 
   return (
-    <div className='d-flex vh-100 bg-primary justify-content-center align-items-center'>
+    <div className='d-flex vh-100 justify-content-center align-items-center'>
       <div className='w-50 bg-white rounded p-3'>
         <table className='table'>
           <thead>
@@ -39,19 +38,21 @@ function StallAdminreq() {
               <th>Email</th>
               <th>Phone Number</th>
               <th>Actions</th>
+              
             </tr>
           </thead>
           <tbody>
             {stallsadminreq.map((stalladminreq) => (
-              <tr key={stalladminreq.id}>
+              <tr key={stalladminreq._id}>
                 <td>{stalladminreq.sName}</td>
                 <td>{stalladminreq.type}</td>
                 <td>{stalladminreq.fName}</td>
                 <td>{stalladminreq.lName}</td>
                 <td>{stalladminreq.email}</td>
                 <td>{stalladminreq.phone}</td>
+                
                 <td>
-                <Link to={`/update/${stalladminreq._id}`} className="btn btn-success">UPDATE</Link>
+                          <button >ACCEPT</button>
                           <button className='btn btn-danger' 
                         onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
                 </td>

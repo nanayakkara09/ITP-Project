@@ -71,9 +71,7 @@ export default function AdminDashboard() {
           <div className="vertical-text">
             <FontAwesomeIcon icon={faCalendar} /> Event
           </div>
-          <div className="vertical-text">
-            <FontAwesomeIcon icon={faStore} /> Stall
-          </div>
+          <Link to='/stallAdmin' className="vertical-text">Stall</Link>
           <div className="vertical-text">
             <FontAwesomeIcon icon={faUsersCog} /> Employee
           </div>
@@ -89,6 +87,10 @@ export default function AdminDashboard() {
           <Link to="/FinancePage"   className="vertical-text">
             <FontAwesomeIcon icon={faDollarSign} /> Finance
           </Link>
+     
+         
+          <Link to='/stallAdmin' className="vertical-text">Stall</Link>
+          
         </div>
         <br></br>
         {!!user && (

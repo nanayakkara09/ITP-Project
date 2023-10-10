@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "../pages/CreateStallreq.css";
+import './CreateStallreq.css';
 
 function CreateStallreq() {
   const [sName, setsName] = useState("");
@@ -11,7 +11,7 @@ function CreateStallreq() {
   const [email, setemail] = useState("");
   const [phone, setphone] = useState("");
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate();
+  
 
   const validateForm = () => {
     const errors = {};
@@ -43,32 +43,28 @@ function CreateStallreq() {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const validationErrors = validateForm();
-
-    if (Object.keys(validationErrors).length === 0) {
-      // If there are no validation errors, submit the form
-      axios
-        .post('./stall/stallreq', {
+  
+      
+      const response = await axios.post('/stall/stallreq',  {
           sName,
           type,
           fName,
           lName,
           email,
           phone,
-        })
-        .then((result) => {
-          console.log(result);
-          // Assuming a successful submission should navigate to a success page
-          navigate("/StallAdminreq");
-        })
-        .catch((err) => console.log(err));
-    } else {
-      // If there are validation errors, update the state to display them
-      setErrors(validationErrors);
-    }
+      });
+  
+      if (response.status === 200) {
+        
+      } else {
+        console.error('Failed to submit stall creation request. Server returned:', response.data);
+      }
+    
   };
+  
+  
 
   return (
     
