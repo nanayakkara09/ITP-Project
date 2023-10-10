@@ -5,10 +5,14 @@ const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
 const Ticket = require('../models/ticket');
-
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 const nodemailer = require('nodemailer');
-
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 const nodemailer = require('nodemailer');
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 
 const createStall = async (req, res) => {
     try{
