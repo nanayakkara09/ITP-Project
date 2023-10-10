@@ -10,12 +10,18 @@ const stallSchema = new Schema({
       email: String,
       phone: Number,
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
       done:{
             type:Boolean,
             default:false,
 
       }
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
       
      

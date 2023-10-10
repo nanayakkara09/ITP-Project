@@ -46,6 +46,7 @@ function CreateStallreq() {
   const handleSubmit = (e) => {
     e.preventDefault();
 <<<<<<< HEAD
+<<<<<<< HEAD
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
@@ -71,6 +72,8 @@ function CreateStallreq() {
     }
   };
 =======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
   
     try {
       const formData = new FormData();
@@ -96,6 +99,9 @@ function CreateStallreq() {
     }
   };
   
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 
   return (
