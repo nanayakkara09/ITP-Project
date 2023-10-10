@@ -47,6 +47,7 @@ function CreateStallreq() {
     e.preventDefault();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
@@ -72,6 +73,8 @@ function CreateStallreq() {
     }
   };
 =======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
   
@@ -100,6 +103,9 @@ function CreateStallreq() {
   };
   
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)

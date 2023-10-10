@@ -3,7 +3,11 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+import './StallAdminreq.css';
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 import './StallAdminreq.css';
 >>>>>>> parent of f8f4ed0aa (Stall Request)
@@ -17,9 +21,14 @@ function StallAdminreq() {
   useEffect(() => {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     axios.get('/stall/stalladminreq') // Use the correct API endpoint
       .then(result => {
         // Assuming the response contains an array of objects with 'id' field
+=======
+    axios.get('/stall/stalladminreq')
+      .then(result => {
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
     axios.get('/stall/stalladminreq')
       .then(result => {
@@ -35,6 +44,7 @@ function StallAdminreq() {
   }, []);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     
   const handleDelete = (id) => {
     axios.delete(`/stall/deleteStallreq/${id}`) // Use the correct route URL
@@ -46,6 +56,8 @@ function StallAdminreq() {
 }
   
 =======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 
@@ -63,6 +75,9 @@ function StallAdminreq() {
       .catch(err => console.log(err));
   };
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
@@ -82,6 +97,10 @@ function StallAdminreq() {
               <th>Actions</th>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+              <th>Done</th>
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
               <th>Done</th>
 >>>>>>> parent of f8f4ed0aa (Stall Request)
@@ -102,10 +121,13 @@ function StallAdminreq() {
                 <td>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <Link to={`/update/${stalladminreq._id}`} className="btn btn-success">UPDATE</Link>
                           <button className='btn btn-danger' 
                         onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
 =======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
                   {stalladminreq.done ? (
@@ -127,6 +149,9 @@ function StallAdminreq() {
                     </>
                   )}
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)

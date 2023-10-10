@@ -11,7 +11,10 @@ const stallSchema = new Schema({
       phone: Number,
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
       done:{
@@ -20,6 +23,9 @@ const stallSchema = new Schema({
 
       }
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
