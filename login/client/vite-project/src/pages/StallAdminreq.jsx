@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 <<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
-import './StallAdminreq.css';
->>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
 import './StallAdminreq.css';
 >>>>>>> parent of f8f4ed0aa (Stall Request)
@@ -16,14 +12,9 @@ function StallAdminreq() {
 
   useEffect(() => {
 <<<<<<< HEAD
-<<<<<<< HEAD
     axios.get('/stall/stalladminreq') // Use the correct API endpoint
       .then(result => {
         // Assuming the response contains an array of objects with 'id' field
-=======
-    axios.get('/stall/stalladminreq')
-      .then(result => {
->>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
     axios.get('/stall/stalladminreq')
       .then(result => {
@@ -33,7 +24,6 @@ function StallAdminreq() {
       })
       .catch(err => console.log(err));
   }, []);
-<<<<<<< HEAD
 <<<<<<< HEAD
     
   const handleDelete = (id) => {
@@ -46,8 +36,6 @@ function StallAdminreq() {
 }
   
 =======
-=======
->>>>>>> parent of f8f4ed0aa (Stall Request)
 
   const handleAccept = (stalladminreq) => {
     axios.put(`/stall/updateStallreq/${stalladminreq._id}`, { done: true }) // Use the correct route URL
@@ -62,9 +50,6 @@ function StallAdminreq() {
       })
       .catch(err => console.log(err));
   };
-<<<<<<< HEAD
->>>>>>> parent of f8f4ed0aa (Stall Request)
-=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
 
   return (
@@ -81,10 +66,6 @@ function StallAdminreq() {
               <th>Phone Number</th>
               <th>Actions</th>
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-              <th>Done</th>
->>>>>>> parent of f8f4ed0aa (Stall Request)
 =======
               <th>Done</th>
 >>>>>>> parent of f8f4ed0aa (Stall Request)
@@ -101,13 +82,10 @@ function StallAdminreq() {
                 <td>{stalladminreq.phone}</td>
                 <td>
 <<<<<<< HEAD
-<<<<<<< HEAD
                 <Link to={`/update/${stalladminreq._id}`} className="btn btn-success">UPDATE</Link>
                           <button className='btn btn-danger' 
                         onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
 =======
-=======
->>>>>>> parent of f8f4ed0aa (Stall Request)
                   {stalladminreq.done ? (
                     <span className='text-success'>Accepted</span>
                   ) : (
@@ -126,9 +104,6 @@ function StallAdminreq() {
                       </button>
                     </>
                   )}
-<<<<<<< HEAD
->>>>>>> parent of f8f4ed0aa (Stall Request)
-=======
 >>>>>>> parent of f8f4ed0aa (Stall Request)
                 </td>
                 <td>{stalladminreq.done ? "Yes" : "No"}</td>
