@@ -4,7 +4,8 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
 
-const{addNew}=require('../controllers/IncomeExpenses');
+const { addNew, getAllIncomeDetails } = require('../controllers/IncomeExpenses');
+
 
 
 //middleware
@@ -16,5 +17,5 @@ router.use(
 )
 
 router.post('/Input',addNew)
-
+router.get('/getIncome',getAllIncomeDetails)
 module.exports=router

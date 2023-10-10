@@ -138,6 +138,17 @@ router.get('/orders', async (req, res) => {
   }
 });
 
+// Define a route to get all orders
+router.get('/Corder', async (req, res) => {
+  try {
+    const Conforders = await ConfirmedOrder.find();
+    res.status(200).json({ status: "orders fetched", Conforders });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
+
 
 
 
