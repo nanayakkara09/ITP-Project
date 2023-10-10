@@ -11,7 +11,7 @@ function CreateStallreq() {
   const [email, setemail] = useState("");
   const [phone, setphone] = useState("");
   const [errors, setErrors] = useState({});
-  
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -46,24 +46,29 @@ function CreateStallreq() {
   const handleSubmit = async (e) => {
     e.preventDefault();
   
-      
-      const response = await axios.post('/stall/stallreq',  {
-          sName,
-          type,
-          fName,
-          lName,
-          email,
-          phone,
+    try {
+      const formData = new FormData();
+      formData.append('name', stallProduct.name);
+      formData.append('price', stallProduct.price);
+      formData.append('description', stallProduct.description);
+      formData.append('image', stallProduct.image);
+  
+      const response = await axios.post('/stall/createProduct', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Make sure to set the content type for file uploads
+        },
       });
   
       if (response.status === 200) {
-        
+        // Product added successfully, refresh the product list
+        window.location.reload();
       } else {
-        console.error('Failed to submit stall creation request. Server returned:', response.data);
+        console.error('Failed to add product. Server returned:', response.data);
       }
-    
+    } catch (error) {
+      console.error('Error adding product:', error);
+    }
   };
-  
   
 
   return (

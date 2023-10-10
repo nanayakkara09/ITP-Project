@@ -5,7 +5,7 @@ const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
 const Ticket = require('../models/ticket');
-
+const nodemailer = require('nodemailer');
 
 const createStall = async (req, res) => {
     try{
@@ -101,8 +101,14 @@ if(token) {
 
 const stallreq = async (req, res) => {
     try {
-        const { sName, type, fName, lName, email, phone } = req.body;   
+        const { sName, type, fName, lName, email, phone } = req.body;
         
+        // Check if name was entered
+        if (!sName) {
+            return res.json({
+                error: 'Name is required'
+            });
+        }
         
         const stall = await Stall.create({
             sName,
