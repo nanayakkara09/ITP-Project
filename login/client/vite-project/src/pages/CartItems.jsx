@@ -79,7 +79,7 @@ const handleConfirmOrder = () => {
         <h1 className='mycart'>MY CART</h1>
         <div className='col-md-2 '>
           <div>
-            <h2 style={{ fontSize: '45px' }}>SubTotal: {subtotal}/-</h2>
+            <h2 style={{ fontSize: '45px' }}>SubTotal: {subtotal} Rs/-</h2>
           </div>
 
 
