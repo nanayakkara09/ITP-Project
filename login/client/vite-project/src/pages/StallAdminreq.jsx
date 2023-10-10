@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './StallAdminreq.css';
 
 
 function StallAdminreq() {
@@ -25,16 +24,6 @@ function StallAdminreq() {
         })
         .catch(err => console.log(err));
 }
-
-const handleAccept = (stalladminreq) => {
-  axios.post(`/stall/acceptStallreq/${stalladminreq._id}`, stalladminreq)
-    .then(res => {
-      console.log(res);
-      window.location.reload();
-    })
-    .catch(err => console.log(err));
-}
-
   
 
   return (
@@ -62,7 +51,7 @@ const handleAccept = (stalladminreq) => {
                 <td>{stalladminreq.email}</td>
                 <td>{stalladminreq.phone}</td>
                 <td>
-                          <button className='btn btn-success' onClick={(e) => handleAccept(stalladminreq)}>ACCEPT</button>
+                <Link to={`/update/${stalladminreq._id}`} className="btn btn-success">UPDATE</Link>
                           <button className='btn btn-danger' 
                         onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
                 </td>

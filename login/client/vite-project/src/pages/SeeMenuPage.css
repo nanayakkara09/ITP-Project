@@ -1,15 +1,9 @@
 /* SeeMenuPage.css */
 
 .menu-page {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 50px;
-  background-image: url('your-background-image.jpg'); /* Replace 'your-background-image.jpg' with the path to your background image */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center center;
-  
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 50px;
   }
   
   .page-header {
