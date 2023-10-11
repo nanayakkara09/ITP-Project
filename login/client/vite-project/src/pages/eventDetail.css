@@ -1,43 +1,67 @@
-/* EventDetails.css */
-.event-details-container {
-  padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.event-detail-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Add this line */
 }
 
 .content {
-  background-color: #fff;
-  padding: 20px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+  text-decoration-style: double;
 }
 
 .event-proposal-details {
-  margin-top: 20px;
+  background-color: rgb(240, 229, 229);
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(208, 189, 189, 0.1);
 }
 
 ul.event-table {
   list-style: none;
   padding: 0;
+  color: #0a223b;
 }
 
 ul.event-table li {
-  margin-bottom: 10px;
+  margin: 10px 0;
+  color: #000000;
 }
 
-ul.event-table li strong {
-  font-weight: bold;
-}
-
-.btn-primary {
+.btn {
   background-color: #007bff;
-  color: #fff;
-  border: none;
+  color: rgb(9, 5, 5);
   padding: 10px 20px;
-  border-radius: 5px;
+  border: none;
   cursor: pointer;
 }
 
-.btn-primary:hover {
+.btn:hover {
   background-color: #0056b3;
+}
+
+
+.background-image {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.event-details-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  max-width: 500px;
+  text-align: left;
+  position: relative; /* Add this line */
+  z-index: 1; /* Add this line to bring it to the front */
 }

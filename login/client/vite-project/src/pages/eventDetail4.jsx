@@ -27,7 +27,7 @@ export default function eventDetail() {
               <strong>Event location:</strong> Outdoor
             </li>
             <li>
-              <strong>Extra details:</strong>
+              <strong>Extra needs:</strong>
               <ul>
                 <li>DJ and music</li>
                 <li>Styling & Decor</li>

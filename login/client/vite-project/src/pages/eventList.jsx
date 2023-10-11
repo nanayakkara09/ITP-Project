@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import AdminNavBar from '../components/adminNavBar';
 import 'bootstrap/dist/css/bootstrap.css'
 import { Link } from 'react-router-dom';
 

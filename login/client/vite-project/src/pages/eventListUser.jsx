@@ -4,6 +4,7 @@ import { toast } from 'react-hot-toast';
 import './eventListUser.css';
 import { Link } from 'react-router-dom';
 
+
 export default function EventListUser() {
   const [events, setEvents] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -45,6 +46,7 @@ export default function EventListUser() {
         const updatedEvents = events.filter((event) => event._id !== eventId);
         setEvents(updatedEvents);
         toast.success('Event deleted successfully');
+       
       } catch (error) {
         console.error(error);
         toast.error('Failed to delete event');

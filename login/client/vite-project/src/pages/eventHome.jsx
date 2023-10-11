@@ -2,16 +2,19 @@ import React from 'react';
 import './eventHome.css';
 import event1 from '../images/event1.jpg';
 import event2 from '../images/event2.jpg';
-import event3 from '../images/event3.jpg';
 import event7 from '../images/event7.jpg';
 
 import event4 from '../images/3.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 
 
-export default function eventHome() {
+export default function EventHome() {
     const navigate = useNavigate();
   return (
+    <div className="bgh-image4">
+    <div className="bgh-image4">
+    <img src={eventHome} alt="Event" className="background-image" />
+  </div>
     <div className="front-page-container">
       <div className="choose-event-heading">
       <h1>CHOOSE YOUR EVENT</h1>
@@ -114,6 +117,7 @@ Event branding.</span>
           <p className="text-center">All rights reserved &copy; </p>
         </div>
       </footer>
+    </div>
     </div>
     
   );

@@ -1,12 +1,39 @@
 import React from 'react';
-import './eventDetail.css';
 import { useNavigate } from 'react-router-dom';
+import html2pdf from 'html2pdf.js';
+import brithday from '../images/brithday.jpeg';
+import './eventDetail1.css';
 
 export default function eventDetail() {
   const navigate = useNavigate();
+  const downloadPDF = () => {
+    const content = document.getElementById('eventDetail');
+
+    html2pdf()
+      .from(content)
+      .set({ margin: 10, filename: 'event_details.pdf', image: { type: 'jpeg', quality: 0.98 } })
+      .outputPdf()
+      .then((pdf) => {
+        const blob = new Blob([pdf], { type: 'application/pdf' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'event_details.pdf';
+        a.click();
+      })
+      .catch((error) => {
+        console.error('Error creating PDF:', error);
+      });
+  };
   return (
-    <div className="event-details-container">
-      <div className="content">
+
+    <div className="bgh-image3">
+
+    <div className="event-detail-container">
+         <div className="bgh-image3">
+           <img src={brithday} alt="Event" className="background-image" />
+         </div>
+         <div className="event-details-content">
         <h2>SEASONAL OFFERS!</h2>
         <div className="event-proposal-details">
           <h2>EVENT PROPOSAL DETAILS</h2>
@@ -27,7 +54,7 @@ export default function eventDetail() {
               <strong>Event location:</strong> Outdoor
             </li>
             <li>
-              <strong>Extra details:</strong>
+              <strong>Extra needs:</strong>
               <ul>
                 <li>DJ and Disco</li>
                 <li>Furniture Hire</li>
@@ -40,15 +67,10 @@ export default function eventDetail() {
               <strong>Budget:</strong> RS.60000/=
             </li>
           </ul>
-          <button
-            onClick={() => navigate('/eventSuccess')}
-            type="submit"
-            className="btn btn-primary"
-          >
-            Submit
+          <button onClick={downloadPDF} className="btn btn-primary">
+            Download PDF
           </button>
-        </div>
-      </div>
+       
   
       <hr />
       <footer className="footer">
@@ -66,5 +88,9 @@ export default function eventDetail() {
         </div>
       </footer>
     </div>
+    </div>
+    </div>
+      </div>
+    
   );
 }

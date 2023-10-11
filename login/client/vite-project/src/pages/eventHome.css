@@ -98,13 +98,15 @@ hr {
   margin-bottom: 20px;
 }
 
-.App {
+.App2 {
   text-align: center;
   margin-bottom: 20px;
+  align-items: center;
 }
 
 .button-container {
   text-align: center;
+  
 }
 
 .btn {
@@ -115,6 +117,7 @@ hr {
   border-radius: 5px;
   margin-right: 10px;
   cursor: pointer;
+
 }
 
 .btn:hover {

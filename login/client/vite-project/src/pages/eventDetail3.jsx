@@ -1,12 +1,20 @@
 import React from 'react';
-import './eventDetail.css';
+import './eventDetail3.css';
+import freeEvent from '../images/freeEvent.jpg';
+
 import { useNavigate } from 'react-router-dom';
 
 export default function eventDetail() {
   const navigate = useNavigate();
   return (
-    <div className="event-details-container">
-      <div className="content">
+    <div className="bgh-image1">
+
+    <div className="event-detail-container">
+         <div className="bgh-image">
+           <img src={freeEvent} alt="Event" className="background-image" />
+         </div>
+    <div className="event-details-content">
+     
         <h2>SEASONAL OFFERS!</h2>
         <div className="event-proposal-details">
           <h2>EVENT PROPOSAL DETAILS</h2>
@@ -27,7 +35,7 @@ export default function eventDetail() {
               <strong>Event location:</strong> Indoor
             </li>
             <li>
-              <strong>Extra details:</strong>
+              <strong>Extra needs:</strong>
               <ul>
                 <li>Light Music</li>
                 <li>Styling & Decor</li>
@@ -47,8 +55,7 @@ export default function eventDetail() {
           >
             Submit
           </button>
-        </div>
-      </div>
+   
   
       <hr />
       <footer className="footer">
@@ -66,5 +73,8 @@ export default function eventDetail() {
         </div>
       </footer>
     </div>
+    </div>
+    </div>
+      </div>
   );
 }

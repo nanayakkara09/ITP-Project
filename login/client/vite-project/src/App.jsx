@@ -26,6 +26,7 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import Password from '../src/pages/password'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 import AddNewEvent from './pages/addNewEvent';
