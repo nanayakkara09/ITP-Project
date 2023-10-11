@@ -34,6 +34,8 @@ import ItemlistFur from '../src/pages/itemlistFur';
 import ItemlistMac from '../src/pages/itemlistMac';
 import AddNewFur from '../src/pages/addNewFur';
 import AddNewMac from '../src/pages/addNewMac';
+import Issued from './pages/Issued';
+
 
 
 
@@ -69,6 +71,7 @@ function App() {
       <Route path="/itemlistMac" element={<ItemlistMac />} />
       <Route path="/addNewFur" element={<AddNewFur />} />
       <Route path="/addNewMac" element={<AddNewMac />} />
+      <Route path="/Issued" element={<Issued />} />
 
 
 

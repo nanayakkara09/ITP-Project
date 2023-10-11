@@ -9,7 +9,7 @@ import Autocomplete from '../components/autocomplete';
 export default function NewIssueEntry() {
 const navigate = useNavigate();
 const [items, setItems] = useState([]);
-const [names, setNames] = useState([]);
+const [names, setNames] = useState([{ name: '', code: '' }]); // Initialize with an empty object or with default values if needed
 const [input, setInput] = useState("");
 const [formData, setFormData] = useState({
     stoleid: '',
@@ -25,9 +25,15 @@ const [formData, setFormData] = useState({
         const { data } = await axios.get('/inventory/getallItems');
         setItems(data);
         console.log(data);
-        const namesList = data.map(item => item.name);
-
-        setNames(namesList)
+        const updatedData = data.map(item => {
+          return {
+            name: item.name,
+            code: item.itemcode
+          };
+        });
+        
+        setNames(updatedData);
+        
         //setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -82,7 +88,7 @@ const [formData, setFormData] = useState({
           <label htmlFor="itemName">Item Name:</label>
          
           <Autocomplete id="kkk"
-        suggestions={names}
+        namelist={names}
         input={input} setInput={setInput}
       />
         </div>
