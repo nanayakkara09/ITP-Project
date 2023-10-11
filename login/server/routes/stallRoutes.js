@@ -18,6 +18,7 @@ const {
   getPromotion,
   createTicket,
   getTicket,
+  
 
 } = require('../controllers/stallController');
 
@@ -50,6 +51,7 @@ router.post('/createPromotion', upload.single('image'), createPromotion);
 router.get('/getPromotion', getPromotion);
 router.post('/createTicket', createTicket);
 router.get('/getTicket', getTicket);
+
 
 
 module.exports = router;

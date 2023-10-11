@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, InputGroup } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
+import './Asiano.css';
 
 const Asiano = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +17,7 @@ const Asiano = () => {
   const stall = {
     name: 'Asiano',
     description: 'Explore the flavors of Asia!',
-    logo: '../../images/asiano-logo.png', // Update the logo path
+    logo: '/stallImages/_Black Modern Food Channel Facebook Cover.png', 
     rating: 4.5, // Update the rating
     foodItems: [
       // Add your Asian food items here
@@ -55,26 +56,21 @@ const Asiano = () => {
     );
   });
 
+  
+
   return (
     <Container>
       <Row className="mt-4">
-        <Col xs={12} md={3}>
-          <Card>
-            <Card.Img variant="top" src={stall.logo} alt={`${stall.name} Logo`} />
-            <Card.Body>
-              <Card.Title>{stall.name}</Card.Title>
-              <Card.Text>
-                {stall.description}
-                <ReactStars
-                  count={5}
-                  value={stall.rating}
-                  size={24}
-                  edit={false}
-                  isHalf={true}
-                />
-              </Card.Text>
-            </Card.Body>
-          </Card>
+        
+      <Card className="mb-3 logo-card">
+  <Row>
+    <Col xs={12} md={12}>
+      <Card.Body>
+        <div className="logo-container"></div>
+      </Card.Body>
+    </Col>
+  </Row>
+</Card>
           <div className="mt-3">
             <h5>Categories</h5>
             <ul>
@@ -95,7 +91,7 @@ const Asiano = () => {
               ))}
             </ul>
           </div>
-        </Col>
+        
         <Col xs={12} md={9}>
           <Row>
             <Col xs={12} lg={12}>

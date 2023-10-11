@@ -5,7 +5,8 @@ const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
 const Ticket = require('../models/ticket');
-
+const pdf = require('pdfkit');
+const fs = require('fs');
 
 const createStall = async (req, res) => {
     try{
@@ -274,6 +275,8 @@ const getTicket = async (req, res) => {
     res.status(500).json({ error: 'Server error' });
   }
 };
+
+
 
 
 module.exports = {

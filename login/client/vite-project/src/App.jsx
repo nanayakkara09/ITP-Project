@@ -46,6 +46,7 @@ import MarketingAndPromotionAdmin from './pages/MarketingAndPromotionAdmin';
 import TicketForm from './pages/TicketForm';
 import AdminTicketList from './pages/AdminTicketList';
 import SeeMenuPage from './pages/SeeMenuPage';
+import MonthlyIncomeReport from './pages/MonthlyIncomeReport';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -90,7 +91,7 @@ function App() {
       <Route path='/createStall' element={<CreateStall/>}></Route>
       <Route path='/Stalllogin' element={<StallLogin/>}></Route>
       <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>       
-      <Route path='/GetProduct' element={<GetProduct/>}></Route>
+      <Route path='/getProduct' element={<GetProduct/>}></Route>
       <Route path='/update/:id' element={<UpdateProduct/>}></Route>
       <Route path='/OurStallsHomePage' element={<OurStallsHomePage/>}></Route> 
       <Route path='/stallAdmin' element={<StallAdmin />}></Route>
@@ -99,7 +100,7 @@ function App() {
       <Route path='/createTicket' element={<TicketForm />}></Route>
       <Route path='/getTicket' element={<AdminTicketList />}></Route>
       <Route path='/menu' element={<SeeMenuPage />}></Route>
-
+      <Route path='/generateMonthlyIncomeReport' element={<MonthlyIncomeReport />}></Route> 
 
     </Routes>
    
