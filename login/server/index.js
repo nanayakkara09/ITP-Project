@@ -6,6 +6,7 @@ const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+
 // database connection
 mongoose
   .connect(process.env.MONGO_URL)
@@ -25,11 +26,16 @@ app.use(
   })
 );
 
+app.use('/stallUploads', express.static('stallUploads'));
+
 // Configure CORS to allow requests from specific origins
 const corsOptions = {
   origin: 'http://localhost:5173', // Change this to match your React app's origin
   credentials: true, // Allow cookies and other credentials to be included in the request
 };
+
+
+
 
 app.use(cors(corsOptions));
 
@@ -39,6 +45,7 @@ app.use('/invDetails', require('./routes/invDetailsRoutes'));
 app.use('/issuedDetails', require('./routes/issuedRoutes'));
 
 
+app.use('/stall', require('./routes/stallRoutes'))
 
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));

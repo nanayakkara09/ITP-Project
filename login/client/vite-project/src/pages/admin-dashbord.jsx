@@ -60,7 +60,6 @@ export default function AdminDashboard() {
   return (
     <div>
       <AdminNavBar />
-
       <div className="bg-image"></div>
       <div className="content">
         <div className="black-box">
@@ -71,9 +70,9 @@ export default function AdminDashboard() {
           <div className="vertical-text">
             <FontAwesomeIcon icon={faCalendar} /> Event
           </div>
-          <div className="vertical-text">
+          <Link to='/stallAdmin' className="vertical-text">
             <FontAwesomeIcon icon={faStore} /> Stall
-          </div>
+          </Link>
           <div className="vertical-text">
             <FontAwesomeIcon icon={faUsersCog} /> Employee
           </div>
@@ -98,7 +97,6 @@ export default function AdminDashboard() {
               {isLoading ? (
                 <p>Loading total users...</p>
               ) : (
-                
                 <p>Total Users: {totalUsers}</p>
               )}
             </div>

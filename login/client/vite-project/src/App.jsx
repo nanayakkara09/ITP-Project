@@ -43,7 +43,29 @@ import Issued from './pages/Issued';
 
 
 
+import "bootstrap/dist/css/bootstrap.min.css";
 
+import CreateStallreq from './pages/CreateStallreq';
+import StallAdminreq from './pages/StallAdminreq';
+import StallCreate from './pages/StallCreate';
+import PizzaMart from './pages/PizzaMart';
+import SweetSerenity from './pages/SweetSerenity';
+import Asiano from './pages/Asiano';
+import SriLankanFoodStall from './pages/SriLankanFoodStall';
+import StallLogin from './pages/StallLogin'
+import StallOwnerDashboard from './pages/StallOwnerDashboard';
+import { StallContextProvider } from '../contex/stallContext';
+import GetProduct from './pages/GetProduct';
+import CreateStall from './pages/CreateStall';
+import UpdateProduct from './pages/UpdateProduct';
+import OurStallsHomePage from './pages/OurStallsHomePage';
+import StallAdmin from './pages/StallAdmin';
+import CreatedStallsAdminView from './pages/CreatedStallsAdminView';
+import MarketingAndPromotionAdmin from './pages/MarketingAndPromotionAdmin';
+import TicketForm from './pages/TicketForm';
+import AdminTicketList from './pages/AdminTicketList';
+import SeeMenuPage from './pages/SeeMenuPage';
+import MonthlyIncomeReport from './pages/MonthlyIncomeReport';
 
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
@@ -51,6 +73,8 @@ axios.defaults.withCredentials=true
 function App() {
   return (
     <UserContextProvider>
+     <StallContextProvider>
+      
     <NavBar/>
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
     <Routes>
@@ -94,7 +118,33 @@ function App() {
   
    
      
+      <Route path="/UserEdit/:userId" element={<UserEdit />} />
+
+      <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
+      <Route path='/stallreq' element={<CreateStallreq />}></Route>
+      <Route path='/stallCreate' element={<StallCreate />}></Route>
+      <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard />}></Route>
+      <Route path='/shop/1' element={<PizzaMart />} />
+      <Route path='/shop/3' element={<SweetSerenity/>}></Route>
+      <Route path='/shop/4' element={<Asiano/>}></Route>
+      <Route path='/shop/2' element={<SriLankanFoodStall/>}></Route>
+      <Route path='/createStall' element={<CreateStall/>}></Route>
+      <Route path='/Stalllogin' element={<StallLogin/>}></Route>
+      <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>       
+      <Route path='/getProduct' element={<GetProduct/>}></Route>
+      <Route path='/update/:id' element={<UpdateProduct/>}></Route>
+      <Route path='/OurStallsHomePage' element={<OurStallsHomePage/>}></Route> 
+      <Route path='/stallAdmin' element={<StallAdmin />}></Route>
+      <Route path='/createdStalls' element={<CreatedStallsAdminView />}></Route>
+      <Route path='/promotions' element={<MarketingAndPromotionAdmin />}></Route>
+      <Route path='/createTicket' element={<TicketForm />}></Route>
+      <Route path='/getTicket' element={<AdminTicketList />}></Route>
+      <Route path='/menu' element={<SeeMenuPage />}></Route>
+      <Route path='/generateMonthlyIncomeReport' element={<MonthlyIncomeReport />}></Route> 
+
     </Routes>
+   
+    </StallContextProvider>
     </UserContextProvider>
   )
 }
