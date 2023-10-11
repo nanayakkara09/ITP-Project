@@ -66,22 +66,30 @@ function ReceiptForStall() {
           <table className="tabe">
             <thead >
               <tr>
-                <th>Stall name</th>
-                <th>Stall type</th>
+               
                 <th>First name</th>
                 <th>Last name</th>
-                <th>Email</th>
+                <th>Stall name</th>
+                <th>Stall type</th>
+                <th>Amount</th>
+                <th>M type</th>
                 <th>Phone</th>
+                <th>Email</th>
+                <th>Payment</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>{stall.sName}</td>
-                <td>{stall.type}</td>
-                <td>{stall.fName}</td>
-                <td>{stall.lName}</td>
-                <td>{stall.email}</td>
-                <td>{stall.phone}</td>
+                 
+                  <td>{stall.fName}</td>
+                  <td>{stall.lName}</td>
+                  <td>{stall.stallName}</td>
+                  <td>{stall.type}</td>
+                  <td>{stall.amount}</td>
+                  <td>{stall.mType}</td>
+                  <td>{stall.phonenumber}</td>
+                  <td>{stall.email}</td>
+                  <td>{stall.payment}</td>
               </tr>
             </tbody>
            
@@ -90,7 +98,13 @@ function ReceiptForStall() {
         <p>Questions? Contact us at +123-456-7890 or StreetBitez@gmail.com</p>
       </div>
       <div className="btn-group mt-4">
-        <button onClick={() => navigate(`/UpdateCardDet/${stall._id}`)} className="btn btn-primary btn1">Ok</button>
+      <button
+  onClick={() => navigate(`/PaymentMethod`, { stallData: stall })}
+  className="btn btn-primary btn1"
+>
+  Ok
+</button>
+
         <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
       </div>
     </div>

@@ -47,26 +47,35 @@ function Getstall() {
     <div className="container my-5 backgr">
       <div className="col-md-9">
         <h3 className="underline-bold">Your all stall payments</h3>
-        <table className="table table-striped table-bstalled">
+        <div className="allstall">
+        <table className="table table-striped table-bstalled ">
           <thead>
             <tr>
-              <th>Stall name</th>
-              <th>Stall type</th>
-              <th>First name</th>
-              <th>Last name</th>
-              <th>Email</th>
-              <th>Phone</th>
+                <th>Stall Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Stall name</th>
+                <th>Stall type</th>
+                <th>Amount</th>
+                <th>M type</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Payment</th>
             </tr>
           </thead>
           <tbody>
             {stall.map((stallItem) => (
               <tr key={stallItem._id}>
-                <td>{stallItem.sName}</td>
-                <td>{stallItem.type}</td>
-                <td>{stallItem.fName}</td>
-                <td>{stallItem.lName}</td>
-                <td>{stallItem.email}</td>
-                <td>{stallItem.phone}</td>
+                <td>{stallItem.stallId}</td>
+                  <td>{stallItem.fName}</td>
+                  <td>{stallItem.lName}</td>
+                  <td>{stallItem.stallName}</td>
+                  <td>{stallItem.type}</td>
+                  <td>{stallItem.amount}</td>
+                  <td>{stallItem.mType}</td>
+                  <td>{stallItem.phonenumber}</td>
+                  <td>{stallItem.email}</td>
+                  <td>{stallItem.payment}</td>
                 <td>
                   <button onClick={() => deleteCard(stallItem._id)} className="btn btn-primary mr-2">
                     Delete Card
@@ -76,6 +85,9 @@ function Getstall() {
             ))}
           </tbody>
         </table>
+
+        </div>
+        
       </div>
       <div className="right-align-container">
         <div className="my-3 searchBar">

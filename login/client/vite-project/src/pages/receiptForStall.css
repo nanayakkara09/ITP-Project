@@ -1,6 +1,6 @@
 .heeeed{
     
-    margin-top: auto;
+    margin-top: -50vh;
     margin-bottom: auto;
     margin-left: auto;
     
@@ -27,7 +27,7 @@
     align-items: center; /* Center horizontally */
     height: 150vh; /* Set the container height to the viewport height for vertical centering */
     margin-top: 5vh;
-    width: 150vh;
+    width: 160vh;
    
     background-color: rgb(132, 138, 138);
   }
@@ -46,16 +46,23 @@
 .invoice-numb{
 
   margin-top: 15vh;
-  margin-right: -40vh;
+  margin-right: -80vh;
   align-items: left;
 }
 .companyDet{
   text-align: left;
-  margin-left: -55vh;
+  margin-right: 60vh;
+  margin-bottom: 10vh;
+  position: relative;
+ 
 }
 p{
   justify-content: center;
   margin-top: 5vh;
   align-items: center;
   
+}
+.tabe{
+ width: 100vh;
+  margin-left: 6vh;
 }

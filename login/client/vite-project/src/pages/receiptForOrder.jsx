@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import './receiptforOrder.css'
+import './receiptForOrder.css';
 import { useReactToPrint } from 'react-to-print';
 
 function ReceiptForOrder() {
@@ -46,6 +46,7 @@ function ReceiptForOrder() {
     month: 'long',
     day: 'numeric',
   });
+
   const printStyles = `
     @media all {
       .page-break {
@@ -74,75 +75,73 @@ function ReceiptForOrder() {
       margin: 20mm;
     }
   `;
+
   return (
-    <div className="bgh-im">
+    <div className="bgh-img">
       <div className="backgroundCol">
-        
-      <style>{printStyles}</style> 
-      <div ref={componentPdf} style={{ width: '100%' }}>
-       
-
-       {/* Center the table */}
-       <div className="text-center mx-uto" style={{ width: '80%' }}>
-       <h1 className="headd2">Transaction receipt</h1>
-     
-         <div className="invoice-numb">
-         <strong>Invoice Number:</strong> INV-2023-001<br />
-         <strong>Invoice Date:</strong> {currentDate}<br/>
-         </div>
-      <div className="companyDet">
-           <strong>Street Bitez</strong><br />
-           <strong>Street Address:</strong> 123 Main St, Colombo 01, StreetBitez<br />
-           <strong>Country:</strong> Sri Lanka<br />
-           <strong>City:</strong> Colombo<br />
-           <strong>Email:</strong> StreetBitez@gmail.com
-
+        <style>{printStyles}</style> 
+        <div ref={componentPdf} style={{ width: '100%' }}>
+          {/* Center the table */}
+          <div className="text-center mx-auto stallComp" style={{ width: '80%' }}>
+            <h1 className="heed">Transaction receipt</h1>
+            <div className="invoice-numbb">
+              <strong>Invoice Number:</strong> INV-2023-001<br />
+              <strong>Invoice Date:</strong> {currentDate}<br/>
+            </div>
+            <div className="companyDett">
+              <strong>Street Bitez</strong><br />
+              <strong>Street Address:</strong> 123 Main St, Colombo 01, StreetBitez<br />
+              <strong>Country:</strong> Sri Lanka<br />
+              <strong>City:</strong> Colombo<br />
+              <strong>Email:</strong> StreetBitez@gmail.com
+            </div>
+            <div className="OrderTab">
+              <table className="tabe">
+                <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th>Image</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{order.name}</td>
+                    <td>{order.quantity}</td>
+                    <td>{order.price}</td>
+                    <td>{order.date}</td>
+                    <td>{order.status}</td>
+                    <td>
+                      {/* Display the image */}
+                      {order.image && (
+                        <img
+                          src={`data:${order.image.contentType};base64,${order.image.data}`}
+                          alt="Order Image"
+                          style={{ maxWidth: "100px", maxHeight: "100px" }}
+                        />
+                      )}
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colSpan="2" className="text-right"><strong> Sub Total:</strong></td>
+                    <td>${order.total}</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+          <p>Questions? Contact us at +123-456-7890 or StreetBitez@gmail.com</p>
+        </div>
+        <div className="btn-group mt-4">
+          <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Ok</button>
+          <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
+        </div>
       </div>
-           <div className="OrderTab">
-           <table className="table">
-           <thead >
-             <tr>
-               <th>Name</th>
-               <th>Quantity</th>
-               <th>Price</th>
-              
-               <th>Date</th>
-               <th>Status</th>
-               <th>Image</th>
-             </tr>
-           </thead>
-           <tbody>
-             <tr>
-               <td>{order.name}</td>
-               <td>{order.quantity}</td>
-               <td>{order.price}</td>
-            
-               <td>{order.date}</td>
-               <td>{order.status}</td>
-               <td>{order.image}</td>
-             </tr>
-           </tbody>
-           <tfoot>
-             <tr>
-               <td colSpan="2" className="text-right"><strong> Sub Total:</strong></td>
-               <td>${order.total}</td>
-             </tr>
-           </tfoot>
-         </table>
-            
-           </div>
-        
-       </div>
-       <p>Quastions? Contact us at +123-456-7890 or StreetBitez@gmail.com </p>
-
-     </div>
-     <div className="btn-group mt-4">
-       <button onClick={() => navigate(`/UpdateCardDet/${order._id}`)} className="btn btn-primary btn1">Ok</button>
-       <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
-     </div>
-
-      </div>
-   
     </div>
   );
 }

@@ -1,80 +1,68 @@
-.headd2{
-    margin-left: 20vh;
-    margin-top: -10vh;
-    margin-bottom: -5vh;
+.heed{
     
+  margin-top: -50vh;
+  justify-content: center;
+  margin-left: 5vh;
+  width: auto;
 }
 .btn1{
-  margin-right: 10vh;
- 
+margin-right: 10vh;
+
 }
 .btn2{
- margin-left: 10vh;
+margin-left: 10vh;
 
 }
 .text-left{
- 
+
+flex-direction: column;
+margin-top: 25vh;
+margin-left: -25vh;
+
+}
+.bgh-img{
+  display: flex;
   flex-direction: column;
-  margin-top: 25vh;
-  margin-left: -25vh;
-  
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  height: 150vh; /* Set the container height to the viewport height for vertical centering */
+  margin-top: 5vh;
+  width: 160vh;
+ 
+  background-color: rgb(132, 138, 138);
 }
-.bgh-im{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    height: 100vh; /* Set the container height to the viewport height for vertical centering */
-    margin-top: 20vh;
-    width: 100vh;
-    height: 100vh;
-   
-  
-  }
-.mx-uto{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Center vertically */
-    align-items: center; /* Center horizontally */
-    /* Set the container height to the viewport height for vertical centering */
-    margin-top: 40vh;
-    margin-right: 14vh;
-    width: 50vh;
-   
+.stallComp{
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center vertically */
+  align-items: center; /* Center horizontally */
+  /* Set the container height to the viewport height for vertical centering */
+  margin-top: 40vh;
+  margin-right: 14vh;
+  width: 50vh;
+ 
 
-  }
-  
-.invoice-numb{
-
-  margin-top: 15vh;
-  margin-left: 35vh;
-  align-items: flex-end;
-  justify-content: end;
-  text-align: end;
 }
-.companyDet{
-  text-align: left;
-  margin-left: -25vh;
+.invoice-numbb{
+
+margin-top: 15vh;
+margin-right: -72vh;
+align-items: left;
+}
+.companyDett{
+text-align: left;
+margin-right: 43vh;
+margin-bottom: 10vh;
+position: relative;
+width: max-content;
 }
 p{
-  justify-content: center;
-  margin-top: 5vh;
-  align-items: center;
-  
+justify-content: center;
+margin-top: 5vh;
+align-items: center;
+
 }
-.backgroundCol{
-  background-color: aliceblue;
-  justify-content: center;
-  align-items: center;
-  height: 200%;
-  width: fit-content;
-}
-.OrderTab{
-  margin-left: 30vh;
-  height: 50vh;
-  width: max-content;
-}
-.table{
-  width: auto;
-  margin: auto;
+.tabe{
+width: 100vh;
+margin-left: 6vh;
 }

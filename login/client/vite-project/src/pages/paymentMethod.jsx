@@ -1,34 +1,43 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import myImage from '../images/visaa.jpg';
-import cashon from '../images/cashondeliveryy.jpg';
-import './PaymentMeth.css';
+import { useNavigate, useLocation } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import paymetMethod from '../images/methodpayment.gif';
+import "./PaymentMeth.css";
 
 function PaymentMeth() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const stallData = location.state && location.state.stallData;
 
   return (
-    <div className="container mt-5 parent">
-      <div className="row mt-3 font">
-      <button
-          onClick={() => navigate(`/CardDet`)}
-          className="btn btn-secondary btn1"
-          style={{ width: "100px", height: "100px" }} // Adjust width and height as needed
+    <div className="container mt-5 parent full">
+     
+
+      
+      <div className="row mt-3 depoAndUp">
+        <p>"deposit money and upload a slip" process is a fundamental part of financial transactions, adding a layer of trust and accountability to financial dealings, both in personal and business contexts. It ensures that there is clear documentation of payments, which can be beneficial for financial tracking and dispute resolution</p>
+        <button
+          onClick={() => navigate(`/UploadSlip`, { stallData: stallData })}
+          className="btn btn-secondary bttn1"
+          style={{ width: "200px", height: "70px" }}
         >
           Deposit and upload a slip
         </button>
       </div>
 
-      <div className="col-md-6 cont1">
-      <button
-          onClick={() => navigate(`/CardDet`)}
-          className="btn btn-secondary btn2"
-          style={{ width: "100px", height: "100px" }} // Adjust width and height as needed
+      <h3 className="phead">Payment method</h3>
+      <div className="col-md-6 cashOndeli">
+        <p style={{margin: "auto"}}>Cash on Delivery is a payment method that prioritizes customer convenience, security, and trust. It's particularly useful in areas where online payment infrastructure is less developed, and it allows buyers to make payments for their orders when they are physically delivered.This minimizes the risk of fraud, as customers can verify the quality and condition of the products before releasing payment.    </p>
+        <button
+          onClick={() => navigate(`/CashOnDeliver`)}
+          className="btn btn-secondary bttn2"
+          style={{ width: "200px", height: "70px" }}
         >
           Cash on delivery
         </button>
-        
+      </div>
+      <div className="col-md-6 ">
+      <img src={paymetMethod} className="methodImg" alt="Food 3"/>
       </div>
     </div>
   );

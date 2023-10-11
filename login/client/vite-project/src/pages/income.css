@@ -13,10 +13,22 @@
   margin-top: 20vh;
   margin-left: 5vh;
 }
-.searchbar{
-  margin-top:  -60vh;
-  
-}
+
 .inputTypes{
   width: 40vh;
+}
+.AllIncomeTables{
+  margin-left: -24vh;
+}
+.IncHead{
+  margin-top: 10vh;
+}
+.totalIncome{
+  width: 70vh;
+  margin-top: 15vh;
+  margin-left: 30vh;
+}
+.externalBtn{
+  margin-left: 10vh;
+
 }

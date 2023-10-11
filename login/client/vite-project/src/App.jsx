@@ -96,7 +96,7 @@ function App() {
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
       <Route path='/FinancePage' element={<FinancePage/>}></Route>
-      <Route path='/IncomeReport/:id' element={<IncomeReport/>}></Route>
+      <Route path='/IncomeReport' element={<IncomeReport/>}></Route>
       <Route path='/Expenses' element={<Expenses/>}></Route>
       <Route path='/IncomePage' element={<IncomePage/>}></Route>
       <Route path='/UploadSlip' element={<UploadSlip/>}></Route>

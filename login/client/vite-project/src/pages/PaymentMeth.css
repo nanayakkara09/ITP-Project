@@ -1,2 +1,40 @@
 /* PaymentMeth.css */
 
+.depoAndUp{
+    background-color: aliceblue;
+    width: 30vh;
+    height: 60vh;
+    margin-left: 5vh;
+    margin-top: auto;
+   
+}
+.bttn1{
+    
+   
+    margin-left: 1vh;
+   
+}
+.cashOndeli{
+    background-color: aliceblue;
+    width: 30vh;
+    height: 60vh;
+    margin-left: auto;
+    margin-right: auto;
+   margin-top: 2vh;
+}
+.methodImg{
+    margin-top: 5vh;
+    height: 50vh;
+    margin-left: 15vh;
+    margin-right: -10vh;
+    width: 60vh;
+    
+}
+.full{
+    background-color: aqua;
+    width: 200vh;
+    height: 70vh;
+}
+.phead{
+    margin-top: 30vh;
+}
