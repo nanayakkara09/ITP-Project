@@ -68,18 +68,21 @@ export default function AdminDashboard() {
           <Link to="/customerAdmin" className="vertical-text">
             <FontAwesomeIcon icon={faUsers} /> Customer
           </Link>
-          <div className="vertical-text">
+           <Link to="/eventList" className="vertical-text">
             <FontAwesomeIcon icon={faCalendar} /> Event
-          </div>
-          <div className="vertical-text">
+            </Link>
+         
+          <Link to='/stallAdmin' className="vertical-text">
+         
+         
             <FontAwesomeIcon icon={faStore} /> Stall
-          </div>
+            </Link>
           <div className="vertical-text">
             <FontAwesomeIcon icon={faUsersCog} /> Employee
           </div>
-          <div className="vertical-text">
+          <Link to= "/order-admin" className="vertical-text">
             <FontAwesomeIcon icon={faClipboardList} /> Order
-          </div>
+          </Link>
           <div className="vertical-text">
             <FontAwesomeIcon icon={faTruck} /> Delivery
           </div>
@@ -89,6 +92,7 @@ export default function AdminDashboard() {
           <div className="vertical-text">
             <FontAwesomeIcon icon={faDollarSign} /> Finance
           </div>
+          
         </div>
         <br></br>
         {!!user && (

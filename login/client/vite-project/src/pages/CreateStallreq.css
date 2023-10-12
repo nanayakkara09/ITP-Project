@@ -1,0 +1,54 @@
+/* Add this CSS to your component's CSS file */
+
+.container-fluid.background {
+  background-color: #f7f7f5;
+  min-height: 100vh;
+}
+
+.card {
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.form-control-lg {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 1rem;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.invalid-feedback {
+  color: #dc3545;
+  font-size: 0.9rem;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
