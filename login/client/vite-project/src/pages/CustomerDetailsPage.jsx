@@ -146,8 +146,7 @@ export default function CustomerDetailsPage() {
                 <th scope="col">City</th>
                 <th scope="col">Province</th>
                 <th scope="col">Phone Number</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
+                
               </tr>
             </thead>
             <tbody>
