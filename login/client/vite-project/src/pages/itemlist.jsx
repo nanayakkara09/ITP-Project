@@ -19,6 +19,12 @@ export default function itemlist(props) {
       try {
         const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
         setItems(data);
+        data.forEach(item => {
+          if (item.quantity <= item.reorder) {
+            // Trigger notification
+            addNotification(`Item '${item.name}' quantity is below reorder level!`);
+          }
+        });
         //setIsLoading(false);
       } catch (error) {
         console.error(error);

@@ -87,6 +87,7 @@ const [formData, setFormData] = useState({
 
   return (
     <div className="issue-entry-form">
+      <div><AdminNavBar /></div>
       <h2>Issue Entry Form</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

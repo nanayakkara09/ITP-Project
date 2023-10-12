@@ -5,17 +5,29 @@ import AdminNavBar from '../components/adminNavBar';
 //import './Issued.css'; // Import the CSS file for styling
 import { Link } from 'react-router-dom';
 import { useNavigate, useParams } from 'react-router-dom';
-import Stolecard from '../components/Stolecard';
 
 
 export default function Issued() {
-    return(
+    return (
         <div className="issued-container">
-      <AdminNavBar />
-      <Stolecard/>
-      </div>
+            <AdminNavBar />
+
+            <div className="card h-100">
+
+                <div className="card-body">
+                    <h5 className="card-title">fdfg</h5>
+                    <p className="card-text">ghfg</p>
+                </div>
+                <div className="card-footer">
+                    {/*  <Link to={`/shop/${stall.id}`} className="btn btn-primary">
+            View Stall
+          </Link> */}
+                </div>
+            </div>
+        </div>
+      
     );
 
 
-    
+
 }
