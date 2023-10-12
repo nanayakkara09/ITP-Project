@@ -3,7 +3,7 @@ import './eventHome.css';
 import event1 from '../images/event1.jpg';
 import event2 from '../images/event2.jpg';
 import event7 from '../images/event7.jpg';
-
+import eventHome from '../images/eventhome.jpeg';
 import event4 from '../images/3.jpg';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -11,16 +11,16 @@ import { Link, useNavigate } from 'react-router-dom';
 export default function EventHome() {
     const navigate = useNavigate();
   return (
-    <div className="bgh-image4">
-    <div className="bgh-image4">
-    <img src={eventHome} alt="Event" className="background-image" />
-  </div>
-    <div className="front-page-container">
-      <div className="choose-event-heading">
-      <h1>CHOOSE YOUR EVENT</h1>
+  
+    <div className="bgh-image7">
+    <img src={eventHome} alt="Event" className="background-image7" />
+    <div className="front-page-container7">
+      <div className="choose-event-heading7">
+    
       </div>
-      <div className="success-container">
+      <div className="success-container7">
         <div className="event-selection-container">
+    <h1>CHOOSE YOUR EVENT</h1>
           
           <div className="image-grid">
             <Link to="/eventDetail" className="event-link">
@@ -78,7 +78,7 @@ Event branding.</span>
             </Link>
             {/* Repeat the same structure for other event options */}
           
-        </div></div></div><br />
+        </div><br />
           <div className="App">
             <h2 >Thank you for choosing Street Bitz.</h2>
           </div>
@@ -93,7 +93,7 @@ Event branding.</span>
             <button onClick={() => navigate('/eventAbout')} className="btn btn-primary">
               About Us
             </button>
-          </div>
+            </div> 
        
 
    
@@ -118,7 +118,7 @@ Event branding.</span>
         </div>
       </footer>
     </div>
-    </div>
+    </div> </div></div>
     
   );
 }

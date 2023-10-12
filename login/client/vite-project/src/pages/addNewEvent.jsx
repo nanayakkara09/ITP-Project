@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import "./addNewEvent.css";
+import eventform1 from '../images/eventform1.jpeg';
 
 
 export default function AddNewEvent() {
@@ -35,10 +37,18 @@ export default function AddNewEvent() {
   };
 
   return (
-    <div className="container">
+
+    
+
+
+      <div className="bgh-image9">
+        <img src={eventform1} alt="Event" className="background-image9" />
+     
+    <div className="container9">
       <form onSubmit={handleSubmit}>
-        <h2>EVENT PROPOSAL FORM</h2>
+        
         <div className="form-group">
+        <h1>EVENT PROPOSAL FORM</h1>
           <label htmlFor="name">Name:</label>
           <input
             className="form-control"
@@ -170,6 +180,7 @@ export default function AddNewEvent() {
           Submit
         </button>
       </form>
+    </div>
     </div>
     
   );

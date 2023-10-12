@@ -1,4 +1,4 @@
-.event-detail-container2 {
+.event-detail-container4 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@ h2 {
   text-decoration-style: double;
 }
 
-.event-proposal-details2 {
+.event-proposal-details4 {
   background-color: rgb(240, 229, 229);
   padding: 40px;
   border-radius: 5px;
@@ -47,7 +47,7 @@ ul.event-table li {
 }
 
 
-.background-image2 {
+.background-image4 {
   width: 100%;
   height: auto;
   position: absolute;
@@ -55,7 +55,7 @@ ul.event-table li {
   left: 0;
   z-index: -1;
 }
-.event-details-content2 {
+.event-details-content4 {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 8px;
@@ -65,8 +65,8 @@ ul.event-table li {
   position: relative; /* Add this line */
   z-index: 1; /* Add this line to bring it to the front */
 }
-.bgh-image2 {
-  background-image: url('../images/getToGether.jpg');
+.bgh-image4 {
+  background-image: url('../images/BrideToBe.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;

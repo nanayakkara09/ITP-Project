@@ -1,4 +1,4 @@
-.event-detail-container {
+.event-detail-container1 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -16,7 +16,7 @@ h2 {
   text-decoration-style: double;
 }
 
-.event-proposal-details {
+.event-proposal-details1 {
   background-color: rgb(240, 229, 229);
   padding: 40px;
   border-radius: 5px;
@@ -47,7 +47,7 @@ ul.event-table li {
 }
 
 
-.background-image {
+.background-image1 {
   width: 100%;
   height: auto;
   position: absolute;
@@ -55,7 +55,7 @@ ul.event-table li {
   left: 0;
   z-index: -1;
 }
-.event-details-content {
+.event-details-content1 {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 8px;
@@ -64,4 +64,20 @@ ul.event-table li {
   text-align: left;
   position: relative; /* Add this line */
   z-index: 1; /* Add this line to bring it to the front */
+}
+.bgh-image1 {
+  background-image: url('../images/brithday.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+ background-repeat: no-repeat;
+  display: cover;
+  align-items: cover;
+  justify-content: cover; /* To center horizontally */
+  
+  opacity: 1.1; 
 }

@@ -1,12 +1,12 @@
 /* FrontPage.css */
-.front-page-container {
+.front-page-container7 {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
 /* CSS */
-.choose-event-heading {
+.choose-event-heading7 {
   text-align: center; /* Center-align the text */
   position: relative; /* Create a relative positioning context */
 }
@@ -42,7 +42,7 @@
 }
 
 
-.success-container {
+.success-container7 {
   background-color: #f9f9f9;
   padding: 20px;
   border-radius: 10px;
@@ -128,4 +128,28 @@ hr {
   color: rgb(22, 21, 21); /* Choose the text color that works well with the highlight color */
   padding: 10px; /* Adjust the padding as needed */
   
+}
+.bgh-image7 {
+  background-image: url('../images/getToGether.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+ background-repeat: no-repeat;
+  display: cover;
+  align-items: cover;
+  justify-content: cover; /* To center horizontally */
+  
+  opacity: 1.1; 
+}
+.background-image7 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

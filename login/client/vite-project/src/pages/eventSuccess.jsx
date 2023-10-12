@@ -1,5 +1,6 @@
 import React from 'react';
 import './eventSuccess.css';
+import thankYou from '../images/thankYou.jpeg';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -7,8 +8,11 @@ import { Link } from 'react-router-dom';
 export default function eventSuccess() {
   const navigate = useNavigate();
   return (
+    <div className="bgh-image2">
+    <img src={thankYou} alt="Event" className="background-image5" />
+    <div className="event-proposal-details5">
     <div className="success-container">
-      <h1 className="success-heading">SUBMITTED!</h1>
+      <h2 className="success-heading">SUBMITTED!</h2>
       <h2 className="success-heading">THANK YOU!</h2>
       <p>Your request has been successfully processed.</p>
       <p>Thank you for choosing Street Bitz.</p>
@@ -36,7 +40,7 @@ export default function eventSuccess() {
           <p className="text-center">All rights reserved &copy; </p>
         </div>
       </footer>
-    </div>
+    </div>  </div></div>
   );
 }
 

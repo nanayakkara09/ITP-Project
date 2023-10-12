@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import html2pdf from 'html2pdf.js';
 import brithday from '../images/brithday.jpeg';
-import './eventDetail1.css';
+import './eventDetail.css';
 
 export default function eventDetail() {
   const navigate = useNavigate();
@@ -27,15 +27,15 @@ export default function eventDetail() {
   };
   return (
 
-    <div className="bgh-image3">
+    <div className="bgh-image1">
 
-    <div className="event-detail-container">
-         <div className="bgh-image3">
-           <img src={brithday} alt="Event" className="background-image" />
+    <div className="event-detail-container1">
+         <div className="bgh-image1">
+           <img src={brithday} alt="Event" className="background-image1" />
          </div>
-         <div className="event-details-content">
+         <div className="event-details-content1">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details">
+        <div className="event-proposal-details1">
           <h2>EVENT PROPOSAL DETAILS</h2>
           <ul className="event-table">
           <li>
@@ -67,8 +67,9 @@ export default function eventDetail() {
               <strong>Budget:</strong> RS.60000/=
             </li>
           </ul>
-          <button onClick={downloadPDF} className="btn btn-primary">
-            Download PDF
+          <button   onClick={() => navigate('/eventSuccess')}
+            type="submit" className="btn btn-primary">
+            Submit
           </button>
        
   

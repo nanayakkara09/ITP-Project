@@ -1,11 +1,17 @@
 /* WhyChooseUs.css */
-.why-choose-us-container {
-  text-align: center;
-  padding: 40px 0;
-  background-color: #f9f9f9;
+.why-choose-us-container11 {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  max-width: 500px;
+  text-align: left;
+  position: relative; /* Add this line */
+  z-index: 1; /* Add this line to bring it to the front */
 }
 
-.card-container {
+
+.card-container11 {
   display: flex;
   justify-content: center;
   gap: 20px;
@@ -13,7 +19,7 @@
   margin: 0 auto;
 }
 
-.card {
+.card11 {
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -26,7 +32,7 @@
   transform: translateY(-5px);
 }
 
-.card-icon {
+.card-icon11 {
   font-size: 40px;
   margin-bottom: 20px;
   color: #007bff;
@@ -39,4 +45,29 @@ h3 {
 
 p {
   font-size: 16px;
+}
+.bgh-image11 {
+  background-image: url('images/eventAboutus.jpg'); /* Adjust the URL as needed */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: cover;
+  justify-content: cover;
+  opacity: 1.1; /* Adjust the opacity value */
+}
+
+
+.background-image11 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }

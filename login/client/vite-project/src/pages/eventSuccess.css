@@ -1,6 +1,24 @@
 .success-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
+  position: relative; /* Add this line */
+  
+}
+.event-proposal-details5 {
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
+  width: 800px; /* Increase the width as needed */
+  border-radius: 8px;
+  max-width: 100%; /* Make sure it's responsive */
+  text-align: center;
+  margin: 0 auto; /* Horizontally center */
+  position: absolute;
+  top: 50%; /* Vertically center */
+  left: 50%; /* Horizontally center */
+  transform: translate(-50%, -50%); /* Correctly center it */
+  z-index: 1;
 }
 
 .success-heading {
@@ -32,10 +50,27 @@ p {
 
 .btn-primary {
   background-color: #007bff;
-  color: #fff;
+  color: #9d7979;
   border: none;
 }
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+
+.bgh-image4 {
+  background-image: url('../images/thankYou.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 200vh;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+ background-repeat: no-repeat;
+  display: cover;
+  align-items: cover;
+  justify-content: cover; /* To center horizontally */
+  
+  opacity: 1.1; 
 }

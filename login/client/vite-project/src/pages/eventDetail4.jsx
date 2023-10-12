@@ -1,14 +1,19 @@
 import React from 'react';
-import './eventDetail.css';
+import './eventDetail4.css';
+import BrideToBe from '../images/BrideToBe.jpg';
 import { useNavigate } from 'react-router-dom';
 
 export default function eventDetail() {
   const navigate = useNavigate();
   return (
-    <div className="event-details-container">
-      <div className="content">
+    <div className="bgh-image4">
+    <div className="event-details-container4">
+    <div className="bgh-image4">
+        <img src={BrideToBe} alt="Event" className="background-image4" />
+      </div>
+      <div className="event-detail-container4">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details">
+        <div className="event-proposal-details4">
           <h2>EVENT PROPOSAL DETAILS</h2>
           <ul className="event-table">
           <li>
@@ -46,8 +51,7 @@ export default function eventDetail() {
           >
             Submit
           </button>
-        </div>
-      </div>
+      
   
       <hr />
       <footer className="footer">
@@ -65,5 +69,7 @@ export default function eventDetail() {
         </div>
       </footer>
     </div>
+    </div>  </div>
+      </div>
   );
 }

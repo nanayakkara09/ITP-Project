@@ -1,30 +1,83 @@
-/* eventDetail1.css */
-.bgh-image1 {
-    background-image: url('../images/freeEvent.jpg');
-    background-size: cover;
-    background-position: left top; /* Set background image to the left corner */
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
+.event-detail-container3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Add this line */
+}
+
+.content {
+  text-align: center;
+}
+
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+  text-decoration-style: double;
+}
+
+.event-proposal-details3 {
+  background-color: rgb(240, 229, 229);
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(208, 189, 189, 0.1);
+}
+
+ul.event-table {
+  list-style: none;
+  padding: 0;
+  color: #0a223b;
+}
+
+ul.event-table li {
+  margin: 10px 0;
+  color: #000000;
+}
+
+.btn {
+  background-color: #007bff;
+  color: rgb(9, 5, 5);
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #0056b3;
+}
+
+
+.background-image3 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.event-details-content3 {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  max-width: 500px;
+  text-align: left;
+  position: relative; /* Add this line */
+  z-index: 1; /* Add this line to bring it to the front */
+}
+.bgh-image3 {
+  background-image: url('../images/freeEvent.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+ background-repeat: no-repeat;
+  display: cover;
+  align-items: cover;
+  justify-content: cover; /* To center horizontally */
   
-  .event-detail-container {
-    background-color: rgba(0, 0, 0, 0.9); /* Add a semi-transparent white background to the details */
-    width: 70%;
-    margin: 0 auto; /* Center the details in the middle */
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(23, 12, 12, 0.2);
-    
-  }
-  
-  .background-image {
-    max-width: 100%;
-  }
-  
-  .event-details-content {
-    text-align: left;
-  }
-  
-  /* Add any additional styling as needed for your content */
-  
+  opacity: 1.1; 
+}

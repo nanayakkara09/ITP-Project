@@ -8,13 +8,13 @@ export default function eventDetail() {
   return (
     <div className="bgh-image2">
 
- <div className="event-detail-container">
+ <div className="event-detail-container2">
       <div className="bgh-image2">
-        <img src={getToGether} alt="Event" className="background-image" />
+        <img src={getToGether} alt="Event" className="background-image2" />
       </div>
-      <div className="event-details-content">
+      <div className="event-details-content2">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details">
+        <div className="event-proposal-details2">
           <h2>EVENT PROPOSAL DETAILS</h2>
           <ul className="event-table">
           <li>
