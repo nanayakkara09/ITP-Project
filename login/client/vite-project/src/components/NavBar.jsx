@@ -81,9 +81,9 @@ export default function NavBar() {
             <Link to="/profile">
               <FontAwesomeIcon icon={faUser} /> Profile
             </Link>
-            <button onClick={handleLogout}>
+            <Link to="/" onClick={handleLogout}>
               <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-            </button>
+            </Link>
           </>
         )}
       </div>

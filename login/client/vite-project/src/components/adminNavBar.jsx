@@ -35,9 +35,9 @@ export default function AdminNavBar() {
       <Link to="/admin-dashbord">
         <FontAwesomeIcon icon={faTachometerAlt} /> Dashboard
       </Link>
-      <button onClick={handleLogout}>
+      <Link  onClick={handleLogout}>
         <FontAwesomeIcon icon={faSignOutAlt} /> Logout
-      </button >
+      </Link>
     </div>
   );
 }

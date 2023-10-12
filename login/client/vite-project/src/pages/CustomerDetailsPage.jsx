@@ -56,19 +56,63 @@ export default function CustomerDetailsPage() {
   const generatePDF = () => {
     const pdf = new jsPDF();
   
-    const table = document.querySelector('.table'); 
+    // Hide remove, edit, and delete buttons before capturing the content
+    const removeButtons = document.querySelectorAll('.remove-button');
+    const editButtons = document.querySelectorAll('.edit-button');
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    
+    // Set display to none for these buttons
+    removeButtons.forEach(button => {
+      button.style.display = 'none';
+    });
+    editButtons.forEach(button => {
+      button.style.display = 'none';
+    });
+    deleteButtons.forEach(button => {
+      button.style.display = 'none';
+    });
   
+    const table = document.querySelector('.table');
   
-    const tableHeight = pdf.internal.pageSize.height - 20; // Adjust the margin as needed
+    const tableHeight = pdf.internal.pageSize.height - 60; // Adjust the margin as needed
+    const pageTitle = 'Steetbitz';
+    const pageTitle2 = 'Customers list';
+    const currentDate = new Date().toLocaleString();
   
     html2canvas(table).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
   
-      pdf.addImage(imgData, 'PNG', 10, 10, pdf.internal.pageSize.getWidth() - 20, tableHeight);
+      // Add "Steetbitz" at the top
+      pdf.text(10, 10, pageTitle);
   
-      pdf.save('table.pdf'); // Change the filename as desired
+      // Add "Customers list" as a subtitle
+      pdf.setFontSize(16); // Adjust the font size as needed
+      pdf.text(10, 20, pageTitle2);
+    
+      // Add the current date and time below "Steetbitz"
+      pdf.setFontSize(12); // Adjust the font size as needed
+      pdf.text(10, 30, currentDate);
+    
+      // Add the table below the date
+      pdf.addImage(imgData, 'PNG', 10, 40, pdf.internal.pageSize.getWidth() - 20, tableHeight);
+    
+      // Revert the display to its original state for these buttons
+      removeButtons.forEach(button => {
+        button.style.display = 'block'; // or 'inline', 'inline-block', etc., depending on their original style
+      });
+      editButtons.forEach(button => {
+        button.style.display = 'block'; // or 'inline', 'inline-block', etc., depending on their original style
+      });
+      deleteButtons.forEach(button => {
+        button.style.display = 'block'; // or 'inline', 'inline-block', etc., depending on their original style
+      });
+  
+      pdf.save('Customers_table.pdf'); // Change the filename as desired
     });
   };
+  
+  
+  
 
   return (
     <div>

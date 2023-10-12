@@ -45,12 +45,12 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
+    <div className="loginh-container">
       <div className="bgs-image"></div>
       <br></br>
       <br></br>
       
-        <div className="contentL">
+        <div className="contentLo">
           <h2>Login</h2>
           <form onSubmit={loginUser}>
             <div className="mb-3">
