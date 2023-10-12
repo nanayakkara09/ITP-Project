@@ -18,6 +18,11 @@ function IncomePage() {
   const [income, setIncome] = useState([]);
   const navigate = useNavigate();
 
+  const updateIncome = (Id) => {
+    // Use the navigate function to go to the update income page with the income ID as a parameter
+    navigate(`/updateIncome/${Id}`);
+  };
+
   useEffect(() => {
     const fetchAllorder = async () => {
       try {
@@ -73,9 +78,9 @@ function IncomePage() {
     }
   };
 
-  const deleteIncome = async (incomeId) => {
+  const deleteIncome = async (Id) => {
     try {
-      await axios.delete(`http://localhost:8000/deleteIncome/${incomeId}`);
+      await axios.delete(`http://localhost:8000/deleteIncome/${Id}`);
       navigate("/DeleteCard");
     } catch (error) {
       console.error("Error deleting income:", error);
@@ -84,7 +89,7 @@ function IncomePage() {
 
   const deleteStall = async (stallId) => {
     try {
-      await axios.delete(`http://localhost:8000/deleteStall/${stallId}`);
+      await axios.delete(`http://localhost:8000/stall/deleteStall/${stallId}`);
       navigate("/DeleteCard");
     } catch (error) {
       console.error("Error deleting stall:", error);
@@ -103,6 +108,19 @@ useEffect(() => {
   const inputTypeTwoTotal = calculateInputTypeTwoSubtotal();
   setSubtotal(inputTypeTwoTotal);
 }, [income]);
+//calculate subtotal of input type four
+const calculateInputTypefourSubtotal = () => {
+  const total = income.reduce((acc, incomeItem) => {
+    return acc + (parseFloat(incomeItem.inputTypeFour) || 0);
+  }, 0);
+  return total;
+};
+
+useEffect(() => {
+  // Recalculate the "Input Type Two" subtotal whenever the 'income' state changes
+  const inputTypeFourTotal = calculateInputTypefourSubtotal();
+  setSubtotal(inputTypeFourTotal);
+}, [income]);
 
 
   useEffect(() => {
@@ -111,7 +129,13 @@ useEffect(() => {
   }, [order]);
 
   // Calculate the subtotal for Income from Stalls
-  const totalStallPayments = stall.reduce((acc, stallItem) => acc + stallItem.payment, 0);
+
+  // Function to calculate the total payments from stalls
+  const calculateTotalStallPayments = () => {
+    return stall.reduce((acc, stallItem) => acc + (parseFloat(stallItem.payment) || 0), 0);
+  };
+
+  const totalStallPayments = calculateTotalStallPayments();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -289,10 +313,10 @@ useEffect(() => {
           <table className="table table-striped table-bordered custom-table">
             <thead>
               <tr>
-                <th>Input one</th>
-                <th>Input two</th>
-                <th>Input three</th>
-                <th>Input Four</th>
+                <th>Income from</th>
+                <th>Amount</th>
+                <th>Income from</th>
+                <th>Amount</th>
               </tr>
             </thead>
             <tbody>
@@ -309,6 +333,12 @@ useEffect(() => {
                     >
                       Delete Card
                     </button>
+                    <button
+                    onClick={() => updateIncome(incomeItem._id)}
+                    className="btn btn-primary mr-2 incomeUpdate"
+                  >
+                    Edit
+                  </button>
                   </td>
                 </tr>
               ))}
@@ -319,6 +349,10 @@ useEffect(() => {
                   <strong> Sub Total (Input Type Two):</strong>
                 </td>
                 <td>${calculateInputTypeTwoSubtotal()}</td>
+                <td colSpan="1" className="text-right">
+                  
+                </td>
+                <td>${calculateInputTypefourSubtotal()}</td>
               </tr>
             </tfoot>
           </table>
@@ -326,15 +360,15 @@ useEffect(() => {
           <table className="table table-striped table-bordered custom-table totalIncome">
   <thead>
     <tr>
-      <th>Total income from orders</th>
       <th>Total income from external income</th>
+      <th>Total income from orders</th>
       <th>Total income from stalls</th>
       <th>Overall income</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td>${calculateInputTypeTwoSubtotal()}</td>
+      <td>${calculateInputTypeTwoSubtotal() + calculateInputTypefourSubtotal()}</td>
       <td>${subtotal}</td>
       <td>${totalStallPayments}</td> {/* Assuming this is your total income from stalls */}
       <td>${calculateInputTypeTwoSubtotal() + subtotal + totalStallPayments}</td>

@@ -75,16 +75,20 @@ function GetOrder() {
                 <td>{order.image}</td>
                 <td>
                  
-                <button onClick={() => deleteCard(order._id)} className="btn btn-primary mr-2">
-                    Delete Card
-                  </button>
+                <button
+                      onClick={() => deleteCard(order._id)}
+                      className="btn btn-primary mr-2"
+                    >
+                      Delete Card
+                    </button>
                 </td>
               </tr>
             ))}
           </tbody>
           
         </table>
-        
+        <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Back to payment</button>
+
       </div>
       <div className="right-align-container searchbar" >
         <div className="my-3 searchBar">

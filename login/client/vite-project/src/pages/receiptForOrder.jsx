@@ -138,7 +138,8 @@ function ReceiptForOrder() {
           <p>Questions? Contact us at +123-456-7890 or StreetBitez@gmail.com</p>
         </div>
         <div className="btn-group mt-4">
-          <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Ok</button>
+          <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Pay now</button>
+          <button onClick={() => navigate(`/GetAllOrderData`)} className="btn btn-primary btn1">View all order details</button>
           <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
         </div>
       </div>

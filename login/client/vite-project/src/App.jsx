@@ -50,8 +50,8 @@ import OrderAdminPage from './pages/orderAdmin'
 import IncomePage from './pages/Income';
 import Payment from './pages/payment';
 import UploadSlip from './pages/UploadSlip';
-
-
+import PaymentSuccess from './pages/paymentSuccess';
+import UpdateIncomePage from './pages/updateIncome';
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -99,11 +99,14 @@ function App() {
       <Route path='/IncomeReport' element={<IncomeReport/>}></Route>
       <Route path='/Expenses' element={<Expenses/>}></Route>
       <Route path='/IncomePage' element={<IncomePage/>}></Route>
+      <Route path="/updateIncome/:Id" element={<UpdateIncomePage />} />
       <Route path='/UploadSlip' element={<UploadSlip/>}></Route>
-
+      <Route path='/PaymentSuccess' element={<PaymentSuccess/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
       <Route path='/payment' element={<Payment/>}></Route>
+
+
 
      
     </Routes>

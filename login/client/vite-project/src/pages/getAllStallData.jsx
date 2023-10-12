@@ -33,11 +33,13 @@ function Getstall() {
       console.error(error);
     }
   };
-  
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
+
+  // Filter the stall items by stallId that match the search term
+  const filteredStall = stall.filter((stallItem) => stallItem.stallId.toString().includes(searchTerm));
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -45,12 +47,27 @@ function Getstall() {
 
   return (
     <div className="container my-5 backgr">
+      
       <div className="col-md-9">
+      <div className="my-3 searchBar">
+          <input
+            type="text"
+            placeholder="Search by stall ID"
+            className="form-controlll"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
         <h3 className="underline-bold">Your all stall payments</h3>
+        
         <div className="allstall">
-        <table className="table table-striped table-bstalled ">
-          <thead>
-            <tr>
+       
+       
+        
+      
+          <table className="table table-striped table-bstalled">
+            <thead>
+              <tr>
                 <th>Stall Id</th>
                 <th>First name</th>
                 <th>Last name</th>
@@ -61,12 +78,12 @@ function Getstall() {
                 <th>Phone</th>
                 <th>Email</th>
                 <th>Payment</th>
-            </tr>
-          </thead>
-          <tbody>
-            {stall.map((stallItem) => (
-              <tr key={stallItem._id}>
-                <td>{stallItem.stallId}</td>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredStall.map((stallItem) => (
+                <tr key={stallItem._id}>
+                  <td>{stallItem.stallId}</td>
                   <td>{stallItem.fName}</td>
                   <td>{stallItem.lName}</td>
                   <td>{stallItem.stallName}</td>
@@ -76,31 +93,19 @@ function Getstall() {
                   <td>{stallItem.phonenumber}</td>
                   <td>{stallItem.email}</td>
                   <td>{stallItem.payment}</td>
-                <td>
-                  <button onClick={() => deleteCard(stallItem._id)} className="btn btn-primary mr-2">
-                    Delete Card
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-
+                  <td>
+                    <button onClick={() => deleteCard(stallItem._id)} className="btn btn-primary mr-2">
+                      Delete Card
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-        
+        <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Ok</button>
       </div>
-      <div className="right-align-container">
-        <div className="my-3 searchBar">
-          <input
-            type="text"
-            placeholder="Search by stall name"
-            className="form-controlll"
-            value={searchTerm}
-            onChange={handleSearch}
-          />
-        </div>
-        <button onClick={() => navigate("/Table")} className="btn btn-primary search-button"> Search stall name</button>
-      </div>
+      
     </div>
   );
 }

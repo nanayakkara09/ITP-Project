@@ -99,12 +99,18 @@ function ReceiptForStall() {
       </div>
       <div className="btn-group mt-4">
       <button
-  onClick={() => navigate(`/PaymentMethod`, { stallData: stall })}
-  className="btn btn-primary btn1"
->
-  Ok
-</button>
-
+         onClick={() => navigate(`/PaymentMethod`, { stallData: stall })}
+        className="btn btn-primary btn1"
+      >
+      Pay now
+      </button>
+      <button
+         onClick={() => navigate(`/GetAllStallData`, { stallData: stall })}
+        className="btn btn-primary btn1"
+      >
+      View all your registered stalls
+      </button>
+        
         <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
       </div>
     </div>

@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './UploadSlip.css';
 
 function UploadSlip() {
   const [selectedFile, setSelectedFile] = useState(null);
 
+  // Define the function to handle file input changes
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     console.log('Selected File:', file);
     setSelectedFile(file);
   };
-  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -18,12 +18,8 @@ function UploadSlip() {
     formData.append('slip', selectedFile);
 
     try {
-      const response = await axios.post('http://localhost:8000/slip/upload/', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
-
+      const response = await axios.post('http://localhost:8000/upload', formData);
+    
       if (response.status === 200) {
         console.log('Slip uploaded successfully');
       } else {
@@ -32,7 +28,8 @@ function UploadSlip() {
     } catch (error) {
       console.error('Error uploading slip', error);
     }
-  };
+    
+  }
 
   return (
     <div className="mainDiv">
@@ -50,7 +47,6 @@ function UploadSlip() {
             </div>
           </div>
 
-          
           <div className="col-md-5 divvv2">
             <h2>Upload Slip</h2>
             <form onSubmit={handleSubmit}>
