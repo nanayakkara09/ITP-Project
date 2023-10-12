@@ -2,8 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
-import './itemlistFur.css'; // Import the CSS file for styling
+import './itemlist.css'; // Import the CSS file for styling
 import { Link, useLocation } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 export default function itemlist(props) {
   const [items, setItems] = useState([]);
@@ -27,7 +29,27 @@ export default function itemlist(props) {
 
     fetchItemList();
   }, []);
+  const generateReport = () => {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+    const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+    const dateTime = `${formattedDate} ${formattedTime}`;
 
+    const doc = new jsPDF();
+
+    doc.text(`Report Generated On: ${dateTime}`, 10, 10);
+
+    const tableHeaders = [['Item Code', 'Name', 'Quantity']];
+    const tableData = items.map(item => [item.itemcode, item.name, item.quantity]);
+
+    doc.autoTable({
+      head: tableHeaders,
+      body: tableData,
+      startY: 20 // Adjust as needed
+    });
+
+    doc.save(`report_${formattedDate}.pdf`);
+  };
   const handleSearch = () => {
 
 
@@ -68,6 +90,7 @@ export default function itemlist(props) {
           />
           <button className="search-button" onClick={handleSearch}>Search</button>
           <Link to="/addnewFur" className="add-new-button">Add New</Link>
+          <button className="report-button" onClick={generateReport}>Generate Report</button>
 
         </div>
         <div className="item-list-container">

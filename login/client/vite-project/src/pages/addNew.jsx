@@ -48,7 +48,7 @@ export default function NewItemForm() {
     const category = 'Food';
     const {data} =await axios.post('./inventory/',{name,description,quantity,category,reorder,itemcode})
     console.log('Form data submitted:', formData);
-    navigate('/itemlist');
+    navigate(`/itemDetails/${itemcode}`);
   };
 
   return (
