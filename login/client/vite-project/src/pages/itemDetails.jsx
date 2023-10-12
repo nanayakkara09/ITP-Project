@@ -3,13 +3,17 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
 import './itemDetails.css'; // Import the CSS file for styling
-import { Link } from 'react-router-dom';
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom'; 
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 
 export default function itemDetails() {
     const { itemcode } = useParams();
     const [items, setItems] = useState([]);
+    
+
+   
 
     useEffect(() => {
         const fetchItem = async () => {
@@ -31,7 +35,29 @@ export default function itemDetails() {
       
         fetchItem();
       }, [itemcode]);
+      const generateReport = () => {
+        const currentDate = new Date();
+        const formattedDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+        const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+        const dateTime = `${formattedDate} ${formattedTime}`;
+    
+        const doc = new jsPDF();
+  doc.text(`Item Code: ${itemcode}`, 85, 20);
+  doc.text(`Report Generated On: ${dateTime}`, 15, 10);
 
+
+    
+        const tableHeaders = [['Date', 'Supplier', 'Quantity','Price']];
+        const tableData = items.map(item => [item.date, item.supplier, item.quantity,item.price]);
+    
+        doc.autoTable({
+          head: tableHeaders,
+          body: tableData,
+          startY: 25 // Adjust as needed
+        });
+    
+        doc.save(`report_${formattedDate}.pdf`);
+      }
     return (
         <div>
           <div><AdminNavBar /></div>
@@ -42,6 +68,8 @@ export default function itemDetails() {
             <div className="item-list-buttons">
             <Link to="/itemlist" className="back">Back</Link>
             <Link to={`/addStock/${itemcode}`} className="add-stock-button">Add Stock</Link>
+            <button className="report-button" onClick={generateReport}>Generate Report</button>
+
             </div>
             <div className="item-details-container">
               <table className="item-details-table">
