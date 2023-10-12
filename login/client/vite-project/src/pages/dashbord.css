@@ -1,6 +1,6 @@
 /* Dashbord.css */
 
-.bgd-image {
+.bgh-image {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  opacity: 1.1;
+  opacity: 1.1; 
 }
 
 .contents {

@@ -1,11 +1,15 @@
 const express = require('express');
 const dotenv = require('dotenv').config();
 const cors = require('cors');
-const { mongoose } = require('mongoose');
+const mongoose = require('mongoose'); // Correct import
 const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+<<<<<<< HEAD
 const jwt = require('jsonwebtoken')
+=======
+const bodyParser = require('body-parser');
+>>>>>>> e79f536ef7880fd97bac75b40c59d23777e9ce1f
 
 // database connection
 mongoose
@@ -15,8 +19,8 @@ mongoose
 
 // middleware
 app.use(express.json());
-app.use(cookieParser());
-app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser())
+app.use(express.urlencoded({ extended: false }))
 
 app.use(
   session({
@@ -25,6 +29,8 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use('/stallUploads', express.static('stallUploads'));
 
 // Configure CORS to allow requests from specific origins
 const corsOptions = {
@@ -36,7 +42,20 @@ app.use(cors(corsOptions));
 
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
+app.use('/stall', require('./routes/stallRoutes'))
 
 
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
+
+// For insert data
+const orderRoute = require('./routes/OrderRoute');
+app.use('/order', orderRoute);
+
+// For view data
+const cartRoute = require('./routes/cartRoute');
+app.use('/cart', cartRoute);
+app.use('/Event', require('./routes/eventRoutes'));
+
+
+app.use('/Event', require('./routes/eventRoutes'));

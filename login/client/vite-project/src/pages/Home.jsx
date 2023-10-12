@@ -52,7 +52,7 @@ export default function Home() {
             <p>
               "Host your special event with us at Book Your Event. Create unforgettable memories in our stunning venue, tailored to your unique occasion. Our team will ensure every detail is taken care of, leaving you free to enjoy your celebration. Book Your Event and make it an unforgettable experience."
             </p>
-            <Link to="/login">
+            <Link to="/eventHome">
               <button className="button">Book Now</button>
             </Link>
           </div>

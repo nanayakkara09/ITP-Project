@@ -6,6 +6,9 @@ import 'bootstrap/dist/css/bootstrap.css'
 import React from 'react';
 import AdminNavBar from '../components/adminNavBar';
 import './customerAdmin.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faComments, faLifeRing } from '@fortawesome/free-solid-svg-icons'; // Choose appropriate icons
+
 
 function CustomerAdminPage() {
   const { user, setUser } = useContext(UserContext);
@@ -39,20 +42,28 @@ function CustomerAdminPage() {
         <br></br>
         <br></br>
         <div className="admin-box customer-list-box">
-          <h3>Customer List</h3>
+  <h3>Customer List</h3>
+  <Link to="/CustomerDetailsPage">
+    <FontAwesomeIcon icon={faUser} className="icon" />
+    View Customer Details
+  </Link>
+</div>
 
-          <Link to="/CustomerDetailsPage">View Customer Details</Link>
+<div className="admin-box feedbacks-box">
+  <h3>Feedbacks</h3>
+  <Link to="/Seefeedbacks">
+    <FontAwesomeIcon icon={faComments} className="icon" />
+    See Feedbacks
+  </Link>
+</div>
 
-
-        </div>
-        <div className="admin-box feedbacks-box">
-          <h3>Feedbacks</h3>
-          <Link to="/Seefeedbacks">See Feedbacks</Link>
-        </div>
-        <div className="admin-box support-box">
-          <h3>Support</h3>
-          <Link to="/seesupport">Go to Support</Link>
-        </div>
+<div className="admin-box support-box">
+  <h3>Support</h3>
+  <Link to="/seesupport">
+    <FontAwesomeIcon icon={faLifeRing} className="icon" />
+     Go to Support
+  </Link>
+</div>
       </div>
     </div>
   );
