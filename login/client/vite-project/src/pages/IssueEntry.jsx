@@ -9,6 +9,7 @@ import Autocomplete from '../components/autocomplete';
 export default function NewIssueEntry() {
 const navigate = useNavigate();
 const [items, setItems] = useState([]);
+const [stalls, setStalls] = useState([]);
 const [names, setNames] = useState([{ name: '', code: '' }]); // Initialize with an empty object or with default values if needed
 const [input, setInput] = useState("");
 const [formData, setFormData] = useState({
@@ -42,7 +43,19 @@ const [formData, setFormData] = useState({
       }
     };
 
+    const fetchStalls = async () => {
+      try {
+        const { data } = await axios.get('/stall/createdStalls');
+        setStalls(data);
+        console.log(data);
+      } catch (error) {
+        console.error(error);
+        toast.error('Failed to fetch stalls data');
+      }
+    };
+
     fetchItemList();
+    fetchStalls();
   }, []);
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -60,6 +73,13 @@ const [formData, setFormData] = useState({
         const itemName = nameElement.value
         console.log(nameElement.value)
         const { date, quantity, price, itemCode ,stoleid} = formData;
+        var stall = await axios.get(`./stall/getStallByStallId${stoleid}`)
+        console.log(stall)
+        if(stall){
+          stall.data[0].isIssued = true;
+          //var id = stall.data[0]._id;
+          axios.post(`./stall/updateStallById${stall.data[0]._id}`);
+        }
         const { data } = await axios.post('./issuedDetails/', { date, itemName, quantity, price, itemCode ,stoleid});
         console.log('Form data submitted:', formData);
         navigate('/IssuedDetails');
@@ -79,8 +99,11 @@ const [formData, setFormData] = useState({
             required
           >
             <option value="">Select Stole ID</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
+            {stalls.map((stall, index) => (
+
+                  <option value={String(stall.stallId)}>{stall.stallId}</option>
+              ))}
+            
             {/* Add more options as needed */}
           </select>
         </div>

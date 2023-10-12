@@ -19,6 +19,10 @@ const stallRegisterSchema = new Schema({
     type: String,
     default: '40000 LKR', // Set the default value here
   },
+  isIssued: {
+    type: Boolean,
+    default: false
+  }
 });
 
 const stallRegisterModel = mongoose.model('StallReg', stallRegisterSchema);
