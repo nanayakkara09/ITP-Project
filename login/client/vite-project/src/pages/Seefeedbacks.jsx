@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavBar from '../components/adminNavBar';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComments } from "@fortawesome/free-solid-svg-icons"; // Import the desired icon
+import { faComments } from "@fortawesome/free-solid-svg-icons"; 
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';// Import the desired icon
 
 export default function SeeFeedbacksPage() {
   const [feedbackList, setFeedbackList] = useState([]);
@@ -55,8 +57,62 @@ export default function SeeFeedbacksPage() {
     }
   };
 
-  const handlePrint = () => {
-    window.print();
+  const generatePDF = () => {
+    const pdf = new jsPDF();
+  
+    // Hide remove, edit, and delete buttons before capturing the content
+    const removeButtons = document.querySelectorAll('.remove-button');
+    const editButtons = document.querySelectorAll('.edit-button');
+    const deleteButtons = document.querySelectorAll('.delete-button');
+    
+    // Set display to none for these buttons
+    removeButtons.forEach(button => {
+      button.style.display = 'none';
+    });
+    editButtons.forEach(button => {
+      button.style.display = 'none';
+    });
+    deleteButtons.forEach(button => {
+      button.style.display = 'none';
+    });
+  
+    const table = document.querySelector('.table');
+  
+    const tableHeight = pdf.internal.pageSize.height - 60; // Adjust the margin as needed
+    const pageTitle = 'Steetbitz';
+    const pageTitle2 = 'Feedback list';
+    const currentDate = new Date().toLocaleString();
+  
+    html2canvas(table).then((canvas) => {
+      const imgData = canvas.toDataURL('image/png');
+  
+      // Add "Steetbitz" at the top
+      pdf.text(10, 10, pageTitle);
+  
+      // Add "Customers list" as a subtitle
+      pdf.setFontSize(16); // Adjust the font size as needed
+      pdf.text(10, 20, pageTitle2);
+    
+      // Add the current date and time below "Steetbitz"
+      pdf.setFontSize(12); // Adjust the font size as needed
+      pdf.text(10, 30, currentDate);
+    
+      // Add the table below the date
+      pdf.addImage(imgData, 'PNG', 10, 60, pdf.internal.pageSize.getWidth() - 40, tableHeight);
+    
+      // Revert the display to its original state for these buttons
+      removeButtons.forEach(button => {
+        button.style.display = 'block'; // or 'inline', 'inline-block', etc., depending on their original style
+      });
+      editButtons.forEach(button => {
+        button.style.display = 'block'; // or 'inline', 'inline-block', etc., depending on their original style
+      });
+      deleteButtons.forEach(button => {
+        button.style.display = 'block'; // or 'inline', 'inline-block', etc., depending on their original style
+      });
+  
+      pdf.save('Feedbacks_table.pdf'); // Change the filename as desired
+    });
   };
 
   return (
@@ -102,9 +158,20 @@ export default function SeeFeedbacksPage() {
                   <td>{feedback.createdAt}</td>
                   <td>
                     {!feedback.isRead ? (
-                      <button onClick={() => handleMarkAsRead(feedback._id)}>
-                        Mark as Read
-                      </button>
+                      <button
+                      style={{
+                        backgroundColor: '#007bff', // Set the background color to blue
+                        color: '#fff', // Set the text color to white
+                        border: 'none',
+                        borderRadius: '4px',
+                        padding: '5px 10px', // Adjust the padding as needed
+                        fontSize: '14px', // Adjust the font size as needed
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleMarkAsRead(feedback._id)}
+                    >
+                      Mark as Read
+                    </button>
                     ) : (
                       <span>Read</span>
                     )}
@@ -116,9 +183,9 @@ export default function SeeFeedbacksPage() {
         ) : (
           <p>No feedback data available.</p>
         )}
-        <button className="print-button" onClick={handlePrint}>
-          Print Table
-        </button>
+        <button className="pdf-button" onClick={generatePDF}>
+  Generate PDF
+</button>
       </div>
     </div>
   );

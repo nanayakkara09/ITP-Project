@@ -116,9 +116,20 @@ export default function SeesupportPage() {
                   <td>{support.createdAt}</td>
                   <td>
                     {!support.isRead ? (
-                      <button onClick={() => handleMarkAsRead(support._id)}>
-                        Mark as Read
-                      </button>
+                      <button
+                      style={{
+                        backgroundColor: '#007bff', // Set the background color to blue
+                        color: '#fff', // Set the text color to white
+                        border: 'none',
+                        borderRadius: '4px',
+                        padding: '5px 10px', // Adjust the padding as needed
+                        fontSize: '14px', // Adjust the font size as needed
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => handleMarkAsRead(support._id)}
+                    >
+                      Mark as Read
+                    </button>
                     ) : (
                       <span>Read</span>
                     )}

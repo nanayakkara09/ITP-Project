@@ -64,9 +64,17 @@
   display: block; /* Show the box when hovering over the "Contact Us" button */
 }
 
-.white-box {
-  /* Additional styles for the white box */
-  background-color: white;
-  padding: 10px;
-  border-radius: 5px;
+.menu-bar1 button {
+  background-color: #000000; /* Set the background color to black */
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.menu-bar1 button:hover {
+  background-color: #ffea00;
+  color: #000000; /* Change the text color on hover to make it visible */
 }
