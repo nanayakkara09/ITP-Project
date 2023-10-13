@@ -22,7 +22,7 @@ export default function itemlist(props) {
         data.forEach(item => {
           if (item.quantity <= item.reorder) {
             // Trigger notification
-            addNotification(`Item '${item.name}' quantity is below reorder level!`);
+            toast.error(`Item '${item.name}' quantity is below reorder level!`);
           }
         });
         //setIsLoading(false);
