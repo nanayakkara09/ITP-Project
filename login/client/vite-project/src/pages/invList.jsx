@@ -36,10 +36,7 @@ function InvList() {
           <h3>Issued</h3>
           <Link to={{ pathname: "/IssuedDetails", state:  "Issued" }}>View Issued Item Details</Link>
         </div>
-        <div className="inv-list reports-list">
-          <h3>Reports</h3>
-          <Link to={{ pathname: "/itemlist", state:  "Reports" }}>Generate Reports</Link>
-        </div>
+       
       </div>
     </div>
   );
