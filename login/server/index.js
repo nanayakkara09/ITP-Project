@@ -38,7 +38,9 @@ app.use(cors(corsOptions));
 
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
-app.use('/stall', require('./routes/stallRoutes'))
+app.use('/stall', require('./routes/stallRoutes'));
+app.use('/employee', require('./routes/employeeRoutes'));
+
 
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));

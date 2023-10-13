@@ -72,6 +72,32 @@ import TicketForm from './pages/TicketForm';
 import AdminTicketList from './pages/AdminTicketList';
 import SeeMenuPage from './pages/SeeMenuPage';
 
+import GetEmployee from './pages/GetEmployee';
+import CreateEmployee from './pages/CreateEmployee';
+import UpdateEmployee from './pages/UpdateEmployee';
+import EmployeeDashboardHome from './pages/EmployeeDashboardHome';
+import LoginEmployee from './pages/LoginEmployee';
+
+
+
+import { EmployeeContextProvider } from '../contex/EmployeeContext';
+import CreateEmployeeShift from './pages/CreateEmployeeShift';
+import GetEmployeeShift from './pages/GetEmployeeShift';
+import UpdateEmployeeShift from './pages/UpdateEmployeeShift';
+import EmployeeDashboard from './pages/EmployeeDashboard';
+
+import CreateEmployeeLeave from './pages/CreateEmployeeLeave';
+import GetEmployeeLeaveA from './pages/GetEmployeeLeaveA';
+
+import CreateEmployeeContact from './pages/CreateEmployeeContact';
+import GetEmployeeContact from './pages/GetEmployeeContact';
+
+import CreateEmployeeNews from './pages/CreateEmployeeNews';
+import GetEmployeeNews from './pages/GetEmployeeNews';
+
+import CreateEmployeeSalary from './pages/CreateEmployeeSalary';
+import GetEmployeeSalary from './pages/GetEmployeeSalary';
+
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -79,6 +105,7 @@ function App() {
   return (
     <UserContextProvider>
      <StallContextProvider>
+      <EmployeeContextProvider>
       
     <NavBar/>
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
@@ -151,10 +178,36 @@ function App() {
       <Route path="/eventUpdate/:eventId" element={<EventUpdate />} />
       <Route path="/admin-confirm" element={<AdminConfirm />} />
 
+      <Route path='/employeeDashboard' element={<EmployeeDashboard />} />
+
+                    <Route path='/getEmployee' element={<GetEmployee />} />
+                    <Route path='/createEmployee' element={<CreateEmployee />} />
+                    <Route path='/updateEmployee/:_id' element={<UpdateEmployee />} />
+                    <Route path='/LoginEmployee' element={<LoginEmployee/>}/>
+                    <Route path='/employeeDashboardHome' element={<EmployeeDashboardHome/>}/>
+                  
+
+                    <Route path='/getEmployeeShift' element={<GetEmployeeShift />} />
+                    <Route path='/createEmployeeShift' element={<CreateEmployeeShift />} />
+                    <Route path='/updateEmployeeShift/:_id' element={<UpdateEmployeeShift />} />
+
+                    <Route path='/createEmployeeLeave' element={<CreateEmployeeLeave />} />
+                    <Route path='/getEmployeeLeaveA' element={<GetEmployeeLeaveA />} />
+
+
+                    <Route path='/createEmployeeContact' element={<CreateEmployeeContact />} />
+                    <Route path='/getEmployeeContact' element={<GetEmployeeContact />} />
+
+                    <Route path='/createEmployeeNews' element={<CreateEmployeeNews />} />
+                    <Route path='/getEmployeeNews' element={<GetEmployeeNews />} />
+
+                    <Route path='/createEmployeeSalary' element={<CreateEmployeeSalary/>}/>
+                    <Route path='/getEmployeeSalary' element={<GetEmployeeSalary/>}/>
+
 
 
     </Routes>
-   
+    </EmployeeContextProvider>
     </StallContextProvider>
     </UserContextProvider>
   )
