@@ -5,11 +5,7 @@ const mongoose = require('mongoose'); // Correct import
 const app = express();
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-<<<<<<< HEAD
-const jwt = require('jsonwebtoken')
-=======
 const bodyParser = require('body-parser');
->>>>>>> e79f536ef7880fd97bac75b40c59d23777e9ce1f
 
 // database connection
 mongoose
@@ -42,7 +38,8 @@ app.use(cors(corsOptions));
 
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
-app.use('/stall', require('./routes/stallRoutes'))
+app.use('/stall', require('./routes/stallRoutes'));
+app.use('/employee', require('./routes/employeeRoutes'));
 
 
 const port = 8000;
