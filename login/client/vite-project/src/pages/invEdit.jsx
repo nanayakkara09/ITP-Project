@@ -9,11 +9,10 @@ export default function EditItemForm() {
   const { itemId } = useParams();
   const [formData, setFormData] = useState({
 
-    category: 'Select a category',
+   
     itemcode: '',
     name: '',
     description: '',
-    quantity: '',
     reorder: '',
     
   });
@@ -26,8 +25,8 @@ export default function EditItemForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData)
-    const{name,description,quantity,category,reorder,itemcode}= formData 
-    const {data} =await axios.post(`/inventory/updateItem/${itemId}`,{name,description,quantity,reorder,itemcode})
+    const{name,description,reorder,itemcode}= formData 
+    const {data} =await axios.post(`/inventory/updateItem/${itemId}`,{name,description,reorder,itemcode})
     console.log('Form data submitted:', formData);
     navigate('/itemlist');
   };
@@ -40,11 +39,10 @@ export default function EditItemForm() {
         console.log(data)
   
          setFormData({
-           category: data.category,
+           
            itemCode: data.itemcode,
            name: data.name,
            description: data.description,
-           quantity: data.quantity,
            reorder: data.reorder,
          });
       } catch (error) {
@@ -60,20 +58,8 @@ export default function EditItemForm() {
     <div className="new-item-form-container">
       <h2>Edit Item</h2>
       <form onSubmit={handleSubmit}>
-      <div className="form-group">
-          <label htmlFor="category">Category:</label>
-          <select
-            id="category"
-            name="category"
-            value={formData.category}
-            onChange={handleChange}
-          >
-            <option value="Select a category">Select a category</option>
-            <option value="Category 1">Food</option>
-            <option value="Category 2">Furniture</option>
-            <option value="Category 3">Machinery</option>         
-         </select>
-        </div>
+      
+    
         <div className="form-group">
           <label htmlFor="itemcode">Item Code:</label>
           <input
@@ -106,17 +92,7 @@ export default function EditItemForm() {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="quantity">Quantity:</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        
         <div className="form-group">
           <label htmlFor="reorder">Reorder Level:</label>
           <input

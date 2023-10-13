@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import './StallAdminreq.css';
+import './StallAdminreq.css'
 
 
 function StallAdminreq() {
   const [stallsadminreq, setStallsadminreq] = useState([]);
 
   useEffect(() => {
-    axios.get('/stall/stalladminreq') // Use the correct API endpoint
-      .then(result => {
-        // Assuming the response contains an array of objects with 'id' field
+    axios.get('/stall/stalladminreq') 
+      .then(result => {        
         const dataWithIds = result.data;
         setStallsadminreq(dataWithIds);
       })
@@ -18,7 +17,7 @@ function StallAdminreq() {
   }, []);
     
   const handleDelete = (id) => {
-    axios.delete(`/stall/deleteStallreq/${id}`) // Use the correct route URL
+    axios.delete(`/stall/deleteStallreq/${id}`) 
         .then(res => {
             console.log(res);
             window.location.reload();
@@ -56,19 +55,21 @@ const handleAccept = (stalladminreq) => {
               <th>Email</th>
               <th>Phone Number</th>
               <th>Actions</th>
+              
             </tr>
           </thead>
           <tbody>
             {stallsadminreq.map((stalladminreq) => (
-              <tr key={stalladminreq.id}>
+              <tr key={stalladminreq._id}>
                 <td>{stalladminreq.sName}</td>
                 <td>{stalladminreq.type}</td>
                 <td>{stalladminreq.fName}</td>
                 <td>{stalladminreq.lName}</td>
                 <td>{stalladminreq.email}</td>
                 <td>{stalladminreq.phone}</td>
+                
                 <td>
-                          <button className='btn btn-success' onClick={(e) => handleAccept(stalladminreq)}>ACCEPT</button>
+                          <button >ACCEPT</button>
                           <button className='btn btn-danger' 
                         onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
                 </td>

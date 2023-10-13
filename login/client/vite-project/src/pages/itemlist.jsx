@@ -3,17 +3,28 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
 import './itemlist.css'; // Import the CSS file for styling
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
-export default function itemlist() {
+export default function itemlist(props) {
   const [items, setItems] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
+  const location = useLocation();
+  console.log(location)
+  const category = location.state;
 
   useEffect(() => {
     const fetchItemList = async () => {
       try {
-        const { data } = await axios.get('/inventory/getallItems');
+        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
         setItems(data);
+        data.forEach(item => {
+          if (item.quantity <= item.reorder) {
+            // Trigger notification
+            toast.error(`Item '${item.name}' quantity is below reorder level!`);
+          }
+        });
         //setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -34,6 +45,27 @@ export default function itemlist() {
     );
     setItems(filteredItems);
   };
+  const generateReport = () => {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+    const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+    const dateTime = `${formattedDate} ${formattedTime}`;
+
+    const doc = new jsPDF();
+
+    doc.text(`Report Generated On: ${dateTime}`, 10, 10);
+
+    const tableHeaders = [['Item Code', 'Name', 'Quantity']];
+    const tableData = items.map(item => [item.itemcode, item.name, item.quantity]);
+
+    doc.autoTable({
+      head: tableHeaders,
+      body: tableData,
+      startY: 20 // Adjust as needed
+    });
+
+    doc.save(`report_${formattedDate}.pdf`);
+  };
   const deleteItem = async (itemId) => {
     const shouldDelete = window.confirm('Are you sure you want to delete this item?');
     
@@ -53,18 +85,20 @@ export default function itemlist() {
       <div><AdminNavBar /></div>
       <div className='container'>
         <div className='title'>
-          <h1 className="item-list-title">Food Item List</h1>
+          <h1 className="item-list-title">{category}Food Item List</h1>
         </div>
 
         <div className="item-list-buttons">
           <input
             type="text"
-            placeholder="Search by name..."
+            placeholder="Search by name/itemcode..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="search-button" onClick={handleSearch}>Search</button>
           <Link to="/addnew" className="add-new-button">Add New</Link>
+          <button className="report-button" onClick={generateReport}>Generate Report</button>
+
 
         </div>
         <div className="item-list-container">
@@ -84,7 +118,7 @@ export default function itemlist() {
             <tbody>
               {items.map((item, index) => (
                 <tr key={index}>
-                  <td><button className="view-button">View</button></td>
+                  <td><Link to={`/itemDetails/${item.itemcode}`}><button className="view-button">View</button></Link></td>
                   <td>{item.itemcode}</td>
                   <td>{item.name}</td>
                   <td>{item.description}</td>

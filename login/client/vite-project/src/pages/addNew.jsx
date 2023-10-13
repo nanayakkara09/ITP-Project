@@ -1,21 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './addNew.css'; // Import the CSS file for styling
 import { useNavigate } from 'react-router-dom';
+import AdminNavBar from '../components/adminNavBar';
+import { Link } from 'react-router-dom';
+
 
 export default function NewItemForm() {
   const navigate = useNavigate();
+  const [itemcode, setItemCode] = useState('');
   const [formData, setFormData] = useState({
 
     
     itemcode: '',
     name: '',
     description: '',
-    quantity: '',
+    quantity: 0,
     reorder: '',
     
   });
+  useEffect(() => {
+    const fetchItemList = async () => {
+      try {
+        const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
+        console.log(data);
+        var nextItemCode = "F" + (data.length + 1)
+        setFormData({ ...formData, itemcode: nextItemCode })
+        //setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        toast.error('Failed to fetch inventory data');
+        //setIsLoading(false);
+      }
+    };
 
+    fetchItemList();
+  }, []);
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -24,13 +44,16 @@ export default function NewItemForm() {
   const handleSubmit = async(e) => {
     e.preventDefault();
     console.log(formData)
-    const{name,description,quantity,category,reorder,itemcode}= formData 
-    const {data} =await axios.post('./inventory/',{name,description,quantity,reorder,itemcode})
+    const{name,description,quantity,reorder,itemcode}= formData 
+    const category = 'Food';
+    const {data} =await axios.post('./inventory/',{name,description,quantity,category,reorder,itemcode})
     console.log('Form data submitted:', formData);
-    navigate('/itemlist');
+    navigate(`/itemDetails/${itemcode}`);
   };
 
   return (
+    <div>
+      <div><AdminNavBar /></div>
     <div className="new-item-form-container">
       <h2>Add New Item</h2>
       <form onSubmit={handleSubmit}>
@@ -41,9 +64,10 @@ export default function NewItemForm() {
             type="text"
             id="itemCode"
             name="itemcode"
-            value={formData.itemCode}
+            value={formData.itemcode}
             onChange={handleChange}
             required
+            disabled={true}
           />
         </div>
         <div className="form-group">
@@ -67,17 +91,7 @@ export default function NewItemForm() {
             required
           />
         </div>
-        <div className="form-group">
-          <label htmlFor="quantity">Quantity:</label>
-          <input
-            type="number"
-            id="quantity"
-            name="quantity"
-            value={formData.quantity}
-            onChange={handleChange}
-            required
-          />
-        </div>
+        
         <div className="form-group">
           <label htmlFor="reorder">Reorder Level:</label>
           <input
@@ -90,8 +104,9 @@ export default function NewItemForm() {
           />
         </div>
         <button type="submit">Submit</button>
-        <button type="cancel">Cancel</button>
-      </form>
+        <button><Link to="/itemlist">Cancel</Link></button>      
+        </form>
+    </div>
     </div>
   );
 }

@@ -30,10 +30,12 @@ const sendEmail = async (to, subject, text) => {
     console.error('Email sending error:', error);
   }
 };
+const pdf = require('pdfkit');
+const fs = require('fs');
 
 const createStall = async (req, res) => {
     try{
-       const {stallName, type, amount, mType,description, stallId, fName, lName, phonenumber, email, password, payment} = req.body;
+       const {stallName, type, amount, mType,description, stallId, fName, lName, phonenumber, email, password} = req.body;
        // Check if name was entered
        if (!stallName) {
         return res.json({
@@ -68,7 +70,7 @@ const createStall = async (req, res) => {
         phonenumber,
         email,
         password: hashedPassword,
-        payment
+        
       })
 
       return res.json(createStallResult)
@@ -125,14 +127,8 @@ if(token) {
 
 const stallreq = async (req, res) => {
     try {
-        const { sName, type, fName, lName, email, phone } = req.body;
+        const { sName, type, fName, lName, email, phone } = req.body;   
         
-        // Check if name was entered
-        if (!sName) {
-            return res.json({
-                error: 'Name is required'
-            });
-        }
         
         const stall = await Stall.create({
             sName,
@@ -305,6 +301,40 @@ const getTicket = async (req, res) => {
   }
 };
 
+const getRegStallByStallId = async (req, res) => {
+  try {
+    const stall = await StallRegister.find({ stallId: req.params.stallid });
+    console.log(stall)
+    res.json(stall);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching inventory items' });
+  }
+};
+
+const updateStallIssueById = async (req, res) => {
+  try {
+    console.log(req.params.id)
+    var id  = req.params.id;
+    console.log(id)
+    const updatedStall = await StallRegister.findByIdAndUpdate(
+      id,
+        {
+            isIssued:true
+        },{
+            new: true
+        }
+
+    );
+    console.log("This Is" + updatedStall)
+    res.json(updatedStall);
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
 
 module.exports = {
     stallreq,
@@ -323,4 +353,6 @@ module.exports = {
     getPromotion,
     createTicket,
     getTicket,
+    getRegStallByStallId,
+    updateStallIssueById
 };

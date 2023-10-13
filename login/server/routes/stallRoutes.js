@@ -18,6 +18,8 @@ const {
   getPromotion,
   createTicket,
   getTicket,
+  getRegStallByStallId,
+  updateStallIssueById
 
 } = require('../controllers/stallController');
 
@@ -50,5 +52,12 @@ router.post('/createPromotion', upload.single('image'), createPromotion);
 router.get('/getPromotion', getPromotion);
 router.post('/createTicket', createTicket);
 router.get('/getTicket', getTicket);
+router.get('/getStallByStallId:stallid',getRegStallByStallId);
+router.post('/updateStallById:id',updateStallIssueById);
+
+
+
+
+
 
 module.exports = router;

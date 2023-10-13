@@ -5,6 +5,7 @@ import './App.css'
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Routes, Route} from 'react-router-dom';
+import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
 import Home from '../src/pages/Home';
 import Login from '../src/pages/Login';
@@ -46,6 +47,26 @@ import EventDetail4 from './pages/eventDetail4';
 import EventListUser from './pages/eventListUser';
 import AdminConfirm from './pages/admin-confirm';
 
+import ItemDetails from '../src/pages/itemDetails';
+import AddStock from '../src/pages/addStock';
+import SeesupportPage from './pages/seesupport';
+import Password from './pages/password';
+import IssueEntry from './pages/issueEntry';
+import IssuedDetails from './pages/IssuedDetails';
+import ItemlistFur from '../src/pages/itemlistFur';
+import ItemlistMac from '../src/pages/itemlistMac';
+import AddNewFur from '../src/pages/addNewFur';
+import AddNewMac from '../src/pages/addNewMac';
+import Issued from './pages/Issued';
+
+
+
+
+
+
+
+
+import "bootstrap/dist/css/bootstrap.min.css";
 
 import CreateStallreq from './pages/CreateStallreq';
 import StallAdminreq from './pages/StallAdminreq';
@@ -71,6 +92,7 @@ import MarketingAndPromotionAdmin from './pages/MarketingAndPromotionAdmin';
 import TicketForm from './pages/TicketForm';
 import AdminTicketList from './pages/AdminTicketList';
 import SeeMenuPage from './pages/SeeMenuPage';
+import MonthlyIncomeReport from './pages/MonthlyIncomeReport';
 
 import GetEmployee from './pages/GetEmployee';
 import CreateEmployee from './pages/CreateEmployee';
@@ -119,6 +141,21 @@ function App() {
       <Route path="/itemlist" element={<Itemlist />} />
       <Route path="/addNew" element={<AddNew />} />
       <Route path="/invEdit/:itemId" element={<InvEdit />} />
+      <Route path="/itemDetails/:itemcode" element={<ItemDetails />} />
+      <Route path="/addStock/:itemcode" element={<AddStock />} />
+      <Route path="/IssueEntry" element={<IssueEntry />} />
+      <Route path="/IssuedDetails" element={<IssuedDetails />} />
+      <Route path="/itemlistFur" element={<ItemlistFur />} />
+      <Route path="/itemlistMac" element={<ItemlistMac />} />
+      <Route path="/addNewFur" element={<AddNewFur />} />
+      <Route path="/addNewMac" element={<AddNewMac />} />
+      <Route path="/Issued" element={<Issued />} />
+
+
+
+
+
+
 
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />
@@ -150,7 +187,7 @@ function App() {
       <Route path='/createStall' element={<CreateStall/>}></Route>
       <Route path='/Stalllogin' element={<StallLogin/>}></Route>
       <Route path='/StallOwnerDashboard' element={<StallOwnerDashboard/>}></Route>       
-      <Route path='/GetProduct' element={<GetProduct/>}></Route>
+      <Route path='/getProduct' element={<GetProduct/>}></Route>
       <Route path='/update/:id' element={<UpdateProduct/>}></Route>
       <Route path='/OurStallsHomePage' element={<OurStallsHomePage/>}></Route> 
       <Route path='/stallAdmin' element={<StallAdmin />}></Route>
@@ -159,6 +196,7 @@ function App() {
       <Route path='/createTicket' element={<TicketForm />}></Route>
       <Route path='/getTicket' element={<AdminTicketList />}></Route>
       <Route path='/menu' element={<SeeMenuPage />}></Route>
+      <Route path='/generateMonthlyIncomeReport' element={<MonthlyIncomeReport />}></Route> 
 
 
       <Route path='/cart' element={<Cart/>}></Route>

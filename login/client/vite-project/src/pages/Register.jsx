@@ -20,7 +20,16 @@ export default function Register() {
     securityQuestion: '',
     securityAnswer: '',
   });
+  const validateName = (name) => {
+    return /^[A-Za-z\s]+$/.test(name);
+  };
 
+  const handleNameChange = (e) => {
+    const newName = e.target.value;
+    if (validateName(newName) || newName === '') {
+      setData({ ...data, name: newName });
+    }
+  };
   const provincesInSriLanka = [
     'Central Province',
     'Eastern Province',

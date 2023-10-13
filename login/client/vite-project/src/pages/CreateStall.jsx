@@ -4,6 +4,8 @@ import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import './CreateStall.css';
 
+import backgroundImg from '/stallImages/img2.jpeg';
+
 export default function CreateStall() {
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -55,6 +57,7 @@ export default function CreateStall() {
 
 
   return (
+    
     <div className="form-container">
       <div className="content form-box">
         <h2>Stall Details</h2>
@@ -198,5 +201,6 @@ export default function CreateStall() {
         </form>
       </div>
     </div>
+    
   );
 }

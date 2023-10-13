@@ -35,13 +35,36 @@
 /* Style the search and add new buttons */
 .search-button,
 .add-new-button,
-.Edit-button,
-.view-button ,
-.Delete-button
+.view-button,
+.report-button 
 {
   padding: 10px 20px;
   margin-left: 10px;
   background-color: #007bff; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+.Edit-button
+{
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: green; /* Change the background color as needed */
+  color: #fff; /* Change the text color as needed */
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+}
+.Delete-button
+{
+  padding: 10px 20px;
+  margin-left: 10px;
+  background-color: red; /* Change the background color as needed */
   color: #fff; /* Change the text color as needed */
   border: none;
   cursor: pointer;

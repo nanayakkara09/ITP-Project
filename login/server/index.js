@@ -41,6 +41,11 @@ app.use('/inventory', require('./routes/invRoutes'));
 app.use('/stall', require('./routes/stallRoutes'));
 app.use('/employee', require('./routes/employeeRoutes'));
 
+app.use('/invDetails', require('./routes/invDetailsRoutes'));
+app.use('/issuedDetails', require('./routes/issuedRoutes'));
+
+
+app.use('/stall', require('./routes/stallRoutes'))
 
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
