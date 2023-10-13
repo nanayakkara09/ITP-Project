@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Routes, Route} from 'react-router-dom';
 import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
 import Home from '../src/pages/Home';
@@ -49,8 +48,6 @@ import AdminConfirm from './pages/admin-confirm';
 
 import ItemDetails from '../src/pages/itemDetails';
 import AddStock from '../src/pages/addStock';
-import SeesupportPage from './pages/seesupport';
-import Password from './pages/password';
 import IssueEntry from './pages/issueEntry';
 import IssuedDetails from './pages/IssuedDetails';
 import ItemlistFur from '../src/pages/itemlistFur';
