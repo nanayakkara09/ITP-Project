@@ -43,7 +43,7 @@ import PaymentMethod from './pages/paymentMethod';
 import Paidbycard from './pages/paidByCard';
 import CashOnDeliver from './pages/cashOnDeliver';
 import FinancePage from './pages/financePage';
-import IncomeReport from './pages/incomereport';
+
 import Expenses from './pages/expenses'
 import Cart from './pages/CartItems'
 import OrderAdminPage from './pages/orderAdmin'
@@ -52,6 +52,7 @@ import Payment from './pages/payment';
 import UploadSlip from './pages/UploadSlip';
 import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
+import UpdateExpenses from './pages/updateExpenses';
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -96,10 +97,10 @@ function App() {
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
       <Route path='/FinancePage' element={<FinancePage/>}></Route>
-      <Route path='/IncomeReport' element={<IncomeReport/>}></Route>
       <Route path='/Expenses' element={<Expenses/>}></Route>
       <Route path='/IncomePage' element={<IncomePage/>}></Route>
       <Route path="/updateIncome/:Id" element={<UpdateIncomePage />} />
+      <Route path="/updateExpense/:Id" element={<UpdateExpenses />} />
       <Route path='/UploadSlip' element={<UploadSlip/>}></Route>
       <Route path='/PaymentSuccess' element={<PaymentSuccess/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>

@@ -1,4 +1,6 @@
-
+.backgrs{
+  width: 50vh;
+}
 .incomeHead{
   width: auto;
  
@@ -22,17 +24,22 @@
 }
 .IncHead{
   margin-top: 10vh;
+  margin-left: 20vh;
 }
 .totalIncome{
-  width: 70vh;
+  width: 120vh;
   margin-top: 15vh;
   margin-left: 30vh;
 }
 .externalBtn{
-  margin-left: 10vh;
+  margin-left: -56vh;
 
 }
 .incomeUpdate{
   margin-left: 4vh;
   width: 10vh;
+}
+.salesHead{
+  margin-top: 10vh;
+  margin-left: 30vh;
 }

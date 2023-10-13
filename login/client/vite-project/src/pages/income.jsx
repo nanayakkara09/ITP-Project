@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './getAllOrderdata.css';
+import './income.css';
 
 function IncomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -172,16 +172,16 @@ useEffect(() => {
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold">Monthly income</h3>
+        <h3 className="underline-bold salesHead">Monthly sales</h3>
         <div className="inputs">
           <p style={{ textAlign: "left", fontWeight: "bold", fontStyle: "italic" }}>
-            Add external incomes
+            Add external sales
           </p>
           <div className="inputTypes">
             <div className="form-group">
               <input
                 type="text"
-                placeholder="Enter where the income comes from"
+                placeholder="Enter where the sales comes from"
                 value={inputTypeOne}
                 onChange={(e) => setInput1(e.target.value)}
               />
@@ -197,7 +197,7 @@ useEffect(() => {
             <div className="form-group">
               <input
                 type="text"
-                placeholder="Enter where the income comes from"
+                placeholder="Enter where the sales comes from"
                 value={inputTypeThree}
                 onChange={(e) => setInput3(e.target.value)}
               />
@@ -212,15 +212,15 @@ useEffect(() => {
             </div>
           </div>
           <button type="submit" className="btn-primary externalBtn" onClick={handleSubmit}>
-            Add external income
+            Add external sales
           </button>
           {/* Display success and error messages */}
           {successMessage && <p className="text-success">{successMessage}</p>}
           {errorMessage && <p className="text-danger">{errorMessage}</p>}
         </div>
-        <h2 className="bold IncHead">Income from orders</h2>
+        <h2 className="bold IncHead">Sales from orders</h2>
         <div className="AllIncomeTables">
-          <table className="table table-striped table-bordered custom-table">
+          <table className="table table-striped table-bordered custom-table totalIncome">
             <thead>
               <tr>
                 <th>Name</th>
@@ -260,8 +260,8 @@ useEffect(() => {
               </tr>
             </tfoot>
           </table>
-          <h2 className="bold IncHead">Income from Stalls</h2>
-          <table className="table table-striped table-bordered custom-table">
+          <h2 className="bold IncHead">Sales from Stalls</h2>
+          <table className="table table-striped table-bordered custom-table totalIncome">
             <thead>
               <tr>
                 <th>Stall Id</th>
@@ -309,8 +309,8 @@ useEffect(() => {
               </tr>
             </tfoot>
           </table>
-          <h2 className="bold IncHead">External incomes</h2>
-          <table className="table table-striped table-bordered custom-table">
+          <h2 className="bold IncHead">External Sales</h2>
+          <table className="table table-striped table-bordered custom-table totalIncome">
             <thead>
               <tr>
                 <th>Income from</th>
@@ -346,7 +346,7 @@ useEffect(() => {
             <tfoot>
               <tr>
                 <td colSpan="1" className="text-right">
-                  <strong> Sub Total (Input Type Two):</strong>
+                  <strong> Sub Total:</strong>
                 </td>
                 <td>${calculateInputTypeTwoSubtotal()}</td>
                 <td colSpan="1" className="text-right">
@@ -360,10 +360,10 @@ useEffect(() => {
           <table className="table table-striped table-bordered custom-table totalIncome">
   <thead>
     <tr>
-      <th>Total income from external income</th>
-      <th>Total income from orders</th>
-      <th>Total income from stalls</th>
-      <th>Overall income</th>
+      <th>Total sales from external income</th>
+      <th>Total sales from orders</th>
+      <th>Total sales from stalls</th>
+      <th>Overall sales</th>
     </tr>
   </thead>
   <tbody>
@@ -376,7 +376,13 @@ useEffect(() => {
   </tbody>
 </table>
 
-
+<button
+              onClick={() => navigate(`/admin-dashbord`)}
+              className="btn btn-primary mr-2  expensesbutt"
+              style={{ width: "200px", height: "50px" }}
+            >
+             Back to dashbord
+            </button>
 
           </div>
          

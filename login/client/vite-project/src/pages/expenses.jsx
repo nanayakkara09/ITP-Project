@@ -1,23 +1,30 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from "react-router-dom";
-import './income.css';
+import { useNavigate } from "react-router-dom";
+import './expenses.css';
 
-import { useReactToPrint } from 'react-to-print';
-
-function ReceiptForOrder() {
-  const componentPdf = useRef();
+function ExpensesPage() {
   const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState({});
+  const [inventory, setInventory] = useState([]);
+  const [expense, setExpense] = useState([]);
+  const [inputExpensesone, setInput1] = useState("");
+  const [inputExpensesAmount, setInput2] = useState("");
+  const [inputExpensesTwo, setInput3] = useState("");
+  const [inputExpensesAmountTwo, setInput4] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const navigate = useNavigate();
 
-  const { id } = useParams();
+  const updateExpense = (Id) => {
+    navigate(`/updateExpense/${Id}`);
+  };
 
   useEffect(() => {
-    const fetchCardById = async (orderId) => {
+    const fetchAllInventory = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/orders/${orderId}`);
-        setOrder(response.data.order);
+        const response = await axios.get("http://localhost:8000/inventory/getallItems");
+        setInventory(response.data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -25,83 +32,234 @@ function ReceiptForOrder() {
       }
     };
 
-    fetchCardById(id);
-  }, [id]);
+    fetchAllInventory();
+  }, []);
 
-  const generatePDF = useReactToPrint({
-    content: () => componentPdf.current,
-    documentTitle: 'Userdata',
-    onAfterPrint: () => alert("Data saved in PDF")
-  });
+  const deleteInventory = async (Id) => {
+    try {
+      await axios.delete(`http://localhost:8000/inventory/deleteInv/${Id}`);
+      navigate("/deleteInventory");
+    } catch (error) {
+      console.error("Error deleting inventory:", error);
+    }
+  };
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
+  const deleteExpense = async (Id) => {
+    try {
+      await axios.delete(`http://localhost:8000/espense/deleteExpense/${Id}`);
+      navigate("/deleteInventory");
+    } catch (error) {
+      console.error("Error deleting expense:", error);
+    }
+  };
 
-  // Get the current date in the format "September 29, 2023"
-  const currentDate = new Date().toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Send input data to the server
+    axios
+      .post("http://localhost:8000/espense/addexpenses", {
+        inputExpensesone,
+        inputExpensesAmount,
+        inputExpensesTwo,
+        inputExpensesAmountTwo,
+      })
+      .then((response) => {
+        console.log(response.status);
+        if (response.status === 200) {
+          setSuccessMessage("External income added successfully.");
+          setErrorMessage("");
+          navigate({
+            pathname: `/GetShipping/${response.data._id}`,
+          });
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        setErrorMessage("Error adding external income.");
+        setSuccessMessage("");
+      });
+  };
+
+  useEffect(() => {
+    const fetchAllExpense = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/espense/getExpenses");
+        setExpense(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.error(error);
+        setIsLoading(false);
+      }
+    };
+
+    fetchAllExpense();
+  }, []);
+
+  // Calculate the sum of inputExpensesAmount
+  const totalInputExpensesAmount = expense.reduce((acc, expenseItem) => {
+    return acc + parseFloat(expenseItem.inputExpensesAmount);
+  }, 0);
+
+  // Calculate the sum of inputExpensesAmountTwo
+  const totalInputExpensesAmountTwo = expense.reduce((acc, expenseItem) => {
+    return acc + parseFloat(expenseItem.inputExpensesAmountTwo);
+  }, 0);
+  // Calculate the sum of external expenses amounts
+  const totalExternalExpenses = expense.reduce((acc, expenseItem) => {
+    return acc + parseFloat(expenseItem.inputExpensesAmount) + parseFloat(expenseItem.inputExpensesAmountTwo);
+  }, 0);
 
   return (
-    <div className="bgh-img">
-      <div ref={componentPdf} style={{ width: '100%' }}>
-        {/* Center the table */}
-        <div className="text-center mx-uto" style={{ width: '80%' }}>
-          <h1 className="head11">Monthly Expense</h1>
-          <div className="invoice-numb">
-            <strong>Invoice Number:</strong> INV-2023-001<br />
-            <strong>Invoice Date:</strong> {currentDate}<br/>
+    <div className="container my-5 backgr">
+      <div className="col-md-9">
+        <h3 className="underline-bold expenseHead">Monthly expenses</h3>
+        <div className="inputs">
+          <p style={{ textAlign: "left", fontWeight: "bold", fontStyle: "italic" }}>
+            Add external expenses
+          </p>
+          <div className="inputTypes">
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter expense"
+                value={inputExpensesone}
+                onChange={(e) => setInput1(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter amount"
+                value={inputExpensesAmount}
+                onChange={(e) => setInput2(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter expense"
+                value={inputExpensesTwo}
+                onChange={(e) => setInput3(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter amount"
+                value={inputExpensesAmountTwo}
+                onChange={(e) => setInput4(e.target.value)}
+              />
+            </div>
           </div>
-          <div className="companyDet">
-            <strong>Street Bitez</strong><br />
-            <strong>Street Address:</strong> 123 Main St, Colombo 01, StreetBitez<br />
-            <strong>Country:</strong> Sri Lanka<br />
-            <strong>City:</strong> Colombo<br />
-            <strong>Email:</strong> StreetBitez@gmail.com
-          </div>
-          <table className="table">
-            <thead >
-              <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Date</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Total</th>
-                <th>Image</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>{order.name}</td>
-                <td>{order.email}</td>
-                <td>{order.date}</td>
-                <td>{order.quantity}</td>
-                <td>{order.price}</td>
-                <td>{order.total}</td>
-                <td>{order.image}</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td colSpan="3" className="text-right"><strong>Total:</strong></td>
-                <td>{order.total}</td>
-              </tr>
-            </tfoot>
-          </table>
+          <button type="submit" className="btn-primary externalBtn" onClick={handleSubmit}>
+            Add external expense
+          </button>
+          {/* Display success and error messages */}
+          {successMessage && <p className="text-success">{successMessage}</p>}
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
         </div>
+        <h2 className="bold IncHead">Inventory Expenses</h2>
+        <table className="table table-striped table-bordered custom-table invExpenses">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Quantity</th>
+              <th>Reorder</th>
+              <th>Item code</th>
+              <th>Category</th>
+              <th>price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {inventory.map((inventoryItem) => (
+              <tr key={inventoryItem._id}>
+                <td>{inventoryItem.name}</td>
+                <td>{inventoryItem.description}</td>
+                <td>{inventoryItem.quantity}</td>
+                <td>{inventoryItem.reorder}</td>
+                <td>{inventoryItem.itemcode}</td>
+                <td>{inventoryItem.category}</td>
+                <td>{inventoryItem.price}</td>
+                <td>
+                  <button onClick={() => deleteInventory(inventoryItem._id)} className="btn btn-primary mr-2">
+                    Delete Card
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <h2 className="bold IncHead">External expenses</h2>
+        <table className="table table-striped table-bordered custom-table invExpenses">
+          <thead>
+            <tr>
+              <th>Income from</th>
+              <th>Amount</th>
+              <th>Income from</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {expense.map((expenseItem) => (
+              <tr key={expenseItem._id}>
+                <td>{expenseItem.inputExpensesone}</td>
+                <td>{expenseItem.inputExpensesAmount}</td>
+                <td>{expenseItem.inputExpensesTwo}</td>
+                <td>{expenseItem.inputExpensesAmountTwo}</td>
+                <td>
+                  <button onClick={() => deleteExpense(expenseItem._id)} className="btn btn-primary mr-2">
+                    Delete Card
+                  </button>
+                  <button onClick={() => updateExpense(expenseItem._id)} className="btn btn-primary mr-2 incomeUpdate">
+                    Edit
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan="1" className="text-right">
+                <strong>Total amount:</strong>
+              </td>
+              <td>{totalInputExpensesAmount}</td>
+              <td colSpan="1" className="text-right">
+                
+              </td>
+              <td>{totalInputExpensesAmountTwo}</td>
+            </tr>
+          </tfoot>
+        </table>
+        <h2 className="bold IncHead">Overall expenses for the company</h2>
+
+          <table className="table table-striped table-bordered custom-table invExpenses">
+  <thead>
+    <tr>
+      <th>Total expense from external income</th>
+      <th>Total income from inventory</th>
+      <th>Overall Expense</th>
       
-      </div>
-      <p>To generate monthly expense report press below button</p>
-      <div className="btn-group mt-4 ">
-        <button onClick={() => navigate(`/UpdateCardDet/${order._id}`)} className="btn btn-primary btn1">Ok</button>
-        <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{totalExternalExpenses}</td>
+      
+    </tr>
+  </tbody>
+</table>
+<button
+              onClick={() => navigate(`/admin-dashbord`)}
+              className="btn btn-primary mr-2  expensssbutt"
+              style={{ width: "200px", height: "50px" }}
+            >
+              Back to dashboard
+            </button>
       </div>
     </div>
   );
 }
 
-export default ReceiptForOrder;
+export default ExpensesPage;

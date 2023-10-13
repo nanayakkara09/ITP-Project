@@ -17,7 +17,7 @@ function financePage() {
         <div className="row caaardd">
           <div className="col-md-6 div11">
             <div>
-            <h1>Monthly income</h1>
+            <h1>Monthly Sales</h1>
 
             </div>
             
@@ -34,7 +34,7 @@ function financePage() {
             </div>
             <button
               onClick={() => navigate(`/IncomePage`)}
-              className="btn btn-secondary incomebutt"
+              className="btn btn-primary mr-2  incomebutt"
               style={{ width: "200px", height: "50px" }}
             >
               View monthly income
@@ -66,7 +66,7 @@ function financePage() {
             </div>
             <button
               onClick={() => navigate(`/Expenses`)}
-              className="btn btn-secondary expensesbutt"
+              className="btn btn-primary mr-2  expensesbutt"
               style={{ width: "200px", height: "50px" }}
             >
               View monthly expenses

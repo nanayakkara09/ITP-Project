@@ -10,7 +10,7 @@
     margin-top: 10vh;
     margin-left: -25vh;
     background-color: rgb(167, 167, 160);
-    height: 80vh;
+    height: 60vh;
     border: 3px solid #f0eeee;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adjust shadow values as needed */
     transform: perspective(1000px) rotateX(9deg); /* Adjust rotation angle as needed */
@@ -26,7 +26,7 @@
     margin-top: 10vh;
     margin-left: 35vh;
     background-color: rgb(167, 167, 160);
-    height: 80vh;
+    height: 60vh;
     border: 3px solid #f0eeee;
     box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2); /* Adjust shadow values as needed */
     transform: perspective(1000px) rotateX(9deg); /* Adjust rotation angle as needed */
