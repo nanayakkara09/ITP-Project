@@ -4,7 +4,7 @@ const cors = require('cors');
 const jwt = require('jsonwebtoken');
 
 
-const { addNew, getAllIncomeDetails } = require('../controllers/IncomeExpenses');
+const { addNew, getAllIncomeDetails,deleteIncomeById ,updateIncomeById} = require('../controllers/IncomeExpenses');
 
 
 
@@ -18,4 +18,6 @@ router.use(
 
 router.post('/Input',addNew)
 router.get('/getIncome',getAllIncomeDetails)
+router.delete('/deleteIncome/:id',deleteIncomeById)
+router.put('/updateIncome/:id',updateIncomeById)
 module.exports=router

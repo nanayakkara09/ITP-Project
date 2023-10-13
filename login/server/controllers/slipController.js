@@ -1,4 +1,3 @@
-// server/controllers/slipController.js
 const multer = require('multer');
 const Slip = require('../models/Slip');
 

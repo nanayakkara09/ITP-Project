@@ -1,4 +1,3 @@
-// server/models/Slip.js
 const mongoose = require('mongoose');
 
 const slipSchema = new mongoose.Schema({

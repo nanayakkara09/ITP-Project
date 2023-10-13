@@ -46,7 +46,7 @@ app.listen(port, () => console.log(`Listening on port ${port}`));
 
 //for upload slip
 const SlipRoutes = require('./routes/SlipRoutes');
-app.use('/slip', SlipRoutes);
+app.use('/', SlipRoutes);
 
 //for insert data
 const orderRoute = require('./routes/OrderRoute');
@@ -58,3 +58,8 @@ app.use('/cart', cartRoute);
 
 const incomeRoute = require('./routes/IncomeExpensesRoutes');
 app.use('/', incomeRoute )
+
+const expenseRoute = require('./routes/expensess');
+app.use('/espense', expenseRoute )
+
+app.use('/invDetails', require('./routes/invDetailsRoutes'));
