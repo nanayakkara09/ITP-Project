@@ -2,16 +2,23 @@
 
 /* Style for the container */
 .Container {
-    padding: 20px;
+    padding: 40px;
+    background-image: url('/stallImages/bg.jpg'); /* Replace with the path to your background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    height: 100%; /* You can adjust the height as needed */
+    width: 100%; 
   }
   
   /* Style for the stall logo */
   .stall-logo-cover {
-    background-image: url('/stallImages/Grey Brown Beige Minimalist Photo Collage Business Facebook Cover.png'); /* Replace with your logo path */
+  background-image: url('/stallImages/Grey Brown Beige Minimalist Photo Collage Business Facebook Cover.png'); /* Replace with your logo path */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   height: 300px;
+  width: 100%; 
   }
   
   /* Style for the categories list */

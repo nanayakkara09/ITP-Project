@@ -68,9 +68,9 @@ function CreateStallreq() {
 
   return (
     
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 background">
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
-      <div className="col-md-6">
+    <div className="form-container">
+    
+      <div className="col-md-15">
         <div className="card">
           <div className="card-header text-center">
             <h2>Stall Creation Request</h2>
@@ -185,7 +185,7 @@ function CreateStallreq() {
           </div>
         </div>
       </div>
-    </div>
+    
   </div> 
    
   );

@@ -3,7 +3,7 @@
 }
 
 .card-logo {
-  background-image: url('/stallImages/pizza mart.png'); /* Replace with your logo path */
+  background-image: url('./stallImages/pizza mart.png'); /* Replace with your logo path */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

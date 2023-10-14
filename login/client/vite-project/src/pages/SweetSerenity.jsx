@@ -56,7 +56,7 @@ const SweetSerenity = () => {
     
       <Container>
         <Row className="mt-4">
-        <Col xs={12} className="mb-4">
+        <Col xs={14} className="mb-4">
           <img
             src={stall.logo}
             alt={`${stall.name} Logo`}

@@ -1,7 +1,7 @@
 /* OurStallsHomePage.css */
 
 body {
-    background-image: url('');
+    background-image: url('/stallImages/bg.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -10,20 +10,24 @@ body {
     padding: 0;
   }
 .wrapper {
+    
     background-image: url('');
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    padding: 20px; 
+    padding: 0px; 
     margin: 20px;
   }
+
+  .container-flex {
+    display: flex;
+    align-items: center; /* Vertically center the items */
+  }
   .transparent-container {
-    background-color: rgba(197, 75, 9, 0.94); 
-    padding: 90px;
-    border-radius: 0px; 
-    width: 2000px; /* Use 100vw for full viewport width */  
-    position: relative;  
-    background-image: url(''); /* Replace 'path/to/your/wallpaper-image.jpg' with the actual path to your image */
+    padding: 280px;
+    width: 180vw; /* Use 100vw for full viewport width */  
+    position: cover;  
+    background-image: url('/stallImages/Green and White Dots Photography Daily Tips Cooking Healthy Food YouTube Thumbnail.png'); /* Replace 'path/to/your/wallpaper-image.jpg' with the actual path to your image */
     background-size: flex; /* Adjust as needed */
     background-repeat: no-repeat; /* Adjust as needed */
     background-position: center center;
@@ -32,32 +36,24 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+}  
+  
+.search-bar {
+  margin-left: 1px; /* Move the search bar to the right */
+  padding: 20px; /* You can adjust this as needed */
+  width: 50%; /* Adjust the width as needed to fit your design */
 }
- 
+
+.search-bar input[type="text"] {
   
-  /* Header styles */
-  .header {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .sub-header {
-    font-size: 1.2rem;
-    color: #777;
-  }
-  
-  /* Search Bar styles */
-  .search-bar input[type="text"] {
-    border: 1px solid #848282;
-    border-radius: 10px;
-    padding: 20px;
-    width: 150%;
-  }
+  border-radius: 10px;
+  padding: 20px;
+  /* You can adjust other styles like width here too if needed */
+}
   
   /* Available Food Stalls Section styles */
   .stalls-section h3 {
+    margin-left: 1px;
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 20px;

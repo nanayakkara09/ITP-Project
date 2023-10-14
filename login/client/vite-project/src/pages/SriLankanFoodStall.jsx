@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, InputGroup } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
+import './SriLankanFoodStall.css'
 
 const SriLankanFoodStall = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -16,7 +17,7 @@ const SriLankanFoodStall = () => {
   const stall = {
     name: 'හෙළ  බොජුන් ',
     description: 'Experience the flavors of Sri Lanka!',
-    logo: '../../images/sri-lankan-logo.png', // Update the logo path
+    logo: '/stallImages/Grey Brown Beige Minimalist Photo Collage Business Facebook Cover (1).png', // Update the logo path
     rating: 4.7, // Update the rating
     foodItems: [
       // Add your Sri Lankan food items here
@@ -52,9 +53,8 @@ const SriLankanFoodStall = () => {
 
   return (
     <Container>
-      <Row className="mt-4">
-        <Col xs={12} md={3}>
-          <Card>
+      <Row className="mt-4">      
+          
             <Card.Img variant="top" src={stall.logo} alt={`${stall.name} Logo`} />
             <Card.Body>
               <Card.Title>{stall.name}</Card.Title>
@@ -69,7 +69,7 @@ const SriLankanFoodStall = () => {
                 />
               </Card.Text>
             </Card.Body>
-          </Card>
+          
           <div className="mt-3">
             <h5>Categories</h5>
             <ul>
@@ -90,7 +90,7 @@ const SriLankanFoodStall = () => {
               ))}
             </ul>
           </div>
-        </Col>
+        
         <Col xs={12} md={9}>
           <Row>
             <Col xs={12} lg={12}>

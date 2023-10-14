@@ -25,7 +25,6 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import CreateStallreq from './pages/CreateStallreq';
 import StallAdminreq from './pages/StallAdminreq';
 import StallCreate from './pages/StallCreate';

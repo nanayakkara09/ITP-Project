@@ -28,12 +28,12 @@ function OurStallsHomePage() {
   
     return (
       <div className="wrapper">
-        <div className="container mt-8 transparent-container">
-          <h2 className="header">Welcome to the STREET BITEZ</h2>
-          <p className="sub-header">Discover delicious food stalls.</p>
+        
+        <div className="container mt-8 transparent-container">          
+        </div>  
   
           {/* Search Bar */}
-          <div className="search-bar mt-4">
+          <div className="search-bar mt-5">
             <input
               type="text"
               placeholder="Search for a stall..."
@@ -42,10 +42,10 @@ function OurStallsHomePage() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </div>
-          </div>
+          
   
           {/* Available Food Stalls Section */}
-          <div className="mt-5">
+          <div className="mt-4">
             <h3 className="stalls-heading">Available Food Stalls</h3>
             <br/>
             <br/>
@@ -59,6 +59,7 @@ function OurStallsHomePage() {
           src={stall.image}
           className="card-img-top"
           alt={stall.name}
+          style={{ height: '500px' }}
         />
         <div className="card-body">
           <h5 className="card-title">{stall.name}</h5>
@@ -73,7 +74,8 @@ function OurStallsHomePage() {
     </div>
   ))}
 </div>
-
+<h3 className="stalls-heading">Newly created Food Stalls</h3>
+<br/>
             
           </div>
           <GetCreatedStall />
