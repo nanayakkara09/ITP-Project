@@ -17,7 +17,7 @@ function financePage() {
         <div className="row caaardd">
           <div className="col-md-6 div11">
             <div>
-            <h1>Monthly Sales</h1>
+            <h1 className="monthlySales">Monthly Sales</h1>
 
             </div>
             

@@ -103,7 +103,7 @@ function Getstall() {
             </tbody>
           </table>
         </div>
-        <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Ok</button>
+        <button onClick={() => navigate(`/PaymentMethod/${id}`)} className="btn btn-primary btn1">Ok</button>
       </div>
       
     </div>

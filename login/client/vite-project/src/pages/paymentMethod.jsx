@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, useParams } from "react-router-dom"; // Import useParams
 import "bootstrap/dist/css/bootstrap.min.css";
 import paymetMethod from '../images/methodpayment.gif';
 import "./PaymentMeth.css";
@@ -7,8 +7,7 @@ import "./PaymentMeth.css";
 function PaymentMeth() {
   const navigate = useNavigate();
   const location = useLocation();
-  const stallData = location.state && location.state.stallData;
-
+  const { id } = useParams(); 
   return (
     <div className="container mt-5 parent allpay">
      
@@ -18,11 +17,11 @@ function PaymentMeth() {
       <div className="row mt-3 depoAndUp">
         <p>"deposit money and upload a slip" process is a fundamental part of financial transactions, adding a layer of trust and accountability to financial dealings, both in personal and business contexts. It ensures that there is clear documentation of payments, which can be beneficial for financial tracking and dispute resolution</p>
         <button
-          onClick={() => navigate(`/UploadSlip`, { stallData: stallData })}
+          onClick={() => navigate(`/CardDetails/${id}`)}
           className="btn btn-primary mr-2 depobttn1"
           style={{ width: "200px", height: "70px" }}
         >
-          Deposit and upload a slip
+          Credit/Debit card
         </button>
       </div>
 

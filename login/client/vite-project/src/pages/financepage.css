@@ -37,7 +37,7 @@
 .subDiv2:hover {
     transform: perspective(1000px) rotateX(0deg); /* Reset rotation on hover */
   }
-h1{
+.monthlySales{
     justify-content: center;
     margin-left: -30vh;
     width: 50vh;

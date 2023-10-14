@@ -99,13 +99,13 @@ function ReceiptForStall() {
       </div>
       <div className="btn-group mt-4">
       <button
-         onClick={() => navigate(`/PaymentMethod`, { stallData: stall })}
+         onClick={() => navigate(`/PaymentMethod/${id}`)}
         className="btn btn-primary btn1"
       >
       Pay now
       </button>
       <button
-         onClick={() => navigate(`/GetAllStallData`, { stallData: stall })}
+         onClick={() => navigate(`/GetAllStallData`)}
         className="btn btn-primary btn1"
       >
       View all your registered stalls

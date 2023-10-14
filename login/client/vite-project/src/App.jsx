@@ -43,13 +43,15 @@ import PaymentMethod from './pages/paymentMethod';
 import Paidbycard from './pages/paidByCard';
 import CashOnDeliver from './pages/cashOnDeliver';
 import FinancePage from './pages/financePage';
-
+import CardDetails from './pages/CreditCard';
 import Expenses from './pages/expenses'
 import Cart from './pages/CartItems'
 import OrderAdminPage from './pages/orderAdmin'
 import IncomePage from './pages/Income';
 import Payment from './pages/payment';
-import UploadSlip from './pages/UploadSlip';
+import AdminFinance from './pages/adminFinance';
+import SuccessfullPayment from './pages/successfullPayments';
+
 import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
 import UpdateExpenses from './pages/updateExpenses';
@@ -92,7 +94,7 @@ function App() {
       <Route path='/Paidbycard' element={<Paidbycard/>}></Route>
       <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
       <Route path='/GetAllOrderData' element={<GetAllOrderData/>}></Route>
-      <Route path='/PaymentMethod' element={<PaymentMethod/>}></Route>
+      <Route path='/PaymentMethod/:id' element={<PaymentMethod/>}></Route>
       <Route path='/ReceiptForOrder/:id' element={<ReceiptForOrder/>}></Route>
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
       <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
@@ -101,8 +103,10 @@ function App() {
       <Route path='/IncomePage' element={<IncomePage/>}></Route>
       <Route path="/updateIncome/:Id" element={<UpdateIncomePage />} />
       <Route path="/updateExpense/:Id" element={<UpdateExpenses />} />
-      <Route path='/UploadSlip' element={<UploadSlip/>}></Route>
+      <Route path="/CardDetails/:id" element={<CardDetails />} />
+      <Route path="/AdminFinance" element={<AdminFinance />} />
       <Route path='/PaymentSuccess' element={<PaymentSuccess/>}></Route>
+      <Route path='/SuccessfullPayment' element={<SuccessfullPayment/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
       <Route path='/payment' element={<Payment/>}></Route>
