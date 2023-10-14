@@ -24,6 +24,15 @@ import UserEdit from './pages/UserEdit';
 import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
+import DriverRegister from '../src/pages/driverRegister';
+import DriverLogin from '../src/pages/driverLogin';
+import { DriverContextProvider } from '../contex/driverContex';
+import DriverDashboard from '../src/pages/driverDashboard';
+import DriverProfile from '../src/pages/driverProfile';
+import UpdateDriverProfile from '../src/pages/driverUpdate';
+import DriverFeedback from './pages/driverFeedback';
+import DriverCompletedOrders from './pages/driverCompletedOrders'
+
 
 
 axios.defaults.baseURL='http://localhost:8000';
@@ -31,7 +40,8 @@ axios.defaults.withCredentials=true
 
 function App() {
   return (
-    <UserContextProvider>
+   <UserContextProvider>
+      <DriverContextProvider>
     <NavBar/>
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
     <Routes>
@@ -54,11 +64,19 @@ function App() {
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
       <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
-    <Route path="/UserEdit/:userId" element={<UserEdit />} />
+      <Route path='/driver-register' element={<DriverRegister/>}/>
+      <Route path='/driver-login' element={<DriverLogin/>}/>
+      <Route path='/driver-dashboard' element={<DriverDashboard/>}/>
+      <Route path='/driver-profile' element={<DriverProfile/>}/>
+      <Route path='/driver-update' element={<UpdateDriverProfile/>}/>
+      <Route path='/driver-feedback' element={<DriverFeedback/>}/>
+      <Route path='/driver-compOrds' element={<DriverCompletedOrders/>}/>
 
-     
+    <Route path="/UserEdit/:userId" element={<UserEdit />} />
     </Routes>
+    </DriverContextProvider>
     </UserContextProvider>
+    
   )
 }
 

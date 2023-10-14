@@ -1,0 +1,76 @@
+/* driverLogin.css */
+
+/* Background image for the container */
+
+/* Container for the form and content */
+.content.driv-form-box {
+  background-color: rgba(255, 255, 255, 0.9); /* Add a semi-transparent white background */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 300px;
+  position: relative; /* Position the container relative to the background image */
+  top: 50%; /* Center the container vertically */
+  transform: translateY(-50%); /* Center the container vertically */
+}
+
+/* Heading styles */
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-top: 20px; /* Add space at the top */
+  margin-bottom: 20px;
+}
+
+/* Form input styles */
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: normal;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Button styles */
+.btn-primary-driver-login {
+  background-color: #000000 !important;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Apply hover effect to the "Login" button */
+.btn-primary-driver-login:hover {
+  background-color: #333;
+}
+
+/* Register link styles */
+.register-btn {
+  background-color: #007bff;
+  color: #ffffff;
+  border: 1px solid #007bff;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: block;
+  text-align: center;
+  text-decoration: none;
+  margin-top: 20px;
+}
+
+/* Apply hover effect to the "Register" button */
+.register-btn:hover {
+  background-color: #96bfeb;
+}
