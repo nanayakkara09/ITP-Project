@@ -74,4 +74,27 @@
     padding: 6px 35px;
     cursor: pointer;
   }
-  
+  .bgh-image20 {
+    background-image: url('../images/eventback2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+   background-repeat: no-repeat;
+    display: cover;
+    align-items: cover;
+    justify-content: cover; /* To center horizontally */
+    
+    opacity: 1.1; 
+  }
+  .background-image20 {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }

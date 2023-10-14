@@ -3,17 +3,17 @@ import './eventHome.css';
 import event1 from '../images/event1.jpg';
 import event2 from '../images/event2.jpg';
 import event7 from '../images/event7.jpg';
-import eventHome from '../images/eventhome.jpeg';
+
 import event4 from '../images/3.jpg';
 import { Link, useNavigate } from 'react-router-dom';
-
+import eventback2 from '../images/eventback2.jpg';
 
 export default function EventHome() {
     const navigate = useNavigate();
   return (
   
     <div className="bgh-image7">
-    <img src={eventHome} alt="Event" className="background-image7" />
+    <img src={eventback2} alt="Event" className="background-image7" />
     <div className="front-page-container7">
       <div className="choose-event-heading7">
     

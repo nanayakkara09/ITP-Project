@@ -1,73 +1,77 @@
-/* WhyChooseUs.css */
-.why-choose-us-container11 {
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 20px;
-  max-width: 500px;
-  text-align: left;
-  position: relative; /* Add this line */
-  z-index: 1; /* Add this line to bring it to the front */
-}
-
-
-.card-container11 {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.card11 {
-  background-color: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+.event-about-container22 {
   text-align: center;
-  transition: transform 0.2s ease-in-out;
+  margin-top: 20px;
 }
 
-.card:hover {
-  transform: translateY(-5px);
+.background-image-container22 {
+  background-image: url('../images/chooseus.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+   background-repeat: no-repeat;
+    display: cover;
+    align-items: cover;
+    justify-content: cover; /* To center horizontally */
+    
+    opacity: 1.1; 
 }
 
-.card-icon11 {
-  font-size: 40px;
-  margin-bottom: 20px;
-  color: #007bff;
+.background-image22 {
+  width: 100%;
 }
 
-h3 {
-  font-size: 24px;
+.card-container22 {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  background-color: #e3cece;
+  padding: 20px;
+}
+
+.card22 {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.card-icon22 {
+  font-size: 2em;
   margin-bottom: 10px;
 }
 
-p {
-  font-size: 16px;
+hr {
+  border: 1px solid #f8f8f8;
+  margin: 30px 0;
 }
-.bgh-image11 {
-  background-image: url('images/eventAboutus.jpg'); /* Adjust the URL as needed */
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-repeat: no-repeat;
+
+.footer22 {
+  background-color: #c1bdcd;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.container22 {
   display: flex;
-  align-items: cover;
-  justify-content: cover;
-  opacity: 1.1; /* Adjust the opacity value */
+  justify-content: space-between;
 }
 
+.contact-section22 {
+  flex: 1;
+}
 
-.background-image11 {
-  width: 100%;
-  height: auto;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1;
+.social-section22 {
+  flex: 1;
+}
+
+.text-center {
+  text-align: center;
 }

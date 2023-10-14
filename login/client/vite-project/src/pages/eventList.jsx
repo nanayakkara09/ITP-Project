@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import 'bootstrap/dist/css/bootstrap.css'
+import './eventList.css';
 import { Link } from 'react-router-dom';
-
+import eventback2 from '../images/eventback2.jpg';
 
 export default function EventList() {
   const [events, setEvents] = useState([]);
@@ -47,41 +47,20 @@ export default function EventList() {
       }
     }
   };
-  const downloadCSV = () => {
-    let csvContent = "data:text/csv;charset=utf-8," +
-      "Name,PhoneNumber,Email,EventName,EventTime,Date,NoPeople,Fneed,theme,Extra\n";
-    events.forEach((event) => {
-      const row = [
-        event.name,
-        event.phonenumber,
-        event.email,
-        event.ename,
-        event.etime,
-        event.date,
-        event.npeople,
-        event.theme,
-        event.Fneed,
-        event.extra,
-      ].join(",");
-      csvContent += row + "\n";
-    });
-    const encodedUri = encodeURI(csvContent);
-    const link = document.createElement("a");
-    link.setAttribute("href", encodedUri);
-    link.setAttribute("download", "eventList.csv");
-    document.body.appendChild(link);
-    link.click();
-  };
+
   
 
   return (
+    <div className="bgh-image13">
+    <img src={eventback2} alt="Event" className="background-image13" />
+ 
     <div>
-      <div className='container'>
+      <div className='container14'>
         <div className='title'>
-          <h1 className="item-list-title">Event List</h1>
+          <h1 className="item-list-title14">Event List</h1>
         </div>
 
-        <div className="item-list-buttons">
+        <div className="item-list-buttons14">
           <input
             className="form-control"
             type="text"
@@ -106,7 +85,7 @@ export default function EventList() {
                 <th>NoPeople</th>
                 <th>Fneed</th>
                 <th>theme</th>
-                <th>Extra</th>
+               
                
               </tr>
             </thead>
@@ -122,7 +101,7 @@ export default function EventList() {
                   <td>{event.Npeople}</td>
                   <td>{event.theme}</td>
                   <td>{event.Fneed}</td>
-                  <td>{event.Extra}</td>
+                 
                   <td>
                     <Link to={`/admin-confirm`}>
                       <button className="Edit-button">confirm</button>
@@ -131,16 +110,14 @@ export default function EventList() {
                   <td>
                     <button onClick={() => deleteEvent(event._id)} className="Delete-button">Delete</button>
                   </td>
-                  <td>
-                    <button onClick={downloadCSV} className="download">Download</button>
-                  </td>
+                  
 
                 </tr>
                 
               ))}
             </tbody>
           </table>
-        </div>
+        </div> </div>
       </div>
     </div>
   );

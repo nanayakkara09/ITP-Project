@@ -37,7 +37,7 @@ import EventSuccess from '../src/pages/eventSuccess';
 import EventHome from './pages/eventHome';
 import EventDetail from './pages/eventDetail';
 import EventAbout from './pages/eventAbout';
-import EventDel from './pages/eventDel';
+
 import EventDetail2 from './pages/eventDetail2';
 import EventDetail3 from './pages/eventDetail3';
 import EventDetail4 from './pages/eventDetail4';
@@ -87,7 +87,7 @@ function App() {
       <Route path="/eventHome" element={<EventHome />}/>
       <Route path="/eventDetail" element={<EventDetail />}/>
       <Route path="/eventAbout" element={<EventAbout />}/>
-      <Route path="/eventDel" element={<EventDel />}/>
+      
       <Route path="/eventDetail2" element={<EventDetail2 />}/>
       <Route path="/eventDetail3" element={<EventDetail3 />}/>
       <Route path="/eventDetail4" element={<EventDetail4 />}/>

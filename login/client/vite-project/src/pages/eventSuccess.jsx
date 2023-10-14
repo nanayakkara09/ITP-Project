@@ -1,6 +1,6 @@
 import React from 'react';
 import './eventSuccess.css';
-import thankYou from '../images/thankYou.jpeg';
+import confirm from '../images/confirm.jpg';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +8,9 @@ import { Link } from 'react-router-dom';
 export default function eventSuccess() {
   const navigate = useNavigate();
   return (
+    <div className='event-border4'>
     <div className="bgh-image2">
-    <img src={thankYou} alt="Event" className="background-image5" />
+    <img src={confirm} alt="Event" className="background-image4" />
     <div className="event-proposal-details5">
     <div className="success-container">
       <h2 className="success-heading">SUBMITTED!</h2>
@@ -40,7 +41,7 @@ export default function eventSuccess() {
           <p className="text-center">All rights reserved &copy; </p>
         </div>
       </footer>
-    </div>  </div></div>
+    </div>  </div></div></div>
   );
 }
 
