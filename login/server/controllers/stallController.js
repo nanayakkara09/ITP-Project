@@ -1,6 +1,6 @@
 const Stall = require('../models/stall');
 const stallReg = require('../models/stallRegister');
-
+const PaymentSuccess = require('../models/paymentSuccessStall');
 const test = (req, res) => {
     res.json('test is working');
 }
@@ -99,7 +99,81 @@ const stalladminreq = async (req, res) => {
       return res.status(500).json({ error: 'Internal Server Error' });
     }
   };
-  
+
+  // Create a controller function to add the details to the database
+const addSuccessDetails = async (req, res) => {
+  try {
+    const {
+      stallName,
+      type,
+      amount,
+      mType,
+      stallId,
+      fName,
+      lName,
+      phonenumber,
+      email,
+      password,
+      payment,
+    } = req.body;
+    // Create a new instance of the SuccessModel
+    const successDetails = new PaymentSuccess({
+      stallName,
+      type,
+      amount,
+      mType,
+      stallId,
+      fName,
+      lName,
+      phonenumber,
+      email,
+      password,
+      payment,
+    });
+
+    // Save the details to the database
+    await successDetails.save();
+
+    // Respond with a success message or the saved document
+    res.status(201).json(successDetails);
+  } catch (error) {
+    // Handle errors, e.g., validation errors or database errors
+    res.status(500).json({ error: 'Failed to add details to the database' });
+  }
+};
+//Get all stall details 
+const getAllPayments = async (req, res) => {
+  try {
+    const successPayment = await PaymentSuccess.find(); // Retrieve all stalls
+    
+    return res.json(successPayment);
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+const updateStallStatusSuccess = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const stall = await PaymentSuccess.findById(id);
+
+    if (stall) {
+      console.log(stall);
+      stall.payment = 'success';
+
+      const updatedStall = await stall.save();
+      console.log("Stall data updated successfully.");
+      return res.json(updatedStall);
+    } else {
+      console.log("Stall not found.");
+      return res.status(404).json({ message: 'Stall not found' });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
 
 module.exports = {
     stallreq,
@@ -108,5 +182,9 @@ module.exports = {
     getStall,
     getAllStall,
     deleteStall,
+    addSuccessDetails,
+    getAllPayments,
+    updateStallStatusSuccess,
+ 
 };
           

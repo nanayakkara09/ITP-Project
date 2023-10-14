@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/OrderModel');
+const Orderpaymentmodel = require('../models/Orderpaymentmodel');
 const ConfirmedOrder = require('../models/ConfirmOrderModel');
 const moment = require('moment-timezone');
 moment.tz.setDefault('Asia/Colombo');
@@ -110,7 +111,7 @@ router.delete('/delete/:id', async (req, res) => {
 
 
 // Define a route to fetch order details by ID
-router.get('/orders/:id', async (req, res) => {
+router.get('/orderss/:id', async (req, res) => {
   try {
     const orderId = req.params.id;
 
@@ -197,7 +198,16 @@ router.get('/get-image/:id', async (req, res) => {
   }
 });
 
-
+// Define a route to get all orders
+router.get('/orderPayment', async (req, res) => {
+  try {
+    const ordersPay = await Orderpaymentmodel.find();
+    res.status(200).json({ status: "orders fetched", ordersPay });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
 
 
 

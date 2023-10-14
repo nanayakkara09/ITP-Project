@@ -37,6 +37,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 
+
+
 app.use('/', require('./routes/authRoutes'));
 app.use('/inventory', require('./routes/invRoutes'));
 app.use('/stall', require('./routes/stallRoutes'));
@@ -63,3 +65,6 @@ const expenseRoute = require('./routes/expensess');
 app.use('/espense', expenseRoute )
 
 app.use('/invDetails', require('./routes/invDetailsRoutes'));
+
+const OrderSuccess = require('./routes/OrderSuccessfullModel');
+app.use('/SuccessOrder', OrderSuccess);
