@@ -1,4 +1,4 @@
-.heshani-detail-container1 {
+.heshani-detail-container4 {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,33 +11,30 @@
 }
 
 h2 {
-  font-size: 26px;
+  font-size: 28px;
   margin-top: 20px;
   text-decoration-style: double;
 }
 
-.heshani-proposal-details1 {
-  background-color: rgb(240, 229, 229);
+.heshani-proposal-details4 {
+  background-color: rgb(243, 238, 238);
   padding: 40px;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(208, 189, 189, 0.1);
-  
 }
 
 ul.heshani-table {
   list-style: none;
   padding: 0;
   color: #0a223b;
-  
 }
 
 ul.heshani-table li {
   margin: 10px 0;
   color: #000000;
-  
 }
 
-.heshanibtn {
+.btn {
   background-color: #007bff;
   color: rgb(9, 5, 5);
   padding: 10px 20px;
@@ -50,7 +47,7 @@ ul.heshani-table li {
 }
 
 
-.background-heshani1 {
+.background-heshani4 {
   width: 100%;
   height: auto;
   position: absolute;
@@ -58,8 +55,8 @@ ul.heshani-table li {
   left: 0;
   z-index: -1;
 }
-.heshani-details-content1 {
-  background-color: rgba(238, 234, 234, 0.8);
+.heshani-details-content4 {
+  background-color: rgba(255, 255, 255, 0.8);
   padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
@@ -68,8 +65,8 @@ ul.heshani-table li {
   position: relative; /* Add this line */
   z-index: 1; /* Add this line to bring it to the front */
 }
-.heshani-image1 {
-  background-image: url('../images/brithday.jpeg');
+.heshani-image4 {
+  background-image: url('../images/BrideToBe.jpg');
   background-size: cover;
   background-position: center;
   height: 100vh;

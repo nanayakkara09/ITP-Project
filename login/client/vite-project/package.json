@@ -20,6 +20,7 @@
     "file-saver": "^2.0.5",
     "font-awesome": "^4.7.0",
     "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
     "install": "^0.13.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.7.0",
@@ -52,3 +53,4 @@
     "vite": "^4.4.9"
   }
 }
+

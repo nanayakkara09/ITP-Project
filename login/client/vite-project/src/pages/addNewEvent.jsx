@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import "./addNewEvent.css";
+import eventform1 from '../images/eventform1.jpeg';
 
 
 export default function AddNewEvent() {
@@ -35,10 +37,18 @@ export default function AddNewEvent() {
   };
 
   return (
-    <div className="container">
+
+    
+
+
+      <div className="Heshani1">
+        <img src={eventform1} alt="Event" className="Heshani-image9" />
+     
+    <div className="Heshanicontainer9">
       <form onSubmit={handleSubmit}>
-        <h2>EVENT PROPOSAL FORM</h2>
-        <div className="form-group">
+        
+        <div className="form-heshani">
+        <h1>EVENT PROPOSAL FORM</h1>
           <label htmlFor="name">Name:</label>
           <input
             className="form-control"
@@ -48,7 +58,7 @@ export default function AddNewEvent() {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="phonenumber">Phone Number:</label>
           <input
             className="form-control"
@@ -59,7 +69,7 @@ export default function AddNewEvent() {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="email">Email:</label>
           <input
             className="form-control"
@@ -70,7 +80,7 @@ export default function AddNewEvent() {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="Ename">Event Name:</label>
           <select
             className="form-control"
@@ -87,7 +97,7 @@ export default function AddNewEvent() {
           </select>
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="Etime">Event Time:</label>
           <select
             className="form-control"
@@ -102,7 +112,7 @@ export default function AddNewEvent() {
           </select>
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="date">Event Date:</label>
           <input
             className="form-control"
@@ -113,7 +123,7 @@ export default function AddNewEvent() {
           />
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="Npeople">No of People Expected:</label>
           <select
             className="form-control"
@@ -130,7 +140,7 @@ export default function AddNewEvent() {
           </select>
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
           <label htmlFor="theme">Theme Of The Event:</label>
           <select
             className="form-control"
@@ -146,7 +156,7 @@ export default function AddNewEvent() {
         </select>
         </div>
 
-        <div className="form-group">
+        <div className="form-heshani">
         <label>Facilities Needed:</label>
         <select
             className="form-control"
@@ -170,6 +180,7 @@ export default function AddNewEvent() {
           Submit
         </button>
       </form>
+    </div>
     </div>
     
   );

@@ -1,16 +1,23 @@
 import React from 'react';
-import './eventDetail.css';
+import './eventDetail4.css';
+import BrideToBe from '../images/BrideToBe.jpg';
 import { useNavigate } from 'react-router-dom';
 
 export default function eventDetail() {
   const navigate = useNavigate();
+ 
+
   return (
-    <div className="event-details-container">
-      <div className="content">
+    <div className="heshani-image4">
+    <div className="heshani-detail-container4">
+
+        <img src={BrideToBe} alt="Event" className="background-heshani4" />
+   
+      <div className="heshani-details-content4">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details">
+        <div className="heshani-proposal-details4">
           <h2>EVENT PROPOSAL DETAILS</h2>
-          <ul className="event-table">
+          <ul className="heshani-table">
           <li>
               <strong>Event Name:</strong> BrideToBe Party
             </li>
@@ -27,7 +34,7 @@ export default function eventDetail() {
               <strong>Event location:</strong> Outdoor
             </li>
             <li>
-              <strong>Extra details:</strong>
+              <strong>Extra needs:</strong>
               <ul>
                 <li>DJ and music</li>
                 <li>Styling & Decor</li>
@@ -44,10 +51,9 @@ export default function eventDetail() {
             type="submit"
             className="btn btn-primary"
           >
-            Submit
+            ACCEPT
           </button>
-        </div>
-      </div>
+         
   
       <hr />
       <footer className="footer">
@@ -65,5 +71,7 @@ export default function eventDetail() {
         </div>
       </footer>
     </div>
+    </div>  </div>
+      </div>
   );
 }

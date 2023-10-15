@@ -1,5 +1,6 @@
 import React from 'react';
 import './eventSuccess.css';
+import confirm from '../images/confirm.jpg';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -7,18 +8,23 @@ import { Link } from 'react-router-dom';
 export default function eventSuccess() {
   const navigate = useNavigate();
   return (
+    <div className='heshani-border4'>
+    <div className="heshani-image41">
+    <img src={confirm} alt="Event" className="background-heshani41" />
+    <div className="heshani-proposal-details5">
     <div className="success-container">
-      <h1 className="success-heading">SUBMITTED!</h1>
+      <h2 className="success-heading">ACCEPTTED!</h2>
       <h2 className="success-heading">THANK YOU!</h2>
-      <p>Your request has been successfully processed.</p>
+      <p>Make your own Event Proposal with your own ideas and designs.</p>
+      <p>Share your ideas with US and make your Event Colorfull</p>
       <p>Thank you for choosing Street Bitz.</p>
 
       <div className="button-container">
         <Link to="/eventHome" className="btn btn-primary">
           Event Home
         </Link>
-        <button onClick={() => navigate('/eventListUser')} className="btn btn-primary">
-          Event Details
+        <button onClick={() => navigate('/addNewEvent')} className="btn btn-primary">
+          Event Proposal form
         </button>
       </div>
       <hr />
@@ -36,7 +42,7 @@ export default function eventSuccess() {
           <p className="text-center">All rights reserved &copy; </p>
         </div>
       </footer>
-    </div>
+    </div>  </div></div></div>
   );
 }
 

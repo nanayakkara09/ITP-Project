@@ -1,18 +1,22 @@
 import React from 'react';
-import './eventDetail.css';
-
+import './eventDetail2.css';
+import getToGether from '../images/getToGether.jpg';
 import { useNavigate } from 'react-router-dom';
 
 export default function eventDetail() {
   const navigate = useNavigate();
   return (
-    
-    <div className="event-details-container" style={{ backgroundImage: 'url("eventBackground.jpg")' }}>
-      <div className="content">
+    <div className="heshani-image2">
+
+ <div className="heshani-detail-container2">
+      
+        <img src={getToGether} alt="Event" className="background-heshani2" />
+     
+      <div className="heshani-details-content2">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details">
+        <div className="heshani-proposal-details2">
           <h2>EVENT PROPOSAL DETAILS</h2>
-          <ul className="event-table">
+          <ul className="heshani-table">
           <li>
               <strong>Event Name:</strong> GetToGether
             </li>
@@ -29,7 +33,7 @@ export default function eventDetail() {
               <strong>Event location:</strong> Indoor
             </li>
             <li>
-              <strong>Extra details:</strong>
+              <strong>Extra needs:</strong>
               <ul>
                 <li>3 Piece Band and music</li>
                 <li>Styling & Decor</li>
@@ -46,11 +50,9 @@ export default function eventDetail() {
             type="submit"
             className="btn btn-primary"
           >
-            Submit
+            ACCEPT
           </button>
-        </div>
-      </div>
-  
+        
       <hr />
       <footer className="footer">
         <div className="container">
@@ -67,5 +69,8 @@ export default function eventDetail() {
         </div>
       </footer>
     </div>
+    </div>
+      </div>
+  </div>
   );
 }

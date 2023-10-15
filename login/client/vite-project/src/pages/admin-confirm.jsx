@@ -1,7 +1,7 @@
 import React from 'react';
 import AdminNavBar from '../components/adminNavBar';
-
-import './eventSuccess.css';
+import confirm from '../images/confirm.jpg';
+import './eventConfirm.css';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -10,15 +10,19 @@ import { useNavigate } from 'react-router-dom';
 export default function adminConfirm() {
   const navigate = useNavigate();
   return (
-    <div className="success-container">
-      <h1 className="success-heading">CONFIRM!</h1>
-      <h2 className="success-heading">MAKE FURTHER REQUIREMENTS!</h2>
+    <div className='heshani-border21'>
+    <div className="heshani-image21">
+    <img src={confirm} alt="Event" className="background-heshani21" />
+    <div className="heshani-confirm21">
+    <div className="heshani-container">
+      <h1 className="heshani-heading">CONFIRM!</h1>
+      <h2 className="heshani-heading">MAKE FURTHER REQUIREMENTS!</h2>
       <p>Your request has been successfully processed.</p>
       <p>You may inform the customer through EMAIL.</p>
 
       <div className="button-container">
        
-        <button onClick={() => navigate('/eventList')} className="btn btn-primary">
+        <button onClick={() => navigate('/eventList')} className="heshanibtn btn-primary21">
           Customer Event Details
         </button>
       </div>
@@ -37,7 +41,7 @@ export default function adminConfirm() {
           <p className="text-center">All rights reserved &copy; </p>
         </div>
       </footer>
-    </div>
+    </div></div></div></div>
   );
 }
 
