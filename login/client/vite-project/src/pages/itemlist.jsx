@@ -19,23 +19,22 @@ export default function itemlist(props) {
       try {
         const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
         setItems(data);
-        data.forEach(item => {
-          if (item.quantity <= item.reorder) {
-            // Trigger notification
-            toast.error(`Item '${item.name}' quantity is below reorder level!`);
-          }
-        });
-        //setIsLoading(false);
+        
+        // if (item.quantity <= item.reorder) {
+        //   // Trigger notification
+        //   toast.error(`Item '${item.name}' quantity is below reorder level!`);
+        // }
+        // Assuming formData is defined
+        //setFormData({ ...formData, itemcode: nextItemCode });
       } catch (error) {
         console.error(error);
         toast.error('Failed to fetch inventory data');
-        //setIsLoading(false);
       }
     };
-
+  
     fetchItemList();
   }, []);
-
+  
   const handleSearch = () => {
 
 

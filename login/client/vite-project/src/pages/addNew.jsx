@@ -4,11 +4,11 @@ import './addNew.css'; // Import the CSS file for styling
 import { useNavigate } from 'react-router-dom';
 import AdminNavBar from '../components/adminNavBar';
 import { Link } from 'react-router-dom';
-
+import { toast } from 'react-hot-toast';
 
 export default function NewItemForm() {
   const navigate = useNavigate();
-  const [itemcode, setItemCode] = useState('');
+  //const [itemcode, setItemCode] = useState('');
   const [formData, setFormData] = useState({
 
     
@@ -24,8 +24,24 @@ export default function NewItemForm() {
       try {
         const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFood');
         console.log(data);
-        var nextItemCode = "F" + (data.length + 1)
-        setFormData({ ...formData, itemcode: nextItemCode })
+
+        let highestItemCode = 0;
+  
+        // Find the highest item code
+        data.forEach(item => {
+          const itemCodeNumber = parseInt(item.itemcode.substring(1));
+          if (itemCodeNumber > highestItemCode) {
+            highestItemCode = itemCodeNumber;
+          }
+          console.log(highestItemCode)
+  
+          
+        });
+  
+        const nextItemCode = "F" + (highestItemCode + 1);
+
+        //const nextItemCode = "F" + (data.length + 1);       
+       setFormData({ ...formData, itemcode: nextItemCode })
         //setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -56,20 +72,21 @@ export default function NewItemForm() {
       <div><AdminNavBar /></div>
     <div className="new-item-form-container">
       <h2>Add New Item</h2>
-      <form onSubmit={handleSubmit}>
       
-        <div className="form-group">
-          <label htmlFor="itemcode">Item Code:</label>
-          <input
-            type="text"
-            id="itemCode"
-            name="itemcode"
-            value={formData.itemcode}
-            onChange={handleChange}
-            required
-            disabled={true}
-          />
-        </div>
+      
+      <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="itemcode">Item Code:</label>
+            <input
+              type="text"
+              id="itemCode"
+              name="itemcode"
+              value={formData.itemcode}
+              onChange={handleChange}
+              required
+              disabled={true}
+            />
+          </div>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <input
