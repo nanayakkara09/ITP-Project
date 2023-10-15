@@ -8,9 +8,7 @@ const {
   createStall,
   Stalllogin,
   StallOwnerDashboard,
-  createProduct,
-  getProduct,
-  deleteProduct,
+  
   updateProduct, 
   createdStall,
   createdStalls,
@@ -19,22 +17,17 @@ const {
   createTicket,
   getTicket,
   getRegStallByStallId,
-  updateStallIssueById
+  updateStallIssueById,getStall,getAllStall,deleteStall,addSuccessDetails,getAllPayments,updateStallStatusSuccess} = require('../controllers/stallController');
 
-} = require('../controllers/stallController');
 
-// Import multer configuration
-const upload = require('../multerConfig');
 
-// Middleware for CORS
+//middleware
 router.use(
-  cors({
-    credentials: true,
-    origin: 'http://localhost:5173',
-  })
-);
-
-// Define Routes
+    cors({
+        credentials: true,
+        origin: 'http://localhost:5173'
+    })
+)
 router.post('/stallreq', stallreq);
 router.get('/stalladminreq', stalladminreq);
 router.delete('/deleteStallreq/:id', deleteStallreq);
@@ -58,6 +51,12 @@ router.post('/updateStallById:id',updateStallIssueById);
 
 
 
+router.get('/fetchStall/:id', getStall);
+router.get('/getAllStall', getAllStall);
+router.delete('/deleteStall/:id', deleteStall);
+router.post('/Psuccess', addSuccessDetails);
+router.get('/getAllSuccess', getAllPayments);
+router.put('/updateStallSuccess/:id', updateStallStatusSuccess);
 
 
-module.exports = router;
+module.exports = router

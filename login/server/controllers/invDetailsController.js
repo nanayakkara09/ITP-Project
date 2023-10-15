@@ -40,7 +40,18 @@ const getAllItemDetails = async (req, res) => {
       res.status(500).json({ error: 'Error fetching item details' });
     }
   };
+  //get all inventory details
+const getAllinv = async (req, res) => {
+    try {
+      const item = await InvDetails.find();
+      res.json(item);
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Error fetching inventory items' });
+    }
+  };
 module.exports ={
     addStock,
-    getAllItemDetails
+    getAllItemDetails,
+    getAllinv,
 }

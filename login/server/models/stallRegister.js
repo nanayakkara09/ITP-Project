@@ -22,6 +22,11 @@ const stallRegisterSchema = new Schema({
   isIssued: {
     type: Boolean,
     default: false
+  },
+  status: {
+    type: String,
+    enum: ['pending', 'confirmed','success'], 
+    default: 'pending' 
   }
 });
 

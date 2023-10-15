@@ -56,6 +56,7 @@ const deleteItem=async(req,res) =>{
      
       }
 }
+//get all inventory details
 const getAllItems = async (req, res) => {
     try {
       const items = await Inventory.find();
@@ -96,6 +97,27 @@ const getAllItems = async (req, res) => {
       res.status(500).json({ error: 'Error fetching inventory items' });
     }
   };
+
+  const deleteInvById = async (req, res) => {
+    try {
+      const { id } = req.params;
+  
+      // Use Mongoose to delete the inventory item by ID
+      const deleteInv = await Inventory.findByIdAndDelete(id);
+  
+      if (!deleteInv) {
+        return res.status(404).json({ message: 'Inventory item not found' });
+      }
+  
+      res.sendStatus(204); // Send a successful response with status code 204 (No Content) for successful deletion.
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ error: 'Internal Server Error' });
+    }
+  };
+
+
+
 module.exports ={
     addNew,
     getAllItems,
@@ -103,5 +125,8 @@ module.exports ={
     updateItem,
     deleteItem,
     getItembyItemcode,
-    getItemsbyCatogery
+    
+    getItemsbyCatogery,
+    deleteInvById,
+  
 }

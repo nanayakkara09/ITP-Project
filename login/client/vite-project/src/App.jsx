@@ -64,10 +64,10 @@ import Issued from './pages/Issued';
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import CreateStallreq from './pages/CreateStallreq';
 import StallAdminreq from './pages/StallAdminreq';
 import StallCreate from './pages/StallCreate';
+import StallOwnerDashboard from './pages/StallOwnerDashboard';
 import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
@@ -116,7 +116,27 @@ import GetEmployeeNews from './pages/GetEmployeeNews';
 
 import CreateEmployeeSalary from './pages/CreateEmployeeSalary';
 import GetEmployeeSalary from './pages/GetEmployeeSalary';
+import ReceiptForOrder from './pages/receiptForOrder';
+import ReceiptForStall from './pages/receiptForStall';
+import GetAllStallData from './pages/getAllStallData';
+import GetAllOrderData from './pages/getAllOrderData';
+import PaymentMethod from './pages/paymentMethod';
+import Paidbycard from './pages/paidByCard';
+import CashOnDeliver from './pages/cashOnDeliver';
+import FinancePage from './pages/financePage';
+import CardDetails from './pages/CreditCard';
+import Expenses from './pages/expenses'
+import Cart from './pages/CartItems'
+import OrderAdminPage from './pages/orderAdmin'
+import IncomePage from './pages/Income';
+import Payment from './pages/payment';
+import AdminFinance from './pages/adminFinance';
+import SuccessfullPayment from './pages/successfullPayments';
+import ViewSuccessPayments from './pages/ViewSuccessPayments'
 
+import PaymentSuccess from './pages/paymentSuccess';
+import UpdateIncomePage from './pages/updateIncome';
+import UpdateExpenses from './pages/updateExpenses';
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -172,7 +192,6 @@ function App() {
       <Route path="/eventList" element={<EventList />}/>
      
       <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
       <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
       <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
@@ -196,9 +215,33 @@ function App() {
       <Route path='/generateMonthlyIncomeReport' element={<MonthlyIncomeReport />}></Route> 
 
 
+      <Route path='/stallownerdash' element={<StallOwnerDashboard />}></Route>
+      <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
+      <Route path='/sweetS' element={<SweetSerenity/>}></Route>
+      <Route path='/asiano' element={<Asiano/>}></Route>
+      <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
+      <Route path='/Paidbycard' element={<Paidbycard/>}></Route>
+      <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
+      <Route path='/GetAllOrderData' element={<GetAllOrderData/>}></Route>
+      <Route path='/PaymentMethod/:id' element={<PaymentMethod/>}></Route>
+      <Route path='/ReceiptForOrder/:id' element={<ReceiptForOrder/>}></Route>
+      <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>
+      <Route path='/GetAllStallData' element={<GetAllStallData/>}></Route>
+      <Route path='/FinancePage' element={<FinancePage/>}></Route>
+      <Route path='/Expenses' element={<Expenses/>}></Route>
+      <Route path='/IncomePage' element={<IncomePage/>}></Route>
+      <Route path="/updateIncome/:Id" element={<UpdateIncomePage />} />
+      <Route path="/updateExpense/:Id" element={<UpdateExpenses />} />
+      <Route path="/CardDetails/:id" element={<CardDetails />} />
+      <Route path="/AdminFinance" element={<AdminFinance />} />
+      <Route path='/PaymentSuccess' element={<PaymentSuccess/>}></Route>
+      <Route path='/SuccessfullPayment' element={<SuccessfullPayment/>}></Route>
       <Route path='/cart' element={<Cart/>}></Route>
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
       <Route path='/payment' element={<Payment/>}></Route>
+      <Route path='/ViewSuccessPayments' element={<ViewSuccessPayments/>}></Route>
+
+
 
      
       <Route path="/eventListUser" element={<EventListUser />}/>
@@ -244,6 +287,7 @@ function App() {
     </Routes>
     </EmployeeContextProvider>
     </StallContextProvider>
+   
     </UserContextProvider>
   )
 }

@@ -2,7 +2,7 @@ const express =require('express');
 const router = express.Router();
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
-const{addNew,getAllItems,getItem,updateItem,deleteItem,getItembyItemcode, getItemsbyCatogery}=require('../controllers/invController')
+const{addNew,getAllItems,getItem,updateItem,deleteItem,getItembyItemcode, getItemsbyCatogery,deleteInvById}=require('../controllers/invController')
 
 //middleware
 router.use(
@@ -21,9 +21,9 @@ router.get('/getItembyItemcode:itemcode',getItembyItemcode);
 router.get('/fetchItemsbyCatogery:category',getItemsbyCatogery);
 
 
+router.delete('/deleteInv/:id', deleteInvById);
+
 
 
 
 module.exports=router
-
-

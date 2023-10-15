@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Order = require('../models/OrderModel');
+const Orderpaymentmodel = require('../models/Orderpaymentmodel');
 const ConfirmedOrder = require('../models/ConfirmOrderModel');
 const moment = require('moment-timezone');
 moment.tz.setDefault('Asia/Colombo');
@@ -29,6 +30,7 @@ router.post('/add-to-cart', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
 
 
 router.put('/confirm-order', async (req, res) => {
@@ -105,10 +107,125 @@ router.get('/confirmed-orders/:year/:month', async (req, res) => {
 });
 
 
+//Thilinaaa
+
+// Define a route to delete order details by ID
+router.delete('/delete/:id', async (req, res) => {
+  const orderId = req.params.id;
+
+  try {
+    const deletedOrder = await Order.findByIdAndDelete(orderId);
+
+    if (!deletedOrder) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    res.status(200).json({ message: 'Order deleted successfully', deletedOrder });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Internal server error', error: error.message });
+  }
+});
 
 
+// Define a route to fetch order details by ID
+router.get('/orderss/:id', async (req, res) => {
+  try {
+    const orderId = req.params.id;
+
+    const order = await Order.findById(orderId);
+
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    res.status(200).json({ message: 'Order fetched successfully', order });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting order details", error: error.message });
+  }
+});
+router.delete('/deleteOrder/:id', async (req, res) => {
+  try {
+    const orderId = req.params.id;
+
+    const order = await ConfirmedOrder.findByIdAndDelete(orderId);
+
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    res.status(200).json({ message: 'Order fetched successfully', order });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting order details", error: error.message });
+  }
+});
+
+// Define a route to get all orders
+router.get('/orders', async (req, res) => {
+  try {
+    const orders = await Order.find();
+    res.status(200).json({ status: "orders fetched", orders });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
+
+// Define a route to get all orders(admin)
+router.get('/order', async (req, res) => {
+  try {
+    const order = await ConfirmedOrder.find();
+    res.status(200).json({ status: "orders fetched", order });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
 
 
+// Define a route to get all orders
+router.get('/Corder', async (req, res) => {
+  try {
+    const Conforders = await ConfirmedOrder.find();
+    res.status(200).json({ status: "orders fetched", Conforders });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
+
+
+// Modify the route to retrieve an image by ID
+router.get('/get-image/:id', async (req, res) => {
+  try {
+    const orderId = req.params.id;
+    const order = await Order.findById(orderId);
+
+    if (!order) {
+      return res.status(404).json({ message: 'Order not found' });
+    }
+
+    // Assuming 'order.image' contains the image data as a Buffer
+    res.set('Content-Type', order.image.contentType);
+    res.send(order.image);
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting image", error: error.message });
+  }
+});
+
+// Define a route to get all orders
+router.get('/orderPayment', async (req, res) => {
+  try {
+    const ordersPay = await Orderpaymentmodel.find();
+    res.status(200).json({ status: "orders fetched", ordersPay });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ status: "Error with getting orders", error: error.message });
+  }
+});
 
 
 

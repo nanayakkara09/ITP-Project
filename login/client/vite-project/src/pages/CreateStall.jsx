@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import './CreateStall.css';
 
 import backgroundImg from '/stallImages/img2.jpeg';
 
@@ -13,7 +12,6 @@ export default function CreateStall() {
     type: '',
     amount: '',
     mType: '',
-    description: '',
     stallId: '',
     fName: '',
     lName: '',
@@ -25,14 +23,13 @@ export default function CreateStall() {
 
   const createStall = async (e) => {
     e.preventDefault();
-    const { stallName, type, amount, mType, description, stallId, fName, lName, phonenumber, email, password, payment } = data;
+    const { stallName, type, amount, mType,stallId, fName, lName, phonenumber, email, password, payment } = data;
     try {
       const { data } = await axios.post('./stall/createStall', {
         stallName,
         type,
         amount,
         mType,
-        description,
         stallId,
         fName,
         lName,
@@ -113,17 +110,6 @@ export default function CreateStall() {
               className="form-control"
               value={data.mType}
               onChange={(e) => setData({...data, mType:e.target.value})}
-            />
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="mType">Description of the stall</label>
-            <input
-              type="text"
-              name="description"
-              className="form-control"
-              value={data.description}
-              onChange={(e) => setData({...data, description:e.target.value})}
             />
           </div>
 

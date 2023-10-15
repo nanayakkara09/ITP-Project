@@ -27,13 +27,17 @@
     "react-datepicker": "^4.18.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
-    "react-icons": "^4.11.0",
     "react-modal": "^3.16.1",
     "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.14.1",
     "react-slick": "^0.29.0",
+<<<<<<< HEAD
     "react-toastify": "^9.1.3",
     "recharts": "^2.8.0",
+=======
+    "react-to-print": "^2.14.15",
+    "react-toastify": "^9.1.3",
+>>>>>>> Thilinaaa
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {

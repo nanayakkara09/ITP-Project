@@ -88,10 +88,11 @@ export default function AdminDashboard() {
           <Link to="/invList" className="vertical-text">
             <FontAwesomeIcon icon={faBox} /> Inventory
           </Link>
-          <div className="vertical-text">
+          <Link to="/AdminFinance"   className="vertical-text">
             <FontAwesomeIcon icon={faDollarSign} /> Finance
-          </div>
           
+          
+          </Link>
         </div>
         <br></br>
         {!!user && (
