@@ -22,9 +22,10 @@
     height: 5vh;
   }
   .fetchedTable{
-    width: 60vh;
+    width: 40vh;
     margin-top: 20vh;
     height: 50vh;
+    margin-left: -53vh;
   }
   .formDetailll{
     width: 80vh;
