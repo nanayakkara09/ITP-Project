@@ -315,25 +315,7 @@ function App() {
         <NavBar />
         <Toaster position='top-center' toastOptions={{ duration: 3000 }} />
         <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/register' element={<Register />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/dashbord' element={<Dashbord />} />
-          <Route path='/edit/:userId' element={<Edit />} />
-          <Route path="/profile" element={<Profile />} />
-          <Route path="/itemlist" element={<Itemlist />} />
-          <Route path="/addNew" element={<AddNew />} />
-          <Route path="/invEdit/:itemId" element={<InvEdit />} />
-
-          <Route path='/profile' element={<Profile />} />
-          <Route path='/feedbacks' element={<Feedback />} />
-          <Route path='/submitsupport' element={<SupportMessage />} />
-          <Route path='/admin-dashbord' element={<Admindashbord />} />
-          <Route path='/customerAdmin' element={<CustomerAdminPage />} />
-          <Route path='/invList' element={<InvList />} />
-          <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage />} />
-          <Route path='/UserEdit' element={<UserEdit />} />
-          <Route path='/Seefeedbacks' element={<SeeFeedbacksPage />} />
+          
           <Route path='/driver-register' element={<DriverRegister />} />
           <Route path='/driver-login' element={<DriverLogin />} />
           <Route path='/driver-dashboard' element={<DriverDashboard />} />
