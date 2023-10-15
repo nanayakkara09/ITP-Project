@@ -50,7 +50,7 @@ export default function eventDetail() {
             type="submit"
             className="btn btn-primary"
           >
-            Submit
+            ACCEPT
           </button>
         
       <hr />

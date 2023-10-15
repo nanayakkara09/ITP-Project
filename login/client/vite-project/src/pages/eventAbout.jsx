@@ -1,8 +1,10 @@
 import React from 'react';
 import './eventAbout.css';
 import chooseus from '../images/chooseus.jpg';
+import { useNavigate } from 'react-router-dom';
 
 export default function EventAbout() {
+  const navigate = useNavigate();
   return (
     <div className="event-heshani-container22">
       <div className="background-image-heshani22">
@@ -32,6 +34,13 @@ export default function EventAbout() {
           <p>Our services are affordable without compromising on quality.</p>
         </div>
       </div> 
+      <button
+  onClick={() => navigate('/eventHome')}
+  type="submit"
+  className="heshanibtn "
+>
+  BACK TO EVENT HOME PAGE
+</button>
     
       <footer className="heshanifooter22">
       <div className="heshanicard22">

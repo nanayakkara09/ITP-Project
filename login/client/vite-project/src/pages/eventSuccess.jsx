@@ -13,17 +13,18 @@ export default function eventSuccess() {
     <img src={confirm} alt="Event" className="background-heshani41" />
     <div className="heshani-proposal-details5">
     <div className="success-container">
-      <h2 className="success-heading">SUBMITTED!</h2>
+      <h2 className="success-heading">ACCEPTTED!</h2>
       <h2 className="success-heading">THANK YOU!</h2>
-      <p>Your request has been successfully processed.</p>
+      <p>Make your own Event Proposal with your own ideas and designs.</p>
+      <p>Share your ideas with US and make your Event Colorfull</p>
       <p>Thank you for choosing Street Bitz.</p>
 
       <div className="button-container">
         <Link to="/eventHome" className="btn btn-primary">
           Event Home
         </Link>
-        <button onClick={() => navigate('/eventListUser')} className="btn btn-primary">
-          Event Details
+        <button onClick={() => navigate('/addNewEvent')} className="btn btn-primary">
+          Event Proposal form
         </button>
       </div>
       <hr />

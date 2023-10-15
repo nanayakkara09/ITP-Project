@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 export default function eventDetail() {
   const navigate = useNavigate();
+ 
+
   return (
     <div className="heshani-image4">
     <div className="heshani-detail-container4">
@@ -49,9 +51,9 @@ export default function eventDetail() {
             type="submit"
             className="btn btn-primary"
           >
-            Submit
+            ACCEPT
           </button>
-      
+         
   
       <hr />
       <footer className="footer">

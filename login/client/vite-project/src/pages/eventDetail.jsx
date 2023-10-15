@@ -6,25 +6,8 @@ import './eventDetail.css';
 
 export default function eventDetail() {
   const navigate = useNavigate();
-  const downloadPDF = () => {
-    const content = document.getElementById('eventDetail');
 
-    html2pdf()
-      .from(content)
-      .set({ margin: 10, filename: 'event_details.pdf', image: { type: 'jpeg', quality: 0.98 } })
-      .outputPdf()
-      .then((pdf) => {
-        const blob = new Blob([pdf], { type: 'application/pdf' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = 'event_details.pdf';
-        a.click();
-      })
-      .catch((error) => {
-        console.error('Error creating PDF:', error);
-      });
-  };
+  
   return (
 
     <div className="heshani-image1">
@@ -69,7 +52,7 @@ export default function eventDetail() {
           </ul>
           <button   onClick={() => navigate('/eventSuccess')}
             type="submit" className="heshanibtn btn-primary">
-            Submit
+            EXCEPT
           </button>
        
   
