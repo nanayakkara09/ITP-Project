@@ -16,20 +16,9 @@ function GetProduct() {
       .catch((err) => console.log(err));
   }, []);
 
-  const handleUpdate = (id) => {
-    // Fetch the product details by ID
-    axios.get(`/stall/getProduct/${id}`)
-      .then((result) => {
-        const productData = result.data;
-        // Check if the product data exists
-        if (productData) {
-          // Navigate to the update page with the product data
-          navigate(`/update/${id}`, { state: { product: productData } });
-        } else {
-          console.log('Product not found');
-        }
-      })
-      .catch((err) => console.log(err));
+  const handleUpdate = (product) => {
+    const navigate = useNavigate();
+    navigate(`/update/${product._id}`, { state: { product } });
   };
 
 
@@ -63,7 +52,7 @@ function GetProduct() {
               <td>{product.description}</td>
               <td>
                             
-              <Link to={`/update/${product._id}`} className="btn btn-success">UPDATE</Link>
+              <Link to={`/update/${product._id}`} className="btn btn-success" onClick={() => handleUpdate(product)}>UPDATE</Link>
 
                 <button className='btn btn-danger btn-sm' 
                   onClick={(e) => handleDelete(product._id)}>DELETE

@@ -3,6 +3,7 @@ import axios from 'axios';
 import './CreateStallsAdminView.css';
 import jsPDF from 'jspdf';
 import 'jspdf-autotable';
+import '../components/adminNavBar.jsx';
 
 function CreatedStallsAdminView() {
   const [createdStalls, setCreatedStalls] = useState([]);
@@ -49,8 +50,10 @@ function CreatedStallsAdminView() {
       startY: 60, // Adjust the Y position to avoid overlapping with the logo and page number
     });
 
+    <br/>
+
     // Add calculation and total income to the same page
-    pdf.text(`Calculation: ${createdStalls.length} * 40000 = ${totalIncome} LKR`, 10, pdf.autoTable.previous.finalY + 10);
+    pdf.text(`Number of Stalls: ${createdStalls.length} * 40000 = ${totalIncome} LKR`, 10, pdf.autoTable.previous.finalY + 10);
     pdf.text(`Total Income: ${totalIncome} LKR`, 10, pdf.autoTable.previous.finalY + 20);
 
     // Save the PDF

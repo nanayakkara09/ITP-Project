@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import './UpdateProduct.css';
 
@@ -11,6 +11,7 @@ function UpdateProduct() {
     description: "",
   });
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     axios

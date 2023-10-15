@@ -3,13 +3,11 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import './CreateStall.css';
-//import { useHistory } from 'react-router-dom';
 
 import backgroundImg from '/stallImages/img2.jpeg';
 
 export default function CreateStall() {
-  const navigate = useNavigate();
-  //const history = useHistory();
+  const navigate = useNavigate();  
   const [data, setData] = useState({
     stallName: '',
     type: '',
@@ -25,10 +23,43 @@ export default function CreateStall() {
     payment: '',
   });
 
+  const [errors, setErrors] = useState({});
+
+  const handleValidation = () => {
+    let isValid = true;
+    const newErrors = {};
+
+    // Required fields validation
+    const requiredFields = ['stallName', 'type', 'amount', 'mType', 'fName', 'lName', 'phonenumber', 'email', 'password'];
+
+    requiredFields.forEach((field) => {
+      if (!data[field]) {
+        newErrors[field] = 'This field is required';
+        isValid = false;
+      }
+    });
+
+    // Email format validation
+    if (data.email && !/^\S+@\S+\.\S+$/.test(data.email)) {
+      newErrors.email = 'Invalid email format';
+      isValid = false;
+    }
+
+    setErrors(newErrors);
+
+    return isValid;
+  };
+
+
   
 
   const createStall = async (e) => {
     e.preventDefault();
+
+    if (!handleValidation()) {
+      return;
+    }
+
     const { stallName, type, amount, mType, description, stallId, fName, lName, phonenumber, email, password, payment } = data;
     try {
       const { data } = await axios.post('./stall/createStall', {
@@ -85,6 +116,7 @@ export default function CreateStall() {
               value={data.stallName}
               onChange={(e) => setData({...data, stallName:e.target.value})}
             />
+             <span className="error">{errors.stallName}</span>
           </div>
           <div className="form-group">
             <label htmlFor="type">Cuisine Type</label>
@@ -104,6 +136,7 @@ export default function CreateStall() {
               <option value="Korean">Korean</option>
             </select>
           </div>
+          
           <div className="form-group">
             <label htmlFor="amount">Number of Stall Outlets</label>
             <select
