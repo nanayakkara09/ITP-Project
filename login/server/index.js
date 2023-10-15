@@ -49,7 +49,7 @@ app.use('/invDetails', require('./routes/invDetailsRoutes'));
 app.use('/issuedDetails', require('./routes/issuedRoutes'));
 
 
-app.use('/stall', require('./routes/stallRoutes'))
+
 
 // driverRoutes
 const driverRoutes = require('./routes/driverRoutes')
