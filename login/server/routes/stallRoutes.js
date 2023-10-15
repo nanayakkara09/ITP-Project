@@ -19,7 +19,8 @@ const {
   createTicket,
   getTicket,
   getRegStallByStallId,
-  updateStallIssueById,getStall,getAllStall,deleteStall,addSuccessDetails,getAllPayments,updateStallStatusSuccess} = require('../controllers/stallController');
+  updateStallIssueById,getStall,getAllStall,deleteStall,addSuccessDetails,getAllPayments,updateStallStatusSuccess,getIssuedStalls,
+  updateStallIssueById} = require('../controllers/stallController');
 
 
   const upload = require('../multerConfig');
@@ -49,6 +50,8 @@ router.post('/createTicket', createTicket);
 router.get('/getTicket', getTicket);
 router.get('/getStallByStallId:stallid',getRegStallByStallId);
 router.post('/updateStallById:id',updateStallIssueById);
+router.get('/getIssuedStalls',getIssuedStalls);
+
 
 
 

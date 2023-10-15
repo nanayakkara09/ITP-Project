@@ -66,7 +66,10 @@ export default function itemDetails() {
           <h1 className="item-details-title">Item Details</h1>
         </div>
         <div className="item-list-buttons">
-          <Link to="/itemlist" className="back">Back</Link>
+          {itemcode.includes('FU') ? (
+          <Link to="/itemlistFur" className="back">Back</Link>
+          ):itemcode.includes('F')?(<Link to="/itemlist" className="back">Back</Link>
+          ):(<Link to="/itemlistMac" className="back">Back</Link>)}
           <Link to={`/addStock/${itemcode}`} className="add-stock-button">Add Stock</Link>
           <button className="report-button" onClick={generateReport}>Generate Report</button>
 

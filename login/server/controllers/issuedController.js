@@ -13,7 +13,7 @@ const issueEntry=async(req,res) =>{
         itemCode,
         stoleid
     })
-    
+    console.log(itemCode)
         
     const inventory= await Inventory.find({ itemcode: itemCode })
     console.log(inventory)

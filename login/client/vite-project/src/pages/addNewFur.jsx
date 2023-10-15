@@ -23,7 +23,20 @@ export default function NewItemForm() {
       try {
         const { data } = await axios.get('/inventory/fetchItemsbyCatogeryFurniture');
         console.log(data);
-        var nextItemCode = "FU" + (data.length + 1)
+        let highestItemCode = 0;
+  
+        // Find the highest item code
+        data.forEach(item => {
+          const itemCodeNumber = parseInt(item.itemcode.substring(2));
+          if (itemCodeNumber > highestItemCode) {
+            highestItemCode = itemCodeNumber;
+          }
+          console.log(highestItemCode)
+  
+          
+        });
+  
+        const nextItemCode = "FU" + (highestItemCode + 1);
         setFormData({ ...formData, itemcode: nextItemCode })
         //setIsLoading(false);
       } catch (error) {
