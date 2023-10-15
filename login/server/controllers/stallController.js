@@ -438,6 +438,16 @@ const getRegStallByStallId = async (req, res) => {
     res.status(500).json({ error: 'Error fetching inventory items' });
   }
 };
+const getIssuedStalls = async (req, res) => {
+  try {
+    const stall = await StallRegister.find({ isIssued: true });
+    console.log(stall)
+    res.json(stall);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error fetching inventory items' });
+  }
+};
 
 const updateStallIssueById = async (req, res) => {
   try {
@@ -487,7 +497,10 @@ module.exports = {
     deleteStall,
     addSuccessDetails,
     getAllPayments,
-    updateStallStatusSuccess
+    updateStallStatusSuccess,
  
+    getIssuedStalls,
+
+    updateStallIssueById
 };
           

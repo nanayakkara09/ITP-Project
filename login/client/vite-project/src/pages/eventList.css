@@ -1,61 +1,104 @@
-/* itemlist.css */
-.title{
-    display: flex;
-    flex-direction: column;
-  }
+/* EventList.css */
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.event-list-title1 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.event-list-buttons1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.form-control {
+  flex: 1;
+  margin-right: 10px;
+}
+
+.search-button1 {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  width: 10%;
+}
+
+.add-new-button {
+  background-color: #2c990e;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 4px;
+  width: 10%;
+}
+
+.event-list-table1 {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.event-list-table1 th,
+.event-list-table1 td {
+  border: 1px solid #c6b5b5;
+  padding: 8px;
+  text-align: left;
+}
+
+.event-list-table1 th {
+  background-color: #040507;
+  font-weight: bold;
+}
+
+.Edit-button {
+  background-color: #078544;
+  color: #e6ebf0;
+  border: none;
+  padding: 6px 35px;
+  cursor: pointer;
+  width:90%;
+}
+
+.Delete-button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 6px 35px;
+  cursor: pointer;
+  width: 90%;
+}
+.heshani-image13 {
+  background-image: url('../images/eventback2.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+ background-repeat: no-repeat;
+  display: cover;
+  align-items: cover;
+  justify-content: cover; /* To center horizontally */
   
-  .container{
-      position: relative;
-      z-index: 1;
-      padding: 20px;
-      text-align: center;
-      color: #151313;
-  }
-  
-  /* Center the container vertically and horizontally */
-  .item-list-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    height: 100vh; /* Adjust the height as needed */
-  }
-  
-  
-  /* Style the title */
-  
-  
-  /* Style the buttons on the right */
-  .item-list-buttons {
-    display: flex;
-    justify-content: right;
-    margin-bottom: 20px;
-  }
-  
-  /* Style the search and add new buttons */
-  .search-button,
-  .add-new-button,
-  .Edit-button,
-  .view-button ,
-  .Delete-button
-  {
-    padding: 10px 20px;
-    margin-left: 10px;
-    background-color: #007bff; /* Change the background color as needed */
-    color: #fff; /* Change the text color as needed */
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-    font-size: 16px;
-    outline: none;
-  }
-  
-  /* Hover effect for buttons */
-  .search-button:hover,
-  .add-new-button:hover,
-  .view-button:hover,
-  .Edit-button:hover 
-  {
-    background-color: #0056b3; /* Change the hover background color as needed */
-  }
-  
+  opacity: 1.1; 
+}
+.background-heshani13 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}

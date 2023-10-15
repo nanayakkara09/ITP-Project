@@ -12,7 +12,7 @@ import Home from '../src/pages/Home';
 import Login from '../src/pages/Login';
 import Register from '../src/pages/Register';
 import axios from 'axios';
-import {Toaster} from 'react-hot-toast'
+import { Toaster } from 'react-hot-toast'
 import { UserContextProvider } from '../contex/userContex';
 import SeesupportPage from './pages/seesupport';
 import Dashbord from './pages/dashbord';
@@ -30,6 +30,7 @@ import CustomerDetailsPage from './pages/CustomerDetailsPage';
 import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import Password from '../src/pages/password'
+import 'bootstrap/dist/css/bootstrap.css'
 
 
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -41,7 +42,7 @@ import EventSuccess from '../src/pages/eventSuccess';
 import EventHome from './pages/eventHome';
 import EventDetail from './pages/eventDetail';
 import EventAbout from './pages/eventAbout';
-import EventDel from './pages/eventDel';
+
 import EventDetail2 from './pages/eventDetail2';
 import EventDetail3 from './pages/eventDetail3';
 import EventDetail4 from './pages/eventDetail4';
@@ -137,8 +138,25 @@ import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
 import UpdateExpenses from './pages/updateExpenses';
 
-axios.defaults.baseURL='http://localhost:8000';
-axios.defaults.withCredentials=true
+import EmployeeProfileA from './pages/EmployeeProfileA'
+import DriverRegister from '../src/pages/driverRegister';
+import DriverLogin from '../src/pages/driverLogin';
+import { DriverContextProvider } from '../contex/driverContex';
+import DriverDashboard from '../src/pages/driverDashboard';
+import DriverProfile from '../src/pages/driverProfile';
+import UpdateDriverProfile from '../src/pages/driverUpdate';
+import DriverFeedback from './pages/driverFeedback';
+import DriverCompletedOrders from './pages/driverCompletedOrders'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import DriverAdmin from '../src/pages/Driver-admin';
+import DriverAdminHome from '../src/pages/driver-adminHome';
+
+
+
+
+
+axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.withCredentials = true
 
 function App() {
   return (
@@ -163,7 +181,7 @@ function App() {
       <Route path="/itemDetails/:itemcode" element={<ItemDetails />} />
       <Route path="/addStock/:itemcode" element={<AddStock />} />
       <Route path="/IssueEntry" element={<IssueEntry />} />
-      <Route path="/IssuedDetails" element={<IssuedDetails />} />
+      <Route path="/IssuedDetails/:stoleid" element={<IssuedDetails />} />
       <Route path="/itemlistFur" element={<ItemlistFur />} />
       <Route path="/itemlistMac" element={<ItemlistMac />} />
       <Route path="/addNewFur" element={<AddNewFur />} />
@@ -251,7 +269,7 @@ function App() {
       <Route path="/eventHome" element={<EventHome />}/>
       <Route path="/eventDetail" element={<EventDetail />}/>
       <Route path="/eventAbout" element={<EventAbout />}/>
-      <Route path="/eventDel" element={<EventDel />}/>
+      
       <Route path="/eventDetail2" element={<EventDetail2 />}/>
       <Route path="/eventDetail3" element={<EventDetail3 />}/>
       <Route path="/eventDetail4" element={<EventDetail4 />}/>
@@ -284,13 +302,54 @@ function App() {
                     <Route path='/createEmployeeSalary' element={<CreateEmployeeSalary/>}/>
                     <Route path='/getEmployeeSalary' element={<GetEmployeeSalary/>}/>
 
+                    <Route path='/employeeProfileA' element={<EmployeeProfileA/>}/>
+                   
+
 
 
     </Routes>
     </EmployeeContextProvider>
     </StallContextProvider>
    
+      <DriverContextProvider>
+        <NavBar />
+        <Toaster position='top-center' toastOptions={{ duration: 3000 }} />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
+          <Route path='/dashbord' element={<Dashbord />} />
+          <Route path='/edit/:userId' element={<Edit />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/itemlist" element={<Itemlist />} />
+          <Route path="/addNew" element={<AddNew />} />
+          <Route path="/invEdit/:itemId" element={<InvEdit />} />
+
+          <Route path='/profile' element={<Profile />} />
+          <Route path='/feedbacks' element={<Feedback />} />
+          <Route path='/submitsupport' element={<SupportMessage />} />
+          <Route path='/admin-dashbord' element={<Admindashbord />} />
+          <Route path='/customerAdmin' element={<CustomerAdminPage />} />
+          <Route path='/invList' element={<InvList />} />
+          <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage />} />
+          <Route path='/UserEdit' element={<UserEdit />} />
+          <Route path='/Seefeedbacks' element={<SeeFeedbacksPage />} />
+          <Route path='/driver-register' element={<DriverRegister />} />
+          <Route path='/driver-login' element={<DriverLogin />} />
+          <Route path='/driver-dashboard' element={<DriverDashboard />} />
+          <Route path='/driver-profile' element={<DriverProfile />} />
+          <Route path='/driver-update/:id' element={<UpdateDriverProfile />} />
+          <Route path='/driver-feedback' element={<DriverFeedback />} />
+          <Route path='/driver-compOrds' element={<DriverCompletedOrders />} />
+          <Route path='/driver-admin' element={<DriverAdmin />} />
+          <Route path='/driver-adminHome' element={<DriverAdminHome/>} />
+
+
+          <Route path="/UserEdit/:userId" element={<UserEdit />} />
+        </Routes>
+      </DriverContextProvider>
     </UserContextProvider>
+
   )
 }
 

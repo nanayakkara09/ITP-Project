@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
+import "./eventUpdate.css";
+import eventform1 from '../images/eventform1.jpeg';
 
 export default function EventUpdate() {
   const navigate = useNavigate();
@@ -58,10 +60,14 @@ export default function EventUpdate() {
   };
 
   return (
-    <div className="container">
+    <div className="Heshani2">
+    <img src={eventform1} alt="Event" className="Heshani-image91" />
+ 
+    <div className="Heshanicontainer91">
       <form onSubmit={handleSubmit}>
-        <h2>Update Event</h2>
-        <div className="form-group">
+     
+        <div className="form-heshani">
+        <h1>Update Event</h1>
           <label htmlFor="name">Name:</label>
           <input
             className="form-control"
@@ -199,6 +205,6 @@ export default function EventUpdate() {
           Update
         </button>
       </form>
-    </div>
+    </div></div>
   );
 }

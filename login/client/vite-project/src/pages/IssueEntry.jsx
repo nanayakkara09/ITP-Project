@@ -82,7 +82,7 @@ const [formData, setFormData] = useState({
         }
         const { data } = await axios.post('./issuedDetails/', { date, itemName, quantity, price, itemCode ,stoleid});
         console.log('Form data submitted:', formData);
-        navigate('/IssuedDetails');
+        navigate(`/IssuedDetails/${stoleid}`);
     };
 
   return (

@@ -2,26 +2,29 @@ import React from 'react';
 import './eventHome.css';
 import event1 from '../images/event1.jpg';
 import event2 from '../images/event2.jpg';
-import event3 from '../images/event3.jpg';
 import event7 from '../images/event7.jpg';
 
 import event4 from '../images/3.jpg';
 import { Link, useNavigate } from 'react-router-dom';
+import eventback2 from '../images/eventback2.jpg';
 
-
-export default function eventHome() {
+export default function EventHome() {
     const navigate = useNavigate();
   return (
-    <div className="front-page-container">
-      <div className="choose-event-heading">
-      <h1>CHOOSE YOUR EVENT</h1>
+  
+    <div className="heshani-image7">
+    <img src={eventback2} alt="Event" className="background-heshani7" />
+    <div className="front-page-heshani7">
+      <div className="choose-heshani-heading7">
+    
       </div>
-      <div className="success-container">
-        <div className="event-selection-container">
+      <div className="success-heshani7">
+        <div className="heshani-selection-container">
+    <h1>CHOOSE YOUR EVENT</h1>
           
-          <div className="image-grid">
+          <div className="heshani-grid">
             <Link to="/eventDetail" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event1} alt="event1" />
                 <p>
                   <span className="emphasis-text">Decide to celebrate,</span>
@@ -34,7 +37,7 @@ export default function eventHome() {
             </Link>
            
             <Link to="/eventDetail3" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event2} alt="event2" />
                 <p>
                   <br />
@@ -46,7 +49,7 @@ export default function eventHome() {
             </Link>
             
             <Link to="/eventDetail4" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event7} alt="event3" />
                 <p>
                   <span className="emphasis-text">Decide on your Party priorities. </span>
@@ -62,7 +65,7 @@ Event branding.</span>
             </Link>
             
             <Link to="/eventdetail2" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event4} alt="event4" />
                 <p>
                   
@@ -75,7 +78,7 @@ Event branding.</span>
             </Link>
             {/* Repeat the same structure for other event options */}
           
-        </div></div></div><br />
+        </div><br />
           <div className="App">
             <h2 >Thank you for choosing Street Bitz.</h2>
           </div>
@@ -90,7 +93,7 @@ Event branding.</span>
             <button onClick={() => navigate('/eventAbout')} className="btn btn-primary">
               About Us
             </button>
-          </div>
+            </div> 
        
 
    
@@ -115,6 +118,7 @@ Event branding.</span>
         </div>
       </footer>
     </div>
+    </div> </div></div>
     
   );
 }

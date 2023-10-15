@@ -1,38 +1,86 @@
-/* EventDetails.css */
-.event-details-container {
-  padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+.heshani-detail-container1 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative; /* Add this line */
 }
 
+.content {
+  text-align: center;
+}
 
-.event-proposal-details {
+h2 {
+  font-size: 26px;
   margin-top: 20px;
+  text-decoration-style: double;
 }
 
-ul.event-table {
+.heshani-proposal-details1 {
+  background-color: rgb(240, 229, 229);
+  padding: 40px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(208, 189, 189, 0.1);
+  
+}
+
+ul.heshani-table {
   list-style: none;
   padding: 0;
+  color: #0a223b;
+  
 }
 
-ul.event-table li {
-  margin-bottom: 10px;
+ul.heshani-table li {
+  margin: 10px 0;
+  color: #000000;
+  
 }
 
-ul.event-table li strong {
-  font-weight: bold;
-}
-
-.btn-primary {
+.heshanibtn {
   background-color: #007bff;
-  color: #fff;
-  border: none;
+  color: rgb(9, 5, 5);
   padding: 10px 20px;
-  border-radius: 5px;
+  border: none;
   cursor: pointer;
 }
 
-.btn-primary:hover {
+.btn:hover {
   background-color: #0056b3;
+}
+
+
+.background-heshani1 {
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.heshani-details-content1 {
+  background-color: rgba(238, 234, 234, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  max-width: 500px;
+  text-align: left;
+  position: relative; /* Add this line */
+  z-index: 1; /* Add this line to bring it to the front */
+}
+.heshani-image1 {
+  background-image: url('../images/brithday.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+ background-repeat: no-repeat;
+  display: cover;
+  align-items: cover;
+  justify-content: cover; /* To center horizontally */
+  
+  opacity: 1.1; 
 }

@@ -51,6 +51,10 @@ app.use('/issuedDetails', require('./routes/issuedRoutes'));
 
 
 
+// driverRoutes
+const driverRoutes = require('./routes/driverRoutes')
+app.use('/drivers', driverRoutes)
+
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

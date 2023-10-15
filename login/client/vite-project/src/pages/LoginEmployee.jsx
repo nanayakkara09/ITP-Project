@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.css';
 import './loginemployee.css';
 import axios from 'axios';
+import EmployeeNavBar from '../components/EmployeeNavBar';
 
 const LoginEmployee = () => {
   const navigate = useNavigate()
@@ -34,6 +35,7 @@ const loginEmployee = async(e) => {
 
   return (
     <div className="login-container">
+      <div><EmployeeNavBar/></div>
       <div className="contentL">
         <h2>Login</h2>
         <form onSubmit={loginEmployee}>

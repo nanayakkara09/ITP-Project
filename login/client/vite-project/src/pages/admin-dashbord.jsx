@@ -82,9 +82,9 @@ export default function AdminDashboard() {
           <Link to= "/order-admin" className="vertical-text">
             <FontAwesomeIcon icon={faClipboardList} /> Order
           </Link>
-          <div className="vertical-text">
+          <Link to='/driver-adminHome' className="vertical-text">
             <FontAwesomeIcon icon={faTruck} /> Delivery
-          </div>
+            </Link>
           <Link to="/invList" className="vertical-text">
             <FontAwesomeIcon icon={faBox} /> Inventory
           </Link>

@@ -92,7 +92,7 @@ export default function Home() {
           <img src={boximage} alt="Driver" style={{ width: '150px', height: '150px' }} />
             <h4>Become a driver</h4>
             <p>As a delivery Driver you can make reliable money-working anytime,any where.</p>
-            <Link to="">
+            <Link to="/driver-login">
               <button className="button">Start Earning</button>
             </Link>
           </div>

@@ -6,12 +6,12 @@
     padding: 20px;
   }
   
-  .item-list-title {
+  .event-list-title1 {
     font-size: 40px;
     margin-bottom: 20px;
   }
   
-  .item-list-buttons {
+  .event-list-buttons1 {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,12 +23,13 @@
     margin-right: 10px;
   }
   
-  .search-button {
+  .search-button1 {
     background-color: #007bff;
     color: #fff;
     border: none;
     padding: 8px 12px;
     cursor: pointer;
+    width: 10%;
   }
   
   .add-new-button {
@@ -39,22 +40,23 @@
     text-decoration: none;
     font-weight: bold;
     border-radius: 4px;
+    width: 10%;
   }
   
-  .item-list-table {
+  .event-list-table1 {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
   }
   
-  .item-list-table th,
-  .item-list-table td {
+  .event-list-table1 th,
+  .event-list-table1 td {
     border: 1px solid #c6b5b5;
     padding: 8px;
     text-align: left;
   }
   
-  .item-list-table th {
+  .event-list-table1 th {
     background-color: #040507;
     font-weight: bold;
   }
@@ -65,6 +67,7 @@
     border: none;
     padding: 6px 35px;
     cursor: pointer;
+    width:90%;
   }
   
   .Delete-button {
@@ -73,5 +76,29 @@
     border: none;
     padding: 6px 35px;
     cursor: pointer;
+    width: 90%;
   }
-  
+  .heshani-image20 {
+    background-image: url('../images/eventback2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+   background-repeat: no-repeat;
+    display: cover;
+    align-items: cover;
+    justify-content: cover; /* To center horizontally */
+    
+    opacity: 1.1; 
+  }
+  .background-heshani20 {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
