@@ -1,6 +1,6 @@
 const Stall = require('../models/stall');
 const StallRegister = require ('../models/stallRegister');
-const {hashPassword,comparePassword}=require('../helpers/stall')
+const {hashPassword,comparePassword}=require('../helpers/auth')
 const jwt = require('jsonwebtoken');
 const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
