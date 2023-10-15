@@ -64,7 +64,7 @@ function App() {
     <UserContextProvider>
     <NavBar/>
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
-    <Routes>
+    <Routes>  createStall
       <Route path='/' element={<Home/>} />
       <Route path='/register' element={<Register/>} />
       <Route path='/login' element={<Login/>} />
