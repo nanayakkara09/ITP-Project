@@ -1,65 +1,50 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-import './StallAdminreq.css'
-
+import './StallAdminreq.css';
 
 function StallAdminreq() {
   const [stallsadminreq, setStallsadminreq] = useState([]);
 
   useEffect(() => {
-    axios.get('/stall/stalladminreq') 
-      .then(result => {        
+    axios.get('/stall/stalladminreq')
+      .then((result) => {
         const dataWithIds = result.data;
         setStallsadminreq(dataWithIds);
       })
-      .catch(err => console.log(err))
+      .catch((err) => console.log(err));
   }, []);
-    
+
   const handleDelete = (id) => {
-    axios.delete(`/stall/deleteStallreq/${id}`) 
-        .then(res => {
-            console.log(res);
-            window.location.reload();
-        })
-        .catch(err => console.log(err));
-}
+    axios
+      .delete(`/stall/deleteStallreq/${id}`)
+      .then((res) => {
+        console.log(res);
+        window.location.reload();
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
-    <div className='d-flex vh-100 justify-content-center align-items-center'>
-      <div className='w-50 bg-white rounded p-3'>
-        <table className='table'>
-          <thead>
-            <tr>
-              <th>Stall Name</th>
-              <th>Cuisine Type</th>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Email</th>
-              <th>Phone Number</th>
-              <th>Actions</th>
-              
-            </tr>
-          </thead>
-          <tbody>
-            {stallsadminreq.map((stalladminreq) => (
-              <tr key={stalladminreq._id}>
-                <td>{stalladminreq.sName}</td>
-                <td>{stalladminreq.type}</td>
-                <td>{stalladminreq.fName}</td>
-                <td>{stalladminreq.lName}</td>
-                <td>{stalladminreq.email}</td>
-                <td>{stalladminreq.phone}</td>
-                
-                <td>
-                          <button >ACCEPT</button>
-                          <button className='btn btn-danger' 
-                        onClick={(e) => handleDelete(stalladminreq._id)}>DELETE</button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+    <div className="stall-admin-req-container">
+      <div className="stall-admin-req-list">
+        {stallsadminreq.map((stalladminreq) => (
+          <div className="stall-admin-req-item" key={stalladminreq._id}>
+            <div className="stall-info">
+              <p><strong>Stall Name:</strong> {stalladminreq.sName}</p>
+              <p><strong>Cuisine Type:</strong> {stalladminreq.type}</p>
+              <p><strong>First Name:</strong> {stalladminreq.fName}</p>
+              <p><strong>Last Name:</strong> {stalladminreq.lName}</p>
+              <p><strong>Email:</strong> {stalladminreq.email}</p>
+              <p><strong>Phone Number:</strong> {stalladminreq.phone}</p>
+            </div>
+            <div className="stall-actions">
+              <button className="btn btn-success">ACCEPT</button>
+              <button className="btn btn-danger" onClick={(e) => handleDelete(stalladminreq._id)}>
+                DELETE
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );

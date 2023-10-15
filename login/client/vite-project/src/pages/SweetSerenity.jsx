@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card, Form, InputGroup } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
-
+import './SweetSerenity.css';
 
 const SweetSerenity = () => {
   const [searchQuery, setSearchQuery] = useState('');

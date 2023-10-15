@@ -62,15 +62,18 @@ function CreateStallreq() {
         console.error('Failed to submit stall creation request. Server returned:', response.data);
       }
     
-  };
-  
-  
+  };  
 
-  return (
-    
+  return (    
     <div className="form-container">
-    
-      <div className="col-md-15">
+      <div className="form-container background-image"></div>
+      <div className="image-container">
+    <img
+      src="https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" // Replace with your image URL
+      alt="Image"
+      
+    />
+    </div>  
         <div className="card">
           <div className="card-header text-center">
             <h2>Stall Creation Request</h2>
@@ -186,7 +189,7 @@ function CreateStallreq() {
         </div>
       </div>
     
-  </div> 
+  
    
   );
 }

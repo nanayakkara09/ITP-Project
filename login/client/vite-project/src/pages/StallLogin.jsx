@@ -2,6 +2,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import './StallLogin.css';
+
 
 export default function StallLogin() {
   const navigate = useNavigate()

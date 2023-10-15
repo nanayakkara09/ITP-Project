@@ -53,7 +53,7 @@ const SriLankanFoodStall = () => {
 
   return (
     <Container>
-      <Row className="mt-4">      
+      <Row className="mt-5">      
           
             <Card.Img variant="top" src={stall.logo} alt={`${stall.name} Logo`} />
             <Card.Body>

@@ -8,9 +8,7 @@ import AdminNavBar from '../components/adminNavBar';
 import './invList.css'
 
 function InvList() {
-    const navigate = useNavigate();
-
-  
+    const navigate = useNavigate();  
 
   return (
     <div className="inventory-item-container">

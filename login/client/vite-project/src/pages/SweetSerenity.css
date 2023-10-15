@@ -94,13 +94,13 @@
   }
   
   .custom-card .card-footer {
-    background-color: #f8f9fa; /* Background color for the card footer */
+    background-color: #d1d5d8; /* Background color for the card footer */
     text-align: center;
     padding: 10px;
   }
   
   .custom-card button {
-    background-color: #007bff; /* Change to your desired button color */
+    background-color: #5e9adf; /* Change to your desired button color */
     color: #fff;
     border: none;
     padding: 5px 10px;
@@ -114,5 +114,5 @@
   }
   
   
-  /* Style for the "Add to Cart
+  
   

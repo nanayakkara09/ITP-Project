@@ -18,7 +18,7 @@ const PizzaMart = () => {
   const stall = {
     name: 'PIZZA MART',
     description: 'Delicious pizza and more!',
-    logo: '/stallImages/Colorful Playful Minimalist Fast Food Pizza Mascot Circle Logo.png',
+    logo: '/stallImages/pizza mart (1).png',
     rating: 4.5,
 
     foodItems: [
@@ -49,94 +49,92 @@ const PizzaMart = () => {
 
   return (
     
-      <Container>
-      <Row className="mt-4">  
+    <Container>
+    <Row className="mt-4">      
         
-       <Card className="mb-7 card-logo">
-        {/* Remove the Card.Img component */}
+          <Card.Img variant="top" src={stall.logo} alt={`${stall.name} Logo`} />
           <Card.Body>
-           <Card.Title>{stall.name}</Card.Title>
-           <Card.Text>
-           {stall.description}
-           <ReactStars
-             count={5}
-             value={stall.rating}
-             size={24}
-             edit={false}
-             isHalf={true}
-          />
-           </Card.Text>
-          </Card.Body>
-        </Card>
-
-        <div className="mt-3">
-          <h5>Categories</h5>
-          <ul>
-            <li
-              className={selectedCategory === 'All' ? 'active-category' : ''}
-              onClick={() => setSelectedCategory('All')}
-            >
-              All
-            </li>
-            {categories.map((category, index) => (
-              <li
-                key={index}
-                className={selectedCategory === category ? 'active-category' : ''}
-                onClick={() => setSelectedCategory(category)}
-              >
-                {category}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <Col xs={12} md={9}>
-          <Row>
-            <Col xs={12} lg={12}>
-              <Form.Group>
-                <InputGroup>
-                  <Form.Control
-                    type="text"
-                    placeholder="Search Food Items"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </InputGroup>
-              </Form.Group>
-            </Col>
-          </Row>
-          <br />
-          <br />
-          <Row>
-  {filteredFoodItems.map((item, index) => (
-    <Col xs={12} md={6} lg={4} key={index}>
-      <Card className="mb-4"> {/* Increase mb (margin-bottom) to add more spacing */}
-        <Card.Img variant="top" src={item.image} alt={item.name} />
-        <Card.Body>
-          <Card.Title>{item.name}</Card.Title>
-          <Card.Text>
-            <div>
+            <Card.Title>{stall.name}</Card.Title>
+            <Card.Text>
+              {stall.description}
               <ReactStars
                 count={5}
-                value={item.rating}
-                size={16}
+                value={stall.rating}
+                size={24}
                 edit={false}
                 isHalf={true}
               />
-            </div>
-          </Card.Text>
-          <p>Price: {item.price} LKR</p>
-        </Card.Body>
-        <Card.Footer>
-          <button onClick={() => addToCart(item)}>Add to Cart</button>
-        </Card.Footer>
-      </Card>
-    </Col>
-  ))}
-</Row>
+            </Card.Text>
+          </Card.Body>
+        
+          <div className="mt-3">
+  <h5>Categories</h5>
+  <ul className="category-list">
+    <li
+      className={selectedCategory === 'All' ? 'active-category' : ''}
+      onClick={() => setSelectedCategory('All')}
+    >
+      All
+    </li>
+    {categories.map((category, index) => (
+      <li
+        key={index}
+        className={selectedCategory === category ? 'active-category' : ''}
+        onClick={() => setSelectedCategory(category)}
+      >
+        {category}
+      </li>
+    ))}
+  </ul>
+</div>
 
-        </Col>
-      </Row>
-    </Container>
+      
+      <Col xs={12} md={9}>
+        <Row>
+          <Col xs={12} lg={12}>
+            <Form.Group>
+              <InputGroup>
+                <Form.Control
+                  type="text"
+                  placeholder="Search Food Items"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </InputGroup>
+            </Form.Group>
+          </Col>
+        </Row>
+        <br />
+        <br />
+
+        <Row>
+          {filteredFoodItems.map((item, index) => (
+            <Col xs={12} md={6} lg={4} key={index}>
+              <Card className="mb-3">
+                <Card.Img variant="top" src={item.image} alt={item.name} />
+                <Card.Body>
+                  <Card.Title>{item.name}</Card.Title>
+                  <Card.Text>
+                    <div>
+                      <ReactStars
+                        count={5}
+                        value={item.rating}
+                        size={16}
+                        edit={false}
+                        isHalf={true}
+                      />
+                    </div>
+                  </Card.Text>
+                  <p>Price: {item.price} LKR</p>
+                  <button onClick={() => addToCart(item)}>Add to Cart</button>
+                </Card.Body>
+              </Card>
+            </Col>
+          ))}
+        </Row>
+      </Col>
+    </Row>
+  </Container>
   );
 };
 
