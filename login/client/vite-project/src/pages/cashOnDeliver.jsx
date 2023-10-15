@@ -22,7 +22,7 @@ function CashOnDeliver(){
               </div>
               <div className="col-sm contoo">
                <div>
-                <h1 className="heaad1" style={{ fontSize: "200%"}}>You can pay in cash to our courier and get receipt from our courier, when you receive the goods at doorstep.</h1>
+                <h1 style={{ color: "#000000", fontSize: "200%",  }}>You can pay in cash to our courier and get receipt from our courier, when you receive the goods at doorstep.</h1>
                 <div className="d-flex align-items-center buttoo ">
                 <button
                 onClick={() => navigate(`/PaymentSuccess`)}

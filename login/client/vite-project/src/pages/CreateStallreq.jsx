@@ -45,6 +45,12 @@ function CreateStallreq() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of 678692a56 (Update)
     const validationErrors = validateForm();
 
     if (Object.keys(validationErrors).length === 0) {
@@ -67,8 +73,50 @@ function CreateStallreq() {
     } else {
       // If there are validation errors, update the state to display them
       setErrors(validationErrors);
+<<<<<<< HEAD
     }
   };
+=======
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+  
+    try {
+      const formData = new FormData();
+      formData.append('name', stallProduct.name);
+      formData.append('price', stallProduct.price);
+      formData.append('description', stallProduct.description);
+      formData.append('image', stallProduct.image);
+  
+      const response = await axios.post('/stall/createProduct', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data', // Make sure to set the content type for file uploads
+        },
+      });
+  
+      if (response.status === 200) {
+        // Product added successfully, refresh the product list
+        window.location.reload();
+      } else {
+        console.error('Failed to add product. Server returned:', response.data);
+      }
+    } catch (error) {
+      console.error('Error adding product:', error);
+    }
+  };
+  
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
+>>>>>>> parent of f8f4ed0aa (Stall Request)
+=======
+    }
+  };
+>>>>>>> parent of 678692a56 (Update)
 
   return (
     
