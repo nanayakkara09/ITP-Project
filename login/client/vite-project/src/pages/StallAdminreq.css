@@ -28,3 +28,9 @@
 .stall-actions button {
   margin: 5px;
 }
+
+/* StallAdminreq.css or your stylesheet */
+.custom-toast {
+  background-color: #f9f0f0; /* Replace with your desired background color */
+  color: #080808; /* Set the text color as needed */
+}

@@ -4,6 +4,8 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
+import { ToastContainer } from 'react-toastify'; // Import ToastContainer
+import 'react-toastify/dist/ReactToastify.css';
 import Home from '../src/pages/Home';
 import Login from '../src/pages/Login';
 import Register from '../src/pages/Register';
@@ -47,6 +49,7 @@ import AdminTicketList from './pages/AdminTicketList';
 import SeeMenuPage from './pages/SeeMenuPage';
 import MonthlyIncomeReport from './pages/MonthlyIncomeReport';
 
+
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -56,7 +59,9 @@ function App() {
      <StallContextProvider>
       
     <NavBar/>
+    <ToastContainer position="top-center" toastOptions={{ duration: 3000 }} />
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
+        
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/register' element={<Register/>} />
