@@ -61,7 +61,7 @@ export default function AdminDashboard() {
           <div className="vertical-text">Stall</div>
           <div className="vertical-text">Employee</div>
           <div className="vertical-text">Order</div>
-          <div className="vertical-text">Delivery</div>
+          <Link to='/driver-adminHome' className="vertical-text">Delivery</Link>
           <Link to='/invList' className="vertical-text">Inventory</Link>
           <div className="vertical-text">Finance</div>
         </div>

@@ -34,6 +34,8 @@ import DriverFeedback from './pages/driverFeedback';
 import DriverCompletedOrders from './pages/driverCompletedOrders'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DriverAdmin from '../src/pages/Driver-admin';
+import DriverAdminHome from '../src/pages/driver-adminHome';
+
 
 
 
@@ -75,6 +77,7 @@ function App() {
           <Route path='/driver-feedback' element={<DriverFeedback />} />
           <Route path='/driver-compOrds' element={<DriverCompletedOrders />} />
           <Route path='/driver-admin' element={<DriverAdmin />} />
+          <Route path='/driver-adminHome' element={<DriverAdminHome/>} />
 
 
           <Route path="/UserEdit/:userId" element={<UserEdit />} />
