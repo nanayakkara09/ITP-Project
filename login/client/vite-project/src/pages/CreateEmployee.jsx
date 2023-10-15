@@ -22,6 +22,7 @@ const CreateEmployee = () => {
   const [phoneNumberValid, setPhoneNumberValid] = useState(true);
   const [idNumberValid, setIdNumberValid] = useState(true);
   const [passwordMatch, setPasswordMatch] = useState(true);
+  
 
 
 

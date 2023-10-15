@@ -23,6 +23,7 @@ const {
   completeEmployeeLeave,
   createEmployeeContact,
   getEmployeeContact,
+  deleteEmployeeContact,
   createEmployeeNews,
   getEmployeeNews,
   deleteEmployeeNews,
@@ -73,10 +74,11 @@ router.put('/completeEmployeeLeave/:id', completeEmployeeLeave);
 
 router.post('/createEmployeeContact', createEmployeeContact);
 router.get('/getEmployeeContact',getEmployeeContact);
+router.delete('/deleteEmployeeContact/:id', deleteEmployeeContact);
 
 router.post('/createEmployeeNews', createEmployeeNews);
 router.get('/getEmployeeNews',getEmployeeNews);
-router.get('/deleteEmployeeNews',deleteEmployeeNews);
+router.delete('/deleteEmployeeNews/:id',deleteEmployeeNews);
 
 router.post('/createEmployeeSalary', createEmployeeSalary);
 router.get('/getEmployeeSalary', getEmployeeSalary);

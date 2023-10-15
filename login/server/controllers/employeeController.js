@@ -386,6 +386,23 @@ const getEmployeeContactId = async (req, res) => {
   }
 };
 
+const deleteEmployeeContact = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const deletedEmployeeContact = await EmployeeContactModel.findByIdAndRemove(id);
+    if (!deletedEmployeeContact) {
+      return res.json({
+        error: 'No employee found',
+      });
+    }
+
+    res.json({ message: 'Employee deleted' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error deleting employee' });
+  }
+};
+
 const createEmployeeNews = async (req, res) => {
   try {
     const { description} = req.body;
@@ -557,6 +574,7 @@ module.exports = {
   createEmployeeContact,
   getEmployeeContact,
   getEmployeeContactId,
+  deleteEmployeeContact,
   createEmployeeNews,
   getEmployeeNews,
   completeEmployeeShift,
