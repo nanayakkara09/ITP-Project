@@ -35,13 +35,13 @@ import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
-import Paidbycard from './pages/paidByCard';
-import CashOnDeliver from './pages/cashOnDeliver';
+import ReceiptForOrder from './pages/receiptForOrder';
+import ReceiptForStall from './pages/receiptForStall';
+import GetAllStallData from './pages/getAllStallData';
 import GetAllOrderData from './pages/getAllOrderData';
 import PaymentMethod from './pages/paymentMethod';
-import ReceiptForOrder from './pages/receiptForOrder';
-import ReceiptForStall from './pages/receiptForStalls';
-import GetAllStallData from './pages/getAllStallData';
+import Paidbycard from './pages/paidByCard';
+import CashOnDeliver from './pages/cashOnDeliver';
 import FinancePage from './pages/financePage';
 import CardDetails from './pages/CreditCard';
 import Expenses from './pages/expenses'
@@ -51,7 +51,6 @@ import IncomePage from './pages/Income';
 import Payment from './pages/payment';
 import AdminFinance from './pages/adminFinance';
 import SuccessfullPayment from './pages/successfullPayments';
-import ViewSuccessPayments from './pages/ViewSuccessPayments'
 
 import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
@@ -111,7 +110,6 @@ function App() {
       <Route path='/cart' element={<Cart/>}></Route>
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
       <Route path='/payment' element={<Payment/>}></Route>
-      <Route path='/ViewSuccessPayments' element={<ViewSuccessPayments/>}></Route>
 
 
 

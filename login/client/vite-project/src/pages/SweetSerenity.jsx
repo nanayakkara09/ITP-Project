@@ -177,7 +177,6 @@ const SweetSerenity = () => {
                         />
                       </div>
                     </Card.Text>
-<<<<<<< HEAD
                     <div>
                     <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
 
@@ -204,10 +203,6 @@ const SweetSerenity = () => {
                         Add to Cart
                       </Button>
 
-=======
-                    <p>Price: {item.price} LKR</p>
-                    <button onClick={() => addToCart(item)}>Add to Cart</button>
->>>>>>> parent of 8c057a33c (Stall)
                   </Card.Body>
                 </Card>
               </Col>

@@ -2,10 +2,7 @@ import React, { useState , useEffect} from 'react';
 import { Container, Row, Col, Card, Form, InputGroup, Button,Modal } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useParams } from 'react-router-dom';
-<<<<<<< HEAD
 import axios from 'axios';
-=======
->>>>>>> parent of 678692a56 (Update)
 
 const PizzaMart = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -76,29 +73,10 @@ const PizzaMart = () => {
   const stall = {
     name: 'PIZZA MART',
     description: 'Delicious pizza and more!',
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    logo: '../stallImages/pizza mart.png',
-=======
-    logo: '/stallImages/pizza mart.png',
->>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
-=======
-    logo: '/stallImages/pizza mart.png',
->>>>>>> parent of 5d38a3ef9 (Menus of the stall view and download)
-    rating: 4.5,
-    foodItems: [
-      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
-=======
     logo: '../stallImages/pizza mart.png',
     rating: 4.5,
     foodItems: [
-<<<<<<< HEAD
-      { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'/pexels-vincent-rivaud-2147491.jpg' },
->>>>>>> parent of 8c057a33c (Stall)
-=======
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-vincent-rivaud-2147491.jpg' },
->>>>>>> parent of 678692a56 (Update)
       { name: 'Olive mized veg Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
       { name: 'Ultimate veg Pizza', category: 'Veg Pizza', rating: 4.5, price: 850, image:'../stallImages/pexels-kristina-paukshtite-1146760.jpg' },
       { name: 'Vegitable and Cheese Pizza', category: 'Veg Pizza', rating: 4, price: 890, image:'../stallImages/pexels-photo-5175567.jpeg' },
@@ -201,7 +179,6 @@ const PizzaMart = () => {
                         />
                       </div>
                     </Card.Text>
-<<<<<<< HEAD
 
                     <div>
                     <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
@@ -236,10 +213,6 @@ const PizzaMart = () => {
                         Add to Cart
                       </Button>
                     
-=======
-                    <p>Price: {item.price} LKR</p>
-                    <button onClick={() => addToCart(item)}>Add to Cart</button>
->>>>>>> parent of 8c057a33c (Stall)
                   </Card.Body>
                 </Card>
               </Col>

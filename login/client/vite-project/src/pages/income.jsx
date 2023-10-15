@@ -7,7 +7,7 @@ function IncomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [order, setOrder] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [subtotal, setSubtotal] = useState(0); // Initialize subtotal to 0
+  const [subtotal, setSubtotal] = useState(0);
   const [inputTypeOne, setInput1] = useState("");
   const [inputTypeTwo, setInput2] = useState("");
   const [inputTypeThree, setInput3] = useState("");
@@ -169,16 +169,8 @@ useEffect(() => {
     order.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-
- 
-
   return (
     <div className="container my-5 backgr">
-      
       <div className="col-md-9">
         <h3 className="underline-bold salesHead">Monthly sales</h3>
         <div className="inputs">
@@ -285,8 +277,8 @@ useEffect(() => {
               </tr>
             </thead>
             <tbody>
-              {stall.map((stallItem, index) => (
-                <tr key={index}>
+              {stall.map((stallItem) => (
+                <tr key={stallItem._id}>
                   <td>{stallItem.stallId}</td>
                   <td>{stallItem.fName}</td>
                   <td>{stallItem.lName}</td>

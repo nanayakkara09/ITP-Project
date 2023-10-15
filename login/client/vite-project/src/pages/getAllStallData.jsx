@@ -3,7 +3,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './getAllStalldata.css';
 
-
 function Getstall() {
   const [isLoading, setIsLoading] = useState(true);
   const [stall, setStall] = useState([]);
@@ -14,8 +13,7 @@ function Getstall() {
     const fetchAllstall = async () => {
       try {
         const response = await axios.get("http://localhost:8000/stall/getAllStall");
-        console.log(response)
-        setStall(response.data.stalls);
+        setStall(response.data);
         setIsLoading(false);
       } catch (error) {
         console.error(error);
@@ -28,8 +26,9 @@ function Getstall() {
 
   const deleteCard = async (stallId) => {
     try {
-      await axios.delete(`http://localhost:8000/stall/deleteStall/${stallId}`);
-      navigate("/DeleteCard");
+      await axios.delete(`http://localhost:8000/stall/deleteStall/${stallId}`, {
+        withCredentials: true, // Include credentials (cookies) in the request
+      });
     } catch (error) {
       console.error(error);
     }
@@ -45,7 +44,6 @@ function Getstall() {
   if (isLoading) {
     return <div>Loading...</div>;
   }
- 
 
   return (
     <div className="container my-5 backgr">
@@ -58,7 +56,6 @@ function Getstall() {
             className="form-controlll"
             value={searchTerm}
             onChange={handleSearch}
-
           />
         </div>
         <h3 className="underline-bold">Your all stall payments</h3>

@@ -25,13 +25,13 @@
     flex-direction: column;
     justify-content: center; /* Center vertically */
     align-items: center; /* Center horizontally */
-    height: 100vh; /* Set the container height to the viewport height for vertical centering */
+    height: 150vh; /* Set the container height to the viewport height for vertical centering */
     margin-top: 5vh;
     width: 160vh;
    
     background-color: rgb(132, 138, 138);
   }
-.mx-uto{
+.stallComp{
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center vertically */

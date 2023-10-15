@@ -14,6 +14,9 @@ function ReceiptForOrder() {
 
   useEffect(() => {
     const fetchCardById = async (orderId) => {
+      if(!orderId){
+        alert("order id is not casting")
+      }
       try {
         const response = await axios.get(`http://localhost:8000/orderss/${orderId}`);
         setOrder(response.data.order);

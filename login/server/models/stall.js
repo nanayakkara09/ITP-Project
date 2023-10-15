@@ -9,13 +9,7 @@ const stallSchema = new Schema({
       lName: String,
       email: String,
       phone: Number,
-
-      done:{
-            type:Boolean,
-            default:false,
-
-      }
-
+      
      
 })
 
