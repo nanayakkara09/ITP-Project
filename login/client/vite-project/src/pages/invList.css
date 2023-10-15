@@ -1,50 +1,50 @@
-.inventory-item-container {
+.dihan-inventory-item-container { /* Updated class name */
   display: flex;
-  flex-wrap: wrap; /* Allow items to wrap to the next line */
-  justify-content: center; /* Center the items horizontally */
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.inv-list {
-  flex: 0 1 calc(20% - 20px); /* Each box takes up 20% of the container width with some margin */
+.dihan-inv-list { /* Updated class name */
+  flex: 0 1 calc(20% - 20px);
   margin: 10px;
   padding: 20px;
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Center the content inside the boxes */
+  text-align: center;
 }
 
-.food-list {
+.dihan-food-list { /* Updated class name */
   background-color: #f0f0f0;
 }
 
-.furniture-list {
+.dihan-furniture-list { /* Updated class name */
   background-color: #e0e0e0;
 }
 
-.machinery-list {
+.dihan-machinery-list { /* Updated class name */
   background-color: #d0d0d0;
 }
 
-.issued-list {
+.dihan-issued-list { /* Updated class name */
   background-color: #f0f0f0;
 }
 
-.reports-list {
+.dihan-reports-list { /* Updated class name */
   background-color: #e0e0e0;
 }
 
-.inv-list h3 {
+.dihan-inv-list h3 { /* Updated class name */
   font-size: 20px;
   margin-bottom: 10px;
 }
 
-.inv-list a {
-  text-decoration: none; /* Change from 'right' to 'none' for normal link style */
+.dihan-inv-list a { /* Updated class name */
+  text-decoration: none;
   color: #007BFF;
   font-weight: bold;
 }
 
-.inv-list a:hover {
+.dihan-inv-list a:hover { /* Updated class name */
   text-decoration: underline;
   color: #0056b3;
 }

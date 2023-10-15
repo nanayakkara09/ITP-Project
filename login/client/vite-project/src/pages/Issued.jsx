@@ -28,16 +28,17 @@ export default function Issued() {
       }, []);
 
     return (
-        <div className="issued-container">
+        <div className="dihan-issued-container">
             <AdminNavBar />
+            <Link to="/IssueEntry" className="add-new-button">Add New</Link>
             {stalls.map((item, index) => (
-            <div className="card h-100">
+            <div className="dihan-card-h-100">
 
-                <div className="card-body">
-                    <h5 className="card-title">{item.stallId}</h5>
-                    <p className="card-text">{item.stallName}</p>
+                <div className="dihan-card-body">
+                    <h5 className="dihan-card-title">{item.stallId}</h5>
+                    <p className="dihan-card-text">{item.stallName}</p>
                 </div>
-                <div className="card-footer">
+                <div className="dihan-card-footer">
                       <Link to={`/IssuedDetails/${item.stallId}`} className="btn btn-primary">
             View Stall
           </Link> 
