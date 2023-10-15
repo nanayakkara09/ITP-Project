@@ -11,6 +11,8 @@ import Calendar from 'react-calendar'; // Import the calendar component
 import 'react-calendar/dist/Calendar.css'; // Import calendar styles
 import { EmployeeContext } from '../../contex/EmployeeContext'
 import './employeedashboardhome.css'
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 
 const EmployeeDashboardHome = () => {
@@ -128,6 +130,65 @@ const EmployeeDashboardHome = () => {
     }
   };
 
+  const [employeeSalary, setEmployeeSalary] = useState([]);
+
+  useEffect(() => {
+    const getEmployeeSalary = async () => {
+      try {
+        const { data } = await axios.get('/employee/getEmployeeSalary');
+        setEmployeeSalary(data);
+      } catch (error) {
+        console.error(error);
+        toast.error('Failed to fetch employee salary data');
+      }
+    };
+
+    getEmployeeSalary();
+  }, []);
+
+  function generateemployeeSalaryReport() {
+    const pdf = new jsPDF();
+
+    // Add stall logo (replace 'logo.png' with your image path)
+    // const imgData = '../../../../server/uploads/profile-photos/1696802022090.jpeg';
+    // pdf.addImage(imgData, 'JPEG', 10, 10, 40, 40);
+
+    // Define font size for the content
+    pdf.setFontSize(12);
+
+    // Add page number to the first page
+    pdf.text('Page 1', 190, 10);
+
+    // Add the table
+    const tableData = [];
+    employeeSalary.forEach((salary) => {
+      tableData.push([
+        salary.name,
+        salary.email,
+        salary.idNumber,
+        salary.phoneNumber,
+        salary.team,
+        salary.daySalary,
+        salary.wDays,
+        salary.lDays,
+        salary.calculatedSalary
+      ]);
+    });
+
+    pdf.autoTable({
+      head: [['Name', 'Email', "IDNumber", 'Phone Number', 'Team', 'Day Salary', 'Working Days', 'Leave Days','Total Salary']],
+      body: tableData,
+      startY: 60, // Adjust the Y position to avoid overlapping with the logo and page number
+    });
+
+    
+
+    // Save the PDF
+    pdf.save('income_report.pdf');
+    console.log('Report saved.');
+  }
+
+
   // Filter employee shifts by employee.team value
   const filteredEmployeeShift = employeeShift.filter(
     (shift) => shift.team === (employee ? employee.team : '')
@@ -140,13 +201,16 @@ const EmployeeDashboardHome = () => {
   return (
     <div>
       <EmployeeNavBar />
-      <div>
-        <div>
+      <div className='fullcontainer'>
+        <div className='dashcontainer'>
         <h1>Dashboard</h1>
         {!!employee && (<h1>Hi {employee.name}! </h1>)}
+        <button className="generate-report-button small-button" onClick={generateemployeeSalaryReport}>
+          <i className="fas fa-download"></i> Download Income Report
+        </button>
         </div>
         {/* Employee News */}
-        <div className='d-flex justify-content-center align-items-center min-vh-50'>
+        <div className='employeecontainer'>
           <div className='container mt-4'>
           <hr className="mt-0 mb-4" />
           <h1 className="item-list-title">Notices</h1>
@@ -168,7 +232,7 @@ const EmployeeDashboardHome = () => {
 
         {/* Employee Shifts */}
             
-        <div className='container'>
+        <div className='employeecontainer'>
         <div className='title'>
         <hr className="mt-0 mb-4" />
           <h1 className="item-list-title">Shifts</h1>
@@ -184,7 +248,7 @@ const EmployeeDashboardHome = () => {
                     <th>Venue</th>
                     <th>Task</th>
                     <th>Done</th>
-                    <th>Action</th>
+                    
                   </tr>
                 </thead>
                 <tbody>
@@ -221,7 +285,7 @@ const EmployeeDashboardHome = () => {
 
        
          
-        <div className='container'>
+        <div className='employeecontainer'>
         <div className='title'>
         <hr className="mt-0 mb-4" />
           <h1 className="item-list-title">Leaves</h1>
@@ -274,7 +338,7 @@ const EmployeeDashboardHome = () => {
           
         
 
-          <div className='container'>
+          <div className='employeecontainer'>
   <div className='row justify-content-center align-items-center'>
   <hr className="mt-0 mb-4" />
   <h1 className="item-list-title">Contacts</h1>
@@ -311,7 +375,7 @@ const EmployeeDashboardHome = () => {
     </div>
     <div className='col-md-6'>
       <img
-        src='https://placekitten.com/400/400' // Replace with your image URL
+        src='https://unblast.com/wp-content/uploads/2020/09/Contact-Us-Vector-Illustration-Part-02-1.jpg' // Replace with your image URL
         alt='Contact Image'
         className='img-fluid rounded'
       />
@@ -319,7 +383,7 @@ const EmployeeDashboardHome = () => {
   </div>
 </div>
 
-<div className='row justify-content-center align-items-center'>
+<div className='employeecontainer'>
   <hr className="mt-0 mb-4" />
   <h1 className="item-list-title">Calender</h1>
   <hr className="mt-0 mb-4" />
