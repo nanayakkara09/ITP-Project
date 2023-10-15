@@ -49,7 +49,7 @@ app.use('/invDetails', require('./routes/invDetailsRoutes'));
 app.use('/issuedDetails', require('./routes/issuedRoutes'));
 
 
-app.use('/stall', require('./routes/stallRoutes'))
+
 
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));

@@ -20,7 +20,6 @@ router.delete('/deleteItem/:itemId', deleteItem);
 router.get('/getItembyItemcode:itemcode',getItembyItemcode);
 router.get('/fetchItemsbyCatogery:category',getItemsbyCatogery);
 
-
 router.delete('/deleteInv/:id', deleteInvById);
 
 

@@ -6,6 +6,7 @@ const stallProduct = require('../models/stallProduct');
 const stallPromo = require('../models/stallPromotions');
 const Ticket = require('../models/ticket');
 const nodemailer = require('nodemailer');
+const PaymentSuccess = require('../models/paymentSuccessStall');
 
 
 const transporter = nodemailer.createTransport({
@@ -166,8 +167,7 @@ if(token) {
 } else {
   res.json(null)
 }
-const stallReg = require('../models/stallRegister');
-const PaymentSuccess = require('../models/paymentSuccessStall');
+
 const test = (req, res) => {
     res.json('test is working');
 }}
@@ -221,12 +221,13 @@ const stalladminreq = async (req, res) => {
     }
   };  
 
+ 
   //Get stall details by id
   const getStall = async (req, res) => {
     try {
       const stallId = req.params.id; // Get the ID from the request parameters
   
-      const stall = await stallReg.findById(stallId);
+      const stall = await StallRegister.findById(stallId);
   
       if (!stall) {
         return res.status(404).json({ error: 'Stall not found' });
@@ -241,7 +242,7 @@ const stalladminreq = async (req, res) => {
  //Get all stall details 
   const getAllStall = async (req, res) => {
     try {
-      const stalls = await stallReg.find(); // Retrieve all stalls
+      const stalls = await StallRegister.find(); // Retrieve all stalls
       
       return res.json(stalls);
     } catch (error) {
@@ -254,7 +255,7 @@ const stalladminreq = async (req, res) => {
     try {
       const { id } = req.params;
       // Use Mongoose to delete the stall by ID
-      const deletedStall = await stallReg.findByIdAndDelete(id);
+      const deletedStall = await StallRegister.findByIdAndDelete(id);
   
       if (!deletedStall) {
         return res.status(404).json({ message: 'Stall not found' });
