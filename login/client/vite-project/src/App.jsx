@@ -90,7 +90,7 @@ function App() {
       <Route path="/itemDetails/:itemcode" element={<ItemDetails />} />
       <Route path="/addStock/:itemcode" element={<AddStock />} />
       <Route path="/IssueEntry" element={<IssueEntry />} />
-      <Route path="/IssuedDetails" element={<IssuedDetails />} />
+      <Route path="/IssuedDetails/:stoleid" element={<IssuedDetails />} />
       <Route path="/itemlistFur" element={<ItemlistFur />} />
       <Route path="/itemlistMac" element={<ItemlistMac />} />
       <Route path="/addNewFur" element={<AddNewFur />} />

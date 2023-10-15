@@ -19,6 +19,7 @@ const {
   createTicket,
   getTicket,
   getRegStallByStallId,
+  getIssuedStalls,
   updateStallIssueById
 
 } = require('../controllers/stallController');
@@ -54,6 +55,8 @@ router.post('/createTicket', createTicket);
 router.get('/getTicket', getTicket);
 router.get('/getStallByStallId:stallid',getRegStallByStallId);
 router.post('/updateStallById:id',updateStallIssueById);
+router.get('/getIssuedStalls',getIssuedStalls);
+
 
 
 

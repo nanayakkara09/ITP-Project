@@ -3,7 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
 //import './IssuedData.css'; // Import the CSS file for styling
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation,useParams } from 'react-router-dom';
 
 export default function itemlist(props) {
  /*  
@@ -13,11 +13,11 @@ export default function itemlist(props) {
   const category = location.state; */
   const [searchTerm, setSearchTerm] = useState('');
   const [items, setItems] = useState([]);
-
+  const { stoleid } = useParams();
   useEffect(() => {
     const fetchItemList = async () => {
       try {
-        var stoleid = "1";
+        
             const { data } = await axios.get(`/issuedDetails/getIssuedDetails${stoleid}`);
             console.log(data)
             setItems(data);
@@ -59,7 +59,7 @@ export default function itemlist(props) {
       <div><AdminNavBar /></div>
       <div className='container'>
         <div className='title'>
-          <h1 className="item-list-title">Item List</h1>
+          <h1 className="item-list-title">Issued List</h1>
         </div>
 
         <div className="item-list-buttons">
