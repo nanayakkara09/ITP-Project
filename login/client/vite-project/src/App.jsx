@@ -137,6 +137,9 @@ import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
 import UpdateExpenses from './pages/updateExpenses';
 
+import EmployeeProfileA from './pages/EmployeeProfileA'
+
+
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -283,6 +286,9 @@ function App() {
 
                     <Route path='/createEmployeeSalary' element={<CreateEmployeeSalary/>}/>
                     <Route path='/getEmployeeSalary' element={<GetEmployeeSalary/>}/>
+
+                    <Route path='/employeeProfileA' element={<EmployeeProfileA/>}/>
+                   
 
 
 

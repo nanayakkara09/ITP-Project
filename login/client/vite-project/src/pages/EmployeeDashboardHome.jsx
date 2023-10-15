@@ -6,10 +6,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
-import AdminNavBar from '../components/adminNavBar';
+import EmployeeNavBar from '../components/EmployeeNavBar';
 import Calendar from 'react-calendar'; // Import the calendar component
 import 'react-calendar/dist/Calendar.css'; // Import calendar styles
-import { EmployeeContext } from '../../contex/EmployeeContext';
+import { EmployeeContext } from '../../contex/EmployeeContext'
+import './employeedashboardhome.css'
 
 
 const EmployeeDashboardHome = () => {
@@ -137,16 +138,18 @@ const EmployeeDashboardHome = () => {
   );
 
   return (
-    <section className="vh-100" style={sectionStyles}>
-      <AdminNavBar />
-      <div className="container py-5 h-100">
+    <div>
+      <EmployeeNavBar />
+      <div>
+        <div>
         <h1>Dashboard</h1>
         {!!employee && (<h1>Hi {employee.name}! </h1>)}
+        </div>
         {/* Employee News */}
         <div className='d-flex justify-content-center align-items-center min-vh-50'>
           <div className='container mt-4'>
           <hr className="mt-0 mb-4" />
-            <h2 className="text-center">Notices</h2>
+          <h1 className="item-list-title">Notices</h1>
             <hr className="mt-0 mb-4" />
             {employeeNews.length > 0 ? (
               <div className="alert alert-danger" role="alert">
@@ -165,12 +168,14 @@ const EmployeeDashboardHome = () => {
 
         {/* Employee Shifts */}
             
-          <div className='d-flex justify-content-center align-items-center'>
-            <div className='w-100 p-3'>
-            <hr className="mt-0 mb-4" />
-            <h2 className="text-center">Employee Shifts</h2>
-            <hr className="mt-0 mb-4" />
-              <table className="table">
+        <div className='container'>
+        <div className='title'>
+        <hr className="mt-0 mb-4" />
+          <h1 className="item-list-title">Shifts</h1>
+          <hr className="mt-0 mb-4" />
+        </div>
+            <div className="item-list-container">
+          <table className="item-list-table">
                 <thead>
                   <tr>
                     <th>Team</th>
@@ -179,6 +184,7 @@ const EmployeeDashboardHome = () => {
                     <th>Venue</th>
                     <th>Task</th>
                     <th>Done</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -207,22 +213,25 @@ const EmployeeDashboardHome = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
-          </div>
+          
   
         
 
        
          
-          <div className='d-flex min-vh-75 justify-content-center align-items-center'>
-            <div className='w-100 p-3'>
-            <hr className="mt-0 mb-4" />
-            <h2 className="text-center">Employee Leaves</h2>
-            <hr className="mt-0 mb-4" />
+        <div className='container'>
+        <div className='title'>
+        <hr className="mt-0 mb-4" />
+          <h1 className="item-list-title">Leaves</h1>
+          <hr className="mt-0 mb-4" />
+        </div>
               <div className="mb-3">
                 <Link to="/createEmployeeLeave" className='btn btn-success mb-3'>Add +</Link>
               </div>
-              <table className="table">
+              <div className="item-list-container">
+          <table className="item-list-table">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -233,6 +242,7 @@ const EmployeeDashboardHome = () => {
                     <th>End Date</th>
                     <th>Reason</th>
                     <th>Status</th>
+                    <th>Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -259,14 +269,15 @@ const EmployeeDashboardHome = () => {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
-          </div>
+          
         
 
           <div className='container'>
   <div className='row justify-content-center align-items-center'>
   <hr className="mt-0 mb-4" />
-  <h2 className="text-center">Contact</h2>
+  <h1 className="item-list-title">Contacts</h1>
   <hr className="mt-0 mb-4" />
     <div className='col-md-6'>
       <div className='w-100 bg-white rounded p-3'>
@@ -310,7 +321,7 @@ const EmployeeDashboardHome = () => {
 
 <div className='row justify-content-center align-items-center'>
   <hr className="mt-0 mb-4" />
-  <h2 className="text-center">Calender</h2>
+  <h1 className="item-list-title">Calender</h1>
   <hr className="mt-0 mb-4" />
   {/* Add the Calendar component here */}
   <Calendar
@@ -330,7 +341,7 @@ const EmployeeDashboardHome = () => {
 
 </div>
       
-    </section>
+</div>
   );
 };
 
