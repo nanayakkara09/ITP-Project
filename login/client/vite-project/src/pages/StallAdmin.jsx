@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.css";
 import AdminNavBar from '../components/adminNavBar';
 import { useNavigate } from "react-router-dom";
+import './StallAdmin.css';
 
 export default function StallAdmin() {
     const navigate = useNavigate();    
@@ -29,15 +30,7 @@ export default function StallAdmin() {
           <h3>Marketing & Promotion</h3>
           <Link to="/promotions">Create promo</Link>
         </div>
-
-        <div className="stall support-list">
-          <h3>Support System</h3>
-          <Link to="/getTicket">View Tickets</Link>
-        </div>
-        <div className="stall reports-list">
-          <h3>Reports</h3>
-          <Link to="">Generate Reports</Link>
-        </div>
+        
       </div>
     </div>
     </div>
