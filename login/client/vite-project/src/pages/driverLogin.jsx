@@ -2,7 +2,7 @@ import { useState } from 'react';
 import axios from 'axios';
 import {toast} from 'react-hot-toast'
 import { Link, useNavigate } from "react-router-dom";
-import "./driverLogin.css"; // Import the CSS file
+import './driverLogin.css';
 
 function DriverLogin(){
     const navigate = useNavigate();
@@ -34,13 +34,16 @@ function DriverLogin(){
     }
 
     return (
-        <div className='driver-login-Form-container'>
-          <div className='driver-login-bgr-img'></div>
-          <div className="content driv-form-box">
-          <br></br>
+      
+        <div className="driver-login-container">
+           <div className="bg-img"></div>
+      <br></br>
+      <br></br>
+
+      <div className="contentL">
             <h2>Login</h2>
             <form onSubmit={loginDriver}>
-              <div className="form-group row">
+            <div className="mb-3">
                 <label htmlFor="email"><strong>Email</strong></label>
                 <input
                   type="email"
@@ -49,7 +52,6 @@ function DriverLogin(){
                   name="email"
                   id="email"
                   className="form-control"
-                  aria-describedby="emailHelp"
                   value={data.email}
                   onChange={(e) => setData({ ...data, email: e.target.value })}
                   />
@@ -67,17 +69,16 @@ function DriverLogin(){
                   onChange={(e) => setData({ ...data, password: e.target.value })}
                 />
               </div>
-              <button type="submit" className="btn btn-primary-driver-login">
+              <button type="submit" className="login-btn btn-success btn-block">
                 Login
               </button>
             </form>
-            <p>New to here?</p>
-            <Link to="/driver-register" className="register-btn btn-light btn-block border text-decoration-none">
-              Register
-            </Link>
-        </div>
-        </div>
-    
+            <p className="register-link">
+            New user? <Link to="/driver-register">Register now</Link>
+          </p>
+        
+    </div>
+    </div>
  )
 }
 

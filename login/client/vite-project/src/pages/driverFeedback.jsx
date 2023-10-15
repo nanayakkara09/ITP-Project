@@ -1,5 +1,6 @@
 import React from 'react';
 import 'font-awesome/css/font-awesome.min.css';
+import boximage from '../images/driver11.jpg'
 import "./driverFeedback.css";
 
 function generateStars(rating) {
@@ -21,6 +22,7 @@ function generateStars(rating) {
 function DriverFeedback() {
   return (
     <div class="container">
+            <img src={boximage} alt="" className="driver-feedback-image" />
         <h1 className="feedback-heading">Customer Feedbacks</h1> {/* Added heading */}
         
           <div class="card">
@@ -72,10 +74,9 @@ function DriverFeedback() {
               <div class="card__details">
               {generateStars(4)} {/* Display 4 filled stars */}
                 <p>
-                  I absolutely loved working with the Filament team. Complete
-                  experts at what they do!
+                "The driver was professional and maintained good communication throughout the delivery process."
                 </p>
-                <h4>- Stacy Stone</h4>
+                <h4>- Ayesha Perera </h4>
               </div>
             </div>
           </div>
@@ -86,10 +87,11 @@ function DriverFeedback() {
               <div class="card__details">
               {generateStars(3)} {/* Display 4 filled stars */}
                 <p>
-                  We had a great time collaboraring with the Filament team. They
-                  have my high recommendation!
+                "Thank you for accommodating my special delivery request. The driver was very understanding."
+Remember that feedback can be positive or constructive, depending on the situation. It's essential to provide feedback that is fair and specific to help drivers improve their performance or acknowledge their good work.
+
                 </p>
-                <h4>- Marnus Stephen</h4>
+                <h4>- Hiran </h4>
               </div>
             </div>
           </div>
@@ -100,10 +102,9 @@ function DriverFeedback() {
               <div class="card__details">
               {generateStars(4)} {/* Display 4 filled stars */}
                 <p>
-                  We had a great time collaboraring with the Filament team. They
-                  have my high recommendation!
+                "Quick and efficient delivery. I was impressed with the speed of service."
                 </p>
-                <h4>- Marnus Stephen</h4>
+                <h4>- Jenny Fernando</h4>
               </div>
             </div>
           </div>
@@ -113,10 +114,9 @@ function DriverFeedback() {
               <div class="card__details">
               {generateStars(5)} {/* Display 4 filled stars */}
                 <p>
-                  We had a great time collaboraring with the Filament team. They
-                  have my high recommendation!
+                "Driver was respectful and followed safety guidelines during the pandemic."
                 </p>
-                <h4>- Marnus Stephen</h4>
+                <h4>- Stephny</h4>
               </div>
             </div>
           </div>

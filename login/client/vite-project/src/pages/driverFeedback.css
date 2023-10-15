@@ -103,4 +103,11 @@
     ); /* Create star shape using clip-path */
   }
   
-  
+  .driver-feedback-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Adjust the width as needed */
+    height: 100%; /* Adjust the height as needed */
+    box-shadow: #ccc;
+  }

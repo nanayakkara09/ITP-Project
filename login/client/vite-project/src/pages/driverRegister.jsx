@@ -4,6 +4,7 @@ import axios from "axios";
 import {toast} from 'react-hot-toast'
 import "./driverRegister.css"; // Import the CSS file
 
+
 function DriverRegister() {
   const navigate = useNavigate();
   const [data, setData] = useState({
@@ -67,11 +68,14 @@ function DriverRegister() {
 
 
 return (
-        <div className="register-FormContainer">
-          <div className="bg-white rounded">
+  <form>
+
+        <div className="form-group-driver-reg">
+          <div className="bgr-img"></div>
+          <div className="content-form-box">
             <h2>Register</h2>
             <form onSubmit={registerDriver}>
-              <div className="form-group">
+              <div className="form-group row">
                 <label htmlFor="username"><strong>Username</strong></label>
                 <input
                   type="text"
@@ -196,6 +200,7 @@ return (
             </Link>
           </div>
         </div>
+        </form>
       );
       
 }
