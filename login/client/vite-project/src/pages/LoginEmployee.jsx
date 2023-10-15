@@ -34,7 +34,7 @@ const loginEmployee = async(e) => {
  
 
   return (
-    <div className="login-container">
+    <div className="login-containere">
       <div><EmployeeNavBar/></div>
       <div className="contentL">
         <h2>Login</h2>
