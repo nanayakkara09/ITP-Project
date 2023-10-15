@@ -16,6 +16,7 @@ import boximage from '../images/delivery-man-riding-red-scooter-illustration-tem
 import boximage2 from '../images/stall.avif'
 import Footer from "../components/Footer";
 
+
 export default function Home() {
   // Slider settings
   const settings = {
@@ -42,7 +43,7 @@ export default function Home() {
             <p>
               "Experience culinary excellence at Our Restaurants. Enjoy a diverse menu of mouthwatering dishes prepared with the finest ingredients, served in a warm and inviting ambiance. Discover the perfect blend of flavors and exceptional service at Our Restaurants."
             </p>
-            <Link to="/login">
+            <Link to="/OurStallsHomePage">
               <button className="button">See More..</button>
             </Link>
           </div>
@@ -62,7 +63,7 @@ export default function Home() {
             <p>
               "Explore our mouthwatering menu at See Menu. Indulge in a variety of delicious dishes, crafted with passion and finest ingredients. From savory appetizers to delectable desserts, our menu offers a culinary delight for every palate. Visit See Menu and satisfy your cravings today."
             </p>
-            <Link to="/login">
+            <Link to="/menu">
               <button className="button">See Menu..</button>
             </Link>
           </div>
@@ -99,7 +100,7 @@ export default function Home() {
           <img src={boximage2} alt="stall" style={{ width: '150px', height: '150px' }} />
             <h4>Become a partner</h4>
             <p>Grow your business and reach new customers by partnering with us.</p>
-            <Link to="">
+            <Link to="/stallreq">
               <button className="button">Sign up your store</button>
             </Link>
           </div>

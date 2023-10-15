@@ -6,6 +6,8 @@ import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter,Routes, Route} from 'react-router-dom';
 import NavBar from '../src/components/NavBar';
+import { ToastContainer } from 'react-toastify'; // Import ToastContainer
+import 'react-toastify/dist/ReactToastify.css';
 import Home from '../src/pages/Home';
 import Login from '../src/pages/Login';
 import Register from '../src/pages/Register';
@@ -137,6 +139,7 @@ import ViewSuccessPayments from './pages/ViewSuccessPayments'
 import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
 import UpdateExpenses from './pages/updateExpenses';
+
 axios.defaults.baseURL='http://localhost:8000';
 axios.defaults.withCredentials=true
 
@@ -147,7 +150,9 @@ function App() {
       <EmployeeContextProvider>
       
     <NavBar/>
+    <ToastContainer position="top-center" toastOptions={{ duration: 3000 }} />
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
+        
     <Routes>
       <Route path='/' element={<Home/>} />
       <Route path='/register' element={<Register/>} />

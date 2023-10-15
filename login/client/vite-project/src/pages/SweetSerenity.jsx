@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import NavBar from '../components/cartNavbar';
 
+import './SweetSerenity.css';
 
 const SweetSerenity = () => {
   const [searchQuery, setSearchQuery] = useState('');

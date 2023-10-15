@@ -57,24 +57,26 @@ function CreateStallreq() {
           lName,
           email,
           phone,
-        })
-        .then((result) => {
-          console.log(result);
-          // Assuming a successful submission should navigate to a success page
-          navigate("/StallAdminreq");
-        })
-        .catch((err) => console.log(err));
-    } else {
-      // If there are validation errors, update the state to display them
-      setErrors(validationErrors);
-    }
-  };
-
-  return (
+      });
+  
+      if (response.status === 200) {
+        
+      } else {
+        console.error('Failed to submit stall creation request. Server returned:', response.data);
+      }
     
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100 background">
-    <div className="container-fluid d-flex justify-content-center align-items-center vh-100">
-      <div className="col-md-6">
+  };  
+
+  return (    
+    <div className="form-container">
+      <div className="form-container background-image"></div>
+      <div className="image-container">
+    <img
+      src="https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" // Replace with your image URL
+      alt="Image"
+      
+    />
+    </div>  
         <div className="card">
           <div className="card-header text-center">
             <h2>Stall Creation Request</h2>
@@ -189,10 +191,10 @@ function CreateStallreq() {
           </div>
         </div>
       </div>
-    </div>
-  </div> 
+    
+  
    
   );
-}
+}}
 
 export default CreateStallreq;

@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import './CreateStall.css';
+//import { useHistory } from 'react-router-dom';
 
 import backgroundImg from '/stallImages/img2.jpeg';
 
 export default function CreateStall() {
   const navigate = useNavigate();
+  //const history = useHistory();
   const [data, setData] = useState({
     stallName: '',
     type: '',
@@ -20,6 +23,8 @@ export default function CreateStall() {
     password: '',
     payment: '',
   });
+
+  
 
   const createStall = async (e) => {
     e.preventDefault();
@@ -49,6 +54,16 @@ export default function CreateStall() {
     } catch (error) {
       console.log(error);
     }
+
+    toast.success('Payment Successful');
+  };
+
+  const handlePayment = () => {
+    // Trigger the payment and show the success message
+    // Simulating payment success here, you can add your actual payment logic
+    setTimeout(() => {
+      toast.success('Payment Successful');
+    }, 3000); // Simulating a 3-second delay before showing the success message
   };
 
 
@@ -178,7 +193,7 @@ export default function CreateStall() {
             <p>
               You have to pay 40000 LKR amount to register your stall in our premises.
               <br />
-              <button className="btn btn-primary">Make Payment</button>
+              <button onClick={()=> navigate('/ReceiptForStall/${id}')}>Make Payment</button>
             </p>
           </div>
           <button type="submit" className="btn btn-primary">
