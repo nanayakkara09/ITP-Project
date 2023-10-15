@@ -64,7 +64,7 @@ const loginEmployee = async(req,res) => {
     //chech if password match
     const match = await comparePassword(password, employee.password)
     if(match){
-      jwt.sign({email: employee.email, id: employee._id, name:employee.name},process.env.JWT_SECRET,{}, (err,token) => {
+      jwt.sign({email: employee.email, id: employee._id, name:employee.name,idNumber:employee.idNumber,phoneNumber:employee.phoneNumber,team:employee.team,password:employee.password},process.env.JWT_SECRET,{}, (err,token) => {
         if(err) throw err;
         res.cookie('token',token).json(employee)
       } )
@@ -484,6 +484,53 @@ const deleteEmployeeSalary = async (req, res) => {
   }
 };
 
+const getEmployeeProfileA = (req, res) => {
+  const { token } = req.cookies;
+
+  if (token) {
+    jwt.verify(token, process.env.JWT_SECRET, {}, async (err, employee) => {
+      if (err) {
+        console.error(err);
+        return res.status(500).json({ error: 'Failed to verify token' });
+      }
+
+      try {
+        // Fetch user data including address and phone number
+        const employeeData = await EmployeeModel.findOne({ email: employee.email }, 'name email idNumber phonenumber team password');
+
+        if (!employeeData) {
+          return res.status(404).json({ error: 'User not found' });
+        }
+
+        res.json(employeeData);
+      } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: 'Error fetching user data' });
+      }
+    });
+  } else {
+    res.json(null);
+  }
+};
+
+const handleEmployeeLogout = async (req, res) => {
+  try {
+    res.clearCookie('token'); // Clear the token cookie
+    res.json({ message: 'Logout successful' }); // Send success response
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: 'Failed to logout' }); // Send error response
+  }
+};
+
+
+
+
+
+
+
+
+
 
 
 
@@ -516,6 +563,9 @@ module.exports = {
   deleteEmployeeNews,
   createEmployeeSalary,
   getEmployeeSalary,
-  deleteEmployeeSalary
+  deleteEmployeeSalary,
+  getEmployeeProfileA,
+  handleEmployeeLogout,
+ 
 
 };

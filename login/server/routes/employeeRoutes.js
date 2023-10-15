@@ -1,9 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const cors = require('cors');
-const multer = require('multer'); // Import Multer
-const path = require('path');
-const fs = require('fs');
+
 const {
   createEmployee,
   loginEmployee,
@@ -30,7 +28,10 @@ const {
   deleteEmployeeNews,
   createEmployeeSalary,
   getEmployeeSalary,
-  deleteEmployeeSalary
+  deleteEmployeeSalary,
+  getEmployeeProfileA,
+  handleEmployeeLogout,
+  
   
   
 
@@ -80,6 +81,11 @@ router.get('/deleteEmployeeNews',deleteEmployeeNews);
 router.post('/createEmployeeSalary', createEmployeeSalary);
 router.get('/getEmployeeSalary', getEmployeeSalary);
 router.delete('/deleteEmployeeSalary/:id', deleteEmployeeSalary);
+
+router.get('/employeeProfileA', getEmployeeProfileA);
+router.post('/employeeLogout', handleEmployeeLogout);
+
+
 
 
 
