@@ -1,9 +1,9 @@
-.event-about-container22 {
+.event-heshani-container22 {
   text-align: center;
   margin-top: 20px;
 }
 
-.background-image-container22 {
+.background-image-heshani22 {
   background-image: url('../images/chooseus.jpg');
     background-size: cover;
     background-position: center;
@@ -20,7 +20,7 @@
     opacity: 1.1; 
 }
 
-.background-image22 {
+.heshani-image22 {
   width: 100%;
 }
 
@@ -33,7 +33,7 @@
   padding: 20px;
 }
 
-.card22 {
+.heshanicard22 {
   background-color: white;
   border-radius: 10px;
   padding: 20px;
@@ -42,7 +42,7 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
-.card-icon22 {
+.heshani-icon22 {
   font-size: 2em;
   margin-bottom: 10px;
 }
@@ -52,17 +52,14 @@ hr {
   margin: 30px 0;
 }
 
-.footer22 {
+.heshanifooter22 {
   background-color: #c1bdcd;
   color: white;
   padding: 20px 0;
   text-align: center;
 }
 
-.container22 {
-  display: flex;
-  justify-content: space-between;
-}
+
 
 .contact-section22 {
   flex: 1;

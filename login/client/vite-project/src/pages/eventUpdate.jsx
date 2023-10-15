@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-import "./addNewEvent.css";
+import "./eventUpdate.css";
 import eventform1 from '../images/eventform1.jpeg';
 
 export default function EventUpdate() {
@@ -60,13 +60,13 @@ export default function EventUpdate() {
   };
 
   return (
-    <div className="bgh-image9">
-    <img src={eventform1} alt="Event" className="background-image9" />
+    <div className="Heshani2">
+    <img src={eventform1} alt="Event" className="Heshani-image91" />
  
-    <div className="container9">
+    <div className="Heshanicontainer91">
       <form onSubmit={handleSubmit}>
      
-        <div className="form-group">
+        <div className="form-heshani">
         <h1>Update Event</h1>
           <label htmlFor="name">Name:</label>
           <input

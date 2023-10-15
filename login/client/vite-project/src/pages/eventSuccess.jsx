@@ -8,10 +8,10 @@ import { Link } from 'react-router-dom';
 export default function eventSuccess() {
   const navigate = useNavigate();
   return (
-    <div className='event-border4'>
-    <div className="bgh-image2">
-    <img src={confirm} alt="Event" className="background-image4" />
-    <div className="event-proposal-details5">
+    <div className='heshani-border4'>
+    <div className="heshani-image41">
+    <img src={confirm} alt="Event" className="background-heshani41" />
+    <div className="heshani-proposal-details5">
     <div className="success-container">
       <h2 className="success-heading">SUBMITTED!</h2>
       <h2 className="success-heading">THANK YOU!</h2>

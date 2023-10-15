@@ -1,4 +1,4 @@
-.success-container {
+.heshani-container {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -6,7 +6,7 @@
     position: relative; /* Add this line */
     
   }
-  .event-confirm21 {
+  .heshani-confirm21 {
     background-color: rgba(196, 209, 233, 0.8);
     padding: 20px;
     width: 800px; /* Increase the width as needed */
@@ -21,16 +21,17 @@
     z-index: 1;
   }
   
-  .success-heading {
+  .heshani-heading {
     font-size: 36px;
     color: #050e0d;
     margin-bottom: 10px;
   }
   
   p {
-    font-size: 18px;
+    font-size: 23px;
     margin: 10px 0;
   }
+ 
   
   .button-container {
     display: flex;
@@ -38,7 +39,7 @@
     margin-top: 20px;
   }
   
-  .btn {
+  .heshanibtn {
     margin: 0 10px;
     padding: 10px 20px;
     font-size: 18px;
@@ -58,7 +59,7 @@
     background-color: #0056b3;
   }
   
-  .bgh-image21 {
+  .heshani-image21 {
     background-image: url('../images/confirm.jpg');
     background-size: cover;
     background-position: center;
@@ -74,7 +75,7 @@
     
     opacity: 1.1; 
   }
-  .background-image21 {
+  .background-heshani21 {
     width: 100%;
     height: auto;
     position: absolute;
@@ -82,10 +83,11 @@
     left: 0;
     z-index: -1;
   }
-  .event-border21 {
+  .heshani-border21 {
     margin: 20px 0;
     padding: 20px;
     background-color: #a0b1cf;
     border-radius: 10px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
+ 

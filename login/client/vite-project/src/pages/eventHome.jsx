@@ -12,19 +12,19 @@ export default function EventHome() {
     const navigate = useNavigate();
   return (
   
-    <div className="bgh-image7">
-    <img src={eventback2} alt="Event" className="background-image7" />
-    <div className="front-page-container7">
-      <div className="choose-event-heading7">
+    <div className="heshani-image7">
+    <img src={eventback2} alt="Event" className="background-heshani7" />
+    <div className="front-page-heshani7">
+      <div className="choose-heshani-heading7">
     
       </div>
-      <div className="success-container7">
-        <div className="event-selection-container">
+      <div className="success-heshani7">
+        <div className="heshani-selection-container">
     <h1>CHOOSE YOUR EVENT</h1>
           
-          <div className="image-grid">
+          <div className="heshani-grid">
             <Link to="/eventDetail" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event1} alt="event1" />
                 <p>
                   <span className="emphasis-text">Decide to celebrate,</span>
@@ -37,7 +37,7 @@ export default function EventHome() {
             </Link>
            
             <Link to="/eventDetail3" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event2} alt="event2" />
                 <p>
                   <br />
@@ -49,7 +49,7 @@ export default function EventHome() {
             </Link>
             
             <Link to="/eventDetail4" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event7} alt="event3" />
                 <p>
                   <span className="emphasis-text">Decide on your Party priorities. </span>
@@ -65,7 +65,7 @@ Event branding.</span>
             </Link>
             
             <Link to="/eventdetail2" className="event-link">
-              <div className="image-card">
+              <div className="heshani-card">
                 <img src={event4} alt="event4" />
                 <p>
                   

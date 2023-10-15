@@ -51,16 +51,16 @@ export default function EventList() {
   
 
   return (
-    <div className="bgh-image13">
-    <img src={eventback2} alt="Event" className="background-image13" />
+    <div className="heshani-image13">
+    <img src={eventback2} alt="Event" className="background-heshani13" />
  
     <div>
       <div className='container14'>
         <div className='title'>
-          <h1 className="item-list-title14">Event List</h1>
+          <h1 className="event-list-title1">Event List</h1>
         </div>
 
-        <div className="item-list-buttons14">
+        <div className="event-list-buttons1">
           <input
             className="form-control"
             type="text"
@@ -72,8 +72,8 @@ export default function EventList() {
        
         </div>
 
-        <div className="item-list-container">
-          <table className="item-list-table">
+        <div className="event-list-table1">
+          <table className="event-list-table">
             <thead>
               <tr>
                 <th>Name</th>

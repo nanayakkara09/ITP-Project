@@ -10,19 +10,19 @@ import { useNavigate } from 'react-router-dom';
 export default function adminConfirm() {
   const navigate = useNavigate();
   return (
-    <div className='event-border21'>
-    <div className="bgh-image21">
-    <img src={confirm} alt="Event" className="background-image21" />
-    <div className="event-confirm21">
-    <div className="success-container">
-      <h1 className="success-heading">CONFIRM!</h1>
-      <h2 className="success-heading">MAKE FURTHER REQUIREMENTS!</h2>
+    <div className='heshani-border21'>
+    <div className="heshani-image21">
+    <img src={confirm} alt="Event" className="background-heshani21" />
+    <div className="heshani-confirm21">
+    <div className="heshani-container">
+      <h1 className="heshani-heading">CONFIRM!</h1>
+      <h2 className="heshani-heading">MAKE FURTHER REQUIREMENTS!</h2>
       <p>Your request has been successfully processed.</p>
       <p>You may inform the customer through EMAIL.</p>
 
       <div className="button-container">
        
-        <button onClick={() => navigate('/eventList')} className="btn btn-primary21">
+        <button onClick={() => navigate('/eventList')} className="heshanibtn btn-primary21">
           Customer Event Details
         </button>
       </div>

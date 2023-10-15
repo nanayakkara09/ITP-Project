@@ -27,17 +27,17 @@ export default function eventDetail() {
   };
   return (
 
-    <div className="bgh-image1">
+    <div className="heshani-image1">
 
-    <div className="event-detail-container1">
-         <div className="bgh-image1">
-           <img src={brithday} alt="Event" className="background-image1" />
-         </div>
-         <div className="event-details-content1">
+    <div className="heshani-detail-container1">
+     
+           <img src={brithday} alt="Event1" className="background-heshani1" />
+         
+         <div className="heshani-details-content1">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details1">
+        <div className="heshani-proposal-details1">
           <h2>EVENT PROPOSAL DETAILS</h2>
-          <ul className="event-table">
+          <ul className="heshani-table">
           <li>
               <strong>Event Name:</strong> Birthday Party
             </li>
@@ -68,7 +68,7 @@ export default function eventDetail() {
             </li>
           </ul>
           <button   onClick={() => navigate('/eventSuccess')}
-            type="submit" className="btn btn-primary">
+            type="submit" className="heshanibtn btn-primary">
             Submit
           </button>
        

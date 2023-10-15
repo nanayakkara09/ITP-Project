@@ -6,16 +6,16 @@ import { useNavigate } from 'react-router-dom';
 export default function eventDetail() {
   const navigate = useNavigate();
   return (
-    <div className="bgh-image4">
-    <div className="event-details-container4">
-    <div className="bgh-image4">
-        <img src={BrideToBe} alt="Event" className="background-image4" />
-      </div>
-      <div className="event-detail-container4">
+    <div className="heshani-image4">
+    <div className="heshani-detail-container4">
+
+        <img src={BrideToBe} alt="Event" className="background-heshani4" />
+   
+      <div className="heshani-details-content4">
         <h2>SEASONAL OFFERS!</h2>
-        <div className="event-proposal-details4">
+        <div className="heshani-proposal-details4">
           <h2>EVENT PROPOSAL DETAILS</h2>
-          <ul className="event-table">
+          <ul className="heshani-table">
           <li>
               <strong>Event Name:</strong> BrideToBe Party
             </li>

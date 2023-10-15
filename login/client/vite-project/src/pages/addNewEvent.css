@@ -1,5 +1,5 @@
 /* Center the form container */
-.container9 {
+.Heshanicontainer9 {
   background-color: rgba(255, 255, 255, 0.8);
   padding: 10px;
   border-radius: 8px;
@@ -19,10 +19,10 @@
     display: center;
     flex-direction: column;
     align-items: center; /* Center the form contents horizontally */
-    text-align: center; /* Center the form contents text */
+    text-align: left; /* Center the form contents text */
   }
   
-  .form-group {
+  .form-heshani {
     margin-bottom: 20px;
   }
   
@@ -51,7 +51,7 @@
   }
   
   /* Center the background image */
-  .bgh-image9 {
+  .Heshani1 {
     background-image: url('../images/eventform1.jpeg');
     background-size: cover;
     background-position: center;
@@ -68,7 +68,7 @@
     opacity: 1.1; 
   }
   
-.background-image9 {
+.Heshani-image9 {
   width: 100%;
   height: auto;
   position: absolute;

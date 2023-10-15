@@ -6,8 +6,8 @@
   position: relative; /* Add this line */
   
 }
-.event-proposal-details5 {
-  background-color:  rgba(196, 209, 233, 0.8);
+.heshani-proposal-details5 {
+  background-color:  rgba(206, 218, 227, 0.8);
   padding: 20px;
   width: 800px; /* Increase the width as needed */
   border-radius: 8px;
@@ -58,7 +58,7 @@ p {
   background-color: #0056b3;
 }
 
-.bgh-image4 {
+.heshani-image41 {
   background-image: url('../images/confirm.jpg');
   background-size: cover;
   background-position: center;
@@ -74,7 +74,7 @@ p {
   
   opacity: 1.1; 
 }
-.background-image4 {
+.background-heshani41 {
   width: 100%;
   height: auto;
   position: absolute;
@@ -82,7 +82,7 @@ p {
   left: 0;
   z-index: -1;
 }
-.event-border4 {
+.heshani-border4 {
   margin: 20px 0;
   padding: 20px;
   background-color: #a0b1cf;

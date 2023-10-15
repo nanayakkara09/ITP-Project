@@ -57,15 +57,15 @@ export default function EventListUser() {
 
   return (
    
-    <div className="bgh-image20">
-    <img src={eventback2} alt="Event" className="background-image20" />
+    <div className="heshani-image20">
+    <img src={eventback2} alt="Event" className="background-heshani20" />
     
-    <div className='event-list-container'>
+    <div className='container32'>
     <div className='title'>
-          <h1 className="item-list-title">Event List</h1>
+          <h1 className="event-list-title1">Event List</h1>
         </div>
 
-        <div className="item-list-buttons">
+        <div className="event-list-buttons1">
           <input
             className="form-control"
             type="text"
@@ -73,12 +73,12 @@ export default function EventListUser() {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>Search</button>
+          <button className="search-button1" onClick={handleSearch}>Search</button>
           <Link to="/addNewEvent" className="add-new-button">Add New</Link>
         </div>
 
-        <div className="item-list-table-container">
-          <table className="item-list-table">
+        <div className="event-list-table1">
+          <table className="event-list-table1">
             <thead>
               <tr>
                 <th>Name</th>
