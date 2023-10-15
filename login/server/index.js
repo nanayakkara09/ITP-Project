@@ -46,9 +46,6 @@ app.use('/stall', require('./routes/stallRoutes'));
 const port = 8000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 
-//for upload slip
-const SlipRoutes = require('./routes/SlipRoutes');
-app.use('/', SlipRoutes);
 
 //for insert data
 const orderRoute = require('./routes/OrderRoute');
@@ -68,3 +65,6 @@ app.use('/invDetails', require('./routes/invDetailsRoutes'));
 
 const OrderSuccess = require('./routes/OrderSuccessfullModel');
 app.use('/SuccessOrder', OrderSuccess);
+
+const StallSuccess = require('./routes/stallSuccessRoute');
+app.use('/SuccessStall', StallSuccess);

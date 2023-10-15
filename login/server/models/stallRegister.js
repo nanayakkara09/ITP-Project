@@ -19,6 +19,11 @@ const stallRegisterSchema = new Schema({
     type: String,
     default: '40000 LKR', // Set the default value here
   },
+  status: {
+    type: String,
+    enum: ['pending', 'confirmed','success'], 
+    default: 'pending' 
+  }
 });
 
 const stallRegisterModel = mongoose.model('StallReg', stallRegisterSchema);
