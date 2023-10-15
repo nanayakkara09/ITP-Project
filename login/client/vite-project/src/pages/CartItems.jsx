@@ -3,6 +3,7 @@ import axios from 'axios';
 import CartItem from '../components/CartItem';
 import { Link} from 'react-router-dom';
 import '../pages/cart.css'
+import { useNavigate, useParams } from "react-router-dom";
 import NavBar from '../components/cartNavbar';
 import Footer from '../components/Footer'
 
@@ -11,6 +12,8 @@ import Footer from '../components/Footer'
 const CartItems = () => {
   const [cartItems, setCartItems] = useState([]);
   const [subtotal, setSubtotal] = useState(0);
+  const navigate = useNavigate();
+  const { id } = useParams();
  
 
   useEffect(() => {
@@ -84,7 +87,7 @@ const handleConfirmOrder = () => {
 
 
           <Link to={`/payment?subtotal=${subtotal}`}>
-            <button className="continue" onClick={handleConfirmOrder} >Confirm</button>
+            <button className="continue"  onClick={() => navigate(`/ReceiptForOrder/${id}`)} >Confirm</button>
           </Link>
 
           <button className='cancle' onClick={handleCancel}>Cancle</button>

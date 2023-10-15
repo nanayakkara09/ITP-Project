@@ -1,9 +1,9 @@
-.heeeed{
+.heed{
     
   margin-top: -50vh;
-  margin-bottom: auto;
-  margin-left: auto;
-  
+  justify-content: center;
+  margin-left: 5vh;
+  width: auto;
 }
 .btn1{
 margin-right: 10vh;
@@ -43,18 +43,18 @@ margin-left: -25vh;
  
 
 }
-.invoice-numb{
+.invoice-numbb{
 
 margin-top: 15vh;
-margin-right: -80vh;
+margin-right: -72vh;
 align-items: left;
 }
-.companyDet{
+.companyDett{
 text-align: left;
-margin-right: 60vh;
+margin-right: 43vh;
 margin-bottom: 10vh;
 position: relative;
-
+width: max-content;
 }
 p{
 justify-content: center;
