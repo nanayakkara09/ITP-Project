@@ -83,57 +83,58 @@ export default function itemlist(props) {
   return (
     <div>
       <div><AdminNavBar /></div>
-      <div className='container'>
-        <div className='title'>
-          <h1 className="item-list-title">{category}Food Item List</h1>
-        </div>
+<div className="dihan-container">
+  <div className="dihan-title">
+    <h1 className="dihan-item-list-title">{category}Food Item List</h1>
+  </div>
 
-        <div className="item-list-buttons">
-          <input
-            type="text"
-            placeholder="Search by name/itemcode..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <button className="search-button" onClick={handleSearch}>Search</button>
-          <Link to="/addnew" className="add-new-button">Add New</Link>
-          <button className="report-button" onClick={generateReport}>Generate Report</button>
+  <div className="dihan-item-list-buttons">
+    <input
+      type="text"
+      placeholder="Search by name/itemcode..."
+      value={searchTerm}
+      onChange={(e) => setSearchTerm(e.target.value)}
+    />
+    <button className="dihan-search-button" onClick={handleSearch}>Search</button>
+    <Link to="/addnew" className="dihan-add-new-button">Add New</Link>
+    <button className="dihan-report-button" onClick={generateReport}>Generate Report</button>
+  </div>
+
+  <div className="dihan-item-list-container">
+    <table className="dihan-item-list-table">
+      <thead>
+        <tr>
+          <th>View</th>
+          <th>Item Code</th>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Reorder Level</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        {items.map((item, index) => (
+          <tr key={index}>
+            <td><Link to={`/itemDetails/${item.itemcode}`}><button className="dihan-view-button">View</button></Link></td>
+            <td>{item.itemcode}</td>
+            <td>{item.name}</td>
+            <td>{item.description}</td>
+            <td>{item.quantity}</td>
+            <td>{item.reorder}</td>
+            <td><Link to={`/invEdit/${item._id}`}>
+              <button className="dihan-Edit-button">Edit</button></Link></td>
+            <td>
+              <button onClick={() => deleteItem(item._id)} className="dihan-Delete-button">Delete</button></td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
-        </div>
-        <div className="item-list-container">
-          <table className="item-list-table">
-            <thead>
-              <tr>
-                <th>View</th>
-                <th>Item Code</th>
-                <th>Name</th>
-                <th>Description</th>
-                <th>Quantity</th>
-                <th>Reorder Level</th>
-                <th>Edit</th>
-                <th>Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              {items.map((item, index) => (
-                <tr key={index}>
-                  <td><Link to={`/itemDetails/${item.itemcode}`}><button className="view-button">View</button></Link></td>
-                  <td>{item.itemcode}</td>
-                  <td>{item.name}</td>
-                  <td>{item.description}</td>
-                  <td>{item.quantity}</td>
-                  <td>{item.reorder}</td>
-                  <td><Link to={`/invEdit/${item._id}`}>
-                    <button className="Edit-button">Edit</button></Link></td>
-                  <td>
-                    <button onClick={() => deleteItem(item._id)} className="Delete-button">Delete</button></td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
     </div>
   );
 }
