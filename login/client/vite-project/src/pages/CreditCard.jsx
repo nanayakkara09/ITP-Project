@@ -26,6 +26,7 @@ function CardDetails() {
       updateOrderSuccess(
         `http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`
       );
+      navigate("/Paidbycard"); // Replace "/success" with your desired route
     }
   };
 
@@ -36,6 +37,7 @@ function CardDetails() {
       updateStallPaymentSuccess(
         `http://localhost:8000/SuccessStall/stallPaymentSuccess/${stall._id}`
       );
+      navigate("/Paidbycard"); // Replace "/success" with your desired route
     }
   };
 
@@ -46,7 +48,7 @@ function CardDetails() {
       .then((response) => {
         if (response.status === 200) {
           console.log("stall data updated successfully.");
-          // navigate("/success"); // Replace "/success" with your desired route
+           
         }
       })
       .catch((err) => {

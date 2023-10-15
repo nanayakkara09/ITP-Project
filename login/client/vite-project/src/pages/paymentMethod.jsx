@@ -19,7 +19,7 @@ function PaymentMeth() {
         <button
           onClick={() => navigate(`/CardDetails/${id}`)}
           className="btn btn-primary mr-2 depobttn1"
-          style={{ width: "200px", height: "70px" }}
+          style={{ width: "200px", height: "70px", margin:"auto" }}
         >
           Credit/Debit card
         </button>
@@ -31,7 +31,7 @@ function PaymentMeth() {
         <button
           onClick={() => navigate(`/CashOnDeliver`)}
           className="btn btn-primary mr-2 cashbttn2"
-          style={{ width: "200px", height: "70px" }}
+          style={{ width: "200px", height: "70px", margin:"auto" }}
         >
           Cash on delivery
         </button>

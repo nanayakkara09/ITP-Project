@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './adminFinance.css'
+import adminsSvg from '../images/undraw_experience_design_re_dmqq.svg'
 //import NavBar from '../components/Navbar';
 
 
@@ -12,9 +13,11 @@ function CashOnDeliver(){
 
     return(
         
-       <div>
+       <div className="imgSvg">
+        <p className="adminP">Choose the desired page</p>
+         <img src={adminsSvg}></img>
          <button
-                onClick={() => navigate(`/SuccessfullPayment`)}
+                onClick={() => navigate(`/ViewSuccessPayments`)}
                 className="btn btn-primary mr-2 succpay"
                 style={{ width: "170px", height: "70px" }} >
                Successfull payments

@@ -86,7 +86,7 @@ export default function AdminDashboard() {
           <Link to="/invList" className="vertical-text">
             <FontAwesomeIcon icon={faBox} /> Inventory
           </Link>
-          <Link to="/FinancePage"   className="vertical-text">
+          <Link to="/AdminFinance"   className="vertical-text">
             <FontAwesomeIcon icon={faDollarSign} /> Finance
           </Link>
         </div>

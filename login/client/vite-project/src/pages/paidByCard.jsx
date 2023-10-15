@@ -25,7 +25,7 @@ function Paidbycard() {
             <h2>Paid by card</h2>
             <p>Your payment has successfully made!, keep touching with us</p>
             <button
-              onClick={() => navigate(`/CardDet`)}
+              onClick={() => navigate(`/PaymentSuccess`)}
               className="btn btn-secondary buttton1"
               style={{ width: "200px", height: "50px" }}
             >

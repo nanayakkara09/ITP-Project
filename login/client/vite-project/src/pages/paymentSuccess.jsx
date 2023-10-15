@@ -17,7 +17,7 @@ function PaymentSuccess() {
         <h2>payment successfull</h2>
         <p>Your payment has been successfully made, and thank you for choosing us, keep touching with us!</p>
         <button
-              onClick={() => navigate(`/CardDet`)}
+              onClick={() => navigate(`/`)}
               className="btn btn-secondary butbtn1"
               style={{ width: "200px", height: "50px" }}
             >
