@@ -36,7 +36,7 @@ const getDriver = async (req, res) => {
 //register endpoint
 // Create a new driver
 const createDriver = async (req, res) => {
-    try{
+    try {
         const { username, email, mobile, nic, province, gender, password } = req.body;
         //check if name is entered
         if (!username) {
@@ -51,7 +51,7 @@ const createDriver = async (req, res) => {
             return res.json({
                 error: 'Email is already taken'
             })
-        } 
+        }
 
         if (!mobile || mobile.length < 10) {
             return res.json({
@@ -86,12 +86,12 @@ const createDriver = async (req, res) => {
         hashedPassword = await hashPassword(password)
         //create user in db
         const driver = await Driver.create({
-            username, 
-            email, 
-            mobile, 
-            nic, 
-            province, 
-            gender, 
+            username,
+            email,
+            mobile,
+            nic,
+            province,
+            gender,
             password: hashedPassword,
         })
 
@@ -99,7 +99,7 @@ const createDriver = async (req, res) => {
 
     } catch (error) {
         console.log(error)
-       }
+    }
 
 
 }
@@ -107,24 +107,24 @@ const createDriver = async (req, res) => {
 
 //login endpoint
 const loginDriver = async (req, res) => {
-    try{
-        const { email, password} = req.body;
+    try {
+        const { email, password } = req.body;
 
         //check if driver exists
         const driver = await Driver.findOne({ email });
-        if(!driver) {
+        if (!driver) {
             return res.json({
                 error: 'No driver found'
             })
         }
 
         //check if pw match
-        const match = await comparePassword (password, driver.password)
+        const match = await comparePassword(password, driver.password)
         if (match) {
-         jwt.sign({email: driver.email, id: driver._id, username: driver.username}, process.env.JWT_SECRET, {}, (err, token) => {
-            if(err) throw err;
-            res.cookie('token', token).json(driver)
-         })
+            jwt.sign({ email: driver.email, id: driver._id, username: driver.username }, process.env.JWT_SECRET, {}, (err, token) => {
+                if (err) throw err;
+                res.cookie('token', token).json(driver)
+            })
         }
         if (!match) {
             res.json({
@@ -140,10 +140,10 @@ const loginDriver = async (req, res) => {
 
 //getdriver profile enpoint
 const getDriverProfile = (req, res) => {
-    const {token} = req.cookies
-    if(token) {
+    const { token } = req.cookies
+    if (token) {
         jwt.verify(token, process.env.JWT_SECRET, {}, (err, driver) => {
-            if(err) throw err;
+            if (err) throw err;
             res.json(driver)
         })
     } else {
@@ -180,6 +180,7 @@ const getDriverProfileData = async (req, res) => {
 
                 // Here you can customize the data you want to include in the driver profile response
                 const driverProfile = {
+                    id: driver._id,
                     username: driver.username,
                     email: driver.email,
                     mobile: driver.mobile,
@@ -188,7 +189,6 @@ const getDriverProfileData = async (req, res) => {
                     gender: driver.gender,
                     // Add more fields as needed
                 };
-
                 res.status(200).json(driverProfile);
             } catch (error) {
                 res.status(500).json({ error: error.message });
@@ -198,6 +198,23 @@ const getDriverProfileData = async (req, res) => {
         console.log(error);
     }
 };
+
+const getDriverId = (req) => {
+    const { token } = req.cookies;
+
+    if (!token) {
+        throw new Error('Authentication token not provided');
+    }
+
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        return decoded;
+    } catch (err) {
+        throw new Error('Invalid token');
+    }
+};
+
+
 
 // Delete a driver
 const deleteDriver = async (req, res) => {
@@ -218,65 +235,40 @@ const deleteDriver = async (req, res) => {
     }
 };
 
-// Update user
 const updateDriver = async (req, res) => {
     const { id } = req.params;
+    const { username, email, mobile, province, password } = req.body;
+
     try {
-        const { username,email,mobile,province, password } = req.body;
-        if(!username){
-            return res.json({
-                error:'name is required'
-            })
-        };
-        
-     
-    if(!province){
-      return res.json({
-          error:'province is required'
-      })
-  };
-      if(!mobile ||mobile.length<10){
-        return res.json({
-            error:'phon Number required 10 numbers'
-        })
-    };
-    if(!email){
-      return res.json({
-          error:'Email is required!'
-      })
-  } ;
-        if(!password || password.length < 6){
-            return res.json({
-                error:'password is requed and shoul be 6 charecters! '
-            })
-    
-        } ;
-        const hashedPassword=await hashPassword(password)
-      const driver = await Driver.findByIdAndUpdate(
-        id,
-        {
-            username,
-            email,
-            mobile,
-            province,
-            password:hashedPassword,
-        },
-        { new: true }
-      );
-  
-      if (!driver) {
-        return res.json({
-            error:'No Driver found'
-        })
-      }
-  
-      res.json(driver);
+        if (!username) return res.json({ error: 'Name is required' });
+        if (!province) return res.json({ error: 'Province is required' });
+        if (!mobile || mobile.length < 10) return res.json({ error: 'Phone number must be 10 digits' });
+        if (!email) return res.json({ error: 'Email is required' });
+        if (password && password.length < 6) return res.json({ error: 'Password must be at least 6 characters' });
+
+        let updateFields = { username, email, mobile, province };
+        if (password) {
+            const hashedPassword = await hashPassword(password);
+            updateFields.password = hashedPassword;
+        }
+
+        const driver = await Driver.findByIdAndUpdate(
+            id,
+            updateFields,
+            { new: true, runValidators: true }
+        );
+
+        if (!driver) {
+            return res.json({ error: 'No Driver found' });
+        }
+
+        res.json({ data: driver });
     } catch (error) {
-      console.log(error);
-      
+        console.error('Error updating driver:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
-  };
- 
+};
+
 
 
 
@@ -288,5 +280,6 @@ module.exports = {
     updateDriver,
     loginDriver,
     getDriverProfile,
-    getDriverProfileData
+    getDriverProfileData,
+    getDriverId
 };
