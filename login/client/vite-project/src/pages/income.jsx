@@ -277,8 +277,8 @@ useEffect(() => {
               </tr>
             </thead>
             <tbody>
-              {stall.map((stallItem) => (
-                <tr key={stallItem._id}>
+              {stall.map((stallItem, index) => (
+                <tr key={index}>
                   <td>{stallItem.stallId}</td>
                   <td>{stallItem.fName}</td>
                   <td>{stallItem.lName}</td>
