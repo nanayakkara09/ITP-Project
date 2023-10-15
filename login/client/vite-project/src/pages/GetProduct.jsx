@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import './GetProduct.css';
 
 function GetProduct() {
   const [product, setProduct] = useState([]);
+  const navigate = useNavigate();
   
   useEffect(() => {
     axios.get('/stall/getProduct') 
@@ -13,6 +15,23 @@ function GetProduct() {
       })
       .catch((err) => console.log(err));
   }, []);
+
+  const handleUpdate = (id) => {
+    // Fetch the product details by ID
+    axios.get(`/stall/getProduct/${id}`)
+      .then((result) => {
+        const productData = result.data;
+        // Check if the product data exists
+        if (productData) {
+          // Navigate to the update page with the product data
+          navigate(`/update/${id}`, { state: { product: productData } });
+        } else {
+          console.log('Product not found');
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
 
   const handleDelete = (id) => {
     axios.delete(`/stall/deleteProduct/${id}`) // Use the correct route URL

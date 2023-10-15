@@ -1,2 +1,57 @@
+/* Add this CSS code to a separate .css file or a CSS-in-JS solution like styled-components or Emotion */
 
+.container {
+    margin-top: 20px;
+    width: 130%;
+    padding: 200px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    margin: 0 auto;
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 20px;
+  }
+  
+  .admin-product-form-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #cbcbcb;
+    border-radius: 5px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
   

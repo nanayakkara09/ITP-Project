@@ -193,14 +193,17 @@ const deleteProduct = async (req, res) => {
 
 const updateProduct = async (req, res) => {
   try {
-    const {id} = req.params.id;
-    await stallProduct.findByIdAndUpdate(id);
+    const { id } = req.params; // Use `id` from params to identify the product to update
+    const updatedProduct = req.body; // Get the updated product data from the request body
+
+    await stallProduct.findByIdAndUpdate(id, updatedProduct); // Update the product data
     res.status(200).json({ message: 'Update successful' });
   } catch (err) {
     console.error('Error updating data:', err);
     res.status(500).json({ error: 'Could not update data' });
   }
 };
+
 
 const createdStall = async (req, res) => {
   try {

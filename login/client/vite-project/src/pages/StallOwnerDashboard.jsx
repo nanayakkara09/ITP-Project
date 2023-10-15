@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { StallContext } from '../../contex/stallContext';
 import { Link } from 'react-router-dom';
 import GetProduct from './GetProduct';
-
+import './StallOwnerDashboard.css';
 
 
 export default function StallOwnerDashboard() {
