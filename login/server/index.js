@@ -68,3 +68,6 @@ app.use('/invDetails', require('./routes/invDetailsRoutes'));
 
 const OrderSuccess = require('./routes/OrderSuccessfullModel');
 app.use('/SuccessOrder', OrderSuccess);
+
+const StallSuccess = require('./routes/stallSuccessRoute');
+app.use('/SuccessStall', StallSuccess);
