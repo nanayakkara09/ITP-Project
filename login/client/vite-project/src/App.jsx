@@ -51,6 +51,7 @@ import IncomePage from './pages/Income';
 import Payment from './pages/payment';
 import AdminFinance from './pages/adminFinance';
 import SuccessfullPayment from './pages/successfullPayments';
+import ViewSuccessPayments from './pages/ViewSuccessPayments'
 
 import PaymentSuccess from './pages/paymentSuccess';
 import UpdateIncomePage from './pages/updateIncome';
@@ -110,6 +111,7 @@ function App() {
       <Route path='/cart' element={<Cart/>}></Route>
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
       <Route path='/payment' element={<Payment/>}></Route>
+      <Route path='/ViewSuccessPayments' element={<ViewSuccessPayments/>}></Route>
 
 
 

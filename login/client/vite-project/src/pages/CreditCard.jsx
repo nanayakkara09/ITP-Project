@@ -1,32 +1,62 @@
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate, useParams } from 'react-router-dom';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import creditcard from '../images/cardpayment.svg';
-import './CardDet.css';
+import { useNavigate, useParams } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import creditcard from "../images/cardpayment.svg";
+import "./CardDet.css";
 
 function CardDetails() {
-  const [Cnum, setCnum] = useState('');
-  const [Cvv, setCvv] = useState('');
-  const [Ctype, setCtype] = useState('');
-  const [Expiration, setExpiration] = useState('');
+  const [Cnum, setCnum] = useState("");
+  const [Cvv, setCvv] = useState("");
+  const [Ctype, setCtype] = useState("");
+  const [Expiration, setExpiration] = useState("");
   const { id } = useParams();
   const [order, setOrder] = useState(null);
+  const [stall, setStall] = useState(null);
+
+  console.log(id)
 
   const navigate = useNavigate();
 
+  // update order
   const handleSubmitt = (e) => {
-    
     e.preventDefault();
     if (order && order.name) {
-      alert(order.name)
-      updateOrderSuccess(`http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`);
+      alert(order.name);
+      updateOrderSuccess(
+        `http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`
+      );
     }
   };
 
+  // update stall payment status to success
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (stall) {
+      updateStallPaymentSuccess(
+        `http://localhost:8000/SuccessStall/stallPaymentSuccess/${stall._id}`
+      );
+    }
+  };
+
+  // update stall payment success
+  const updateStallPaymentSuccess = (url) => {
+    axios
+      .put(url, { status: "success" })
+      .then((response) => {
+        if (response.status === 200) {
+          console.log("stall data updated successfully.");
+          // navigate("/success"); // Replace "/success" with your desired route
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
+
   const updateOrderSuccess = (url) => {
-    axios.put(url, { status: "success" })
+    axios
+      .put(url, { status: "success" })
       .then((response) => {
         if (response.status === 200) {
           console.log("Order data updated successfully.");
@@ -40,9 +70,11 @@ function CardDetails() {
 
   useEffect(() => {
     // Function to fetch order data
-    const fetchOrderById = async (orderId) => {
+    const fetchStallByID = async (orderId) => {
       try {
-        const response = await axios.get(`http://localhost:8000/orderss/${orderId}`);
+        const response = await axios.get(
+          `http://localhost:8000/orderss/${orderId}`
+        );
         setOrder(response.data.order);
       } catch (error) {
         console.error(error);
@@ -50,7 +82,34 @@ function CardDetails() {
     };
 
     // Check order collection
-    fetchOrderById(id);
+    fetchStallByID(id);
+  }, [id]);
+
+  useEffect(() => {
+    console.log("retrieved stall ==>", stall)
+  }, [stall])
+
+  useEffect(() => {
+    console.log("retrieved orders ==>", order)
+  }, [order])
+
+  // get stall data by ID
+  useEffect(() => {
+    const fetchStallById = async (stallId) => {
+      try {
+        const response = await axios.get(
+          `http://localhost:8000/stall/fetchStall/${stallId}`
+        );
+        console.log(response)
+        setStall(response.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    if (id) {
+      fetchStallById(id);
+    }
   }, [id]);
 
   return (
@@ -60,39 +119,100 @@ function CardDetails() {
           <h1 className="cHead">Card details</h1>
           <img src={creditcard} alt="Food 3" />
         </div>
-        <div className="text-start mb-2 fetchedTable">
-          {order && order.name && (
+        {order !== null && (
+          <div className="text-start mb-2 fetchedTable">
             <div>
-              <h2>Order Details</h2>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>{order.name}</td>
-                    <td>{order.quantity}</td>
-                    <td>{order.price}</td>
-                    <td>{order.date}</td>
-                    <td>{order.status}</td>
-                  </tr>
-                </tbody>
-              </table>
+              {order && order.name && (
+                <div>
+                  <h2>Order Details</h2>
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{order.name}</td>
+                        <td>{order.quantity}</td>
+                        <td>{order.price}</td>
+                        <td>{order.date}</td>
+                        <td>{order.status}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
             </div>
-          )}
-          <button type="button" className="btn-primary insertButt" onClick={handleSubmitt}>
-            Done
-          </button>
-        </div>
+            <button
+              type="button"
+              className="btn-primary insertButt"
+              onClick={handleSubmitt}
+            >
+              Done
+            </button>
+          </div>
+        )}
+
+        {/* stall data */}
+        {stall !== null && (
+          <div className="text-start mb-2 fetchedTable">
+            <div>
+              {stall && (
+                <div>
+                  <h2>Stall Details</h2>
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>payment status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{stall.stallId}</td>
+                        <td>{stall.fName}</td>
+                        <td>{stall.lName}</td>
+                        <td>{stall.stallName}</td>
+                        <td>{stall.type}</td>
+                        <td>{stall.amount}</td>
+                        <td>{stall.mType}</td>
+                        <td>{stall.phonenumber}</td>
+                        <td>{stall.email}</td>
+                        <td>{stall.status}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+            <button
+              type="button"
+              className="btn-primary insertButt"
+              onClick={handleSubmit}
+            >
+              Done
+            </button>
+          </div>
+        )}
+
         <form>
-        <div className="mb-3">
-            <label htmlFor="cNum"><strong>Card number</strong></label>
+          <div className="mb-3">
+            <label htmlFor="cNum">
+              <strong>Card number</strong>
+            </label>
             <input
               type="text"
               id="cNum"
@@ -103,7 +223,9 @@ function CardDetails() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="cvv"><strong>CVV</strong></label>
+            <label htmlFor="cvv">
+              <strong>CVV</strong>
+            </label>
             <input
               type="text"
               id="cvv"
@@ -114,7 +236,9 @@ function CardDetails() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="Ctype"><strong>Card type (Visa/Mastercard)</strong></label>
+            <label htmlFor="Ctype">
+              <strong>Card type (Visa/Mastercard)</strong>
+            </label>
             <input
               type="text"
               id="Ctype"
@@ -126,7 +250,9 @@ function CardDetails() {
             />
           </div>
           <div className="mb-3">
-            <label htmlFor="Expiration"><strong>Expiration (MM/YY)</strong></label>
+            <label htmlFor="Expiration">
+              <strong>Expiration (MM/YY)</strong>
+            </label>
             <input
               type="text"
               id="Expiration"
