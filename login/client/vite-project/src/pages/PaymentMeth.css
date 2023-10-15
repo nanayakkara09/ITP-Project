@@ -1,4 +1,10 @@
 /* PaymentMeth.css */
+.payment-background {
+    background-image: url("undraw_online_transactions_-02-ka.svg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the background image fixed while scrolling */
+  }
 
 .depoAndUp{
     background-color: aliceblue;
