@@ -69,13 +69,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CreateStallreq from './pages/CreateStallreq';
 import StallAdminreq from './pages/StallAdminreq';
 import StallCreate from './pages/StallCreate';
-import StallOwnerDashboard from './pages/StallOwnerDashboard';
 import PizzaMart from './pages/PizzaMart';
 import SweetSerenity from './pages/SweetSerenity';
 import Asiano from './pages/Asiano';
 import SriLankanFoodStall from './pages/SriLankanFoodStall';
-import Cart from './pages/CartItems'
-import OrderAdminPage from './pages/orderAdmin'
+
 import Payment from './pages/payment'
 
 import StallLogin from './pages/StallLogin'
@@ -131,7 +129,6 @@ import Expenses from './pages/expenses'
 import Cart from './pages/CartItems'
 import OrderAdminPage from './pages/orderAdmin'
 import IncomePage from './pages/Income';
-import Payment from './pages/payment';
 import AdminFinance from './pages/adminFinance';
 import SuccessfullPayment from './pages/successfullPayments';
 import ViewSuccessPayments from './pages/ViewSuccessPayments'

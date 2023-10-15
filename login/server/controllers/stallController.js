@@ -30,6 +30,49 @@ const sendEmail = async (to, subject, text) => {
     console.error('Email sending error:', error);
   }
 };
+const createProduct = async (req, res) => {
+  try{
+     const {name,price,description} = req.body;      
+
+      
+    const createProductResult = await stallProduct.create({
+      name,
+      price,
+      description,
+      
+    })
+
+    return res.json(createProductResult)
+
+  }catch (error) {
+      console.log(error);
+      res.status(500).json({ error: 'Error creating Product' });
+  }
+
+} ;
+const getProduct = async (req, res) => {
+  try {
+    const getProductResult = await stallProduct.find();
+    return res.json(getProductResult );
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
+//delete products
+const deleteProduct = async (req, res) => {
+  try {
+    const { id } = req.params;
+    // Use Mongoose to delete the product by ID
+    await stallProduct.findByIdAndDelete(id);
+    res.sendStatus(204); // Send a successful response with status code 204 (No Content) for successful deletion.
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Internal Server Error' });
+  }
+};
+
 const pdf = require('pdfkit');
 const fs = require('fs');
 
@@ -426,7 +469,9 @@ module.exports = {
     createStall,
     Stalllogin,
     StallOwnerDashboard,
-    
+    createProduct,
+    deleteProduct,
+    getProduct, 
     updateProduct,
     createdStall,
     createdStalls,

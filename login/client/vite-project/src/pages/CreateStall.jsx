@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import './CreateStall.css';
 //import { useHistory } from 'react-router-dom';
 
-import backgroundImg from '/stallImages/img2.jpeg';
+//import backgroundImg from '/stallImages/img2.jpeg';
 
 export default function CreateStall() {
   const navigate = useNavigate();

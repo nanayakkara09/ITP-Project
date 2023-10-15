@@ -8,7 +8,9 @@ const {
   createStall,
   Stalllogin,
   StallOwnerDashboard,
-  
+  createProduct,
+  getProduct,
+  deleteProduct,
   updateProduct, 
   createdStall,
   createdStalls,
@@ -20,7 +22,7 @@ const {
   updateStallIssueById,getStall,getAllStall,deleteStall,addSuccessDetails,getAllPayments,updateStallStatusSuccess} = require('../controllers/stallController');
 
 
-
+  const upload = require('../multerConfig');
 //middleware
 router.use(
     cors({
