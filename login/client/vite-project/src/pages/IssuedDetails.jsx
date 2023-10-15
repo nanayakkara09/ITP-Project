@@ -4,6 +4,8 @@ import { toast } from 'react-hot-toast';
 import AdminNavBar from '../components/adminNavBar';
 //import './IssuedData.css'; // Import the CSS file for styling
 import { Link, useLocation,useParams } from 'react-router-dom';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 export default function itemlist(props) {
  /*  
@@ -30,7 +32,29 @@ export default function itemlist(props) {
 
     fetchItemList();
   }, []);
+  const generateReport = () => {
+    const currentDate = new Date();
+    const formattedDate = `${currentDate.getFullYear()}-${currentDate.getMonth() + 1}-${currentDate.getDate()}`;
+    const formattedTime = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+    const dateTime = `${formattedDate} ${formattedTime}`;
 
+    const doc = new jsPDF();
+    doc.text(`Item Code: ${itemcode}`, 85, 20);
+    doc.text(`Report Generated On: ${dateTime}`, 15, 10);
+
+
+
+    const tableHeaders = [['Item Code', 'Name','Date', 'Quantity', 'Price']];
+    const tableData = items.map(item => [item.itemCode, item.name,item.date, item.quantity, item.price]);
+
+    doc.autoTable({
+      head: tableHeaders,
+      body: tableData,
+      startY: 25 // Adjust as needed
+    });
+
+    doc.save(`report_${formattedDate}.pdf`);
+  }
   const handleSearch = () => {
 
 
@@ -71,6 +95,7 @@ export default function itemlist(props) {
           />
           <button className="search-button" onClick={handleSearch}>Search</button>
           <Link to="/IssueEntry" className="add-new-button">Add New</Link>
+          <button className="report-button" onClick={generateReport}>Generate Report</button>
 
         </div>
         <div className="item-list-container">
