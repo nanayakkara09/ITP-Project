@@ -28,9 +28,11 @@ export default function Issued() {
       }, []);
 
     return (
+        <div><AdminNavBar />
+        
         <div className="dihan-issued-container">
-            <AdminNavBar />
-            <Link to="/IssueEntry" className="add-new-button">Add New</Link>
+            
+            <Link to="/IssueEntry" className="dihan-add-new-button">Add New</Link>
             {stalls.map((item, index) => (
             <div className="dihan-card-h-100">
 
@@ -46,7 +48,7 @@ export default function Issued() {
             </div>
                ))}
         </div>
-      
+        </div>
     );
 
 

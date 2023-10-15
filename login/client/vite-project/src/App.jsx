@@ -164,7 +164,7 @@ function App() {
      <StallContextProvider>
       <EmployeeContextProvider>
       
-    <NavBar/>
+    
     <ToastContainer position="top-center" toastOptions={{ duration: 3000 }} />
     <Toaster position='top-center' toastOptions={{duration:3000}}/>
         
@@ -312,7 +312,7 @@ function App() {
     </StallContextProvider>
    
       <DriverContextProvider>
-        <NavBar />
+        
         <Toaster position='top-center' toastOptions={{ duration: 3000 }} />
         <Routes>
           

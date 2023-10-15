@@ -77,25 +77,25 @@ export default function itemlist(props) {
   return (
     <div>
       <div><AdminNavBar /></div>
-      <div className='container'>
-        <div className='title'>
-          <h1 className="item-list-title">{category}Machinery Item List</h1>
+      <div className='dihan-container'>
+        <div className='dihan-title'>
+          <h1 className="dihan-item-list-title">{category}Machinery Item List</h1>
         </div>
 
-        <div className="item-list-buttons">
+        <div className="dihan-item-list-buttons">
           <input
             type="text"
             placeholder="Search by name/itemcode..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
-          <button className="search-button" onClick={handleSearch}>Search</button>
-          <Link to="/addnewMac" className="add-new-button">Add New</Link>
-          <button className="report-button" onClick={generateReport}>Generate Report</button>
+          <button className="dihan-search-button" onClick={handleSearch}>Search</button>
+          <Link to="/addnewMac" className="dihan-add-new-button">Add New</Link>
+          <button className="dihan-report-button" onClick={generateReport}>Generate Report</button>
 
         </div>
-        <div className="item-list-container">
-          <table className="item-list-table">
+        <div className="dihan-item-list-container">
+          <table className="dihan-item-list-table">
             <thead>
               <tr>
                 <th>View</th>
@@ -111,16 +111,16 @@ export default function itemlist(props) {
             <tbody>
               {items.map((item, index) => (
                 <tr key={index}>
-                  <td><Link to={`/itemDetails/${item.itemcode}`}><button className="view-button">View</button></Link></td>
+                  <td><Link to={`/itemDetails/${item.itemcode}`}><button className="dihan-view-button">View</button></Link></td>
                   <td>{item.itemcode}</td>
                   <td>{item.name}</td>
                   <td>{item.description}</td>
                   <td>{item.quantity}</td>
                   <td>{item.reorder}</td>
                   <td><Link to={`/invEdit/${item._id}`}>
-                    <button className="Edit-button">Edit</button></Link></td>
+                    <button className="dihan-Edit-button">Edit</button></Link></td>
                   <td>
-                    <button onClick={() => deleteItem(item._id)} className="Delete-button">Delete</button></td>
+                    <button onClick={() => deleteItem(item._id)} className="dihan-Delete-button">Delete</button></td>
                 </tr>
               ))}
             </tbody>
