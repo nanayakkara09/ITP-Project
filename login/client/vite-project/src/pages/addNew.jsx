@@ -68,26 +68,24 @@ export default function NewItemForm() {
   };
 
   return (
-    <div>
-      <div><AdminNavBar /></div>
-    <div className="new-item-form-container">
+  <div>
+    <div><AdminNavBar /></div>
+    <div className={`dihan-new-item-form-container`}>
       <h2>Add New Item</h2>
-      
-      
       <form onSubmit={handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="itemcode">Item Code:</label>
-            <input
-              type="text"
-              id="itemCode"
-              name="itemcode"
-              value={formData.itemcode}
-              onChange={handleChange}
-              required
-              disabled={true}
-            />
-          </div>
-        <div className="form-group">
+        <div className={`dihan-form-group`}>
+          <label htmlFor="itemcode">Item Code:</label>
+          <input
+            type="text"
+            id="itemCode"
+            name="itemcode"
+            value={formData.itemcode}
+            onChange={handleChange}
+            required
+            disabled={true}
+          />
+        </div>
+        <div className={`dihan-form-group`}>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -98,7 +96,7 @@ export default function NewItemForm() {
             required
           />
         </div>
-        <div className="form-group">
+        <div className={`dihan-form-group`}>
           <label htmlFor="description">Description:</label>
           <textarea
             id="description"
@@ -108,8 +106,7 @@ export default function NewItemForm() {
             required
           />
         </div>
-        
-        <div className="form-group">
+        <div className={`dihan-form-group`}>
           <label htmlFor="reorder">Reorder Level:</label>
           <input
             type="number"
@@ -122,8 +119,9 @@ export default function NewItemForm() {
         </div>
         <button type="submit">Submit</button>
         <button><Link to="/itemlist">Cancel</Link></button>      
-        </form>
+      </form>
     </div>
-    </div>
-  );
+  </div>
+);
+
 }
