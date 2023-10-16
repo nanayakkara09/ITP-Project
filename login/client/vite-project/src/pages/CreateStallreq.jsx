@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 import './CreateStallreq.css';
+import { useNavigate } from "react-router-dom";
+
 
 function CreateStallreq() {
   const [sName, setsName] = useState("");
@@ -11,7 +12,7 @@ function CreateStallreq() {
   const [email, setemail] = useState("");
   const [phone, setphone] = useState("");
   const [errors, setErrors] = useState({});
-  
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -57,6 +58,8 @@ function CreateStallreq() {
       });
   
       if (response.status === 200) {
+
+        navigate('/StallAdminreq');
         
       } else {
         console.error('Failed to submit stall creation request. Server returned:', response.data);
@@ -69,7 +72,7 @@ function CreateStallreq() {
       <div className="form-container background-image"></div>
       <div className="image-container">
     <img
-      src="https://images.pexels.com/photos/1581384/pexels-photo-1581384.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" // Replace with your image URL
+      src="\stallImages\abcd.jpeg" 
       alt="Image"
       
     />
@@ -187,6 +190,8 @@ function CreateStallreq() {
             </form>
           </div>
         </div>
+
+        
       </div>
     
   
