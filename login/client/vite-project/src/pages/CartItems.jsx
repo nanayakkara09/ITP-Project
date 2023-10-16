@@ -20,7 +20,8 @@ const CartItems = () => {
     axios.get('http://localhost:8000/cart/get-cart')
       .then(response => {
         setCartItems(response.data);
-        calculateSubtotal(response.data); // Calculate initial subtotal
+        calculateSubtotal(response.data); 
+        alert// Calculate initial subtotal
       })
       .catch(error => {
         console.error(error);
@@ -86,9 +87,8 @@ const handleConfirmOrder = () => {
           </div>
 
 
-          <Link to={`/payment?subtotal=${subtotal}`}>
-            <button className="continue"  onClick={() => navigate(`/ReceiptForOrder/${id}`)} >Confirm</button>
-          </Link>
+            <button className="continue"  onClick={() => navigate(`/ReceiptForOrder/${cartItems._id}`)} >Confirm</button>
+         
 
           <button className='cancle' onClick={handleCancel}>Cancle</button>
         </div>
