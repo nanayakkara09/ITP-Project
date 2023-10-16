@@ -6,6 +6,7 @@ import { UserContext } from '../../contex/userContex';
 import 'bootstrap/dist/css/bootstrap.css';
 import './login.css';
 import Footer from "../components/Footer";
+import NavBar from '../components/NavBar';
 
 export default function Login() {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ export default function Login() {
 
   return (
     <div className="loginh-container">
+      <NavBar/>
       <div className="bgs-image"></div>
       <br></br>
       <br></br>
@@ -75,9 +77,9 @@ export default function Login() {
                 onChange={(e) => setData({ ...data, password: e.target.value })}
               />
             </div>
-            <button type="submit" className="btn btn-primary">
+            <buttonL type="submit" className="btn btn-primary">
               Submit
-            </button>
+            </buttonL>
           </form>
           <p className="register-link">
             New user? <Link to="/register">Register now</Link>

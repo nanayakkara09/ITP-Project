@@ -175,10 +175,10 @@ export default function AddNewEvent() {
 
 
 
-        <button  
+        <buttonheshani 
         type="submit" className="btn btn-primary">
           Submit
-        </button>
+        </buttonheshani>
       </form>
     </div>
     </div>

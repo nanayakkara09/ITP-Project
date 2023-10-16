@@ -15,10 +15,11 @@ import slideImage4 from '../images/bg4.jpg'
 import boximage from '../images/delivery-man-riding-red-scooter-illustration-template-food-delivery-man-vector_864013-125.avif'
 import boximage2 from '../images/stall.avif'
 import Footer from "../components/Footer";
+import NavBar from '../components/NavBar';
 
 
 export default function Home() {
-  // Slider settings
+
   const settings = {
     dots: true,
     infinite: true,
@@ -28,8 +29,9 @@ export default function Home() {
   };
 
   return (
-    <div className="home-container">
-      <div className="bgh-image"></div>
+    <div className="home-containerz">
+      <NavBar/>
+      <div className="bghome-image"></div>
       <div className="content">
         <br></br>
         <br></br>

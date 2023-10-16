@@ -120,9 +120,9 @@ export default function UpdateDriverProfile() {
             />
           </div>
 
-          <button type="submit" className="btn btn-primary">
+          <buttonU type="submit" className="btn btn-primary">
             Update
-          </button>
+          </buttonU>
         </form>
       </div>
     </div>

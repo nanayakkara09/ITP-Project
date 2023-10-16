@@ -201,28 +201,28 @@ const Asiano = () => {
                     <p> Price: ${calculateTotalPrice(item, itemQuantities[index] || 0)}</p>
                      <div className="quantity-control">
 
-                      <Button
+                      <buttonasiano
                        variant="outline-success"
                        onClick={() => handleQuantityChange(item, "increase")}
                       >
                         +
-                      </Button>
+                      </buttonasiano>
                       <span className="quantity">{itemQuantities[index] || 1}</span>
 
-                      <Button
+                      <buttonasiano
                       variant="outline-danger"
                       onClick={() => handleQuantityChange(item, "decrease")}
                       >
                         -
-                      </Button>
+                      </buttonasiano>
 
                      </div>
                     </div>
 
 
-                    <Button className='addToCart' variant="success" onClick={() => addToCart(item)}>
+                    <buttonasiano className='addToCart' variant="success" onClick={() => addToCart(item)}>
                         Add to Cart
-                      </Button>         
+                      </buttonasiano>         
                       
                  </Card.Body>
                 </Card>

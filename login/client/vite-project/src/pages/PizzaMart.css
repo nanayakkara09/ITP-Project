@@ -91,7 +91,7 @@ ul.category-list li {
   padding: 10px;
 }
 
-button {
+buttonP {
   background-color: #3b4ccc;
   color: #fff;
   border: none;
@@ -104,7 +104,7 @@ button {
   margin-top: 10px;
 }
 
-button:hover {
+buttonP:hover {
   background-color: #4d6ada;
 }
 

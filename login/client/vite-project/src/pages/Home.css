@@ -1,4 +1,4 @@
-.home-container {
+.home-containerz {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,7 +11,7 @@
   color: #000000;
   margin-bottom: 10px; /* Add vertical space */
 }
-.bgh-image {
+.bghome-image {
   position: fixed;
   top: 0;
   left: 0;

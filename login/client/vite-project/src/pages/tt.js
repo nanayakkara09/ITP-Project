@@ -78,13 +78,13 @@ export default function DriverDashboard() {
                         <h3 className='text-light'>All Inventory Items</h3>
                     </div>
                     <Link to={`/addInventory`}>
-                        <button className="btn btn-primary btn-sm mx-1 my-2">
+                        <buttontt className="btn btn-primary btn-sm mx-1 my-2">
                             Add a New Item
-                        </button>
+                        </buttontt>
                     </Link>
-                    <button className="btn btn-primary col-3  btn-sm mx-1 my-2">
+                    <buttontt className="btn btn-primary col-3  btn-sm mx-1 my-2">
                         Generate a Report
-                    </button>
+                    </buttontt>
                     <div className="col-4">
                         <div className="input-group">
                             <input
@@ -97,13 +97,13 @@ export default function DriverDashboard() {
                                 onChange={handleSearchChange}
                             />
                             <div className="input-group-append">
-                                <button
+                                <buttontt
                                     className="btn btn-primary"
                                     type="button"
                                     id="search-button"
                                 >
                                     <FontAwesomeIcon icon={faSearch} />
-                                </button>
+                                </buttontt>
                             </div>
                         </div>
                     </div>
@@ -136,11 +136,11 @@ export default function DriverDashboard() {
                                 <td>{item.cost}</td>
                                 <td>
                                     <Link to={`/editInventory/${item._id}`}>
-                                        <button className="btn btn-dark btn-sm mx-1">
+                                        <buttontt className="btn btn-dark btn-sm mx-1">
                                             <FontAwesomeIcon icon={faEdit} />
-                                        </button>
+                                        </buttontt>
                                     </Link>
-                                    <button
+                                    <buttontt
                                         className="btn btn-danger btn-sm mx-1"
                                         onClick={() => {
                                             setSelectedInventoryId(item._id);
@@ -148,7 +148,7 @@ export default function DriverDashboard() {
                                         }}
                                     >
                                         <FontAwesomeIcon icon={faTrash} />
-                                    </button>
+                                    </buttontt>
                                 </td>
                             </tr>
                         ))}
@@ -166,12 +166,12 @@ export default function DriverDashboard() {
                     Are you sure you want to delete this inventory item?
                 </Modal.Body>
                 <Modal.Footer>
-                    <button className="btn btn-secondary" onClick={() => setShowDeleteModal(false)}>
+                    <buttontt className="btn btn-secondary" onClick={() => setShowDeleteModal(false)}>
                         Cancel
-                    </button>
-                    <button className="btn btn-danger" onClick={handleDeleteInventoryItem}>
+                    </buttontt>
+                    <buttontt className="btn btn-danger" onClick={handleDeleteInventoryItem}>
                         Delete
-                    </button>
+                    </buttontt>
                 </Modal.Footer>
             </Modal>
         </div>

@@ -45,7 +45,7 @@
   }
   
   /* Style for the submit button */
-  button {
+  buttonU {
     background-color: #007bff;
     color: #fff;
     padding: 10px 20px;
@@ -55,7 +55,7 @@
   }
   
   /* Hover effect for the button */
-  button:hover {
+  buttonU:hover {
     background-color: #0056b3;
   }
   

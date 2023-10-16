@@ -81,7 +81,7 @@
     font-size: 16px;
   }
   
-  button {
+  buttonasiano{
     background: #007BFF; /* Change this color to your preference */
     color: #fff;
     border: none;
@@ -91,7 +91,7 @@
     transition: background 0.3s ease;
   }
   
-  button:hover {
+  buttonasiano:hover {
     background: #0056b3; /* Change this color to your preference */
   }
   

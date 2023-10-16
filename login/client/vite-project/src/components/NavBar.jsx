@@ -58,10 +58,9 @@ export default function NavBar() {
         {showContactDropdown && (
           <div className="contact-info-dropdown">
             <div className="white-box">
-
-              <p><strong>Email:</strong> StreetBitez@gmail.com</p>
-              <p><strong>Address:</strong> 123 Main Street, colombo, Sri lanka</p>
-              <p><strong>Phone Number:</strong> +123-456-7890</p>
+            <p className="contact-info"><strong>Email:</strong> StreetBitez@gmail.com</p>
+<p className="contact-info"><strong>Address:</strong> 123 Main Street, colombo, Sri Lanka</p>
+<p className="contact-info"><strong>Phone Number:</strong> +123-456-7890</p>
 
             </div>
           </div>

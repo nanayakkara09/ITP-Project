@@ -34,7 +34,7 @@ export default function driverDashboard() {
         
         {/* Button to navigate to driver's profile */}
         <Link to="/driver-profile">
-          <button className="btn btn-primary mt-3">View Profile</button>
+          <buttonD className="btn btn-primary mt-3">View Profile</buttonD>
         </Link>
       </div>
       <div className='row'>

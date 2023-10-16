@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import './register.css';
 
 import Footer from '../components/Footer';
+import NavBar from '../components/NavBar';
 
 export default function Register() {
   const navigate = useNavigate();
@@ -107,6 +108,7 @@ export default function Register() {
 
   return (
     <div className="form-containerR">
+      <NavBar/>
     <div className="bgr-image"></div>
     <div className="content form-box">
       <br />
@@ -331,9 +333,9 @@ export default function Register() {
           <div className="valid-feedback">Valid.</div>
           <div className="invalid-feedback">Check this checkbox to continue.</div>
         </div>
-        <button type="submit" className="btn btn-primary">
+        <buttonR type="submit" className="btn btn-primary">
           Submit
-        </button>
+        </buttonR>
       </form>
       <br />
     </div>

@@ -58,6 +58,11 @@
   left: 20;
   display: none; /* Initially hide the box */
   color: #000000;
+
+}
+
+.contact-info {
+  font-size: 14px; /* Adjust the font size as needed */
 }
 
 .menu-bar1:hover .contact-info-dropdown {

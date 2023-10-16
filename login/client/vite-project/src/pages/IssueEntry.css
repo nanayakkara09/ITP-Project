@@ -32,7 +32,7 @@
     border-radius: 4px;
   }
   
-  .form-group button {
+  .form-group buttonI {
     display: block;
     width: 100%;
     padding: 10px;
@@ -45,7 +45,7 @@
     margin-top: 10px;
   }
   
-  .form-group button:disabled {
+  .form-group buttonI:disabled {
     background-color: #ccc;
     cursor: not-allowed;
   }

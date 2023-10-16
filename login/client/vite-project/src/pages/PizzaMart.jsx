@@ -187,21 +187,21 @@ const PizzaMart = () => {
 
                       
                     <div className='quantity-control'>
-                        <Button
+                        <buttonP
                        variant="outline-success"
                        onClick={() => handleQuantityChange(item, "increase")}
                         >
                             +
-                        </Button>
+                        </buttonP>
 
                         <span className="quantity">{itemQuantities[index] || 1}</span>
-                          <Button
+                          <buttonP
                            variant="outline-danger"
                            onClick={() => handleQuantityChange(item, "decrease")}
                           >
                             -
 
-                          </Button>
+                          </buttonP>
 
                     </div>
 
@@ -209,11 +209,11 @@ const PizzaMart = () => {
 
                   
 
-                      <Button className='addToCart' variant="success" 
+                      <buttonP className='addToCart' variant="success" 
                       onClick={() => addToCart(item)}
                       >
                         Add to Cart
-                      </Button>
+                      </buttonP>
                     
                   </Card.Body>
                 </Card>
