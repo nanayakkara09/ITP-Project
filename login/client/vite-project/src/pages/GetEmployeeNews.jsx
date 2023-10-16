@@ -50,7 +50,7 @@ function GetEmployeeNews() {
     <div><AdminNavBar /></div>
     <div className='container'>
       <div className='title'>
-        <h1 className="item-list-title">Employee List</h1>
+        <h1 className="item-list-title">Employee Notice</h1>
       </div>
             <Link to="/createEmployeeNews" className='btn btn-success mb-3'>Add +</Link>
           </div>

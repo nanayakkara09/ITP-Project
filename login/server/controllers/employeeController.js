@@ -264,14 +264,14 @@ const deleteEmployeeShift = async (req, res) => {
     const deletedEmployeeShift = await EmployeeShiftModel.findByIdAndRemove(id);
     if (!deletedEmployeeShift) {
       return res.json({
-        error: 'No employee found',
+        error: 'No shift found',
       });
     }
 
     res.json({ message: 'Employee deleted' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error deleting employee' });
+    res.status(500).json({ error: 'Error deleting shift' });
   }
 };
 
@@ -294,7 +294,7 @@ const createEmployeeLeave = async (req, res) => {
     return res.json(createEmployeeLeaveResult);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error creating an employee' });
+    res.status(500).json({ error: 'Error creating an Leave' });
   }
 };
 
@@ -304,7 +304,7 @@ const getEmployeeLeave = async (req, res) => {
     return res.json(getEmployeeLeaveResult);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error fetching employees' });
+    res.status(500).json({ error: 'Error fetching Leaves' });
   }
 };
 
@@ -314,14 +314,14 @@ const deleteEmployeeLeave = async (req, res) => {
     const deletedEmployeeLeave = await EmployeeLeaveModel.findByIdAndRemove(id);
     if (!deletedEmployeeLeave) {
       return res.json({
-        error: 'No employee found',
+        error: 'No Leavee found',
       });
     }
 
-    res.json({ message: 'Employee deleted' });
+    res.json({ message: 'Leave deleted' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error deleting employee' });
+    res.status(500).json({ error: 'Error deleting leave' });
   }
 };
 
@@ -362,7 +362,7 @@ const createEmployeeContact = async (req, res) => {
     return res.json(createEmployeeContactResult);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error creating an employee' });
+    res.status(500).json({ error: 'Error creating an contact' });
   }
 };
 
@@ -392,14 +392,14 @@ const deleteEmployeeContact = async (req, res) => {
     const deletedEmployeeContact = await EmployeeContactModel.findByIdAndRemove(id);
     if (!deletedEmployeeContact) {
       return res.json({
-        error: 'No employee found',
+        error: 'No contact found',
       });
     }
 
-    res.json({ message: 'Employee deleted' });
+    res.json({ message: 'contact deleted' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error deleting employee' });
+    res.status(500).json({ error: 'Error deleting contact' });
   }
 };
 
@@ -417,7 +417,7 @@ const createEmployeeNews = async (req, res) => {
     return res.json(createEmployeeNewsResult);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error creating an employee' });
+    res.status(500).json({ error: 'Error creating an news' });
   }
 };
 
@@ -427,7 +427,7 @@ const getEmployeeNews = async (req, res) => {
     return res.json(getEmployeeNewsResult);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error fetching employees' });
+    res.status(500).json({ error: 'Error fetching news' });
   }
 };
 const deleteEmployeeNews = async (req, res) => {
@@ -441,10 +441,10 @@ const deleteEmployeeNews = async (req, res) => {
       });
     }
 
-    res.json({ message: 'Employee deleted' });
+    res.json({ message: 'News deleted' });
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: 'Error deleting employee' });
+    res.status(500).json({ error: 'Error deleting News' });
   }
 };
 
@@ -516,13 +516,13 @@ const getEmployeeProfileA = (req, res) => {
         const employeeData = await EmployeeModel.findOne({ email: employee.email }, 'name email idNumber phonenumber team password');
 
         if (!employeeData) {
-          return res.status(404).json({ error: 'User not found' });
+          return res.status(404).json({ error: 'Employee not found' });
         }
 
         res.json(employeeData);
       } catch (error) {
         console.error(error);
-        res.status(500).json({ error: 'Error fetching user data' });
+        res.status(500).json({ error: 'Error fetching employee data' });
       }
     });
   } else {

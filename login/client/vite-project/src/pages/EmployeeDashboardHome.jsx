@@ -206,7 +206,7 @@ const EmployeeDashboardHome = () => {
         <h1>Dashboard</h1>
         {!!employee && (<h1>Hi {employee.name}! </h1>)}
         <button className="generate-report-button small-button" onClick={generateemployeeSalaryReport}>
-          <i className="fas fa-download"></i> Download Income Report
+          <i className="fas fa-download"></i> Download Salary Report
         </button>
         </div>
         {/* Employee News */}
@@ -384,27 +384,30 @@ const EmployeeDashboardHome = () => {
 </div>
 
 <div className='employeecontainer'>
-  <hr className="mt-0 mb-4" />
-  <h1 className="item-list-title">Calender</h1>
-  <hr className="mt-0 mb-4" />
-  {/* Add the Calendar component here */}
-  <Calendar
-  tileClassName={({ date }) => {
-    // Check if any shift date matches the current date
-    const isShiftDate = filteredEmployeeShift.some(
-      (shift) =>
-        new Date(shift.date).toDateString() === date.toDateString()
-    );
+  <div className='row justify-content-center align-items-center'>
+    <hr className="mt-0 mb-4" />
+    <h1 className="item-list-title">Calendar</h1>
+    <hr className="mt-0 mb-4" />
+    {/* Add the Calendar component here */}
+    <Calendar
+      tileClassName={({ date }) => {
+        // Check if any shift date matches the current date
+        const isShiftDate = filteredEmployeeShift.some(
+          (shift) =>
+            new Date(shift.date).toDateString() === date.toDateString()
+        );
 
-    // Apply Bootstrap classes to mark the date if it's a shift date
-    return isShiftDate ? 'bg-primary text-white' : '';
-  }}
-/>
+        // Apply Bootstrap classes to mark the date if it's a shift date
+        return isShiftDate ? 'bg-primary text-white' : '';
+      }}
+    />
 
+    
   </div>
-
 </div>
-      
+
+
+    </div>  
 </div>
   );
 };
