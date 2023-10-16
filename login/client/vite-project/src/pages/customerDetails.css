@@ -1,5 +1,5 @@
 /* Apply these styles in your customerDetails.css file */
-table {
+tablefu {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -58,7 +58,7 @@ table {
     padding: 8px 12px;
   }
   
-.search-container {
+.search-containerff {
   display: flex;
   align-items: center;
   background-color: #fff;

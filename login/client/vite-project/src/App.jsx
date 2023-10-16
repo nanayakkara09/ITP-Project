@@ -201,7 +201,6 @@ function App() {
       <Route path='/customerAdmin' element={<CustomerAdminPage/>}/>
       <Route path='/invList' element={<InvList/>}/>
       <Route path='/CustomerDetailsPage' element={<CustomerDetailsPage/>}/>
-      <Route path='/UserEdit' element={<UserEdit/>}/>
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
       <Route path='/seesupport' element={<SeesupportPage/>}/>
       <Route path='/password' element={<Password/>}/>
@@ -211,7 +210,6 @@ function App() {
       <Route path="/addNewEvent" element={<AddNewEvent />}/>
       <Route path="/eventList" element={<EventList />}/>
      
-      <Route path="/UserEdit/:userId" element={<UserEdit />} />
       <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
       <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
@@ -327,7 +325,6 @@ function App() {
           <Route path='/driver-adminHome' element={<DriverAdminHome/>} />
 
 
-          <Route path="/UserEdit/:userId" element={<UserEdit />} />
         </Routes>
       </DriverContextProvider>
     </UserContextProvider>
