@@ -5,7 +5,9 @@ import { UserContext } from '../../contex/userContex';
 import { Link } from 'react-router-dom';
 import './Profile.css'; // Make sure to import your CSS file
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-solid-svg-icons'; // You can choose any icon you prefer
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import NavBar from '../components/NavBar';
+ // You can choose any icon you prefer
 
 
 export default function Profile() {
@@ -13,6 +15,7 @@ export default function Profile() {
 
   return (
     <div className="profile-container">
+      <NavBar/>
       <div className="bgp-image"></div>
       <div className="content">
         

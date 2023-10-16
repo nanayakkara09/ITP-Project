@@ -225,7 +225,7 @@ export default function UserEdit() {
           </div>
         </div>
   
-        <button type="button" className="btn btn-primary" onClick={updateUserA}>
+        <button type="button" className="btn btn-primaryU" onClick={updateUserA}>
           Update User
         </button>
       </form>

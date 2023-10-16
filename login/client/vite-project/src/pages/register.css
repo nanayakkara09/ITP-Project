@@ -1,22 +1,26 @@
 
-.form-containerR {
-  display: fixed;
+.form-containerReg {
+  display: flex;
   justify-content: center;
-  align-items: left;
+  align-items: center;
   min-height: 100vh;
 }
 
-
+/* To place the form on the right side, you can adjust the width and add margin */
 .form-group {
   margin-bottom: 20px;
+  width: 50%; /* Adjust the width as needed */
+  margin-left: auto; /* Push the form to the right side */
+  margin-right: 20px; /* Add some spacing to the right */
 }
+
 
 label {
   display: block;
   margin-bottom: 5px;
 }
 
-.btn-primary {
+.btn-primaryR {
   background-color: #007bff;
   color: #fff;
   font-size: 16px;

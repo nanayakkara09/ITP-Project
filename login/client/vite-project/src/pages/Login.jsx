@@ -77,9 +77,9 @@ export default function Login() {
                 onChange={(e) => setData({ ...data, password: e.target.value })}
               />
             </div>
-            <buttonL type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primaryL">
               Submit
-            </buttonL>
+            </button>
           </form>
           <p className="register-link">
             New user? <Link to="/register">Register now</Link>

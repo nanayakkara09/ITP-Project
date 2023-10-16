@@ -107,8 +107,11 @@ export default function Register() {
   };
 
   return (
-    <div className="form-containerR">
+    <div className="form-containerReg">
       <NavBar/>
+      <br></br>
+      <br></br>
+      <br></br>
     <div className="bgr-image"></div>
     <div className="content form-box">
       <br />
@@ -333,9 +336,9 @@ export default function Register() {
           <div className="valid-feedback">Valid.</div>
           <div className="invalid-feedback">Check this checkbox to continue.</div>
         </div>
-        <buttonR type="submit" className="btn btn-primary">
+        <button type="submit" className="btn btn-primaryR">
           Submit
-        </buttonR>
+        </button>
       </form>
       <br />
     </div>

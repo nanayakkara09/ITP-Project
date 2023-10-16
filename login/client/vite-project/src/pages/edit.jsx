@@ -3,6 +3,7 @@ import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useNavigate, useParams } from 'react-router-dom';
 import './edit.css';
+import NavBar from '../components/NavBar';
 
 export default function Edit() {
   const { userId } = useParams();
@@ -81,6 +82,7 @@ export default function Edit() {
 
   return (
     <div className="form-container">
+      <NavBar/>
     <div className="bg-image"></div>
     <div className="content form-box">
       <br />
