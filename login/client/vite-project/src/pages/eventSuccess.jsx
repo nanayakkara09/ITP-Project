@@ -23,8 +23,8 @@ export default function eventSuccess() {
         <Link to="/eventHome" className="btn btn-primary">
           Event Home
         </Link>
-        <button onClick={() => navigate('/addNewEvent')} className="btn btn-primary">
-          Event Proposal form
+        <button onClick={() => navigate('/eventListUser')} className="btn btn-primary">
+          Event Proposal List
         </button>
       </div>
       <hr />

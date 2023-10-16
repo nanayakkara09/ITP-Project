@@ -74,7 +74,8 @@ export default function EventListUser() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button className="search-button1" onClick={handleSearch}>Search</button>
-          <Link to="/addNewEvent" className="add-new-button">Add New</Link>
+          <Link to="/addNewEvent" className="add-new-button">Add New</Link><br />
+          <Link to="/eventHome" className="add-new-button">BackToHomePage</Link>
         </div>
 
         <div className="event-list-table1">
