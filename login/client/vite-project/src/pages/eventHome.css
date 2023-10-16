@@ -58,7 +58,7 @@
 }
 
 h1 {
-  font-size: 28px;
+  font-size: 32px;
   margin-bottom: 20px;
   text-align: center;
 }
@@ -109,7 +109,7 @@ hr {
   
 }
 
-.btn {
+.heshanibtn {
   background-color: #4800ff;
   color: #fff;
   padding: 10px 20px;
@@ -152,4 +152,23 @@ hr {
   top: 0;
   left: 0;
   z-index: -1;
+}
+/* Style the footer */
+.heshafooter25 {
+  background-color:  #cbd6e9;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+
+
+.contact-section25 {
+  flex: 1;
+}
+
+
+
+.heshanitext-center {
+  text-align: center;
 }
