@@ -28,26 +28,8 @@ export default function EditItemForm() {
     const{name,description,reorder,itemcode}= formData 
     const {data} =await axios.post(`/inventory/updateItem/${itemId}`,{name,description,reorder,itemcode})
     console.log('Form data submitted:', formData);
-    if(formData.itemCode.includes('FU')){
-      navigate('/itemlistFur');
-    }else if(formData.itemCode.includes('F')){
-      navigate('/itemlist');
-    }else{
-      navigate('/itemlistMac');
-    }
-    
+    navigate('/itemlist');
   };
-
-  const handleCancel = (e)=>{
-    e.preventDefault();
-    if(formData.itemCode.includes('FU')){
-      navigate('/itemlistFur');
-    }else if(formData.itemCode.includes('F')){
-      navigate('/itemlist');
-    }else{
-      navigate('/itemlistMac');
-    }
-  }
 
   useEffect(() => {
     const fetchItem = async () => {
@@ -73,59 +55,58 @@ export default function EditItemForm() {
   }, [itemId]);
 
   return (
-    <div className="dihan-new-item-form-container">
-  <h2>Edit Item</h2>
-  <form onSubmit={handleSubmit}>
-    <div className="dihan-form-group">
-      <label htmlFor="itemcode">Item Code:</label>
-      <input
-        type="text"
-        id="itemCode"
-        name="itemcode"
-        value={formData.itemCode}
-        onChange={handleChange}
-        required
-        disabled={true}
-      />
-    </div>
-    <div className="dihan-form-group">
-      <label htmlFor="name">Name:</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        required
-      />
-    </div>
-    <div className="dihan-form-group">
-      <label htmlFor="description">Description:</label>
-      <textarea
-        id="description"
-        name="description"
-        value={formData.description}
-        onChange={handleChange}
-        required
-      />
-    </div>
-    <div className="dihan-form-group">
-      <label htmlFor="reorder">Reorder Level:</label>
-      <input
-        type="number"
-        id="reorder"
-        name="reorder"
-        value={formData.reorder}
-        onChange={handleChange}
-        required
-      />
-    </div>
-    <button type="submit">Submit</button>
-    <button type="button" onClick={handleCancel}>Cancel</button>
-
+    <div className="new-item-form-container">
+      <h2>Edit Item</h2>
+      <form onSubmit={handleSubmit}>
+      
     
-  </form>
-</div>
-
+        <div className="form-group">
+          <label htmlFor="itemcode">Item Code:</label>
+          <input
+            type="text"
+            id="itemCode"
+            name="itemcode"
+            value={formData.itemCode}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="description">Description:</label>
+          <textarea
+            id="description"
+            name="description"
+            value={formData.description}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        
+        <div className="form-group">
+          <label htmlFor="reorder">Reorder Level:</label>
+          <input
+            type="number"
+            id="reorder"
+            name="reorder"
+            value={formData.reorder}
+            onChange={handleChange}
+            required
+          />
+        </div>
+        <button type="submit">Submit</button>
+        <button type="cancel">Cancel</button>
+      </form>
+    </div>
   );
 }

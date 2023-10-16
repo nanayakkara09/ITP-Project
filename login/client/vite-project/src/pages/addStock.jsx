@@ -35,63 +35,62 @@ export default function NewItemForm() {
 
   return (
     <div>
-  <AdminNavBar />
-  <div className="dihan-add-stock-container"> {/* Updated class name */}
-    <h2>Add Stock</h2>
-    <form onSubmit={handleSubmit}>
-      <div className="dihan-form-group"> {/* Updated class name */}
-        <label htmlFor="date">Date:</label>
-        <input
-          type="date"
-          id="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-        />
+      <AdminNavBar />
+      <div className="add-stock-container">
+        <h2>Add Stock</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="date">Date:</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="supplier">Supplier:</label>
+            <input
+              type="text"
+              id="supplier"
+              name="supplier"
+              value={formData.supplier}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="quantity">Quantity:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              value={formData.quantity}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="price">Price:</label>
+            <input
+              type="number"
+              id="price"
+              name="price"
+              value={formData.price}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <button type="submit" disabled={!isQuantityValid()}>
+            Submit
+          </button>
+          <button>
+            <Link to={`/itemDetails/${itemcode}`}>Cancel</Link>
+          </button>
+        </form>
       </div>
-      <div className="dihan-form-group"> {/* Updated class name */}
-        <label htmlFor="supplier">Supplier:</label>
-        <input
-          type="text"
-          id="supplier"
-          name="supplier"
-          value={formData.supplier}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="dihan-form-group"> {/* Updated class name */}
-        <label htmlFor="quantity">Quantity:</label>
-        <input
-          type="number"
-          id="quantity"
-          name="quantity"
-          value={formData.quantity}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <div className="dihan-form-group"> {/* Updated class name */}
-        <label htmlFor="price">Price:</label>
-        <input
-          type="number"
-          id="price"
-          name="price"
-          value={formData.price}
-          onChange={handleChange}
-          required
-        />
-      </div>
-      <button type="submit" disabled={!isQuantityValid()}>
-        Submit
-      </button>
-      <button>
-        <Link to={`/itemDetails/${itemcode}`}>Cancel</Link>
-      </button>
-    </form>
-  </div>
-</div>
-
+    </div>
   );
 }
