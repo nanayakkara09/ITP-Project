@@ -45,7 +45,7 @@ export default function SupportMessage() {
 
   return (
     <div className="bg-image">
-      <div className="container">
+      <div className="containersupport">
         <br />
         <br />
         <h2 className="h1-responsive font-weight-bold text-center my-4">
@@ -93,7 +93,7 @@ export default function SupportMessage() {
               ></textarea>
             </div>
             <div className="text-center">
-              <button type="submit" className="btn btn-primary">
+              <button type="submit" className="btn btn-primarysupport">
                 Submit Support Message
               </button>
             </div>

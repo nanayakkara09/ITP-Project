@@ -118,7 +118,7 @@ export default function SeeFeedbacksPage() {
   return (
     <div>
       <AdminNavBar />
-      <div className="customer-details-container">
+      <div className="customer-feedback-container">
         <br />
         <br />
         <h1>
@@ -137,7 +137,7 @@ export default function SeeFeedbacksPage() {
         {isLoading ? (
           <p>Loading feedback data...</p>
         ) : feedbackList.length > 0 ? (
-          <table className="table">
+          <table className="tablefeed">
             <thead>
               <tr>
                 <th scope="col">#</th>

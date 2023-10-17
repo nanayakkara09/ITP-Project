@@ -38,7 +38,7 @@ const FeedbackPage = () => {
 
   return ( 
     <div className="bg-image">
-    <div className="container">
+    <div className="containerfeedback">
       <br></br>
       <br></br>
       <h2 className="h1-responsive font-weight-bold text-center my-4">Submit Feedback</h2>
@@ -87,7 +87,7 @@ const FeedbackPage = () => {
           </div>
         </div>
           <div className="text-center">
-            <button type="submit" className="btn btn-primary">Submit Feedback</button>
+            <button type="submit" className="btn btn-primaryF">Submit Feedback</button>
           </div>
         </form>
       </div>

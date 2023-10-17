@@ -1,5 +1,5 @@
 /* Apply these styles in your customerDetails.css file */
-table {
+tablefu {
     width: 100%;
     border-collapse: collapse;
     margin-top: 20px;
@@ -58,7 +58,7 @@ table {
     padding: 8px 12px;
   }
   
-.search-container {
+.search-containerff {
   display: flex;
   align-items: center;
   background-color: #fff;
@@ -91,7 +91,7 @@ table {
     }
   }
   
-  .print-button {
+  .print-buttonhuu {
     background-color: rgba(1, 6, 101, 0.808); /* Change the button color to red */
     color: white;
     border: none;

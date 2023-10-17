@@ -136,7 +136,7 @@ export default function CustomerDetailsPage() {
         {isLoading ? (
           <p>Loading user data...</p>
         ) : userList.length > 0 ? (
-          <table className="table">
+          <table className="tablefu">
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -180,7 +180,7 @@ export default function CustomerDetailsPage() {
         ) : (
           <p>No user data available.</p>
         )}
-        <button className="print-button" onClick={generatePDF}>
+        <button className="print-buttonhuu" onClick={generatePDF}>
   Generate PDF
 </button>
       </div>
