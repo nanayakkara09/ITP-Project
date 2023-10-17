@@ -31,7 +31,7 @@ import SeeFeedbacksPage from './pages/Seefeedbacks';
 import InvEdit from '../src/pages/invEdit';
 import Password from '../src/pages/password'
 import 'bootstrap/dist/css/bootstrap.css'
-
+import SalesFromStall from './pages/salesFromStall';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import AddNewEvent from './pages/addNewEvent';
@@ -58,8 +58,8 @@ import ItemlistMac from '../src/pages/itemlistMac';
 import AddNewFur from '../src/pages/addNewFur';
 import AddNewMac from '../src/pages/addNewMac';
 import Issued from './pages/Issued';
-
-
+import SalesFromOrders from './pages/SalesFromOrders';
+import ExternalIncomes from './pages/ExternalIncomes';
 
 
 
@@ -150,7 +150,7 @@ import DriverCompletedOrders from './pages/driverCompletedOrders'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import DriverAdmin from '../src/pages/Driver-admin';
 import DriverAdminHome from '../src/pages/driver-adminHome';
-
+import ViewTotalSales from './pages/ViewtotalSales';
 
 
 
@@ -233,7 +233,7 @@ function App() {
       <Route path='/getTicket' element={<AdminTicketList />}></Route>
       <Route path='/menu' element={<SeeMenuPage />}></Route>
       <Route path='/generateMonthlyIncomeReport' element={<MonthlyIncomeReport />}></Route> 
-
+      <Route path='/SalesFromOrders' element={<SalesFromOrders />}></Route>
 
       <Route path='/stallownerdash' element={<StallOwnerDashboard />}></Route>
       <Route path='/pizzaMart' element={<PizzaMart/>}></Route>
@@ -260,9 +260,9 @@ function App() {
       <Route path='/order-admin' element={<OrderAdminPage/>}></Route>
       <Route path='/payment' element={<Payment/>}></Route>
       <Route path='/ViewSuccessPayments' element={<ViewSuccessPayments/>}></Route>
-
-
-
+      <Route path='/SalesFromStall' element={<SalesFromStall/>}></Route>
+      <Route path='/ExternalIncomes' element={<ExternalIncomes/>}></Route>
+      <Route path='/ViewTotalSales' element={<ViewTotalSales/>}></Route>
      
       <Route path="/eventListUser" element={<EventListUser />}/>
       <Route path="/eventSuccess" element={<EventSuccess />}/>

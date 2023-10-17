@@ -8,6 +8,8 @@ import './CreateStall.css';
 import backgroundImg from '../stallImages/img2.jpeg';
 
 export default function CreateStall() {
+
+  const { id } = useParams(); 
   const navigate = useNavigate();
   //const history = useHistory();
   const [data, setData] = useState({
@@ -193,7 +195,7 @@ export default function CreateStall() {
             <p>
               You have to pay 40000 LKR amount to register your stall in our premises.
               <br />
-              <button onClick={()=> navigate('/ReceiptForStall/${id}')}>Make Payment</button>
+              <button onClick={()=> navigate(`/ReceiptForStall/${id}`)}>Make Payment</button>
             </p>
           </div>
           <button type="submit" className="btn btn-primary">

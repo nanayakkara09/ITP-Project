@@ -2,14 +2,15 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import paymentsuccess from '../images/paymentsuccess.gif';
 import './paymentSuccess.css'
-
+import { useNavigate, useParams } from "react-router-dom";
 function PaymentSuccess() {
-  
+  const navigate = useNavigate();
+
   return (
     
     <div className="container">
           
-          <div className="col-sm delivermanImg">
+          <div className="col-sm deliverman">
                 <img src={paymentsuccess} alt="Food 3"/>
               </div>
     <div className="messg">

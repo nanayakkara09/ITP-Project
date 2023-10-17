@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './SalesStallll.css';
-
+import './income.css';
 
 function IncomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -173,46 +172,41 @@ useEffect(() => {
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold  dnnenah">View desired page you want to check</h3>
-       
-         
-          <div className="buttonstoSelect">
-          <button
-              onClick={() => navigate(`/SalesFromOrders`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View sales from Orders
-            </button>
-            <button
-              onClick={() => navigate(`/SalesFromStall`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             View sales from Stall
-            </button>
-            <button
-              onClick={() => navigate(`/ExternalIncomes`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             Add external incomes and view
-            </button>
-            <button
-              onClick={() => navigate(`/ViewTotalSales`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View total sales
-            </button>
-          </div>
-         
+        <h3 className="underline-bold salesHead">Monthly sales</h3>
+      
+          <h2 className="bold IncHead">Total income for company</h2>
+          <table className="table table-striped table-bordered custom-table totalIncome">
+  <thead>
+    <tr>
+      <th>Total sales from external income</th>
+      <th>Total sales from orders</th>
+      <th>Total sales from stalls</th>
+      <th>Overall sales</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>${calculateInputTypeTwoSubtotal() + calculateInputTypefourSubtotal()}</td>
+      <td>${subtotal}</td>
+      <td>${totalStallPayments}</td> {/* Assuming this is your total income from stalls */}
+      <td>${calculateInputTypeTwoSubtotal() + subtotal + totalStallPayments}</td>
+    </tr>
+  </tbody>
+</table>
 
+<button
+              onClick={() => navigate(`/IncomePage`)}
+              className="btn btn-primary mr-2  expensesbutt"
+              style={{ width: "200px", height: "50px" }}
+            >
+             Back to dashbord
+            </button>
 
           </div>
          
         </div>
-      
+     
+    
   );
 }
 

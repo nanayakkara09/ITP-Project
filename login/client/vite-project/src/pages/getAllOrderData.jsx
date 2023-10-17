@@ -9,6 +9,7 @@ function GetOrder() {
   const [order, setOrder] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchAllorder = async () => {
@@ -52,9 +53,9 @@ function GetOrder() {
     <div className="container my-5 backgr" >
      
       <div className="col-md-9">
-      <h3 className="underline-bold">Your all orders</h3>
+      <h3 className="underline-bold headdforr">Your all orders</h3>
      
-        <table className="table table-striped table-bordered">
+        <table className="table table-striped table-bordered orderTableeeee">
           
           <thead>
             <tr>
@@ -87,7 +88,7 @@ function GetOrder() {
           </tbody>
           
         </table>
-        <button onClick={() => navigate(`/PaymentMethod`)} className="btn btn-primary btn1">Back to payment</button>
+        <button onClick={() => navigate(`/PaymentMethod${id}`)} className="btn btn-primary btnnn1">Back to payment</button>
 
       </div>
       <div className="right-align-container searchbar" >

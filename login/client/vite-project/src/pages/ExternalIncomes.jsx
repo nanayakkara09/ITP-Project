@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './SalesStallll.css';
-
+import './ExternalIncomes.css';
 
 function IncomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -173,46 +172,117 @@ useEffect(() => {
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold  dnnenah">View desired page you want to check</h3>
-       
-         
-          <div className="buttonstoSelect">
-          <button
-              onClick={() => navigate(`/SalesFromOrders`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View sales from Orders
-            </button>
-            <button
-              onClick={() => navigate(`/SalesFromStall`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             View sales from Stall
-            </button>
-            <button
-              onClick={() => navigate(`/ExternalIncomes`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             Add external incomes and view
-            </button>
-            <button
-              onClick={() => navigate(`/ViewTotalSales`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View total sales
-            </button>
+        <h3 className="underline-bold salesHead">Monthly sales</h3>
+        <div className="inputsForEXTERNAL">
+          <p style={{ textAlign: "left", fontWeight: "bold", fontStyle: "italic" }}>
+            Add external sales
+          </p>
+          <div className="inputTypes">
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter where the sales comes from"
+                value={inputTypeOne}
+                onChange={(e) => setInput1(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter amount"
+                value={inputTypeTwo}
+                onChange={(e) => setInput2(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter where the sales comes from"
+                value={inputTypeThree}
+                onChange={(e) => setInput3(e.target.value)}
+              />
+            </div>
+            <div className="form-group">
+              <input
+                type="text"
+                placeholder="Enter amount"
+                value={inputTypeFour}
+                onChange={(e) => setInput4(e.target.value)}
+              />
+            </div>
           </div>
-         
+          <button type="submit" className="btn-primary externalBtn" onClick={handleSubmit}>
+            Add external sales
+          </button>
+          {/* Display success and error messages */}
+          {successMessage && <p className="text-success">{successMessage}</p>}
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
+        </div>
+       
+          <h2 className="bold IncHead">External Sales</h2>
+          <table className="table table-striped table-bordered custom-table totalIncome">
+            <thead>
+              <tr>
+                <th>Income from</th>
+                <th>Amount</th>
+                <th>Income from</th>
+                <th>Amount</th>
+              </tr>
+            </thead>
+            <tbody>
+              {income.map((incomeItem) => (
+                <tr key={incomeItem._id}>
+                  <td>{incomeItem.inputTypeOne}</td>
+                  <td>{incomeItem.inputTypeTwo}</td>
+                  <td>{incomeItem.inputTypeThree}</td>
+                  <td>{incomeItem.inputTypeFour}</td>
+                  <td>
+                    <button
+                      onClick={() => deleteIncome(incomeItem._id)}
+                      className="btn btn-primary mr-2"
+                      style={{width:"30vh", marginBottom:"5vh"}}
+                    >
+                      Delete Card
+                    </button>
+                    <button
+                    onClick={() => updateIncome(incomeItem._id)}
+                    className="btn btn-primary mr-2 externInc"
+                    style={{width: "30vh"}}
+                  >
+                    Edit
+                  </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan="1" className="text-right">
+                  <strong> Sub Total:</strong>
+                </td>
+                <td>${calculateInputTypeTwoSubtotal()}</td>
+                <td colSpan="1" className="text-right">
+                  
+                </td>
+                <td>${calculateInputTypefourSubtotal()}</td>
+              </tr>
+            </tfoot>
+          </table>
+   
 
+<button
+              onClick={() => navigate(`/IncomePage`)}
+              className="btn btn-primary mr-2  expensesbutt"
+              style={{ width: "200px", height: "50px" }}
+            >
+             Back to dashbord
+            </button>
 
           </div>
          
         </div>
-      
+     
+    
   );
 }
 

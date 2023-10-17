@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './SalesStallll.css';
-
+import './SalesOrder.css';
 
 function IncomePage() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [subtotal, setSubtotal] = useState(0);
-  const [inputTypeOne, setInput1] = useState("");
-  const [inputTypeTwo, setInput2] = useState("");
-  const [inputTypeThree, setInput3] = useState("");
-  const [inputTypeFour, setInput4] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [stall, setStall] = useState([]);
-  const [income, setIncome] = useState([]);
-  const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
+    const [order, setOrder] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [subtotal, setSubtotal] = useState(0);
+    const [inputTypeOne, setInput1] = useState("");
+    const [inputTypeTwo, setInput2] = useState("");
+    const [inputTypeThree, setInput3] = useState("");
+    const [inputTypeFour, setInput4] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [stall, setStall] = useState([]);
+    const [income, setIncome] = useState([]);
+    const navigate = useNavigate();
+  
 
   const updateIncome = (Id) => {
     // Use the navigate function to go to the update income page with the income ID as a parameter
@@ -166,6 +166,13 @@ useEffect(() => {
       });
   };
 
+ 
+   // Function to handle changes in the search input
+   const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Filter the order items by name that match the search term
   const filteredOrder = order.filter((order) =>
     order.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -173,46 +180,72 @@ useEffect(() => {
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold  dnnenah">View desired page you want to check</h3>
-       
-         
-          <div className="buttonstoSelect">
-          <button
-              onClick={() => navigate(`/SalesFromOrders`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View sales from Orders
-            </button>
-            <button
-              onClick={() => navigate(`/SalesFromStall`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             View sales from Stall
-            </button>
-            <button
-              onClick={() => navigate(`/ExternalIncomes`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             Add external incomes and view
-            </button>
-            <button
-              onClick={() => navigate(`/ViewTotalSales`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View total sales
-            </button>
+        <h3 className="underline-bold salesHead">Monthly sales</h3>
+        
+        <h2 className="bold IncHead">Sales from orders</h2>
+        <div className="search-bar">
+            <input
+              type="text"
+              placeholder="Search by name (Orders)"
+              value={searchTerm}
+              onChange={handleSearch}
+            />
           </div>
+        <div className="AllIncomeTables">
+          <table className="table table-striped table-bordered custom-table OrdeerSlescss ">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Date</th>
+                <th>Total</th>
+                <th>Image</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredOrder.map((order) => (
+                <tr key={order._id}>
+                  <td>{order.name}</td>
+                  <td>{order.quantity}</td>
+                  <td>{order.price}</td>
+                  <td>{order.date}</td>
+                  <td>{order.total}</td>
+                  <td>{order.image}</td>
+                  <td>
+                    <button
+                      onClick={() => deleteCard(order._id)}
+                      className="btn btn-primary mr-2"
+                    >
+                      Delete Card
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan="4" className="text-right">
+                  <strong> Sub Total:</strong>
+                </td>
+                <td>${subtotal}</td>
+              </tr>
+            </tfoot>
+          </table>
          
-
+<button
+              onClick={() => navigate(`/admin-dashbord`)}
+              className="btn btn-primary mr-2  expensesbutt"
+              style={{ width: "200px", height: "50px" }}
+            >
+             Back to dashbord
+            </button>
 
           </div>
          
         </div>
-      
+      </div>
+    
   );
 }
 

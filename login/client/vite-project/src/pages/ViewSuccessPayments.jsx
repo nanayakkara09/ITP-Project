@@ -11,31 +11,36 @@ const ViewSuccessPayments = () => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        // Fetch orders
-        const fetchAllOrders = async () => {
-            try {
-                const response = await axios.get("http://localhost:8000/orders");
-                setOrder(response.data.orders);
-            } catch (error) {
-                console.error(error);
-            }
+        const fetchAllorder = async () => {
+          try {
+            const response = await axios.get("http://localhost:8000/orders");
+            console.log(response)
+            setOrder(response.data.orders);
+            setIsLoading(false);
+          } catch (error) {
+            console.error(error);
+            setIsLoading(false);
+          }
         };
-
-        fetchAllOrders();
-
+    
+        fetchAllorder();
+      }, []);
+    
         // Fetch stalls
-        const fetchAllStalls = async () => {
-            try {
+        useEffect(() => {
+            const fetchAllstall = async () => {
+              try {
                 const response = await axios.get("http://localhost:8000/stall/getAllStall");
                 setStall(response.data);
-            } catch (error) {
+                setIsLoading(false);
+              } catch (error) {
                 console.error(error);
-            }
-        };
-
-        fetchAllStalls();
-    }, []);
-
+                setIsLoading(false);
+              }
+            };
+        
+            fetchAllstall();
+          }, []);
     const filteredOrders = order && order.filter(orderItem =>
         orderItem.status === "success" &&
         orderItem.name.toLowerCase().includes(orderSearch.toLowerCase())
@@ -49,39 +54,7 @@ const ViewSuccessPayments = () => {
     return (
         <div>
             <div className="mmm">
-                <h1 className="ViewHead">Successful Order Payments</h1>
-                <input
-                    type="text"
-                    placeholder="Search Orders by Name"
-                    value={orderSearch}
-                    onChange={(e) => setOrderSearch(e.target.value)}
-                    style={{width:"40vh", marginLeft: "80vh", marginBottom:"10vh"}}
-                />
-                <table className="table table-striped table-bordered custom-table successOrder">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Date</th>
-                            <th>Total</th>
-                            <th>Status</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredOrders && filteredOrders.map((orderItem, index) => (
-                            <tr key={index}>
-                                <td>{orderItem.name}</td>
-                                <td>{orderItem.quantity}</td>
-                                <td>{orderItem.price}</td>
-                                <td>{orderItem.date}</td>
-                                <td>{orderItem.total}</td>
-                                <td>{orderItem.status}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-
+                
                 <h1 className="ViewHead">Successful Stall Payments</h1>
                 <input
                     type="text"

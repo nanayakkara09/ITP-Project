@@ -5,19 +5,21 @@ import './SalesStallll.css';
 
 
 function IncomePage() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [order, setOrder] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [subtotal, setSubtotal] = useState(0);
-  const [inputTypeOne, setInput1] = useState("");
-  const [inputTypeTwo, setInput2] = useState("");
-  const [inputTypeThree, setInput3] = useState("");
-  const [inputTypeFour, setInput4] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
-  const [stall, setStall] = useState([]);
-  const [income, setIncome] = useState([]);
-  const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(true);
+    const [order, setOrder] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
+    const [subtotal, setSubtotal] = useState(0);
+    const [inputTypeOne, setInput1] = useState("");
+    const [inputTypeTwo, setInput2] = useState("");
+    const [inputTypeThree, setInput3] = useState("");
+    const [inputTypeFour, setInput4] = useState("");
+    const [successMessage, setSuccessMessage] = useState("");
+    const [errorMessage, setErrorMessage] = useState("");
+    const [stall, setStall] = useState([]);
+    const [income, setIncome] = useState([]);
+    const navigate = useNavigate();
+
+
 
   const updateIncome = (Id) => {
     // Use the navigate function to go to the update income page with the income ID as a parameter
@@ -166,48 +168,88 @@ useEffect(() => {
       });
   };
 
-  const filteredOrder = order.filter((order) =>
-    order.name.toLowerCase().includes(searchTerm.toLowerCase())
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  // Filter the stall items by stall ID that match the search term
+  const filteredStall = stall.filter((stallItem) =>
+    stallItem.stallId.toString().includes(searchTerm)
   );
+
+
 
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold  dnnenah">View desired page you want to check</h3>
+        <h3 className="underline-bold salesHead">Monthly sales from stalls</h3>
+        <div className="my-3 searchBar">
+          <input
+            type="text"
+            placeholder="Search by stall ID"
+            className="form-controlll"
+            value={searchTerm}
+            onChange={handleSearch}
+          />
+        </div>
        
          
-          <div className="buttonstoSelect">
-          <button
-              onClick={() => navigate(`/SalesFromOrders`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View sales from Orders
-            </button>
-            <button
-              onClick={() => navigate(`/SalesFromStall`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             View sales from Stall
-            </button>
-            <button
-              onClick={() => navigate(`/ExternalIncomes`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-             Add external incomes and view
-            </button>
-            <button
-              onClick={() => navigate(`/ViewTotalSales`)}
-              className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "100px" }}
-            >
-            View total sales
-            </button>
-          </div>
+          <table className="table table-striped table-bordered custom-table SalesStallll">
+            <thead>
+              <tr>
+                <th>Stall Id</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Stall name</th>
+                <th>Stall type</th>
+                <th>Amount</th>
+                <th>M type</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>Payment</th>
+              </tr>
+            </thead>
+            <tbody>
+              {filteredStall.map((stallItem, index) => (
+                <tr key={index}>
+                  <td>{stallItem.stallId}</td>
+                  <td>{stallItem.fName}</td>
+                  <td>{stallItem.lName}</td>
+                  <td>{stallItem.stallName}</td>
+                  <td>{stallItem.type}</td>
+                  <td>{stallItem.amount}</td>
+                  <td>{stallItem.mType}</td>
+                  <td>{stallItem.phonenumber}</td>
+                  <td>{stallItem.email}</td>
+                  <td>{stallItem.payment}</td>
+                  <td>
+                    <button
+                      onClick={() => deleteStall(stallItem._id)}
+                      className="btn btn-primary mr-2"
+                    >
+                      Delete Card
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colSpan="9" className="text-right">
+                  <strong>Total Stall Payments:</strong>
+                </td>
+                <td>${totalStallPayments}</td>
+              </tr>
+            </tfoot>
+          </table>
          
-
+<button
+              onClick={() => navigate(`/IncomePage`)}
+              className="btn btn-primary mr-2  expensesbutt"
+              style={{ width: "200px", height: "50px" }}
+            >
+             Back to dashbord
+            </button>
 
           </div>
          
