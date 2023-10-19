@@ -187,13 +187,6 @@ function App() {
       <Route path="/addNewFur" element={<AddNewFur />} />
       <Route path="/addNewMac" element={<AddNewMac />} />
       <Route path="/Issued" element={<Issued />} />
-
-
-
-
-
-
-
       <Route path='/profile' element={<Profile />} />
       <Route path='/feedbacks' element={<Feedback/>} />
       <Route path='/support' element={<SupportMessage/>}/>
@@ -204,12 +197,9 @@ function App() {
       <Route path='/Seefeedbacks' element={<SeeFeedbacksPage/>}/>
       <Route path='/seesupport' element={<SeesupportPage/>}/>
       <Route path='/password' element={<Password/>}/>
-    <Route path="/UserEdit/:userId" element={<UserEdit />} />
-
-
+      <Route path="/UserEdit/:userId" element={<UserEdit />} />
       <Route path="/addNewEvent" element={<AddNewEvent />}/>
       <Route path="/eventList" element={<EventList />}/>
-     
       <Route path='/StallAdminreq' element={<StallAdminreq />}></Route>
       <Route path='/stallreq' element={<CreateStallreq />}></Route>
       <Route path='/stallCreate' element={<StallCreate />}></Route>
@@ -261,46 +251,34 @@ function App() {
       <Route path='/SalesFromStall' element={<SalesFromStall/>}></Route>
       <Route path='/ExternalIncomes' element={<ExternalIncomes/>}></Route>
       <Route path='/ViewTotalSales' element={<ViewTotalSales/>}></Route>
-     
       <Route path="/eventListUser" element={<EventListUser />}/>
       <Route path="/eventSuccess" element={<EventSuccess />}/>
       <Route path="/eventHome" element={<EventHome />}/>
       <Route path="/eventDetail" element={<EventDetail />}/>
       <Route path="/eventAbout" element={<EventAbout />}/>
-      
       <Route path="/eventDetail2" element={<EventDetail2 />}/>
       <Route path="/eventDetail3" element={<EventDetail3 />}/>
       <Route path="/eventDetail4" element={<EventDetail4 />}/>
       <Route path="/eventUpdate/:eventId" element={<EventUpdate />} />
       <Route path="/admin-confirm" element={<AdminConfirm />} />
-
       <Route path='/employeeDashboard' element={<EmployeeDashboard />} />
-
-                    <Route path='/getEmployee' element={<GetEmployee />} />
-                    <Route path='/createEmployee' element={<CreateEmployee />} />
-                    <Route path='/updateEmployee/:_id' element={<UpdateEmployee />} />
-                    <Route path='/LoginEmployee' element={<LoginEmployee/>}/>
-                    <Route path='/employeeDashboardHome' element={<EmployeeDashboardHome/>}/>
-                  
-
-                    <Route path='/getEmployeeShift' element={<GetEmployeeShift />} />
-                    <Route path='/createEmployeeShift' element={<CreateEmployeeShift />} />
-                    <Route path='/updateEmployeeShift/:_id' element={<UpdateEmployeeShift />} />
-
-                    <Route path='/createEmployeeLeave' element={<CreateEmployeeLeave />} />
-                    <Route path='/getEmployeeLeaveA' element={<GetEmployeeLeaveA />} />
-
-
-                    <Route path='/createEmployeeContact' element={<CreateEmployeeContact />} />
-                    <Route path='/getEmployeeContact' element={<GetEmployeeContact />} />
-
-                    <Route path='/createEmployeeNews' element={<CreateEmployeeNews />} />
-                    <Route path='/getEmployeeNews' element={<GetEmployeeNews />} />
-
-                    <Route path='/createEmployeeSalary' element={<CreateEmployeeSalary/>}/>
-                    <Route path='/getEmployeeSalary' element={<GetEmployeeSalary/>}/>
-
-                    <Route path='/employeeProfileA' element={<EmployeeProfileA/>}/>
+      <Route path='/getEmployee' element={<GetEmployee />} />
+      <Route path='/createEmployee' element={<CreateEmployee />} />
+      <Route path='/updateEmployee/:_id' element={<UpdateEmployee />} />
+      <Route path='/LoginEmployee' element={<LoginEmployee/>}/>
+      <Route path='/employeeDashboardHome' element={<EmployeeDashboardHome/>}/>
+      <Route path='/getEmployeeShift' element={<GetEmployeeShift />} />
+      <Route path='/createEmployeeShift' element={<CreateEmployeeShift />} />
+      <Route path='/updateEmployeeShift/:_id' element={<UpdateEmployeeShift />} />
+      <Route path='/createEmployeeLeave' element={<CreateEmployeeLeave />} />
+      <Route path='/getEmployeeLeaveA' element={<GetEmployeeLeaveA />} />
+      <Route path='/createEmployeeContact' element={<CreateEmployeeContact />} />
+      <Route path='/getEmployeeContact' element={<GetEmployeeContact />} />
+      <Route path='/createEmployeeNews' element={<CreateEmployeeNews />} />
+      <Route path='/getEmployeeNews' element={<GetEmployeeNews />} />
+      <Route path='/createEmployeeSalary' element={<CreateEmployeeSalary/>}/>
+      <Route path='/getEmployeeSalary' element={<GetEmployeeSalary/>}/>
+      <Route path='/employeeProfileA' element={<EmployeeProfileA/>}/>
                    
 
 
