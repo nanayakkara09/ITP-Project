@@ -64,16 +64,16 @@ export default function NewItemForm() {
     const category = 'Food';
     const {data} =await axios.post('./inventory/',{name,description,quantity,category,reorder,itemcode})
     console.log('Form data submitted:', formData);
-    navigate(`/itemDetails/${itemcode}`);
+    navigate(`/addStock/${itemcode}`);
   };
 
   return (
   <div>
     <div><AdminNavBar /></div>
-    <div className={`dihan-new-item-form-container`}>
+    <div className="dihan-new-item-form-container">
       <h2>Add New Item</h2>
       <form onSubmit={handleSubmit}>
-        <div className={`dihan-form-group`}>
+        <div className="dihan-form-group">
           <label htmlFor="itemcode">Item Code:</label>
           <input
             type="text"
@@ -85,7 +85,7 @@ export default function NewItemForm() {
             disabled={true}
           />
         </div>
-        <div className={`dihan-form-group`}>
+        <div className="dihan-form-group">
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -96,7 +96,7 @@ export default function NewItemForm() {
             required
           />
         </div>
-        <div className={`dihan-form-group`}>
+        <div className="dihan-form-group">
           <label htmlFor="description">Description:</label>
           <textarea
             id="description"
@@ -106,7 +106,7 @@ export default function NewItemForm() {
             required
           />
         </div>
-        <div className={`dihan-form-group`}>
+        <div className="dihan-form-group">
           <label htmlFor="reorder">Reorder Level:</label>
           <input
             type="number"
