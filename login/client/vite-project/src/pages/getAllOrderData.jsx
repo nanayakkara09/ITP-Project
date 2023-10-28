@@ -9,7 +9,7 @@ function GetOrder() {
   const [order, setOrder] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  const { id } = useParams();
+  
 
   useEffect(() => {
     const fetchAllorder = async () => {
@@ -78,7 +78,7 @@ function GetOrder() {
                  
                 <button
                       onClick={() => deleteCard(order._id)}
-                      className="btn btn-primary mr-2"
+                      className="btn btn-primary mr-2 btnForDeleteOrder"
                     >
                       Delete Card
                     </button>
@@ -88,7 +88,7 @@ function GetOrder() {
           </tbody>
           
         </table>
-        <button onClick={() => navigate(`/PaymentMethod${id}`)} className="btn btn-primary btnnn1">Back to payment</button>
+        <button onClick={() => navigate(`/PaymentMethod${id}`)} className="btn btn-primary btn09" style={{marginRight: "-180vh"}}>Back to payment</button>
 
       </div>
       <div className="right-align-container searchbar" >

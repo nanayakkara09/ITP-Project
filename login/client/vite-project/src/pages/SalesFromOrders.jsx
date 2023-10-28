@@ -180,10 +180,10 @@ useEffect(() => {
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold salesHead">Monthly sales</h3>
+        <h3 className="underline-bold salesHead" style={{marginLeft:"50vh"}}>Monthly sales</h3>
         
-        <h2 className="bold IncHead">Sales from orders</h2>
-        <div className="search-bar">
+        <h2 className="bold IncHead"  style={{marginLeft:"50vh"}}>Sales from orders</h2>
+        <div className="search-bar"  style={{marginLeft:"80vh"}}>
             <input
               type="text"
               placeholder="Search by name (Orders)"
@@ -191,7 +191,7 @@ useEffect(() => {
               onChange={handleSearch}
             />
           </div>
-        <div className="AllIncomeTables">
+        <div className="AllIncomeTables" style={{marginLeft:"10vh"}}>
           <table className="table table-striped table-bordered custom-table OrdeerSlescss ">
             <thead>
               <tr>

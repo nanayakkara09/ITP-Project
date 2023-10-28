@@ -76,7 +76,7 @@ function ExpensesPage() {
       })
       .catch((err) => {
         console.error(err);
-        setErrorMessage("Error adding external income.");
+        setErrorMessage("Enter only digits to amount");
         setSuccessMessage("");
       });
   };
@@ -169,7 +169,7 @@ function ExpensesPage() {
               <th>Reorder</th>
               <th>Item code</th>
               <th>Category</th>
-              <th>price</th>
+              
             </tr>
           </thead>
           <tbody>
@@ -181,10 +181,10 @@ function ExpensesPage() {
                 <td>{inventoryItem.reorder}</td>
                 <td>{inventoryItem.itemcode}</td>
                 <td>{inventoryItem.category}</td>
-                <td>{inventoryItem.price}</td>
+               
                 <td>
-                  <button onClick={() => deleteInventory(inventoryItem._id)} className="btn btn-primary mr-2">
-                    Delete Card
+                  <button onClick={() => deleteInventory(inventoryItem._id)} className="btn btn-primary mr-2" style={{width:"10vh"}}>
+                    Delete 
                   </button>
                 </td>
               </tr>
@@ -209,8 +209,8 @@ function ExpensesPage() {
                 <td>{expenseItem.inputExpensesTwo}</td>
                 <td>{expenseItem.inputExpensesAmountTwo}</td>
                 <td>
-                  <button onClick={() => deleteExpense(expenseItem._id)} className="btn btn-primary mr-2">
-                    Delete Card
+                  <button onClick={() => deleteExpense(expenseItem._id)} className="btn btn-primary mr-2" style={{width:"10vh"}}>
+                    Delete 
                   </button>
                   <button onClick={() => updateExpense(expenseItem._id)} className="btn btn-primary mr-2 incomeUpdate">
                     Edit

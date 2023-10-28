@@ -127,10 +127,10 @@ function CardDetails() {
       <div className="row">
         <div className="col-sm">
           <h1 className="cHead">Card details</h1>
-          <img src={creditcard} style={{width: "90vh", marginLeft: "26vh"}} alt="Food 3" />
+          <img src={creditcard} style={{width: "50vh", marginLeft: "-100vh"}} alt="Food 3" />
         </div>
         {order !== null && (
-          <div className="text-start mb-2 fetchedTable1">
+          <div className="text-start mb-2 fetchedTable">
             <div>
               {order && order.name && (
                 <div>

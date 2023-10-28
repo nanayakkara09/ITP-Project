@@ -220,7 +220,7 @@ useEffect(() => {
         </div>
        
           <h2 className="bold IncHead">External Sales</h2>
-          <table className="table table-striped table-bordered custom-table totalIncome">
+          <table className="table table-striped table-bordered custom-table totalIncome" style={{marginLeft:"10vh",marginTop:"2vh"}}>
             <thead>
               <tr>
                 <th>Income from</th>
@@ -240,14 +240,14 @@ useEffect(() => {
                     <button
                       onClick={() => deleteIncome(incomeItem._id)}
                       className="btn btn-primary mr-2"
-                      style={{width:"30vh", marginBottom:"5vh"}}
+                      style={{width:"13vh", height:"7vh"}}
                     >
                       Delete Card
                     </button>
                     <button
                     onClick={() => updateIncome(incomeItem._id)}
                     className="btn btn-primary mr-2 externInc"
-                    style={{width: "30vh"}}
+                    style={{width: "13vh", height:"7vh"}}
                   >
                     Edit
                   </button>

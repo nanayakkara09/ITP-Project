@@ -34,8 +34,8 @@ function financePage() {
             </div>
             <button
               onClick={() => navigate(`/IncomePage`)}
-              className="btn btn-primary mr-2  incomebutt"
-              style={{ width: "200px", height: "50px" }}
+              className="btn btn-primary mr-2  "
+              style={{ width: "200px", height: "7vh" , marginLeft:"-50vh", marginTop:"7vh"}}
             >
               View monthly income
             </button>
@@ -67,7 +67,7 @@ function financePage() {
             <button
               onClick={() => navigate(`/Expenses`)}
               className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "50px" }}
+              style={{ width: "200px", height: "7vh" , marginLeft:"50vh", marginTop:"7vh" }}
             >
               View monthly expenses
             </button>

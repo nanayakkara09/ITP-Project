@@ -172,10 +172,10 @@ useEffect(() => {
   return (
     <div className="container my-5 backgr">
       <div className="col-md-9">
-        <h3 className="underline-bold salesHead">Monthly sales</h3>
+        <h3 className="underline-bold salesHead" style={{marginLeft:"40vh"}}>Monthly sales</h3>
       
-          <h2 className="bold IncHead">Total income for company</h2>
-          <table className="table table-striped table-bordered custom-table totalIncome">
+          <h2 className="bold IncHead" style={{marginLeft:"40vh"}}>Total income for company</h2>
+          <table className="table table-striped table-bordered custom-table totalIncome" style={{marginLeft:"10vh"}}>
   <thead>
     <tr>
       <th>Total sales from external income</th>
@@ -197,7 +197,7 @@ useEffect(() => {
 <button
               onClick={() => navigate(`/IncomePage`)}
               className="btn btn-primary mr-2  expensesbutt"
-              style={{ width: "200px", height: "50px" }}
+              style={{ width: "200px", height: "50px", marginLeft:"40vh"}}
             >
              Back to dashbord
             </button>

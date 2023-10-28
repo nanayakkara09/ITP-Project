@@ -23,17 +23,18 @@
   }
   .fetchedTable{
     width: 40vh;
-    margin-top: 20vh;
+    margin-top: 10vh;
     height: 50vh;
-    margin-left: 20vh;
+    margin-left: -100vh;
   }
   .formDetailll{
     width: 80vh;
   }
   .cHead{
-    margin-left: 30vh;
+    margin-left: 50vh;
     font-style: italic;
     font-size: 8vh;
+    width: 50vh;
   }
 .insertButt{
   margin-left: 70vh;
@@ -42,6 +43,7 @@
 .cardDetaaaa{
   margin-left: 30vh;
   margin-top: -15vh;
+  width: 120vh;
 }
 .fetchedTable1{
   width: 80vh;

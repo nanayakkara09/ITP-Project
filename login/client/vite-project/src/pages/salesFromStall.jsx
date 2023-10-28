@@ -180,7 +180,7 @@ useEffect(() => {
 
 
   return (
-    <div className="container my-5 backgr">
+    <div className="container my-5 backgr" style={{ width:"290vh"}}>
       <div className="col-md-9">
         <h3 className="underline-bold salesHead">Monthly sales from stalls</h3>
         <div className="my-3 searchBar">
@@ -194,7 +194,7 @@ useEffect(() => {
         </div>
        
          
-          <table className="table table-striped table-bordered custom-table SalesStallll">
+          <table className="table table-striped table-bordered custom-table SalesStallll" style={{ marginLeft:"10vh"}}>
             <thead>
               <tr>
                 <th>Stall Id</th>
@@ -225,7 +225,7 @@ useEffect(() => {
                   <td>
                     <button
                       onClick={() => deleteStall(stallItem._id)}
-                      className="btn btn-primary mr-2"
+                      className="btn btn-primary mr-2" style={{ width:"10vh"}}
                     >
                       Delete Card
                     </button>

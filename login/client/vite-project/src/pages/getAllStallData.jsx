@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import './getAllStalldata.css';
+import "./getAllStallData.css";
 
 function Getstall() {
   const [isLoading, setIsLoading] = useState(true);
@@ -46,7 +46,7 @@ function Getstall() {
   }
 
   return (
-    <div className="container my-5 backgr">
+    <div className="container my-5 bacgr " style={{width:"500vh"}}>
       
       <div className="col-md-9">
       <div className="my-3 searchBar">
@@ -65,7 +65,7 @@ function Getstall() {
        
         
       
-          <table className="table table-striped table-bstalled">
+          <table className="table table-striped table-bstalled ">
             <thead>
               <tr>
                 <th>Stall Id</th>
@@ -94,7 +94,7 @@ function Getstall() {
                   <td>{stallItem.email}</td>
                   <td>{stallItem.payment}</td>
                   <td>
-                    <button onClick={() => deleteCard(stallItem._id)} className="btn btn-primary mr-2">
+                    <button onClick={() => deleteCard(stallItem._id)} className="btn btn-primary mr-2 btnForDelete">
                       Delete Card
                     </button>
                   </td>
@@ -103,7 +103,7 @@ function Getstall() {
             </tbody>
           </table>
         </div>
-        <button onClick={() => navigate(`/PaymentMethod/${id}`)} className="btn btn-primary btn1">Ok</button>
+        <button onClick={() => navigate(`/PaymentMethod/${id}`)} className="btn btn-primary btn7">Ok</button>
       </div>
       
     </div>
