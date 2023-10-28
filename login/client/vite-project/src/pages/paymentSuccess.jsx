@@ -3,6 +3,7 @@ import axios from 'axios';
 import paymentsuccess from '../images/paymentsuccess.gif';
 import './paymentSuccess.css'
 import { useNavigate, useParams } from "react-router-dom";
+import NavBar from '../components/NavBar';
 function PaymentSuccess() {
   const navigate = useNavigate();
 
@@ -11,6 +12,7 @@ function PaymentSuccess() {
     <div className="container">
           
           <div className="col-sm deliverman">
+          <NavBar/>
                 <img src={paymentsuccess} alt="Food 3"/>
               </div>
     <div className="messg">

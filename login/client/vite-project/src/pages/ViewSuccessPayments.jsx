@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import './ViewSuccessPayment.css';
 import { Link, useNavigate } from "react-router-dom";
-
+import AdminNavBar from "../components/adminNavBar";
 const ViewSuccessPayments = () => {
     const [order, setOrder] = useState(null);
     const [stall, setStall] = useState(null);
@@ -54,6 +54,7 @@ const ViewSuccessPayments = () => {
     return (
         <div>
             <div className="mmm">
+            <AdminNavBar />
                 
                 <h1 className="ViewHead">Successful Stall Payments</h1>
                 <input

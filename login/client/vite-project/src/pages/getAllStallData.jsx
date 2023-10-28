@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./getAllStallData.css";
-
+import NavBar from '../components/NavBar';
 function Getstall() {
   const [isLoading, setIsLoading] = useState(true);
   const [stall, setStall] = useState([]);
@@ -49,6 +49,7 @@ function Getstall() {
     <div className="container my-5 bacgr " style={{width:"500vh"}}>
       
       <div className="col-md-9">
+      <NavBar/>
       <div className="my-3 searchBar">
           <input
             type="text"

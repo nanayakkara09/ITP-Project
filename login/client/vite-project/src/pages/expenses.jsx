@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './expenses.css';
 
+import AdminNavBar from "../components/adminNavBar";
 function ExpensesPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [inventory, setInventory] = useState([]);
@@ -112,6 +113,7 @@ function ExpensesPage() {
 
   return (
     <div className="container my-5 backgr">
+       <AdminNavBar />
       <div className="col-md-9">
         <h3 className="underline-bold expenseHead">Monthly expenses</h3>
         <div className="inputs">

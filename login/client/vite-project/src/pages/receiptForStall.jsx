@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import './receiptForStall.css'
 import { useReactToPrint } from 'react-to-print';
-
+import NavBar from '../components/NavBar';
 function ReceiptForStall() {
   const componentPdf = useRef();
   const [stall, setStall] = useState({
@@ -47,6 +47,7 @@ function ReceiptForStall() {
 
   return (
     <div className="bgh-img">
+            <NavBar/>
       <div ref={componentPdf} style={{ width: '100vh' }}>
         {/* Center the table */}
         <div className="text-center mx-auto stallComp" style={{ width: '100vh' }}>

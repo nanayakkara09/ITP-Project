@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './adminFinance.css'
 import adminsSvg from '../images/undraw_experience_design_re_dmqq.svg'
 //import NavBar from '../components/Navbar';
-
+import AdminNavBar from "../components/adminNavBar";
 
 
 function CashOnDeliver(){
@@ -14,6 +14,7 @@ function CashOnDeliver(){
     return(
         
        <div className="imgSvg">
+        <AdminNavBar />
         <p className="adminP">Choose the desired page</p>
          <img src={adminsSvg}></img>
          <button

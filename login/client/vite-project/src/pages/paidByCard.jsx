@@ -4,12 +4,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import pCard from '../images/cartbg4.jpg'
 import cash from '../images/68a91e9d5f0b3e787706892300c82ce5.gif'
 import './paidBycard.css'; // Import the CSS file here
+import NavBar from '../components/NavBar';
 
 function Paidbycard() {
   const navigate = useNavigate();
 
   return (
     <div className="man">
+         <NavBar/>
        <div className="bgh-image"></div>
       <body>
         <div className="cardd">

@@ -228,6 +228,7 @@ function App() {
       <Route path='/sweetS' element={<SweetSerenity/>}></Route>
       <Route path='/asiano' element={<Asiano/>}></Route>
       <Route path='/slStall' element={<SriLankanFoodStall/>}></Route>
+   
       <Route path='/Paidbycard' element={<Paidbycard/>}></Route>
       <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
       <Route path='/GetAllOrderData' element={<GetAllOrderData/>}></Route>

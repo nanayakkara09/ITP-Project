@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './financepage.css';
 import sales from '../images/saleswork.gif';
 import expenses from '../images/forexpenses.gif';
-
+import AdminNavBar from '../components/adminNavBar';
 
 
 
@@ -13,6 +13,7 @@ function financePage() {
 
   return (
     <div className="mainDiv">
+         <AdminNavBar />
       <div className="container-fluid">
         <div className="row caaardd">
           <div className="col-md-6 div11">

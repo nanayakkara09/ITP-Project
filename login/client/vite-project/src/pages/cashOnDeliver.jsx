@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import cashondeliver from '../images/cashonDeliver.jpg';
 import './cashOnDeliver.css'
 //import NavBar from '../components/Navbar';
-
+import NavBar from '../components/NavBar';
 
 
 function CashOnDeliver(){
@@ -15,7 +15,7 @@ function CashOnDeliver(){
         
         <div className="container">
           
-       
+          <NavBar/>
         <div className="row">
             <div className="col-sm delivermanImg">
                 <img src={cashondeliver} alt="Food 3"/>

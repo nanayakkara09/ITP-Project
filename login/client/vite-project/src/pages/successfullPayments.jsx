@@ -109,8 +109,8 @@ function ViewSuccessPayments() {
                     </tr>
                 </thead>
                 <tbody>
-                    {order.map((orderItem) => (
-                        <tr key={orderItem._id}>
+                {order && Array.isArray(order) && order.map((orderItem) => (
+    <tr key={orderItem._id}>
                             <td>{orderItem.name}</td>
                             <td>{orderItem.quantity}</td>
                             <td>{orderItem.price}</td>

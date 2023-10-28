@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './SalesStallll.css';
-
+import AdminNavBar from '../components/adminNavBar';
 
 function IncomePage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -172,6 +172,7 @@ useEffect(() => {
 
   return (
     <div className="container my-5 backgr">
+       <AdminNavBar />
       <div className="col-md-9">
         <h3 className="underline-bold  dnnenah">View desired page you want to check</h3>
        

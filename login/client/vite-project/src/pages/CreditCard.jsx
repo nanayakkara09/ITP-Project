@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import creditcard from "../images/cardpayment.svg";
 import "./CardDet.css";
-
+import NavBar from '../components/NavBar';
 function CardDetails() {
   const [Cnum, setCnum] = useState("");
   const [Cvv, setCvv] = useState("");
@@ -125,6 +125,7 @@ function CardDetails() {
   return (
     <div className="container">
       <div className="row">
+      <NavBar/>
         <div className="col-sm">
           <h1 className="cHead">Card details</h1>
           <img src={creditcard} style={{width: "50vh", marginLeft: "-100vh"}} alt="Food 3" />

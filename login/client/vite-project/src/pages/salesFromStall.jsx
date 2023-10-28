@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './SalesStallll.css';
-
+import AdminNavBar from "../components/adminNavBar";
 
 function IncomePage() {
     const [isLoading, setIsLoading] = useState(true);
@@ -181,6 +181,7 @@ useEffect(() => {
 
   return (
     <div className="container my-5 backgr" style={{ width:"290vh"}}>
+        <AdminNavBar />
       <div className="col-md-9">
         <h3 className="underline-bold salesHead">Monthly sales from stalls</h3>
         <div className="my-3 searchBar">

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import './getAllOrderdata.css';
+import NavBar from '../components/NavBar';
 
 
 function GetOrder() {
@@ -51,8 +52,9 @@ function GetOrder() {
 
   return (
     <div className="container my-5 backgr" >
-     
+      
       <div className="col-md-9">
+      <NavBar/>
       <h3 className="underline-bold headdforr">Your all orders</h3>
      
         <table className="table table-striped table-bordered orderTableeeee">

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import './receiptForOrder.css';
 import { useReactToPrint } from 'react-to-print';
-
+import NavBar from '../components/NavBar';
 function ReceiptForOrder() {
   const componentPdf = useRef();
   const [isLoading, setIsLoading] = useState(true);
@@ -79,6 +79,7 @@ function ReceiptForOrder() {
   return (
     <div className="bgh-img">
       <div className="backgroundCol">
+      <NavBar/>
         <style>{printStyles}</style> 
         <div ref={componentPdf} style={{ width: '100%' }}>
           {/* Center the table */}
