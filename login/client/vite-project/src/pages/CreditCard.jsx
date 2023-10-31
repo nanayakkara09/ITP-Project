@@ -25,8 +25,14 @@ function CardDetails() {
       // Check if CVV is missing or not 3 characters long
      alert("Cvv should be 3 characters!");
     }
-    else if (order && order.name) {
+    /*else if (order && order.name) {
       alert(order.name);
+      updateOrderSuccess(
+        `http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`
+      );
+      navigate("/Paidbycard"); // Replace "/success" with your desired route
+    }*/
+    else if (order ) {
       updateOrderSuccess(
         `http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`
       );
@@ -271,7 +277,7 @@ function CardDetails() {
           <button
               type="button"
               className="btn-primary insertButt"
-              onClick={handleSubmit}
+              onClick={handleSubmit && handleSubmitt}
             >
               Done
             </button>
