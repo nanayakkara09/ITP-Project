@@ -25,19 +25,19 @@ function CardDetails() {
       // Check if CVV is missing or not 3 characters long
      alert("Cvv should be 3 characters!");
     }
-    /*else if (order && order.name) {
-      alert(order.name);
+    else if (order && order.name) {
+      alert("Payment success");
       updateOrderSuccess(
         `http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`
       );
       navigate("/Paidbycard"); // Replace "/success" with your desired route
-    }*/
+    }/*
     else if (order ) {
       updateOrderSuccess(
         `http://localhost:8000/SuccessOrder/OrderSuccess/${order._id}`
       );
       navigate("/Paidbycard"); // Replace "/success" with your desired route
-    }
+    }*/
   };
 
   // update stall payment status to success
@@ -62,7 +62,7 @@ function CardDetails() {
       .then((response) => {
         if (response.status === 200) {
           console.log("stall data updated successfully.");
-           
+          navigate("/success");
         }
       })
       .catch((err) => {
