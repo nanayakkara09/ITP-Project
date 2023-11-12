@@ -165,7 +165,13 @@ function CardDetails() {
                 </div>
               )}
             </div>
-          
+            <button
+              type="button"
+              className="btn-primary insertButt"
+              onClick={ handleSubmitt}
+            >
+              Done
+            </button>
           </div>
         )}
 
@@ -209,6 +215,13 @@ function CardDetails() {
                 </div>
               )}
             </div>
+            <button
+              type="button"
+              className="btn-primary insertButt"
+              onClick={handleSubmit }
+            >
+              Done
+            </button>
            
           </div>
         )}
@@ -274,13 +287,7 @@ function CardDetails() {
 
           
           </div>
-          <button
-              type="button"
-              className="btn-primary insertButt"
-              onClick={handleSubmit && handleSubmitt}
-            >
-              Done
-            </button>
+      
            
         </form>
       </div>
