@@ -41,13 +41,14 @@
   width: auto;
 }
 .cardDetaaaa{
-  margin-left: 30vh;
-  margin-top: -15vh;
-  width: 120vh;
-}
-.fetchedTable1{
+  margin-left: 90vh;
+  margin-top: -30vh;
+
   width: 80vh;
-    margin-top: 26vh;
+}
+.fetchedTable{
+  width: 80vh;
+    margin-top: 3vh;
     height: 50vh;
     margin-left: 20vh;
 

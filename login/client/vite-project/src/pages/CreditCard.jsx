@@ -136,95 +136,7 @@ function CardDetails() {
           <h1 className="cHead">Card details</h1>
           <img src={creditcard} style={{width: "50vh", marginLeft: "-100vh"}} alt="Food 3" />
         </div>
-        {order !== null && (
-          <div className="text-start mb-2 fetchedTable">
-            <div>
-              {order && order.name && (
-                <div>
-                  <h2>Order Details</h2>
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>{order.name}</td>
-                        <td>{order.quantity}</td>
-                        <td>{order.price}</td>
-                        <td>{order.date}</td>
-                        <td>{order.status}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-            <button
-              type="button"
-              className="btn-primary insertButt"
-              onClick={ handleSubmitt}
-            >
-              Done
-            </button>
-          </div>
-        )}
-
-        {/* stall data */}
-        {stall !== null && (
-          <div className="text-start mb-2 fetchedTable">
-            <div>
-              {stall && (
-                <div>
-                  <h2>Stall Details</h2>
-                  <table className="table">
-                    <thead>
-                      <tr>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Date</th>
-                        <th>Status</th>
-                        <th>Name</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>Date</th>
-                        <th>payment status</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td>{stall.stallId}</td>
-                        <td>{stall.fName}</td>
-                        <td>{stall.lName}</td>
-                        <td>{stall.stallName}</td>
-                        <td>{stall.type}</td>
-                        <td>{stall.amount}</td>
-                        <td>{stall.mType}</td>
-                        <td>{stall.phonenumber}</td>
-                        <td>{stall.email}</td>
-                        <td>{stall.status}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              )}
-            </div>
-            <button
-              type="button"
-              className="btn-primary insertButt"
-              onClick={handleSubmit }
-            >
-              Done
-            </button>
-           
-          </div>
-        )}
+        
 
         <form>
         <div className="cardDetaaaa">
@@ -290,6 +202,99 @@ function CardDetails() {
       
            
         </form>
+        
+
+  
+
+        {order !== null && (
+          <div className="text-start mb-2 fetchedTable">
+            <div>
+              {order && order.name && (
+                <div>
+                  <h2>Order Details</h2>
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{order.name}</td>
+                        <td>{order.quantity}</td>
+                        <td>{order.price}</td>
+                        <td>{order.date}</td>
+                        <td>{order.status}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+            <button
+              type="button"
+              className="btn-primary insertButt"
+              onClick={ handleSubmitt}
+            >
+              Done
+            </button>
+          </div>
+        )}
+
+        {/* stall data */}
+        {stall !== null && (
+          <div className="text-start mb-2 fetchedTable">
+            <div>
+              {stall && (
+                <div>
+                 {/* <h2>Stall Details</h2>*/}
+                  <table className="table">
+                    <thead>
+                      <tr>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>Status</th>
+                        <th>Name</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>Date</th>
+                        <th>payment status</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>{stall.stallId}</td>
+                        <td>{stall.fName}</td>
+                        <td>{stall.lName}</td>
+                        <td>{stall.stallName}</td>
+                        <td>{stall.type}</td>
+                        <td>{stall.amount}</td>
+                        <td>{stall.mType}</td>
+                        <td>{stall.phonenumber}</td>
+                        <td>{stall.email}</td>
+                        <td>{stall.status}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+            <button
+              type="button"
+              className="btn-primary insertButt"
+              onClick={handleSubmit }
+            >
+              Done
+            </button>
+           
+          </div>
+        )}
       </div>
     </div>
   );
