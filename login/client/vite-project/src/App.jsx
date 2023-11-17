@@ -32,7 +32,7 @@ import InvEdit from '../src/pages/invEdit';
 import Password from '../src/pages/password'
 import 'bootstrap/dist/css/bootstrap.css'
 import SalesFromStall from './pages/salesFromStall';
-import Ball from './pages/ball';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import AddNewEvent from './pages/addNewEvent';
 import EventList from './pages/eventList';
@@ -280,7 +280,7 @@ function App() {
       <Route path='/createEmployeeSalary' element={<CreateEmployeeSalary/>}/>
       <Route path='/getEmployeeSalary' element={<GetEmployeeSalary/>}/>
       <Route path='/employeeProfileA' element={<EmployeeProfileA/>}/>
-      <Route path='/Ball' element={<Ball/>}/>            
+                
 
 
 
