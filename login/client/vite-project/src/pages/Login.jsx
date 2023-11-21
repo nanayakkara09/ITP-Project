@@ -18,6 +18,7 @@ export default function Login() {
 
   const loginUser = async (e) => {
     e.preventDefault();
+    
     const { email, password } = data;
 
     try {
