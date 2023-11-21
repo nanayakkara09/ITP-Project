@@ -74,6 +74,9 @@ function ReceiptForOrder() {
       size: auto;
       margin: 20mm;
     }
+    backgroundCol{
+      width:50vh;
+    }
   `;
 
   return (
@@ -140,7 +143,7 @@ function ReceiptForOrder() {
         </div>
         <div className="btn-group mt-4">
           <button onClick={() => navigate(`/PaymentMethod/${id}`)} className="btn btn-primary btn1">Pay now</button>
-          <button onClick={() => navigate(`/GetAllOrderData`)} className="btn btn-primary btn1">View all order details</button>
+          <button onClick={() => navigate(`/GetAllOrderData/${id}`)} className="btn btn-primary btn1">View all order details</button>
           <button onClick={generatePDF} className="btn btn-primary btn2">Save as PDF</button>
         </div>
       </div>

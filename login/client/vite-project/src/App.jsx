@@ -231,7 +231,7 @@ function App() {
    
       <Route path='/Paidbycard' element={<Paidbycard/>}></Route>
       <Route path='/CashOnDeliver' element={<CashOnDeliver/>}></Route>
-      <Route path='/GetAllOrderData' element={<GetAllOrderData/>}></Route>
+      <Route path='/GetAllOrderData/:id' element={<GetAllOrderData/>}></Route>
       <Route path='/PaymentMethod/:id' element={<PaymentMethod/>}></Route>
       <Route path='/ReceiptForOrder/:id' element={<ReceiptForOrder/>}></Route>
       <Route path='/ReceiptForStall/:id' element={<ReceiptForStall/>}></Route>

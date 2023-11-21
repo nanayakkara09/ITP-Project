@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useParams} from "react-router-dom";
 import './getAllOrderdata.css';
 import NavBar from '../components/NavBar';
 
@@ -10,7 +10,8 @@ function GetOrder() {
   const [order, setOrder] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
-  
+
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchAllorder = async () => {
@@ -90,8 +91,13 @@ function GetOrder() {
           </tbody>
           
         </table>
-        <button onClick={() => navigate(`/PaymentMethod${id}`)} className="btn btn-primary btn09" style={{marginRight: "-180vh"}}>Back to payment</button>
-
+        <button
+          onClick={() => navigate(`/ReceiptForOrder/${id}`)}
+          className="btn btn-primary btn09"
+          style={{ marginRight: "-180vh" }}
+        >
+          Back to payment
+        </button>
       </div>
       <div className="right-align-container searchbar" >
         <div className="my-3 searchBar">
