@@ -106,7 +106,7 @@ function ReceiptForStall() {
       Pay now
       </button>
       <button
-         onClick={() => navigate(`/GetAllStallData`)}
+         onClick={() => navigate(`/GetAllStallData/${id}`)}
         className="btn btn-primary btn1"
       >
       View all your registered stalls

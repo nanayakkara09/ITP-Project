@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import "./getAllStallData.css";
 import NavBar from '../components/NavBar';
 function Getstall() {
@@ -8,6 +8,7 @@ function Getstall() {
   const [stall, setStall] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const navigate = useNavigate();
+  const { id } = useParams();
 
   useEffect(() => {
     const fetchAllstall = async () => {
@@ -104,7 +105,7 @@ function Getstall() {
             </tbody>
           </table>
         </div>
-        <button onClick={() => navigate(`/PaymentMethod/${id}`)} className="btn btn-primary btn7">Ok</button>
+        <button onClick={() => navigate(`/ReceiptForStall/${id}`)} className="btn btn-primary btn7">Ok</button>
       </div>
       
     </div>
