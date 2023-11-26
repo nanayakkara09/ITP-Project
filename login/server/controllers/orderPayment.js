@@ -5,7 +5,7 @@ const updateOrderSuccess = async (orderId) => {
     const order = await OrderSuccess.findById(orderId);
     if (order) {
       console.log(order)
-      order.status = 'pending';
+      order.status = 'success';
       await order.save();
       console.log("Order data updated successfully.");
       navigate("/success"); // Replace "/success" with your desired route
