@@ -36,12 +36,12 @@ function DriverLogin(){
     return (
       
         <div className="driver-login-container">
-           <div className="bg-img"></div>
+           <div className="Driver-bg-img"></div>
       <br></br>
       <br></br>
-
+      
       <div className="contentL">
-            <h2>Login</h2>
+            <h2 className='hh'>Login</h2>
             <form onSubmit={loginDriver}>
             <div className="mb-3">
                 <label htmlFor="email"><strong>Email</strong></label>
@@ -57,7 +57,7 @@ function DriverLogin(){
                   />
               </div>
 
-              <div className="form-group">
+              <div className="Driver-form-group">
                 <label htmlFor="password"><strong>Password</strong></label>
                 <input
                   type="password"
@@ -69,11 +69,11 @@ function DriverLogin(){
                   onChange={(e) => setData({ ...data, password: e.target.value })}
                 />
               </div>
-              <button type="submit" className="login-btn btn-success btn-block">
+              <button type="submit" className="driverBtn">
                 Login
               </button>
             </form>
-            <p className="register-link">
+            <p className="Driver-register-link">
             New user? <Link to="/driver-register">Register now</Link>
           </p>
         

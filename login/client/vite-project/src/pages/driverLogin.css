@@ -10,7 +10,7 @@
 
   }
   
-  .bg-img {
+  .Driver-bg-img{
     background-image: url('../images/driver8.jpg'); 
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,31 +32,27 @@
     
   }
   
-  h2 {
+  .hh {
     font-size: 24px;
     margin-bottom: 20px;
   }
   
-  .form-group {
+  .Driver-form-group {
     margin: 10px 0;
     text-align: left;
   }
   
-  .form-group label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  .form-control {
+
+  /*.form-control {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-top: 5px;
     
-  }
+  }*/
   
-  .login-btn {
+  .driverBtn {
     background-color: #007bff;
     color: #fff;
     border: none;
@@ -66,22 +62,22 @@
     margin-top: 10px;
   }
   
-  .login-btn:hover {
+  .driverBtn:hover {
     background-color: #0056b3;
   }
   
-  .register-link {
+  .Driver-register-link {
     margin-top: 15px;
     text-align: center;
   }
   
-  .register-link a {
+  .Driver-register-link a {
     text-decoration: none;
     color: #007bff;
     font-weight: bold;
   }
   
-  .register-link a:hover {
+  .Driver-register-link a:hover {
     text-decoration: underline;
   }
   
