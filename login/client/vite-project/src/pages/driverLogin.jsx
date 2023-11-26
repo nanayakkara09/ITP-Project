@@ -44,7 +44,7 @@ function DriverLogin(){
             <h2>Login</h2>
             <form onSubmit={loginDriver}>
             <div className="mb-3">
-                <label htmlFor="email"><strong>Email</strong></label>
+                <label htmlFor="email"><strong>Emaill</strong></label>
                 <input
                   type="email"
                   placeholder="Enter Email"
